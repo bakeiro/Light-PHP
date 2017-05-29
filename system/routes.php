@@ -8,9 +8,9 @@ $settings['controller']['class'] = $settings['controller']['data'][1].'Controlle
 
 /* If the file doesnt exist*/
 if(!file_exists($settings['controller']['file'])){
-    $settings['controller']['file']    = DIR_CONTROLLER.'welcome/welcomeController.php';
-    $settings['controller']['method']  = 'index';
-    $settings['controller']['class']   = 'welcomeController';
+    $settings['controller']['file']    = DIR_CONTROLLER.'error/errorController.php';
+    $settings['controller']['method']  = 'missing';
+    $settings['controller']['class']   = 'errorController';
 }
 
 /* order/sales/showAll */

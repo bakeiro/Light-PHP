@@ -3,7 +3,7 @@
 /* Require */
 require('system/config.php');
 require('system/settings.php');
-//require('system/security.php'); //only for admin?
+//require('system/security.php');
 require('system/routes.php');
 require(DIR_VIEW."viewClass.php");
 require(DIR_MODEL.'connectionModel.php');
