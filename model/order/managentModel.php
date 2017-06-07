@@ -1,7 +1,7 @@
 <?php
 class managentModel{
 
-    public function getAllOrders(){
+    public static function getAllOrders(){
 
         //Sql
         $sql_get_all_orders = "select * from `order` order by order_id desc limit 20;";

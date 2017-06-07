@@ -1,6 +1,6 @@
 <?php
 
-class welcomeController{
+class indexController{
 
     public function index(){
 
@@ -9,9 +9,12 @@ class welcomeController{
         $data['body'] = "Im very excited about my new PHP framework";
 
         /* View */
-        $route_view = DIR_VIEW."pags/welcomeView.php";
+        $route_view = DIR_VIEW."pags/info/welcomeView.php";
 
         /* Load */
         viewClass::load($route_view,$data);
+
     }
+
+
 }

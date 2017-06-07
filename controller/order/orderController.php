@@ -3,15 +3,15 @@
 
 class orderController{
 
-    public function managent(){
+    public function add(){
 
-        /* Get the lastest orders and show them */
+    }
 
-        require(DIR_MODEL."/order/orderModel.php");
-        $orders = orderModel::getAllOrders();
+    public function delete(){
 
+    }
 
-        $cont = 0;
-        $cont++;
+    public function edit(){
+
     }
 }

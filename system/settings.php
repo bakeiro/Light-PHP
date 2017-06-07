@@ -8,8 +8,8 @@ $settings['dev_email'] = "davidbaqueiro@outlook.com";
 $settings['dev_page'] = "https://github.com/bakeiro";
 
 /* Site */
-$settings['site']['name']         = "OceanMaritimo";
-$settings['site']['description']  = "Distribuidores de pescado y otros productos del mar!";
+$settings['site']['name']         = "BaksFramework";
+$settings['site']['description']  = "Small framework php for apps developement!";
 $settings['site']['creator']      = "David Baqueiro Santerbás";
 
 /* Contact */
@@ -35,13 +35,6 @@ if(isset($_SERVER['HTTPS'])){
 $settings['url']['script'] = $_SERVER['SCRIPT_NAME']; //index.php
 $settings['url']['query'] = $_SERVER['QUERY_STRING']; //route=index/index
 $settings['url']['url'] = $_SERVER['REQUEST_URI']; //index.php?route=index/index
-
-/* Route */
-if(isset($_REQUEST['route'])){
-    $settings['url']['route'] = $_REQUEST['route'];//ex: products/oro
-}else{
-    $settings['url']['route'] = 'order/managent'; // ->default data
-}
 
 
 /* Ftp info */
