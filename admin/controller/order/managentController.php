@@ -7,10 +7,8 @@ class managentController{
         /* Show all orders*/
 
         require(DIR_MODEL.'order/managentModel.php');
-
-        $managent_model = new managentModel();
-        $data['orders'] = $managent_model->getAllOrders();
-        $route = DIR_VIEW.'pags/ordermanagentView.php';
+        $data['orders'] = managentModel::getAllOrders();
+        $route = DIR_VIEW.'pags/managent/ordermanagentView.php';
 
         /* Load */
         viewClass::load($route,$data);

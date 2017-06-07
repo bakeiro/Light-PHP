@@ -4,7 +4,13 @@ class adminController{
 
     public function index(){
         $route_view = DIR_VIEW."pags/admin/loginView.php";
-        viewClass::load($route_view);
+        $data = array();
+        $data['msg'] = '';
+
+        if(isset($GLOBALS['settings']['error']['msg'])){
+            $data['msg'] = $GLOBALS['settings']['error']['msg'];
+        }
+        viewClass::load($route_view,$data);
     }
 
     public function login(){

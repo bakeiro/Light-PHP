@@ -1,14 +1,11 @@
 /* navbar fix */
-body{
-    margin-top:56px;
-}
 
 /* Navbar styles */
 nav.bg-primary a{
     color:white;
 }
-nav.bg-primary{
-    background-color:#2196F3 !important;
+nav.bg-primary {
+    background-color: #f3bc21 !important;
 }
 .bg-primary .navbar-toggler {
     border-color: rgba(255, 255, 255, 0.7);

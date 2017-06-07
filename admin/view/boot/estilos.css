@@ -15,10 +15,24 @@ nav.bg-primary{
 }
 
 /* SIDENAV */
-div.sidenav{
-    background-color:red;
-    color:white;
-    padding:15px;
+div.sidenav {
+    background-color: #E0E0E0;
+    padding: 15px;
+}
+ul.sidenav{
+     list-style:none;
+     font-size:13px;
+     padding:0;
+}
+ul.sidenav li a{
+    color: #616161;
+    text-decoration:none;
+}
+ul.sidenav li{
+    padding: 3px;
+}
+ul.sidenav li a:hover{
+    text-decoration:underline;
 }
 
 /* Main content */
@@ -30,4 +44,25 @@ div.main{
 div.modal.login{
     display:inherit;
     position: inherit;
+}
+
+
+/* Product div */
+div.product{
+    border:2px solid black;
+    border-radius:2px;
+    padding:5px;
+    margin-bottom:5px;
+}
+
+/* Footer */
+footer.footer{
+    height: 90px;
+    background: #9a9a9a;
+    padding:7px;
+}
+span.footer{
+    color:white;
+    float:right;
+    font-size:15px;
 }

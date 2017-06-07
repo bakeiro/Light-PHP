@@ -2,18 +2,19 @@
 
 /* Require */
 require('system/config.php');
-require('system/settings.php');
-//require('system/security.php');
-require('system/routes.php');
-require(DIR_VIEW."viewClass.php");
-require(DIR_MODEL.'connectionModel.php');
+require('system/security.php');
+require(DIR_SYSTEM_FRONTEND.'settings.php');
+require(DIR_SYSTEM_FRONTEND.'routes.php'); //Same as frontend
+require(DIR_VIEW_FRONTEND."viewClass.php");
+require(DIR_MODEL_FRONTEND.'connectionModel.php');
 
 /* Start connection */
 $CONN = connectionModel::getConnection($host,$user,$pass,$ddbb);
 
-/* Controller class and execute method */
+/* Controller */
 require($settings['controller']['file']);
 $controller_class = new $settings['controller']['class'];
+$settings['page'] = 'BACKEND';
 
 /* Call the method */
 $method = $settings['controller']['method'];

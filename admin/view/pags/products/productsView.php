@@ -1,9 +1,5 @@
 <?php
 
-if(isset($title)){
-    echo '<h3>'.$title.'</h3>';
-}
-
 foreach($products as $product){ ?>
 
     <div class="bd-callout bd-callout-warning">

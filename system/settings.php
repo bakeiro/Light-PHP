@@ -1,6 +1,4 @@
 <?php
-
-/* Here define all the settings which i will need */
 $settings = array();
 
 /* Personal info */
