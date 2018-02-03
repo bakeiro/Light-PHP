@@ -9,7 +9,7 @@
     <title>Light PHP</title>
 
     <?php
-        $cache_version = $GLOBALS['settings']['cache']['version'];
+        $cache_version = $GLOBALS['App']['settings']->get("cache_version");
     ?>
 
     <!--CSS -->
@@ -30,10 +30,16 @@
 <body>
 
 <!-- NAVBAR -->
-<nav class="navbar navbar-inverse bg-primary fixed-top navbar-toggleable-md bg-faded">
-    <a class="navbar-brand" href="?route=order/managent"><?=$GLOBALS['settings']['header']['name']?>  Frontend</a>
+<nav>
+    <div class="nav-wrapper">
+		<a href="#" class="brand-logo">Frontend</a>
+		<ul id="nav-mobile" class="right hide-on-med-and-down">
+			<li><a href="#">Products</a></li>
+			<li><a href="#">About</a></li>
+			<li><a href="#">Contact</a></li>
+		</ul>
+	</div>
 </nav>
-
 
 <div class="row no-gutters">
     

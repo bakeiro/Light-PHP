@@ -1,18 +1,23 @@
 <?php
+class Settings{
 
-$settings = array();
+	private $settings;
+	public $ind = 0;
 
-//Site
-$settings['site']['name']         = "Backend";
-$settings['site']['description']  = "Backend";
-$settings['site']['creator']      = "David Baqueiro Santerbás";
+	public function get($key){
+		if(isset($this->settings[$key])){
+			return $this->settings[$key];
+		}else{
+			return null;
+		}
+	}
 
+	public function set($key, $value =""){
+		$this->settings[$key] = $value;
+	}
 
-//Folders
-$settings['ftp']['path']               = "/httpdocs";
-$settings['ftp']['path_upload']        = "/httpdocs/site/upload";
-$settings['ftp']['path_download']      = "/httpdocs/site/downloads";
-$settings['ftp']['path_files']         = "/httpdocs/site/util";
-$settings['ftp']['main_route']         = "C:/xampp/htdocs/";
-
-$settings['cache']['version'] = '0.01';
+	public function getValuesDB(){
+		//TODO: Get the values from the ddbb and set them
+		return 10;
+	}
+}

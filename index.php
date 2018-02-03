@@ -1,6 +1,6 @@
 <?php
 
-//Core
+//TODO: Create a class for every of this core component
 require('config.php');
 require(BACK_SYSTEM . 'Settings.php');
 require(BACK_SYSTEM . 'Url.php');
@@ -12,7 +12,9 @@ require(BACK_SYSTEM . 'Load.php');
 require(BACK_SYSTEM . 'Functions.php');
 require(BACK_SYSTEM . 'Error.php');
 
-//Errors
+require(BACK_SYSTEM. 'StartUp.php');
+
+//Errors   
 $settings['error_handle'] = 'developing';
 error_reporting(E_ALL);
 ini_set('display_errors', 'On');
