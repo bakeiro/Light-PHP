@@ -1,18 +1,18 @@
 <?php
 
-//TODO: Create a class for every of this core component
 require('config.php');
-require(BACK_SYSTEM . 'Settings.php');//done
-require(BACK_SYSTEM . 'Url.php');//done
-//require(BACK_SYSTEM . 'Session.php');
-//require(BACK_SYSTEM . 'Security.php');
-require(BACK_SYSTEM . "View.php");//done
-require(BACK_SYSTEM . 'Connection.php');//done
-require(BACK_SYSTEM . 'Load.php');//done
-require(BACK_SYSTEM . 'Functions.php');//done
-require(BACK_SYSTEM . 'Error.php');//done
+require(BACK_SYSTEM . 'Settings.php');
+require(BACK_SYSTEM . 'Url.php');
+//require(BACK_SYSTEM . 'Session.php');;
+//require(BACK_SYSTEM . 'Security.php');;
+require(BACK_SYSTEM . "View.php");
+require(BACK_SYSTEM . 'Connection.php');
+require(BACK_SYSTEM . 'Load.php');
+require(BACK_SYSTEM . 'Functions.php');
+require(BACK_SYSTEM . 'Error.php');
 
 //Init
+require(BACK_SYSTEM. 'App.php');
 require(BACK_SYSTEM. 'StartUp.php');
 
 //Errors   
@@ -33,11 +33,11 @@ date_default_timezone_set('Europe/Madrid');
 
 
 //Controller
-require_once($App['url']->controller['file']);
-$controller_class = new $App['url']->controller['class'];
-$App['url']->page = 'BACKEND';
+require_once($app_data['url']->controller['file']);
+$controller_class = new $app_data['url']->controller['class']($app_data);
+$app_data['url']->page = 'BACKEND';
 
 
 //Action
-$method = $App['url']->controller['method'];
+$method = $app_data['url']->controller['method'];
 $controller_class->$method();

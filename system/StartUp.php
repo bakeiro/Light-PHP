@@ -35,11 +35,11 @@ $temp_con = new Connection();
 $temp_load = new Load();
 
 //App
-$App = array();
-$App['settings'] = $temp_settings;
-$App['error'] = $temp_error;
-$App['url'] = $temp_url;
-$App['functions'] = $temp_functions;
-$App['view'] = $temp_view;
-$App['connection'] = $temp_con;
-$App['load'] = $temp_load;
+$app_data = array();
+$app_data['settings'] = $temp_settings;
+$app_data['error'] = $temp_error;
+$app_data['url'] = $temp_url;
+$app_data['functions'] = $temp_functions;
+$app_data['view'] = $temp_view;
+$app_data['connection'] = $temp_con;
+$app_data['load'] = $temp_load;

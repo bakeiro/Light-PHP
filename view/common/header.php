@@ -9,7 +9,7 @@
     <title>Light PHP</title>
 
     <?php
-        $cache_version = $GLOBALS['App']['settings']->get("cache_version");
+        $cache_version = $GLOBALS['app_data']['settings']->get("cache_version");
     ?>
 
     <!--CSS -->

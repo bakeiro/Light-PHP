@@ -1,9 +1,12 @@
 <?php
-class indexController{
+class indexController extends App{
+
 
 	public function index(){
 		
-		$GLOBALS['App']['view']->load(BACK_VIEW.'pags/welcome/welcomeView.php',array());
+		$cont = 0;
+		$cont ++;
+		$this->view->load(BACK_VIEW.'pags/welcome/welcomeView.php',array());
 
 	}
 
