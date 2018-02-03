@@ -4,8 +4,8 @@
 require('config.php');
 require(BACK_SYSTEM . 'Settings.php');
 require(BACK_SYSTEM . 'Url.php');
-require(BACK_SYSTEM . 'Session.php');
-require(BACK_SYSTEM . 'Security.php');
+//require(BACK_SYSTEM . 'Session.php');
+//require(BACK_SYSTEM . 'Security.php');
 require(BACK_SYSTEM . "View.php");
 require(BACK_SYSTEM . 'Connection.php');
 require(BACK_SYSTEM . 'Load.php');
@@ -30,17 +30,13 @@ $CONN = Connection::getConnection();
 //require(back_system. modules autoload);
 //require(BACK_SYSTEM. 'modules/console.php');
 //require(BACK_SYSTEM. 'modules/dBug.php');
-require(BACK_SYSTEM.'modules/Header.php');
+//require(BACK_SYSTEM.'modules/Header.php');
 
 
 //Controller
 require_once($settings['controller']['file']);
 $controller_class = new $settings['controller']['class'];
 $settings['page'] = 'BACKEND';
-
-//JS
-
-//Styles
 
 
 //Action
