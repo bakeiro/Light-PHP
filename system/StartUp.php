@@ -19,19 +19,11 @@ $temp_settings->set('cache_version', '0.01');
 //Error/warnings
 $temp_error = new ErrorClass();
 
+$temp_url = new urlClass();
+
 
 //App
 $App = array();
 $App['settings'] = $temp_settings;
 $App['error'] = $temp_error;
-
-
-//Errors/Warnings
-/*
-if( $temp_settings->get('errors') !== null){
-	$temp_settings->set('errors', array());
-}
-if( $temp_settings->get('warnings') !== null){
-	$temp_settings->set('warnings', array());
-}
-*/
+$App['url'] = $temp_url;

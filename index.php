@@ -12,6 +12,7 @@ require(BACK_SYSTEM . 'Load.php');
 require(BACK_SYSTEM . 'Functions.php');
 require(BACK_SYSTEM . 'Error.php');
 
+//Init
 require(BACK_SYSTEM. 'StartUp.php');
 
 //Errors   
@@ -37,11 +38,11 @@ $CONN = Connection::getConnection();
 
 
 //Controller
-require_once($settings['controller']['file']);
-$controller_class = new $settings['controller']['class'];
-$settings['page'] = 'BACKEND';
+require_once($App['url']->controller['file']);
+$controller_class = new $App['url']->controller['class'];
+$App['url']->page = 'BACKEND';
 
 
 //Action
-$method = $settings['controller']['method'];
+$method = $App['url']->controller['method'];
 $controller_class->$method();
