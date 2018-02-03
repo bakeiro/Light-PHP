@@ -1,11 +1,25 @@
 </div>
 </div>
 </div>
-<footer class="footer">
-    <br>
-    <span class="footer"><?=$GLOBALS['settings']['site']['name']?></span>
-    <br>
-    <span class="footer"><?=$GLOBALS['settings']['site']['description']?></span>
-</footer>
+
+
+<?php
+
+//Controller
+if(isset($scripts)){
+    foreach($scripts as $script){
+        echo $script;
+    }
+}
+
+//Load
+foreach(Load::$styles as $style){
+    echo $style;
+}
+foreach(Load::$scripts as $script){
+    echo $script;
+}
+?>
+
 </body>
 </html>
