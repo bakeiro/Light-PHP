@@ -2,15 +2,15 @@
 
 //TODO: Create a class for every of this core component
 require('config.php');
-require(BACK_SYSTEM . 'Settings.php');
-require(BACK_SYSTEM . 'Url.php');
+require(BACK_SYSTEM . 'Settings.php');//done
+require(BACK_SYSTEM . 'Url.php');//done
 //require(BACK_SYSTEM . 'Session.php');
 //require(BACK_SYSTEM . 'Security.php');
-require(BACK_SYSTEM . "View.php");
-require(BACK_SYSTEM . 'Connection.php');
-require(BACK_SYSTEM . 'Load.php');
-require(BACK_SYSTEM . 'Functions.php');
-require(BACK_SYSTEM . 'Error.php');
+require(BACK_SYSTEM . "View.php");//done
+require(BACK_SYSTEM . 'Connection.php');//done
+require(BACK_SYSTEM . 'Load.php');//done
+require(BACK_SYSTEM . 'Functions.php');//done
+require(BACK_SYSTEM . 'Error.php');//done
 
 //Init
 require(BACK_SYSTEM. 'StartUp.php');
@@ -23,11 +23,6 @@ ini_set('display_errors', 'On');
 
 ini_set("log_errors", 1);
 date_default_timezone_set('Europe/Madrid');
-
-
-//Connection
-$GLOBALS['CONN'] = Connection::getConnection();
-$CONN = Connection::getConnection();
 
 
 //Modules

@@ -3,7 +3,7 @@ class indexController{
 
 	public function index(){
 		
-		ViewClass::load(BACK_VIEW.'pags/welcome/welcomeView.php',array());
+		$GLOBALS['App']['view']->load(BACK_VIEW.'pags/welcome/welcomeView.php',array());
 
 	}
 

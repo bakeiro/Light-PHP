@@ -2,8 +2,7 @@
 
 class Functions{
     
-    //sort array by a column
-    static function array_sort_by_column(&$arr, $col, $dir = SORT_ASC) {
+    function array_sort_by_column(&$arr, $col, $dir = SORT_ASC) {
         $sort_col = array();
         foreach ($arr as $key=> $row) {
             $sort_col[$key] = $row[$col];
@@ -11,7 +10,7 @@ class Functions{
         array_multisort($sort_col, $dir, $arr);
     }
 
-    static function formatQuantity($quantity){
+    function formatQuantity($quantity){
 
         //Only string and with 2 decimal always! (to check the '0')
 

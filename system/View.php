@@ -3,7 +3,7 @@
 class viewClass{
 
     /* Load the template with all the info from the $data array */
-    public static function load($route,$data = array()){
+    public function load($route,$data = array()){
 
         /** Notes to make it faster **/
         //never use require_once
@@ -23,7 +23,7 @@ class viewClass{
         ob_end_flush();
     }
 
-    public static function gzipLoad($route,$data){
+    public function gzipLoad($route,$data){
 
         /* Load the template but output gziped content to be faster */
         //ob_start();
@@ -34,13 +34,13 @@ class viewClass{
         //ob_end_flush();
     }
 
-    public static function set_headers($string){
+    public function set_headers($string){
 
         //Set up here the headers
 
     }
 
-    public static function rawload($route,$data = array()){
+    public function rawload($route,$data = array()){
         ob_start();
         extract($data);
         require(BACK_VIEW.'common/rawheader.php'); //$settings['styles']
@@ -49,7 +49,7 @@ class viewClass{
         ob_end_flush();
     }
 
-    public static function load_template($route,$data){
+    public function load_template($route,$data){
 
         extract($data);
         //unset($data);
