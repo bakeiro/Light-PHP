@@ -49,8 +49,11 @@
         <div id="main" class="main">
 
             <?php
-            foreach($_SESSION['output'] as $message){
+            foreach($GLOBALS['App']['error']->warnings as $message){
                 echo '<div class="alert alert-dismissible alert-warning output"><button type="button" class="close" data-dismiss="alert">&times;</button>'.$message.'</div>';
-            }
-            unset($_SESSION['output']);
+			}
+			//foreach($GLOBALS['App']['error']->errors as $message){
+                //echo '<div class="alert alert-dismissible alert-warning output"><button type="button" class="close" data-dismiss="alert">&times;</button>'.$message.'</div>';
+            //}
+            //unset($_SESSION['output']);
             ?>

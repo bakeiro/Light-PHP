@@ -15,6 +15,7 @@ require(BACK_SYSTEM . 'Error.php');
 require(BACK_SYSTEM. 'StartUp.php');
 
 //Errors   
+set_error_handler( array($temp_error,"error_handler") ,E_ALL);
 $settings['error_handle'] = 'developing';
 error_reporting(E_ALL);
 ini_set('display_errors', 'On');
