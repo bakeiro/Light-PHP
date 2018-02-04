@@ -49,11 +49,15 @@
         <div id="main" class="main">
 
             <?php
-            foreach($GLOBALS['App']['error']->warnings as $message){
-                echo '<div class="alert alert-dismissible alert-warning output"><button type="button" class="close" data-dismiss="alert">&times;</button>'.$message.'</div>';
+			if(count($GLOBALS['app_data']['error']->warnings) > 0){
+				echo '<div class="card horizontal red lighten-4">';
+				echo '<div class="card-stacked">';
+				echo '<div class="card-content">';
+				foreach($GLOBALS['app_data']['error']->warnings as $message){	
+					echo '<p class="center-align">'.$message.'</p>';
+				}
+				echo '</div>';
+				echo '</div>';
+				echo '</div>';
 			}
-			//foreach($GLOBALS['App']['error']->errors as $message){
-                //echo '<div class="alert alert-dismissible alert-warning output"><button type="button" class="close" data-dismiss="alert">&times;</button>'.$message.'</div>';
-            //}
-            //unset($_SESSION['output']);
             ?>

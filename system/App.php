@@ -3,8 +3,9 @@ abstract class App{
 
 	public $settings;
 	public $url;
-	public $session;
-	public $security;
+	public $controller;
+	//public $session;
+	//public $security;
 	public $view;
 	public $conn;
 	public $load;
@@ -14,13 +15,14 @@ abstract class App{
 	public function App($app){
 		$this->settings = $app['settings'];
 		$this->url = $app['url'];
-		$this->session = $app['session'];
-		$this->security = $app['security'];
+		$this->controller = $app['controller'];
+		//$this->session = $app['session'];
+		//$this->security = $app['security'];
 		$this->view = $app['view'];
-		$this->conn = $app['conn'];
+		$this->conn = $app['connection'];
 		$this->load = $app['load'];
 		$this->functions = $app['functions'];
-		$this->errors = $app['errors'];
+		$this->errors = $app['error'];
 	}
 
 }
