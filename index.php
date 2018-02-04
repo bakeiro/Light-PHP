@@ -3,8 +3,9 @@
 require('config.php');
 require(BACK_SYSTEM . 'Settings.php');
 require(BACK_SYSTEM . 'Url.php');
-//require(BACK_SYSTEM . 'Session.php');;
-//require(BACK_SYSTEM . 'Security.php');;
+require(BACK_SYSTEM . 'Controller.php');
+//require(BACK_SYSTEM . 'Session.php');
+//require(BACK_SYSTEM . 'Security.php');
 require(BACK_SYSTEM . "View.php");
 require(BACK_SYSTEM . 'Connection.php');
 require(BACK_SYSTEM . 'Load.php');
@@ -31,13 +32,4 @@ date_default_timezone_set('Europe/Madrid');
 //require(BACK_SYSTEM. 'modules/dBug.php');
 //require(BACK_SYSTEM.'modules/Header.php');
 
-
-//Controller
-require_once($app_data['url']->controller['file']);
-$controller_class = new $app_data['url']->controller['class']($app_data);
-$app_data['url']->page = 'BACKEND';
-
-
-//Action
-$method = $app_data['url']->controller['method'];
-$controller_class->$method();
+$app_data['controller']->exec_function();

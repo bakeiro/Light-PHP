@@ -34,6 +34,9 @@ $temp_con = new Connection();
 //Load
 $temp_load = new Load();
 
+//Controller
+//$temp_controller =
+
 //App
 $app_data = array();
 $app_data['settings'] = $temp_settings;
@@ -43,3 +46,4 @@ $app_data['functions'] = $temp_functions;
 $app_data['view'] = $temp_view;
 $app_data['connection'] = $temp_con;
 $app_data['load'] = $temp_load;
+$app_data['controller'] = new Controller();
