@@ -6,13 +6,13 @@ class Controller{
 	var $data;
 	var $method;
 
-	public function Controller(){
+	public function __construct(){
 
 		$app_data = $GLOBALS['app_data'];
 		
 		if(isset($_REQUEST['route']) && !isset($_REQUEST['model'])){
 
-			$route = $app_data['url']->url['route'];
+			$route = $app_data['url']->url;
 			$this->data = explode('/', $route);
 			$this->file = BACK_CONTROLLER . $this->data[0] . '/' . $this->data[1] . 'Controller.php';
 			$this->class = $this->data[1] . 'Controller';
@@ -30,6 +30,12 @@ class Controller{
 			$this->class = 'rest';
 			$this->method = 'rest';
 		}
+
+		if(!isset($_REQUEST['route']) && !isset($_REQUEST['model'])){
+			//Seo url
+			//index page
+		}
+
 	}
 
 	public function exec_function(){

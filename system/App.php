@@ -12,7 +12,7 @@ abstract class App{
 	public $functions;
 	public $errors;
 
-	public function App($app){
+	public function __construct($app){
 		$this->settings = $app['settings'];
 		$this->url = $app['url'];
 		$this->controller = $app['controller'];

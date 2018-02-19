@@ -4,7 +4,7 @@ class Settings{
 	private $settings;
 	public $ind = 0;
 
-	public function Settings(){
+	public function __construct(){
 
 		$this->set("site_name", "Backend");
 		$this->set("site_description", "Backend");

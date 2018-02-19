@@ -12,12 +12,11 @@ require(BACK_SYSTEM . 'core/Load.php');
 require(BACK_SYSTEM . 'core/Functions.php');
 require(BACK_SYSTEM . 'core/Error.php');
 
-
 //App
 $app_data = array();
 $app_data['settings'] = new Settings();
 $app_data['error'] = new ErrorClass();
-$app_data['url'] = new urlClass();
+$app_data['url'] = new Url();
 $app_data['functions'] = new Functions();
 $app_data['view'] = new viewClass();
 $app_data['connection'] = new Connection();

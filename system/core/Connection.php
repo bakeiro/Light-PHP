@@ -2,11 +2,12 @@
 
 class Connection{
 
-	private $CONN;
+	public $CONN;
 
-	function Connection(){
-		$temp_con = new PDO('mysql:host='.CONN_HOST.';dbname='.CONN_DDBB,CONN_USER,CONN_PASS,array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
-        $temp_con->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+	function __construct(){
+		$temp_con = mysqli_connect(CONN_HOST, CONN_USER, CONN_PASS, CONN_DDBB);
+		mysqli_set_charset($temp_con,"utf8");
+		
         $this->CONN = $temp_con;
 	}
 
@@ -15,20 +16,25 @@ class Connection{
     }
 
     function makeQuery($sql_query){
-        $query_data = $this->CONN->query($sql_query)->fetchAll(2);
-        return $query_data;
+		
+		$query = $this->CONN->query($sql_query);
+
+		$data = array();
+
+		while ($row = $query->fetch_assoc()) {
+			$data[] = $row;
+		}
+
+		$query->close();
+		return $data;
     }
 
     function execQuery($query){
-        $rows = $this->CONN->exec($query);
-        if($rows === 0){
-            $_SESSION['errors'][] = 'The query '.$query.' didn\'t affect the database';
-        }
-        return $rows;
+        $this->CONN->query($query);
     }
 
     function getLastId(){
-        return $this->CONN->lastInsertId();
+        return $this->CONN->insert_id();
     }
 
     function escape($value) {

@@ -1,7 +1,7 @@
 <?php
 
 //Start
-require('config.php');
+require('system/config.php');
 require(BACK_SYSTEM. 'App.php');
 require(BACK_SYSTEM. 'StartUp.php');
 
@@ -13,4 +13,4 @@ require(BACK_SYSTEM. 'StartUp.php');
 
 $app_data['controller']->exec_function();
 
-//$app_data['CONN']->close(); //FIXME: Finish this
+$app_data['connection']->CONN->close();
