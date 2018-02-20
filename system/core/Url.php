@@ -16,15 +16,15 @@ class Url{
 
 		if(isset($_REQUEST['route']) && !isset($_REQUEST['model'])){
 			$this->url = $_REQUEST['route'];
-			$this->type = 'route';
+			$this->type = 'controller';
 		}
 		if(isset($_REQUEST['model']) && !isset($_REQUEST['route'])){
 			$this->url = $_REQUEST['model'];
-			$this->type = 'model';
+			$this->type = 'rest';
 		}
 		if(!isset($_REQUEST['route']) && !isset($_REQUEST['model'])){
 			$this->url = 'index/index';
-			$this->type = 'route';
+			$this->type = 'controller';
 		}
 	}
 }

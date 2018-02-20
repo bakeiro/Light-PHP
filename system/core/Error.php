@@ -1,12 +1,18 @@
 <?php
 
-class ErrorClass{
+class ErrorClass extends App{
 
 	public $warnings = array();
 	public $errors = array();
 	private $enviroment;
+	
+	function __construct(){
 
-	function error_handler($errno, $errstr, $errfile, $errline) {
+		set_error_handler( array($this,"my_error_handler") ,E_ALL);
+		error_reporting(E_ALL);
+	}
+
+	function my_error_handler($errno, $errstr, $errfile, $errline) {
     
 		switch ($errno) {
 			case E_NOTICE:
