@@ -12,7 +12,6 @@ require(BACK_SYSTEM . 'core/Controller.php');
 //require(BACK_SYSTEM . 'core/Security.php');
 require(BACK_SYSTEM . "core/View.php");
 require(BACK_SYSTEM . 'core/Connection.php');
-require(BACK_SYSTEM . 'core/Load.php');
 require(BACK_SYSTEM . 'core/Util.php');
 require(BACK_SYSTEM . 'core/Error.php');
 
@@ -30,7 +29,6 @@ $app_data['url'] = new Url();
 $app_data['util'] = new Util();
 $app_data['view'] = new viewClass();
 $app_data['connection'] = new Connection();
-$app_data['loader'] = new Load();
 $app_data['controller'] = new Controller();
 $app_data['header'] = "Header"; //TODO: Headers before sent some data
 

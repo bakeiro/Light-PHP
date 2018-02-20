@@ -21,8 +21,8 @@
 
     <!-- Custom styles -->
     <?php
-    if(isset(Load::$styles) && count(Load::$styles) > 0)
-        foreach(Load::$styles as $style){
+    if(isset(Util::$styles) && count(Util::$styles) > 0)
+        foreach(Util::$styles as $style){
             echo $style;
         }
     ?>
