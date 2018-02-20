@@ -9,7 +9,6 @@ define('BACK_VIEW',DIR_ROOT.'view/');
 define('BACK_SYSTEM',DIR_ROOT.'system/');
 define('BACK_LIBRARY',DIR_ROOT.'system/library/');
 define('BACK_IMAGE',DIR_ROOT.'image/');
-define('DIR_SHOP_IMAGES',DIR_ROOT.'image/');
 
 //DDBB
 define('CONN_HOST','localhost');
