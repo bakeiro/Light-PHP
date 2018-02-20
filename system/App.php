@@ -8,8 +8,7 @@ abstract class App{
 	//public $security;
 	public $view;
 	public $conn;
-	public $load;
-	public $functions;
+	public $util;
 	public $errors;
 
 	public function __construct($app){
@@ -20,8 +19,7 @@ abstract class App{
 		//$this->security = $app['security'];
 		$this->view = $app['view'];
 		$this->conn = $app['connection'];
-		$this->load = $app['load'];
-		$this->functions = $app['functions'];
+		$this->util = $app['util'];
 		$this->errors = $app['error'];
 	}
 
