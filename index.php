@@ -22,23 +22,19 @@ require(BACK_SYSTEM . 'core/Error.php');
 //require(BACK_SYSTEM.'modules/Header.php');
 
 //App
-$app_data = array();
-$app_data['settings'] = new Settings();
-$app_data['error'] = new ErrorClass();
-$app_data['url'] = new Url();
-$app_data['util'] = new Util();
-$app_data['view'] = new viewClass();
-$app_data['connection'] = new Connection();
-$app_data['controller'] = new Controller();
-$app_data['header'] = "Header"; //TODO: Headers before sent some data
+$engine = array();
+$engine['settings'] = new Settings();
+$engine['error'] = new ErrorClass();
+$engine['url'] = new Url();
+$engine['util'] = new Util();
+$engine['view'] = new viewClass();
+$engine['connection'] = new Connection();
+$engine['controller'] = new Controller();
+$engine['header'] = "Header"; //TODO: Headers before sent some data
 
 //Error
 $settings['error_handle'] = 'developing';
 
-//Settings
-date_default_timezone_set('Europe/Madrid');
+$engine['controller']->exec_function();
 
-
-$app_data['controller']->exec_function();
-
-$app_data['connection']->CONN->close();
+$engine['connection']->CONN->close();

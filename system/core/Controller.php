@@ -8,11 +8,11 @@ class Controller{
 
 	public function __construct(){
 
-		$app_data = $GLOBALS['app_data'];
+		$engine = $GLOBALS['engine'];
 		
 		if(isset($_REQUEST['route']) && !isset($_REQUEST['model'])){
 
-			$route = $app_data['url']->url;
+			$route = $engine['url']->url;
 			$this->data = explode('/', $route);
 			$this->file = BACK_CONTROLLER . $this->data[0] . '/' . $this->data[1] . 'Controller.php';
 			$this->class = $this->data[1] . 'Controller';
@@ -40,7 +40,7 @@ class Controller{
 
 	public function exec_function(){
 
-		$app_data = $GLOBALS['app_data'];
+		$engine = $GLOBALS['engine'];
 
 		//File
 		if (!file_exists($this->file)) {
@@ -58,7 +58,7 @@ class Controller{
 		}
 
 		//Action
-		$controller_class = new $this->class($app_data);
+		$controller_class = new $this->class($engine);
 		$method = $this->method;
 		$controller_class->$method();
 	}

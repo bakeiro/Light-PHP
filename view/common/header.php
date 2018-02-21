@@ -9,7 +9,7 @@
     <title>Light PHP</title>
 
     <?php
-        $cache_version = $GLOBALS['app_data']['settings']->get("cache_version");
+        $cache_version = $GLOBALS['engine']['settings']->get("cache_version");
     ?>
 
     <!--CSS -->
@@ -49,11 +49,11 @@
         <div id="main" class="main">
 
             <?php
-			if(count($GLOBALS['app_data']['error']->warnings) > 0){
+			if(count($GLOBALS['engine']['error']->warnings) > 0){
 				echo '<div class="card horizontal red lighten-4">';
 				echo '<div class="card-stacked">';
 				echo '<div class="card-content">';
-				foreach($GLOBALS['app_data']['error']->warnings as $message){	
+				foreach($GLOBALS['engine']['error']->warnings as $message){	
 					echo '<p class="center-align">'.$message.'</p>';
 				}
 				echo '</div>';
