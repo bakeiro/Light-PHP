@@ -1,6 +1,6 @@
 <?php
 
-class viewClass{
+class View{
 
     public function load($route, $data = array()){
 

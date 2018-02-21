@@ -1,7 +1,7 @@
 <?php
 
 //Start
-require('system/config.php');
+require('Config.php');
 require(BACK_SYSTEM. 'App.php');
 
 //Require
@@ -24,16 +24,13 @@ require(BACK_SYSTEM . 'core/Error.php');
 //App
 $engine = array();
 $engine['settings'] = new Settings();
-$engine['error'] = new ErrorClass();
+$engine['error'] = new ErrorMangent();
 $engine['url'] = new Url();
+$engine['view'] = new View();
 $engine['util'] = new Util();
-$engine['view'] = new viewClass();
 $engine['connection'] = new Connection();
 $engine['controller'] = new Controller();
-$engine['header'] = "Header"; //TODO: Headers before sent some data
-
-//Error
-$settings['error_handle'] = 'developing';
+$engine['header'] = "Header"; //TODO: Headers before sent some data, compression...
 
 $engine['controller']->exec_function();
 

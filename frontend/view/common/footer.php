@@ -13,10 +13,10 @@ if(isset($scripts)){
 }
 
 //Load
-foreach($GLOBALS['App']['load']->$styles as $style){
+foreach($GLOBALS['engine']['util']->$styles as $style){
     echo $style;
 }
-foreach($GLOBALS['App']['load']->$scripts as $script){
+foreach($GLOBALS['engine']['util']->$scripts as $script){
     echo $script;
 }
 ?>

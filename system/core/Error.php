@@ -1,13 +1,15 @@
 <?php
 
-class ErrorClass extends App{
+class ErrorMangent{
 
 	public $warnings = array();
 	public $errors = array();
+	private $error_handle;
 	private $enviroment;
 	
 	function __construct(){
 
+		$this->error_handle = 'developing';
 		set_error_handler( array($this,"my_error_handler") ,E_ALL);
 		error_reporting(E_ALL);
 	}
@@ -46,7 +48,7 @@ class ErrorClass extends App{
 			$this->errors[] = $error_string_log;
 			error_log( addslashes($error_string_log)."\n", 3, "system/errors/backend-errors.log");
 	
-			if($GLOBALS['settings']['error_handle'] !== "developing"){
+			if($this->error_handle !== "developing"){
 				sendEmail($error_string_html);
 			}
 		}
