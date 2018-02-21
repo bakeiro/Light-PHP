@@ -9,6 +9,6 @@ class errorController extends App{
 
         $route_view = BACK_VIEW."pags/info/notFoundView.php";
 
-        $this->view->load($route_view,$data);
+        $this->output->load($route_view,$data);
     }
 }

@@ -16,6 +16,16 @@ class Settings{
 		$this->set("ftp_path_files", "/httpdocs/site/util");
 		$this->set("ftp_main_route", "C:/xampp/htdocs/");
 
+		$this->set("email_name", "***");
+		$this->set("email_server", "***");
+		$this->set("email_account", "***");
+		$this->set("email_pass", "***");
+		$this->set("email_timeout", "***");
+
+		$this->set("image_cache_size_small", "***");
+		$this->set("image_cache_size_medium", "***");
+		$this->set("image_cache_size_big", "***");
+		
 		$this->set('cache_version', '0.01');
 	}
 
@@ -29,10 +39,5 @@ class Settings{
 
 	public function set($key, $value =""){
 		$this->settings[$key] = $value;
-	}
-
-	public function getValuesDB(){
-		//TODO: Get the values from the ddbb and set them
-		return 10;
 	}
 }

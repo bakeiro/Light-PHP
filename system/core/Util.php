@@ -11,7 +11,7 @@ class Util{
 	}
 
 	public function load_model($model_route){
-        require_once(BACK_MODEL.$model_route.'Model.php'); //Make here require, its faster
+        require(BACK_MODEL.$model_route.'Model.php');
     }
 
 	public function load_js($js_route){
@@ -29,32 +29,4 @@ class Util{
         }
         array_multisort($sort_col, $dir, $arr);
     }
-
-    public function formatQuantity($quantity){
-
-        //Only string and with 2 decimal always! (to check the '0')
-
-        if(is_string($quantity)){
-
-            /* validate quantity */
-            $decimals = substr($quantity,strpos($quantity,'.')+1);
-
-            if($decimals === ""){
-
-            }else{
-                if($decimals === '00'){
-                    $quantity = number_format($quantity ,0,',','.');
-                }else{
-                    if(substr($decimals,1) === '0'){
-                        $quantity  = number_format($quantity ,1,',','.');
-                    }else{
-                        $quantity  = number_format($quantity ,2,',','.');
-                    }
-                }
-            }
-        }
-
-        return $quantity;
-	}
-
 }

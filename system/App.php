@@ -6,7 +6,7 @@ abstract class App{
 	public $controller;
 	//public $session;
 	//public $security;
-	public $view;
+	public $output;
 	public $conn;
 	public $util;
 	public $errors;
@@ -17,7 +17,7 @@ abstract class App{
 		$this->controller = $app['controller'];
 		//$this->session = $app['session'];
 		//$this->security = $app['security'];
-		$this->view = $app['view'];
+		$this->output = $app['output'];
 		$this->conn = $app['connection'];
 		$this->util = $app['util'];
 		$this->errors = $app['error'];
