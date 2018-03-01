@@ -2,24 +2,18 @@
 <html>
 <head>
 
-    <!-- META TAGS -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta author="David Baqueiro">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Light PHP</title>
 
-    <?php
-        $cache_version = $GLOBALS['engine']['settings']->get("cache_version");
-    ?>
+    <?php $cache = Settings::Get("cache_version"); ?>
 
-    <!--CSS -->
-    <link href="view/boot/<?=$cache_version?>/node_modules/materialize-css/dist/css/materialize.min.css" rel="stylesheet">
+    <link href="frontend/view/boot/<?=$cache?>/node_modules/materialize-css/dist/css/materialize.min.css" rel="stylesheet">
+	<script src="frontend/view/boot/<?=$cache?>/node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="frontend/view/boot/<?=$cache?>/node_modules/materialize-css/dist/js/materialize.min.js"></script> 
 
-	<!-- JS -->
-	<script src="view/boot/<?=$cache_version?>/node_modules/materialize-css/dist/css/materialize.min.js"></script> 
-	<script src="view/boot/<?=$cache_version?>/node_modules/jquery/dist/jquery.min.js"></script> 
-
-    <!-- Custom styles -->
+    <!-- Custom CSS -->
     <?php
     if(isset(Util::$styles) && count(Util::$styles) > 0)
         foreach(Util::$styles as $style){
@@ -49,11 +43,11 @@
         <div id="main" class="main">
 
             <?php
-			if(count($GLOBALS['engine']['error']->warnings) > 0){
+			if(count(Errors::$warnings) > 0){
 				echo '<div class="card horizontal red lighten-4">';
 				echo '<div class="card-stacked">';
 				echo '<div class="card-content">';
-				foreach($GLOBALS['engine']['error']->warnings as $message){	
+				foreach(Errors::$warnings as $message){	
 					echo '<p class="center-align">'.$message.'</p>';
 				}
 				echo '</div>';

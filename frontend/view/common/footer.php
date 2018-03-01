@@ -1,22 +1,21 @@
-</div>
-</div>
-</div>
-
+			</div>
+		</div>
+	</div>
 
 <?php
+	if(Settings::Get("enviroment") === "developing"){
+?>
+<script src="frontend/view/boot/<?=$cache?>/console/console.js"></script>
+<link rel="stylesheet" href="frontend/view/boot/<?=$cache?>/console/console.css"> 
+<?php
+	}
+?>
 
-//Controller
-if(isset($scripts)){
-    foreach($scripts as $script){
-        echo $script;
-    }
-}
-
-//Load
-foreach($GLOBALS['engine']['util']->$styles as $style){
+<?php
+foreach(Loader::$styles as $style){
     echo $style;
 }
-foreach($GLOBALS['engine']['util']->$scripts as $script){
+foreach(Loader::$scripts as $script){
     echo $script;
 }
 ?>

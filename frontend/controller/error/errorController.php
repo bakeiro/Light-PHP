@@ -1,14 +1,14 @@
 <?php
 
-class errorController extends App{
+class errorController{
 
-    function missing(){
+    function notFound(){
 
-        $data['title'] = "Error! The Page: ".$this->url->action." couldnt be found!";
+        $data['title'] = "Error! The Page: ".Url::$action." couldnt be found!";
         $data['body'] = "The page which you are looking for its not avaliable, try searching in another place or try this later.";
 
-        $route_view = BACK_VIEW."pags/info/notFoundView.php";
+        $route_view = BACK_VIEW."pags/error/notFoundView.php";
 
-        $this->output->load($route_view,$data);
+        Output::load($route_view,$data);
     }
 }

@@ -1,21 +1,23 @@
 <?php
 
-/* Require */
-require('system/config.php');
-require('system/security.php');
-require(DIR_SYSTEM_FRONTEND.'settings.php');
-require(DIR_SYSTEM_FRONTEND.'routes.php'); //Same as frontend
-require(DIR_VIEW_FRONTEND."viewClass.php");
-require(DIR_MODEL_FRONTEND.'connectionModel.php');
+//Config
+require('Config.php');
 
-/* Start connection */
-$CONN = connectionModel::getConnection($host,$user,$pass,$ddbb);
+//Engine
+require(BACK_SYSTEM . 'engine/Settings.php');
+require(BACK_SYSTEM . 'engine/Url.php');
+require(BACK_SYSTEM . 'engine/Controller.php');
+//require(BACK_SYSTEM . 'engine/Session.php');
+//require(BACK_SYSTEM . 'engine/Security.php');
+require(BACK_SYSTEM . "engine/Output.php");
+require(BACK_SYSTEM . 'engine/Connection.php');
+require(BACK_SYSTEM . 'engine/Util.php');
+require(BACK_SYSTEM . 'engine/Errors.php');
+require(BACK_SYSTEM . 'engine/Loader.php');
 
-/* Controller */
-require($settings['controller']['file']);
-$controller_class = new $settings['controller']['class'];
-$settings['page'] = 'BACKEND';
+require(BACK_SYSTEM. "Start.php");
 
-/* Call the method */
-$method = $settings['controller']['method'];
-$controller_class->$method();
+$Controller = new Controller();
+$Controller->exec_function();
+
+Connection::$CONN->close();

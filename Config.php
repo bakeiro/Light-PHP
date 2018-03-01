@@ -19,5 +19,4 @@ define('CONN_DDBB','ventano');
 //Php settings
 ini_set('display_errors', 'On');
 ini_set("log_errors", 1);
-ini_set("expose_php", 0);
 date_default_timezone_set('Europe/Madrid');
