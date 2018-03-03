@@ -12,3 +12,17 @@ div#error-console-top{
 	background-color: lightgrey;
 	height: 20px;
 }
+
+button#error-console-button{
+	height: 20px;
+    padding-top: 0px;
+    border: 0;
+    border-radius: 1px;
+    background-color: #ee6e73;
+    color: white;
+    position: relative;
+    bottom: 20px;
+}
+button#error-console-button:hover{
+	background-color: #F44336;
+}
