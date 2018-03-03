@@ -13,13 +13,6 @@
 	<script src="frontend/view/boot/<?=$cache?>/node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="frontend/view/boot/<?=$cache?>/node_modules/materialize-css/dist/js/materialize.min.js"></script> 
 
-    <!-- Custom CSS -->
-    <?php
-    if(isset(Util::$styles) && count(Util::$styles) > 0)
-        foreach(Util::$styles as $style){
-            echo $style;
-        }
-    ?>
 </head>
 <body>
 

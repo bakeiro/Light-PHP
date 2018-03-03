@@ -3,7 +3,6 @@
 	</div>
 
 	<!-- Console -->
-	
 	<?php
 		if(Settings::Get("enviroment") === "developing"){
 	?>
@@ -31,14 +30,17 @@
 		}
 	?>
 
-<?php
-foreach(Loader::$styles as $style){
-    echo $style;
-}
-foreach(Loader::$scripts as $script){
-    echo $script;
-}
-?>
+
+	<?php
+
+	//Custom CSS/JS
+	foreach(Loader::$styles as $style){
+		echo $style;
+	}
+	foreach(Loader::$scripts as $script){
+		echo $script;
+	}
+	?>
 
 </body>
 </html>
