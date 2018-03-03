@@ -8,4 +8,6 @@
 	<li>Powerfull</li>
 	<li>Fast</li>
 	<li>Simple</li>
+	<li>Shelf explained code</li>
+	<li>Debug Console with PHP errors</li>
 </ul>
