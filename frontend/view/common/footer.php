@@ -13,9 +13,6 @@
 		<button id="error-console-button" >Close</button>
 		<div id="error-console-body">
 			<?php
-			foreach(Errors::$errors as $error){
-				echo "<p>".$error."</p>";
-			}
 			foreach(Errors::$warnings as $warning){
 				echo "<p>".$warning."</p>";
 			}

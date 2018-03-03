@@ -23,6 +23,25 @@ error_reporting(E_ALL);
 
 $cont = 5;
 $cont /= 0;
+
+$cont = 5;
+$cont /= 0;
+
+$cont = 5;
+$cont /= 0;
+
+$cont = 5;
+$cont /= 0;
+
+$cont = 5;
+$cont /= 0;
+
+$cont = 5;
+$cont /= 0;
+
+$cont = 5;
+$cont /= 0;
+
 $Controller = new Controller();
 $Controller->exec_function();
 

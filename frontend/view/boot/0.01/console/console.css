@@ -10,18 +10,24 @@ div#error-console{
 
 div#error-console-top{
 	background-color: lightgrey;
-	height: 20px;
+	height: 30px;
+}
+
+div#error-console-body {
+    overflow: scroll;
+    position: relative;
+    bottom: 30px;
 }
 
 button#error-console-button{
-	height: 20px;
+	height: 30px;
     padding-top: 0px;
     border: 0;
     border-radius: 1px;
     background-color: #ee6e73;
     color: white;
     position: relative;
-    bottom: 20px;
+    bottom: 30px;
 }
 button#error-console-button:hover{
 	background-color: #F44336;
