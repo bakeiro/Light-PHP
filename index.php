@@ -24,5 +24,4 @@ error_reporting(E_ALL);
 $Controller = new Controller();
 $Controller->exec_function();
 
-
 Connection::$CONN->close();
