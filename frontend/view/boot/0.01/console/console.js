@@ -4,13 +4,9 @@ var event_track = false;
 var dragged;
 
 var template = `
-<div id="error-console">
-	<div id="error-console-top"></div>
-	<button id="error-console-button" >Close</button>
-	<div id="error-console-body"></div>
-</div>`;
+	`;
 
-$("body").append(template);
+$("div#error-console").append(template);
 
 //Events
 $("body").on("click", "div#error-console-top", function(e){

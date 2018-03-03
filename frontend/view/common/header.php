@@ -41,17 +41,3 @@
     <div class="col-md-11 offset-md-1">
 
         <div id="main" class="main">
-
-            <?php
-			if(count(Errors::$warnings) > 0){
-				echo '<div class="card horizontal red lighten-4">';
-				echo '<div class="card-stacked">';
-				echo '<div class="card-content">';
-				foreach(Errors::$warnings as $message){	
-					echo '<p class="center-align">'.$message.'</p>';
-				}
-				echo '</div>';
-				echo '</div>';
-				echo '</div>';
-			}
-            ?>

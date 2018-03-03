@@ -2,14 +2,34 @@
 		</div>
 	</div>
 
-<?php
-	if(Settings::Get("enviroment") === "developing"){
-?>
-<script src="frontend/view/boot/<?=$cache?>/console/console.js"></script>
-<link rel="stylesheet" href="frontend/view/boot/<?=$cache?>/console/console.css"> 
-<?php
-	}
-?>
+	<!-- Console -->
+	
+	<?php
+		if(Settings::Get("enviroment") === "developing"){
+	?>
+	
+	<div id="error-console">
+
+		<div id="error-console-top"></div>
+		<button id="error-console-button" >Close</button>
+		<div id="error-console-body">
+			<?php
+			foreach(Errors::$errors as $error){
+				echo "<p>".$error."</p>";
+			}
+			foreach(Errors::$warnings as $warning){
+				echo "<p>".$warning."</p>";
+			}
+			?>
+		</div>
+	</div>
+	
+	<script src="frontend/view/boot/<?=$cache?>/console/console.js"></script>
+	<link rel="stylesheet" href="frontend/view/boot/<?=$cache?>/console/console.css"> 
+
+	<?php
+		}
+	?>
 
 <?php
 foreach(Loader::$styles as $style){

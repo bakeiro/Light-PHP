@@ -21,7 +21,10 @@ Settings::Set("enviroment", "developing");
 set_error_handler( array(new Errors(),"my_error_handler") ,E_ALL);
 error_reporting(E_ALL);
 
+$cont = 5;
+$cont /= 0;
 $Controller = new Controller();
 $Controller->exec_function();
+
 
 Connection::$CONN->close();
