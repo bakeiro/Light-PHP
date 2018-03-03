@@ -1,4 +1,5 @@
 /system/logs/*
 /system/libraries/*
 /frontend/view/boot/0.01/node_modules/*
+/frontend/view/images/*
 /.vscode/*
