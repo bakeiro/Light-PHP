@@ -20,11 +20,11 @@
 
 <nav>
     <div class="nav-wrapper">
-		<a href="#" class="brand-logo">Frontend</a>
+		<a href="index.php?route=index/index" class="brand-logo">Frontend</a>
 		<ul id="nav-mobile" class="right hide-on-med-and-down">
-			<li><a href="#">Products</a></li>
-			<li><a href="#">About</a></li>
-			<li><a href="#">Contact</a></li>
+			<li><a href="index.php?route=index/index/products">Products</a></li>
+			<li><a href="index.php?route=index/index/about">About</a></li>
+			<li><a href="index.php?route=contact/contact">Contact</a></li>
 		</ul>
 	</div>
 </nav>
