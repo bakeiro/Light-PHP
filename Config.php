@@ -14,7 +14,7 @@ define('BACK_LIBRARY',DIR_ROOT.'system/library/');
 define('CONN_HOST','localhost');
 define('CONN_USER','root');
 define('CONN_PASS','');
-define('CONN_DDBB','ventano');
+define('CONN_DDBB','framework');
 
 //Php settings
 ini_set('display_errors', 'On');
