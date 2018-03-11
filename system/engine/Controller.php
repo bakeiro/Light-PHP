@@ -61,7 +61,9 @@ class Controller{
 		
 		$this->checkController();
 		
-		$data = array();
+		$data = $_GET;
+		unset($data['rest']);
+		$data = array_values($data);
 
 		$controller_class = new $this->class();
 		$method = $this->method;
