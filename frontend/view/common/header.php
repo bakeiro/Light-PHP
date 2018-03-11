@@ -11,6 +11,7 @@
 	<?php $cache = Settings::Get("cache_version"); ?>
 	<?php $host = Url::$host; ?>	
 
+	<link href="<?=$host?>/frontend/view/boot/<?=$cache?>/site/site.css" rel="stylesheet">
     <link href="<?=$host?>/frontend/view/boot/<?=$cache?>/node_modules/materialize-css/dist/css/materialize.min.css" rel="stylesheet">
 	<script src="<?=$host?>/frontend/view/boot/<?=$cache?>/node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="<?=$host?>/frontend/view/boot/<?=$cache?>/node_modules/materialize-css/dist/js/materialize.min.js"></script> 
@@ -30,6 +31,5 @@
 	</div>
 </nav>
 
-<div class="row no-gutters">
-    <div class="col-md-11 offset-md-1">
-        <div id="main" class="main">
+<div class="container">
+    <div id="main" class="main">

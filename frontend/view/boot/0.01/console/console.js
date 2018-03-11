@@ -16,8 +16,8 @@ var error_console = (function(){
 	}
 
 	function close(){
-		$("div#error-console").css("height", "40px");
-		$("div#error-console-body").css("height", "40px");
+		$("div#error-console").css("height", "30px");
+		$("div#error-console-body").css("height", "30px");
 		$("button#error-console-button").text("Open");
 	}
 

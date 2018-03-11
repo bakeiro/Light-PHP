@@ -19,7 +19,7 @@ require(BACK_SYSTEM . 'engine/Loader.php');
 require(BACK_SYSTEM. "Start.php");
 
 //Errors
-Settings::Set("debug", true);
+Settings::Set("debug", false);
 set_error_handler( array(new Errors(),"my_error_handler") ,E_ALL);
 error_reporting(E_ALL);
 
