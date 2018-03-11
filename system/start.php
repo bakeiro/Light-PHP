@@ -14,15 +14,16 @@ if(isset($_SERVER['HTTPS'])){
 	Url::$protocol = "http";
 }
 
-if(isset($_REQUEST['route']) && !isset($_REQUEST['model'])){
+if(isset($_REQUEST['route']) && !isset($_REQUEST['rest'])){
 	Url::$action = $_REQUEST['route'];
 	Url::$type = 'controller';
 }
-if(isset($_REQUEST['model']) && !isset($_REQUEST['route'])){
-	Url::$action = $_REQUEST['model'];
+if(isset($_REQUEST['rest']) && !isset($_REQUEST['route'])){
+	Url::$restController = $_REQUEST['rest'];
+	Url::$action = 'api/rest';
 	Url::$type = 'rest';
 }
-if(!isset($_REQUEST['route']) && !isset($_REQUEST['model'])){
+if(!isset($_REQUEST['route']) && !isset($_REQUEST['rest'])){
 	Url::$action = 'index/index';
 	Url::$type = 'controller'; //TODO:  seo type, inside seo check whenther has something or only '/'
 }

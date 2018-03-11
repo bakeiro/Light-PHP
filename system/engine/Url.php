@@ -5,4 +5,5 @@ class Url{
 	public static $host;
 	public static $action;
 	public static $protocol;
+	public static $restController;
 }
