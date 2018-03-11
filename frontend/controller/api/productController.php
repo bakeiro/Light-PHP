@@ -3,8 +3,6 @@ class productController{
 
 	public function getProdPage($page = 0){
 
-		//$page = $_GET['page'];
-
 		$results_per_page = 4;
 		$offset = $page * $results_per_page;
 

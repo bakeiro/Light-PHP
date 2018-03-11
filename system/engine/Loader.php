@@ -36,11 +36,11 @@ class Loader{
     }
 
 	public static function load_js($js_route){
-        Loader::$scripts[] = '<script src="view/boot/' . $GLOBALS['settings']['cache']['version'] . '/' .$js_route . '.js" > </script>';
+        Loader::$scripts[] = '<script src="view/boot/' . Settings::Get("cache_version") . '/' .$js_route . '.js" > </script>';
     }
 
 	public static function load_css($css_route){
-        Loader::$styles[] = '<link href="view/boot/' . $GLOBALS['settings']['cache']['version'] . '/' .$css_route.'.css" rel="stylesheet">';
+        Loader::$styles[] = '<link href="view/boot/' . Settings::Get("cache_version") . '/' .$css_route.'.css" rel="stylesheet">';
     }
 
 }
