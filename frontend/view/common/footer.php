@@ -4,7 +4,7 @@
 
 	<!-- Console -->
 	<?php
-		if(Settings::Get("enviroment") === "developing"){
+		if(Settings::Get("debug")){
 	?>
 
 	<div id="error-console">
