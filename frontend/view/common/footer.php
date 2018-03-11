@@ -6,11 +6,11 @@
 	<?php
 		if(Settings::Get("enviroment") === "developing"){
 	?>
-	
+
 	<div id="error-console">
 
 		<div id="error-console-top"></div>
-		<button id="error-console-button" >Close</button>
+		<button id="error-console-button" >Open</button>
 		<div id="error-console-body">
 			<?php
 			foreach(Errors::$warnings as $warning){
@@ -19,9 +19,9 @@
 			?>
 		</div>
 	</div>
-	
+
 	<script src="frontend/view/boot/<?=$cache?>/console/console.js"></script>
-	<link rel="stylesheet" href="frontend/view/boot/<?=$cache?>/console/console.css"> 
+	<link rel="stylesheet" href="frontend/view/boot/<?=$cache?>/console/console.css">
 
 	<?php
 		}

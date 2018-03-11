@@ -4,7 +4,7 @@ div#error-console{
     left: 0;
     z-index: 100;
 	width: 100%;
-	height: 200px;
+	height: 40px;
 	background-color: #f2f2f2;;
 }
 
@@ -24,11 +24,11 @@ button#error-console-button{
     padding-top: 0px;
     border: 0;
     border-radius: 1px;
-    background-color: #ee6e73;
+    background-color: #9E9E9E; /*#ee6e73*/
     color: white;
     position: relative;
     bottom: 30px;
 }
 button#error-console-button:hover{
-	background-color: #F44336;
+	background-color: #757575; /*#F44336*/
 }
