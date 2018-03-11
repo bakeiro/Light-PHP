@@ -8,7 +8,7 @@ class Controller{
 
 	public function __construct(){
 
-		if(Url::$type === "controller"){
+		if(Url::$type !== "seo"){
 
 			$route = Url::$action;
 			$url_split = explode('/', $route);
@@ -22,13 +22,6 @@ class Controller{
 			}
 		}
 
-		if(Url::$type === "rest"){
-
-			$this->file = BACK_CONTROLLER.'api/restController.php';
-			$this->class = 'restController';
-			$this->method = 'index';
-		}
-
 		if(Url::$type === "seo"){
 			//Seo url
 			//index page
@@ -36,8 +29,8 @@ class Controller{
 
 	}
 
-	public function exec_function(){
-
+	public function checkController(){
+		
 		//File
 		if (!file_exists($this->file)) {
 			$this->file = BACK_CONTROLLER . 'error/errorController.php';
@@ -52,12 +45,29 @@ class Controller{
 			$this->method = 'notFound';
 			$this->class = 'errorController';
 		}
+	}
+
+	public function execController(){
+
+		$this->checkController();
 
 		//Action
 		$controller_class = new $this->class();
 		$method = $this->method;
-		$return = $controller_class->$method();
-		return $return;
+		$controller_class->$method();
+	}
+
+	public function execRest(){
+		
+		$this->checkController();
+		
+		$data = array();
+
+		$controller_class = new $this->class();
+		$method = $this->method;
+		$output = call_user_func_array(array($controller_class,$method),$data);
+		
+		return $output;
 	}
 
 }

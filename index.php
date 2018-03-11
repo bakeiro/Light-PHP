@@ -25,7 +25,7 @@ error_reporting(E_ALL);
 
 //Execute controller
 $Controller = new Controller();
-$Controller->exec_function();
+$Controller->execController();
 
 //DB
 Connection::$CONN->close();

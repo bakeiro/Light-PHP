@@ -8,7 +8,8 @@ class restController{
 		$data = array();
 
 		$rest_controller = new Controller();
-		$output = $rest_controller->exec_function();
+		$output = $rest_controller->execRest();
+		//call_user_func_array(array($controller_class,$method),$data);
 		
         header('Content-Type: application/json');
         echo json_encode($output);

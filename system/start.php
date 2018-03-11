@@ -1,6 +1,6 @@
 <?php
 
-//Conn
+//Database
 $temp_con = mysqli_connect(CONN_HOST, CONN_USER, CONN_PASS, CONN_DDBB);
 mysqli_set_charset($temp_con,"utf8");
 Connection::$CONN = $temp_con;
@@ -21,7 +21,7 @@ if(isset($_REQUEST['route']) && !isset($_REQUEST['rest'])){
 if(isset($_REQUEST['rest']) && !isset($_REQUEST['route'])){
 	Url::$restController = $_REQUEST['rest'];
 	Url::$action = 'api/rest';
-	Url::$type = 'rest';
+	Url::$type = 'controller';
 }
 if(!isset($_REQUEST['route']) && !isset($_REQUEST['rest'])){
 	Url::$action = 'index/index';
