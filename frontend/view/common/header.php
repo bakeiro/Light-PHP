@@ -9,9 +9,13 @@
 
 	<!-- Resources -->
 	<?php $cache = Settings::Get("cache_version"); ?>
-	<?php $host = Url::$host; ?>	
+	<?php $host = Url::$host; ?>
 
+	<!-- my resources -->
 	<link href="<?=$host?>/frontend/view/boot/<?=$cache?>/site/site.css" rel="stylesheet">
+	
+	<!-- Materialize -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="<?=$host?>/frontend/view/boot/<?=$cache?>/node_modules/materialize-css/dist/css/materialize.min.css" rel="stylesheet">
 	<script src="<?=$host?>/frontend/view/boot/<?=$cache?>/node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="<?=$host?>/frontend/view/boot/<?=$cache?>/node_modules/materialize-css/dist/js/materialize.min.js"></script> 

@@ -21,19 +21,21 @@ var products = (function(){
 				products.startLoading();
 			},
 			success: function(prods){
-
-				$("div#prods_container")[0].innerHTML = "";
-
+				
+				$("div#prods_container").promise().done(function(){
+					var prods_html = "";
+	
+					var i = 0;
+					while(prods[i]){
+						prods_html = prods_html + products.getProdHtml(prods[i]);
+						i++;
+					}
+	
+					$("div#prods_container").prop("innerHTML",prods_html);
+				});
+			},
+			complete: function(){
 				products.stopLoading();
-
-				var i = 0;
-				while(prods[i]){
-
-					var prod_html = products.getProdHtml(prods[i]);
-					$("div#prods_container").append(prod_html);
-					i++;
-				}
-
 			},
 			error: function(){
 				alert("something happend!");
@@ -43,7 +45,6 @@ var products = (function(){
 	}
 
 	function getProdHtml(prod){
-
 		
 		var prod_html = `
 		<div class='col s6' >	
@@ -55,6 +56,9 @@ var products = (function(){
 				<div class="card-content">
 					<p>${prod.description}</p>
 				</div>
+				<div class="card-action">
+					<a href="#">More</a>
+				</div>
 			</div>
 		</div>`
 
@@ -62,11 +66,11 @@ var products = (function(){
 	}
 
 	function startLoading(){
-
+		$("div#prods_container").children().fadeOut();
 	}
 
 	function stopLoading(){
-
+		$("div#prods_container").children().fadeIn();
 	}
 
 	return {
@@ -81,3 +85,11 @@ var products = (function(){
 })();
 
 products.getPage(0);
+
+$("body").on("click", "div#nextPage i", function(){
+	products.getNextPage();
+});
+
+$("body").on("click", "div#prevPage i", function(){
+	products.getPrevPage();
+});
