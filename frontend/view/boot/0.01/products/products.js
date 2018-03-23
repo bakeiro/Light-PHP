@@ -3,45 +3,46 @@ var products = (function(){
 	var actualPage = 0;
 
 	function getNextPage(){
-		actualPage += 1;
-		this.getPage(actualPage);
+		this.getPage(actualPage + 1);
 	}
 
 	function getPrevPage(){
-		actualPage -= 1;
-		this.getPage(actualPage);
+		this.getPage(actualPage - 1);
 	}
 
 	function getPage(page){
 
-		$.ajax({
-			url: "index.php?rest=api/product/getProdPage&page=" + page,
-			dataType: "json",
-			beforeSend: function(){
-				products.startLoading();
-			},
-			success: function(prods){
-				
-				$("div#prods_container").promise().done(function(){
-					var prods_html = "";
-	
-					var i = 0;
-					while(prods[i]){
-						prods_html = prods_html + products.getProdHtml(prods[i]);
-						i++;
-					}
-	
-					$("div#prods_container").prop("innerHTML",prods_html);
-				});
-			},
-			complete: function(){
-				products.stopLoading();
-			},
-			error: function(){
-				alert("something happend!");
-			}
-		});
+		if(page >= 0 && page < 3){
 
+			actualPage = page;
+			$.ajax({
+				url: "index.php?rest=api/product/getProdPage&page=" + page,
+				dataType: "json",
+				beforeSend: function(){
+					products.startLoading();
+				},
+				success: function(prods){
+					
+					$("div#prods_container").promise().done(function(){
+						var prods_html = "";
+		
+						var i = 0;
+						while(prods[i]){
+							prods_html = prods_html + products.getProdHtml(prods[i]);
+							i++;
+						}
+		
+						$("div#prods_container").prop("innerHTML",prods_html);
+					});
+				},
+				complete: function(){
+					products.stopLoading();
+				},
+				error: function(){
+					alert("something happend!");
+				}
+			});
+		}
 	}
 
 	function getProdHtml(prod){
