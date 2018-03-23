@@ -2,4 +2,4 @@
 
 <p>Here you will send and email to the email configured</p>
 
-<p> <i class="material-icons prefix small">check_circle</i> eMail successfully sended!</p>
+<p> <i class="material-icons prefix small green-text">check_circle</i> eMail successfully sended!</p>
