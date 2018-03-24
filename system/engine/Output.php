@@ -10,9 +10,9 @@ class Output{
         ob_start();
         extract($data);
 		
-        require(BACK_VIEW.'common/Header.php');
+        require(BACK_VIEW.'template/common/Header.php');
         require($route);
-        require(BACK_VIEW.'common/Footer.php');
+        require(BACK_VIEW.'template/common/Footer.php');
 		
 		ob_end_flush();
 	}
