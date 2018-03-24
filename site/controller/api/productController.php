@@ -15,4 +15,15 @@ class productController{
 		return $products;
 	}
 
+	public function getProdInfo($prod_id){
+
+		Loader::load_model("product/product");
+		$product_model = new productModel();
+
+		$products = array();
+		$products = $product_model->getProdInfo($prod_id);
+
+		return $products;
+	}
+
 }

@@ -66,12 +66,46 @@ var products = (function(){
 		return prod_html;
 	}
 
-	function showProdInfo(){
+	function showProdInfo(prod_id){
 		
-		var prod_id = $(this).parent().parent().prop("id");
+		//Loading
 		var modal_content = $("div#prod_modal div.modal-content");
+		var html_spinner = `
+		<div class="preloader-wrapper active">
+			<div class="spinner-layer spinner-red-only">
+				<div class="circle-clipper left">
+					<div class="circle"></div>
+				</div>
+				<div class="gap-patch">
+					<div class="circle"></div>
+					</div><div class="circle-clipper right">
+					<div class="circle"></div>
+				</div>
+			</div>
+		</div>`;
+		modal_content.html(html_spinner);
 
-		M.Modal.init($('div#prod_modal')[0]);
+		//Open
+		$("div#prod_modal").modal("open");
+
+		//Prod info
+		$.ajax({
+			url: "index.php?rest=api/product/getProdInfo&prod_id=" + prod_id,
+			dataType: "json",
+			success: function(prod_data){
+
+				prod_data = prod_data[0];
+				var prod_img = `<img src="site/view/images/data/${prod_data.image}" >`;
+				var prod_description = `<div class="prod_description">${prod_data.description}</div>`;
+
+				prod_html = `<div class="prod_info">${prod_img} <br> ${prod_description}`;
+
+				modal_content.html(prod_html);
+			},
+			error: function(){
+				alert("something happend!");
+			}
+		});
 
 	}
 
@@ -106,5 +140,10 @@ $("body").on("click", "div#prevPage i", function(){
 });
 
 $("body").on("click", "a[name='prod_info']", function(){
-	products.showProdInfo();
+	var prod_id = $(this).parent().parent().prop("id");
+	products.showProdInfo(prod_id);
+});
+
+$(document).ready(function(){
+	$("div#prod_modal").modal(); //Init modal
 });

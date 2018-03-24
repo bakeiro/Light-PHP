@@ -1,8 +1,6 @@
 <!-- Prod modal -->
-<div id="prod_modal" class="modal">
+<div id="prod_modal" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <h4>Modal Header</h4>
-      <p>Prod Text</p>
     </div>
     <div class="modal-footer">
       <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
