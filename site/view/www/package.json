@@ -1,0 +1,14 @@
+{
+  "name": "light-php",
+  "version": "1.0.0",
+  "description": "Just an simple MVC PHP application, useful for small projects and quick prototypes :)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "David Baqueiro",
+  "license": "ISC",
+  "dependencies": {
+    "materialize-css": "^0.100.2"
+  }
+}

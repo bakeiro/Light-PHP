@@ -49,21 +49,30 @@ var products = (function(){
 		
 		var prod_html = `
 		<div class='col s6' >	
-			<div class='card small'>
+			<div id="${prod.product_id}" class='card small'>
 				<div class="card-image">
 					<img src='site/view/images/data/${prod.image}' />
 					<span class="card-title black-text">${prod.title}</span>
 				</div>
 				<div class="card-content">
-					<p>${prod.description}</p>
+					<p>${prod.short_description}</p>
 				</div>
 				<div class="card-action">
-					<a href="#">More</a>
+					<a name="prod_info" class="waves-effect waves-green btn-flat">More</a>
 				</div>
 			</div>
 		</div>`
 
 		return prod_html;
+	}
+
+	function showProdInfo(){
+		
+		var prod_id = $(this).parent().parent().prop("id");
+		var modal_content = $("div#prod_modal div.modal-content");
+
+		M.Modal.init($('div#prod_modal')[0]);
+
 	}
 
 	function startLoading(){
@@ -80,7 +89,8 @@ var products = (function(){
 		getPage,
 		startLoading,
 		stopLoading,
-		getProdHtml
+		getProdHtml,
+		showProdInfo
 	};
 
 })();
@@ -93,4 +103,8 @@ $("body").on("click", "div#nextPage i", function(){
 
 $("body").on("click", "div#prevPage i", function(){
 	products.getPrevPage();
+});
+
+$("body").on("click", "a[name='prod_info']", function(){
+	products.showProdInfo();
 });

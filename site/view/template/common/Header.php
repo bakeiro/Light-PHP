@@ -16,9 +16,9 @@
 	
 	<!-- Materialize -->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="<?=$host?>/site/view/www/<?=$cache?>/node_modules/materialize-css/dist/css/materialize.min.css" rel="stylesheet">
-	<script src="<?=$host?>/site/view/www/<?=$cache?>/node_modules/jquery/dist/jquery.min.js"></script>
-	<script src="<?=$host?>/site/view/www/<?=$cache?>/node_modules/materialize-css/dist/js/materialize.min.js"></script> 
+    <link href="<?=$host?>/site/view/www/node_modules/materialize-css/dist/css/materialize.min.css" rel="stylesheet">
+	<script src="<?=$host?>/site/view/www/node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="<?=$host?>/site/view/www/node_modules/materialize-css/dist/js/materialize.min.js"></script> 
 
 </head>
 <body>
