@@ -19,8 +19,8 @@
 		</div>
 	</div>
 
-	<script src="frontend/view/www/<?=$cache?>/console/console.js"></script>
-	<link rel="stylesheet" href="frontend/view/www/<?=$cache?>/console/console.css">
+	<script src="site/view/www/<?=$cache?>/console/console.js"></script>
+	<link rel="stylesheet" href="site/view/www/<?=$cache?>/console/console.css">
 
 	<?php
 		}

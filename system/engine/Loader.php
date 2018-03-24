@@ -36,11 +36,11 @@ class Loader{
     }
 
 	public static function load_js($js_route){
-        Loader::$scripts[] = '<script src="frontend/view/www/' . Settings::Get("cache_version") . '/' .$js_route . '.js" > </script>';
+        Loader::$scripts[] = '<script src="site/view/www/' . Settings::Get("cache_version") . '/' .$js_route . '.js" > </script>';
     }
 
 	public static function load_css($css_route){
-        Loader::$styles[] = '<link href="frontend/view/www/' . Settings::Get("cache_version") . '/' .$css_route.'.css" rel="stylesheet">';
+        Loader::$styles[] = '<link href="site/view/www/' . Settings::Get("cache_version") . '/' .$css_route.'.css" rel="stylesheet">';
     }
 
 }

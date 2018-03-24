@@ -11,7 +11,7 @@ class infoController{
 	}
 
 	public function welcome(){
-		Output::load(BACK_VIEW.'pags/welcome/welcomeView.php',array());
+		Output::load(BACK_VIEW.'template/welcome/welcomeView.php',array());
 	}
 
 	

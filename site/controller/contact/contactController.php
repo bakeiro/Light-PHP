@@ -6,7 +6,7 @@ use PHPMailer\PHPMailer\Exception;
 class contactController{
 
 	public function index(){
-		Output::load(BACK_VIEW.'pags/info/contactView.php',array());
+		Output::load(BACK_VIEW.'template/info/contactView.php',array());
 	}
 
 	public function send(){
@@ -55,7 +55,7 @@ class contactController{
 	}
 
 	public function success(){
-		Output::load(BACK_VIEW.'pags/info/contactSuccessView.php',array());
+		Output::load(BACK_VIEW.'template/info/contactSuccessView.php',array());
 	}
 
 }
