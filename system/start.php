@@ -46,8 +46,6 @@ Settings::set("image_cache_size_small", "***");
 Settings::set("image_cache_size_medium", "***");
 Settings::set("image_cache_size_big", "***");
 
-Settings::set('cache_version', '0.01');
-
 //Loader
 Loader::$scripts = array();
 Loader::$styles = array();

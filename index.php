@@ -18,6 +18,9 @@ require(BACK_SYSTEM . 'engine/Loader.php');
 //Bootstrap
 require(BACK_SYSTEM. "Start.php");
 
+//Cache
+Settings::set('cache_version', '1.0');
+
 //Errors
 Settings::Set("debug", false);
 set_error_handler( array(new Errors(),"my_error_handler") ,E_ALL);

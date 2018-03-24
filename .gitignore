@@ -1,5 +1,5 @@
 /system/logs/*
 /system/libraries/vendor/*
-/site/view/www/0.01/node_modules/*
+/site/view/www/node_modules/*
 /site/view/images/*
 /.vscode/*

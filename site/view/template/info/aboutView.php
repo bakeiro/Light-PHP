@@ -1,6 +1,5 @@
-<h1>About</h1>
+<h3>About</h3>
 
 <p>
-	This framework was created by David Baqueiro just for fun, you are free to modify, download, edit and contribute to this proyect.
-	The target it's to create something really easy to understand 
+	Simple MVC Framework, the project was created just for fun, feel free to download, modify, edit, or contribute to this proyect! 
 </p>
