@@ -7,6 +7,6 @@ class loginController{
 
 	public function login(){
 		Session::set("logged", true);
-		Session::set("customer_id", 0);
+		Session::set("customer_id", 1);
 	}
 }

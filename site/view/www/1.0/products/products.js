@@ -94,7 +94,6 @@ var products = (function(){
 			dataType: "json",
 			success: function(prod_data){
 
-				prod_data = prod_data[0];
 				var prod_img = `<img src="site/view/images/data/${prod_data.image}" >`;
 				var prod_description = `<div class="prod_description">${prod_data.description}</div>`;
 
