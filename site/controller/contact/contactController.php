@@ -14,30 +14,25 @@ class contactController{
 		require(SYSTEM."libraries/vendor/autoload.php");
 
 		//TODO: Not yet finish
-
 		$mail = new PHPMailer(true);
+		
 		try {
 
-			$mail->SMTPDebug = 2;
+			//$mail->SMTPDebug = 2;
 			$mail->isSMTP();
-			$mail->Host = 'smtp1.example.com;smtp2.example.com';
+			$mail->Host = Settings::get("email_host");
 			$mail->SMTPAuth = true;
-			$mail->Username = 'user@example.com';
-			$mail->Password = 'secret';
+			$mail->Username = Settings::get("email_username");
+			$mail->Password = Settings::get("email_pass");
 			$mail->SMTPSecure = 'tls';
-			$mail->Port = 587;
+			$mail->Port = Settings::get("email_port");
 
 			//Recipients
-			$mail->setFrom('from@example.com', 'Mailer');
-			$mail->addAddress('joe@example.net', 'Joe User');
+			$mail->setFrom(Settings::get("email_from"), Settings::get("email_from_name"));
 			$mail->addAddress('ellen@example.com');
-			$mail->addReplyTo('info@example.com', 'Information');
-			$mail->addCC('cc@example.com');
-			$mail->addBCC('bcc@example.com');
-
-			//Attachments
-			$mail->addAttachment('/var/tmp/file.tar.gz');
-			$mail->addAttachment('/tmp/image.jpg', 'new.jpg');
+			//$mail->addReplyTo('info@example.com', 'Information');
+			//$mail->addCC('cc@example.com');
+			//$mail->addBCC('bcc@example.com');
 
 			//Content
 			$mail->isHTML(true);
@@ -45,7 +40,6 @@ class contactController{
 			$mail->Body    = 'This is the HTML message body <b>in bold!</b>';
 			$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
-			$mail->send();
 			echo 'Message has been sent';
 
 		} catch (Exception $e) {

@@ -25,7 +25,7 @@ if(isset($_REQUEST['rest']) && !isset($_REQUEST['route'])){
 }
 if(!isset($_REQUEST['route']) && !isset($_REQUEST['rest'])){
 	Url::$action = 'index/index';
-	Url::$type = 'controller'; //TODO:  seo type, inside seo check whenther has something or only '/'
+	Url::$type = 'controller'; //TODO: seo type, inside seo check whenther has something or only '/'
 }
 
 //Settings
@@ -35,11 +35,12 @@ Settings::set("site_creator", "David Baqueiro Santerbás");
 
 Settings::set("ftp_path_upload", SYSTEM."ftp/upload/");
 
-Settings::set("email_name", "***");
-Settings::set("email_server", "***");
-Settings::set("email_account", "***");
+Settings::set("email_host", "***");
+Settings::set("email_username", "***");
 Settings::set("email_pass", "***");
-Settings::set("email_timeout", "***");
+Settings::set("email_port", "***");
+Settings::set("email_from", "***");
+Settings::set("email_from_name", "***");
 
 Settings::set("image_cache_size_small", "***");
 Settings::set("image_cache_size_medium", "***");

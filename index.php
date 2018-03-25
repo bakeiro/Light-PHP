@@ -18,6 +18,8 @@ require(SYSTEM . 'engine/Loader.php');
 //Bootstrap
 require(SYSTEM. "Start.php");
 
+//TODO: Load conf
+
 //Cache
 Settings::set('cache_version', '1.0');
 
