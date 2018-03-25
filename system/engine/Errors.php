@@ -53,7 +53,7 @@ class Errors{
 	
 	public static function sendEmail($message){
 	
-		require_once(BACK_SYSTEM.'modules/Mail/PHPMailerAutoload.php');
+		require_once(SYSTEM.'modules/Mail/PHPMailerAutoload.php');
 		
 		$mail = new PHPMailer();
 		

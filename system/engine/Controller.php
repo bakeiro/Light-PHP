@@ -12,7 +12,7 @@ class Controller{
 
 			$route = Url::$action;
 			$url_split = explode('/', $route);
-			$this->file = BACK_CONTROLLER . $url_split[0] . '/' . $url_split[1] . 'Controller.php';
+			$this->file = CONTROLLER . $url_split[0] . '/' . $url_split[1] . 'Controller.php';
 			$this->class = $url_split[1] . 'Controller';
 
 			if(count($url_split) === 2){
@@ -33,7 +33,7 @@ class Controller{
 		
 		//File
 		if (!file_exists($this->file)) {
-			$this->file = BACK_CONTROLLER . 'error/errorController.php';
+			$this->file = CONTROLLER . 'error/errorController.php';
 			$this->method = 'notFound';
 			$this->class = 'errorController';
 		}

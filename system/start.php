@@ -33,8 +33,8 @@ Settings::set("site_name", "Backend");
 Settings::set("site_description", "Backend");
 Settings::set("site_creator", "David Baqueiro Santerbás");
 
-Settings::set("ftp_path_upload", "/system/ftp/upload/");
-Settings::set("ftp_path_download", "/system/ftp/downloads/");
+Settings::set("ftp_path_upload", SYSTEM."ftp/upload/");
+Settings::set("ftp_path_download", SYSTEM."ftp/downloads/");
 
 Settings::set("email_name", "***");
 Settings::set("email_server", "***");

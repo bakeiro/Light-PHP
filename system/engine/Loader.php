@@ -32,7 +32,7 @@ class Loader{
 	}
 
 	public static function load_model($model_route){
-        require(BACK_MODEL.$model_route.'Model.php');
+        require(MODEL.$model_route.'Model.php');
     }
 
 	public static function load_js($js_route){

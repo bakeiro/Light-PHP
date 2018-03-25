@@ -6,12 +6,12 @@ use PHPMailer\PHPMailer\Exception;
 class contactController{
 
 	public function index(){
-		Output::load(BACK_VIEW.'template/info/contactView.php',array());
+		Output::load(VIEW.'template/info/contactView.php',array());
 	}
 
 	public function send(){
 		
-		require(BACK_SYSTEM."libraries/vendor/autoload.php");
+		require(SYSTEM."libraries/vendor/autoload.php");
 
 		//TODO: Not yet finish
 
@@ -55,7 +55,7 @@ class contactController{
 	}
 
 	public function success(){
-		Output::load(BACK_VIEW.'template/info/contactSuccessView.php',array());
+		Output::load(VIEW.'template/info/contactSuccessView.php',array());
 	}
 
 }

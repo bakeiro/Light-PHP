@@ -26,7 +26,7 @@ class customerApiController{
 		if(count($errors) === 0){
 			if($customer['password'] === $pass_post){
 
-				require(BACK_CONTROLLER."login/loginController.php");
+				require(CONTROLLER."login/loginController.php");
 				$login_controller = new loginController();
 				$login_controller->login();
 

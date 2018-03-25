@@ -4,7 +4,7 @@ class productController{
 	public function index(){
 		Loader::load_js("products/products");
 		Loader::load_css("products/products");
-		Output::load(BACK_VIEW.'template/products/productsView.php', array());
+		Output::load(VIEW.'template/products/productsView.php', array());
 	}
 
 }
