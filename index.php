@@ -7,7 +7,7 @@ require('Config.php');
 require(BACK_SYSTEM . 'engine/Settings.php');
 require(BACK_SYSTEM . 'engine/Url.php');
 require(BACK_SYSTEM . 'engine/Controller.php');
-//require(BACK_SYSTEM . 'engine/Session.php');
+require(BACK_SYSTEM . 'engine/Session.php');
 //require(BACK_SYSTEM . 'engine/Security.php');
 require(BACK_SYSTEM . "engine/Output.php");
 require(BACK_SYSTEM . 'engine/Connection.php');

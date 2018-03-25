@@ -49,3 +49,6 @@ Settings::set("image_cache_size_big", "***");
 //Loader
 Loader::$scripts = array();
 Loader::$styles = array();
+
+//Session
+Session::start();
