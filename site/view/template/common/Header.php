@@ -43,17 +43,17 @@
 
 			<div class="col s6">
     			<h5><i class="material-icons prefix small">account_circle</i>Login</h5>
-				<form method="POST" action="index.php?route=index/contact/sendEmail">
+				<form method="POST" action="index.php?route=login/login/checkLogin">
 					<div class="row">
 						<div class="input-field col s12">
-							<input value="" id="email" type="text" class="validate">
+							<input name="email" id="email" type="text" class="validate">
 							<label class="active" for="email">eMail</label>
 						</div>
 					</div>
 
 					<div class="row">
 						<div class="input-field col s12">
-							<input value="" id="pass" type="text" class="validate">
+							<input name="pass" id="pass" type="text" class="validate">
 							<label class="active" for="pass">Password</label>
 						</div>
 					</div>
@@ -63,7 +63,7 @@
 			</div>
 
 			<div class="col s5 offset-s1">
-			<h5><i class="material-icons prefix small">contact_mail</i>New Account</h5>
+				<h5><i class="material-icons prefix small">contact_mail</i>New Account</h5>
 				<br><br>
 				<button class="waves-effect waves-light btn blue">Facebook</button><br><br>
 				<button class="waves-effect waves-light btn red">Google</button><br><br>
@@ -71,7 +71,7 @@
 			</div>
 		</div>
     </div>
-  </div>
+</div>
 
 <div class="container">
     <div id="main" class="main">
