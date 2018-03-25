@@ -8,4 +8,8 @@ class indexController{
 	public function about(){
 		Output::load(BACK_VIEW.'template/info/aboutView.php',array());
 	}
+
+	public function welcome(){
+		Output::load(BACK_VIEW.'template/welcome/welcomeView.php',array());
+	}
 }
