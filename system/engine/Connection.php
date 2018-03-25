@@ -10,15 +10,20 @@ class Connection{
 
    	static function makeQuery($sql_query){
 		
-		$query = Connection::$CONN->query($sql_query);
-
 		$data = array();
+		$query = Connection::$CONN->query($sql_query);
 
 		while ($row = $query->fetch_assoc()) {
 			$data[] = $row;
 		}
-
 		$query->close();
+
+		if(count($data) === 0){
+			$data = false;
+		}
+		if(count($data) === 1){
+			$data = $data[0];
+		}
 		return $data;
     }
 
