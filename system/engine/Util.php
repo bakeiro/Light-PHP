@@ -16,4 +16,12 @@ class Util{
 		$unit=array('b','kb','mb','gb','tb','pb');
 		return @round($size/pow(1024,($i=floor(log($size,1024)))),2).' '.$unit[$i];
 	}
+
+	public static function is_ajax_request(){
+		return (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') ? true : false;
+	}
+
+	public static function escape($value) {
+		return str_replace(array("\\", "\0", "\n", "\r", "\x1a", "'", '"'), array("\\\\", "\\0", "\\n", "\\r", "\Z", "\'", '\"'), $value);
+	}
 }

@@ -29,9 +29,6 @@ Settings::Set("debug", true);
 set_error_handler( array(new Errors(),"my_error_handler") ,E_ALL);
 error_reporting(E_ALL);
 
-$cont = 5;
-$cont /= 0;
-
 //Execute controller
 $Controller = new Controller();
 $Controller->execController();
