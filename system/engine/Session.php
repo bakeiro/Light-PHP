@@ -2,11 +2,12 @@
 class Session{
 	
 	//FIXME: Fix the Session fixation vulnerability -> https://stackoverflow.com/questions/520237/how-do-i-expire-a-php-session-after-30-minutes?rq=1
-	
+	//FIXME: Make remenber me cookie
+
 	public static function start(){
 
-		//Make the session avaliable during half day (60*60*12)
-		$session_time_out = 43200;
+		//Make the session avaliable during 4h
+		$session_time_out = 14400;
 
 		if(session_status() === 0 || session_status() === 1){
 			session_start();

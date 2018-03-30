@@ -23,8 +23,14 @@
 		
 		<div id="error-console-body">
 			<?php
-			foreach(Errors::$warnings as $warning){
-				echo "<p>".$warning."</p>";
+			foreach(Errors::$exceptions as $exception){
+				
+				if($exception["type"] === "error"){
+					echo "<p><i class='material-icons red-text'>error</i>".$exception["text"]."</p>";
+				}
+				if($exception["type"] === "warning"){
+					echo "<p><i class='material-icons lime-text'>warning</i>".$exception["text"]."</p>";
+				}
 			}
 			?>
 		</div>

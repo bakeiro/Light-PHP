@@ -2,8 +2,8 @@
 
 class Errors{
 
-	public static $warnings = array();
-	public static $errors = array();
+	public static $messages = array();
+	public static $exceptions = array();
 	public static $error_handle;
 
 	public static function my_error_handler($errno, $errstr, $errfile, $errline) {
@@ -29,15 +29,18 @@ class Errors{
 		$error_string_html = '<b>' . $error . '</b>: ' . $errstr . ' in <b>' . $errfile . '</b> on line <b>' . $errline . '</b>';
 		$error_string_log = $error.' - '.$errstr.' - '.$errfile.' - '.$errline;
 		
-		Errors::$warnings[] = $error_string_html;
-	
-		if($error === "Notice"){
+		//Warning
+		if($error === "Notice" || $error === "Warning"){
+			$warning =  array("text"=>$error_string_html, "type"=> "warning");
+			Errors::$exceptions[] = $warning;
 			error_log( addslashes($error_string_log)."\n", 3, "system/logs/notice.log");
 		}
 		
-		if($error === "Warning" || $error === "Fatal Error" || $error === "Unknown"){
-			
-			Errors::$errors[] = $error_string_log;
+		//Error
+		if($error === "Fatal Error" || $error === "Unknown"){			
+			$error =  array("text"=>$error_string_html, "type"=> "error");
+			Errors::$exceptions[] = $error;
+
 			error_log( addslashes($error_string_log)."\n", 3, "system/logs/errors.log");
 	
 			if(Errors::$error_handle !== "developing"){
@@ -46,7 +49,7 @@ class Errors{
 		}
 	
 		//TODO: Add the errors and warning in the DDBB
-		//TODO: 	Use woops library
+		//TODO: Use woops library
 		
 		return true;
 	}

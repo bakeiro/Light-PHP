@@ -18,3 +18,5 @@ Settings::set("image_cache_size_medium", "***");
 Settings::set("image_cache_size_big", "***");
 
 Settings::set("start_time", microtime(true));
+
+Settings::set("console_messages", array());
