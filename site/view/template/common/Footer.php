@@ -4,12 +4,17 @@
 	<!-- Console -->
 	<?php
 		if(Settings::Get("debug")){
+
+		$end_time = microtime(true);
+		$time_script = $end_time - Settings::get("start_time");
+		$time_script = round($time_script, 4);
 	?>
 
 	<div id="error-console">
 
 		<div id="error-console-top"></div>
 		<button id="error-console-button" >Open</button>
+		<span id="error-console-script-time"> <i class="material-icons">access_time</i>  <?=$time_script;?> </span>
 		<div id="error-console-body">
 			<?php
 			foreach(Errors::$warnings as $warning){

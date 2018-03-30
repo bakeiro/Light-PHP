@@ -33,5 +33,6 @@ Created with a simple MVC structure, integrated with composer and npm, a console
 	<li>Php mailer integrated (send emails)</li>
 	<li>Error monitoring (coming soon)</li>
 	<li>Error logs</li>
+	<li>Easy rest</li>
 	<li>Cache control for CSS/JS files</li>	
 </ul>
