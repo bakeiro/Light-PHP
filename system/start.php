@@ -34,3 +34,7 @@ Loader::$styles = array();
 
 //Session
 Session::start();
+
+//array_walk_recursive($_COOKIE, 'array_clean');
+//array_walk_recursive($_GET, 'array_clean');
+//array_walk_recursive($_POST, 'array_clean');
