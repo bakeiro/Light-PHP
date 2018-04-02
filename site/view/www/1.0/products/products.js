@@ -61,7 +61,7 @@ var products = (function(){
 					<a name="prod_info" class="waves-effect waves-green btn-flat">More</a>
 				</div>
 			</div>
-		</div>`
+		</div>`;
 
 		return prod_html;
 	}
@@ -97,7 +97,7 @@ var products = (function(){
 				var prod_img = `<img src="site/view/www/images/data/${prod_data.image}" >`;
 				var prod_description = `<div class="prod_description">${prod_data.description}</div>`;
 
-				prod_html = `<div class="prod_info">${prod_img} <br> ${prod_description}`;
+				var prod_html = `<div class="prod_info">${prod_img} <br> ${prod_description}`;
 
 				modal_content.html(prod_html);
 			},
