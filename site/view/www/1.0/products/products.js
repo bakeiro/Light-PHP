@@ -51,7 +51,7 @@ var products = (function(){
 		<div class='col s6' >	
 			<div id="${prod.product_id}" class='card small'>
 				<div class="card-image">
-					<img src='site/view/images/data/${prod.image}' />
+					<img src='site/view/www/images/data/${prod.image}' />
 					<span class="card-title black-text">${prod.title}</span>
 				</div>
 				<div class="card-content">
