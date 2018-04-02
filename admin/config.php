@@ -5,9 +5,9 @@ define('DIR_ROOT','C:/xampp/htdocs/framework_php/');
 //Routes
 define('SYSTEM',DIR_ROOT.'system/');
 
-define('MODEL',DIR_ROOT.'site/admin/model/');
-define('CONTROLLER',DIR_ROOT.'site/admin/controller/');
-define('VIEW',DIR_ROOT.'site/admin/view/');
+define('MODEL',DIR_ROOT.'admin/model/');
+define('CONTROLLER',DIR_ROOT.'admin/controller/');
+define('VIEW',DIR_ROOT.'admin/view/');
 
 //DDBB
 define('CONN_HOST','localhost');
