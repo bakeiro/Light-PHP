@@ -20,3 +20,5 @@ Settings::set("image_cache_size_big", "***");
 Settings::set("start_time", microtime(true));
 
 Settings::set("console_messages", array());
+
+Settings::set("session_frontend_time", 14400); //4h

@@ -6,8 +6,7 @@ class Session{
 
 	public static function start(){
 
-		//Make the session avaliable during 4h
-		$session_time_out = 14400;
+		$session_time_out = Settings::get("session_frontend_time");
 
 		if(session_status() === 0 || session_status() === 1){
 			session_start();

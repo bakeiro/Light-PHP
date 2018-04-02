@@ -33,7 +33,7 @@ class Errors{
 		if($error === "Notice" || $error === "Warning"){
 			$warning =  array("text"=>$error_string_html, "type"=> "warning");
 			Errors::$exceptions[] = $warning;
-			error_log( addslashes($error_string_log)."\n", 3, "system/logs/notice.log");
+			error_log( addslashes($error_string_log)."\n", 3, SYSTEM."logs/notice.log");
 		}
 		
 		//Error
@@ -41,7 +41,7 @@ class Errors{
 			$error =  array("text"=>$error_string_html, "type"=> "error");
 			Errors::$exceptions[] = $error;
 
-			error_log( addslashes($error_string_log)."\n", 3, "system/logs/errors.log");
+			error_log( addslashes($error_string_log)."\n", 3, SYSTEM."logs/errors.log");
 	
 			if(Errors::$error_handle !== "developing"){
 				//Errors::sendEmail($error_string_html);
