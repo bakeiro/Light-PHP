@@ -25,7 +25,7 @@ require("config_data.php");
 Settings::set('cache_version', '1.0');
 
 //Errors
-Settings::Set("debug", true);
+Settings::Set("debug", false);
 set_error_handler( array(new Errors(),"my_error_handler") ,E_ALL);
 error_reporting(E_ALL);
 
