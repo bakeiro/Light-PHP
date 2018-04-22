@@ -4,7 +4,7 @@
 	<div class="admin_login">
 		<form method="POST" action="index.php?route=login/login/checkLogin">
 
-			<!-- Offset is missing to center -->
+			<!-- FIXME: Offset is missing to center -->
 			<!-- Offset s2 -->
 			<div class="row">
 				<div class="input-field col s8">
