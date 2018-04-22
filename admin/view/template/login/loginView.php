@@ -1,24 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Document</title>
-</head>
-<body>
-	
-	<form method="POST" action="index.php?route=login/login/checkLogin">
 
-		<span>User</span>
-		<input type="text"><br>
+<div class="container">
 
-		<span>Pass</span>
-		<input type="password"><br>
-	
-		<button type="submit">Login</button>
-	
-	</form>
+	<div class="admin_login">
+		<form method="POST" action="index.php?route=login/login/checkLogin">
 
-</body>
-</html>
+			<!-- Offset is missing to center -->
+			<!-- Offset s2 -->
+			<div class="row">
+				<div class="input-field col s8">
+					<i class="material-icons prefix">account_circle</i>
+					<input value="" id="name" type="text" class="validate">
+					<label class="active" for="name">Name</label>
+				</div>
+
+				<div class="input-field col s8">
+					<i class="material-icons prefix">account_circle</i>
+					<input value="" id="pass" type="password" class="validate">
+					<label class="active" for="pass">pass</label>
+				</div>
+			</div>
+
+			<br>
+			<button class="waves-effect waves-light btn" type="submit">Login</button>
+		</form>
+	</div>
+
+</div>
