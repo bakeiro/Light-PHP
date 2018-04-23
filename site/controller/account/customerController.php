@@ -11,5 +11,11 @@ class customerController{
 		Output::load(VIEW."template/account/loginView.php", $data);
 	}
 
+	public function logout(){
+		Session::set("logged", false);
+		Session::set("customer_id", "");
+		header("location: index.php?index/index");
+	}
+
 
 }
