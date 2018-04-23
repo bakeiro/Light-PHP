@@ -15,7 +15,8 @@ class loginController{
 			header("location: index.php?route=dashboard/dashboard");
 		}else{
 
-			$this->logout();
+			//$this->logout();
+			Session::set("logged", false);
 			Output::load(VIEW."template/login/loginView.php");
 		}
 	}
@@ -25,14 +26,20 @@ class loginController{
 	}
 
 	public function logout(){
-		Session::set("logged", false);
-		
+
 		$cont = 5;
 		$cont /= 0;
 		//throw new Exception("test"); //FIXME: why stops the execution??
+		
+		Session::set("logged", false);
+		Output::load(VIEW."template/login/loginView.php");
 	}
 
 	public function loginPage(){
 		Output::load(VIEW."template/login/loginView.php");
+	}
+
+	public function exit(){
+
 	}
 }

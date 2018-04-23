@@ -14,7 +14,7 @@ class customerController{
 	public function logout(){
 		Session::set("logged", false);
 		Session::set("customer_id", "");
-		header("location: index.php?index/index");
+		header("location: index.php?index/index"); //TODO: Add a message to show
 	}
 
 
