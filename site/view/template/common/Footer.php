@@ -18,18 +18,5 @@
 			require(VIEW."template/common/Console.php");
 		}
 	?>
-
-	<script>
-	
-		$(document).ready(function(){
-			$("div#login_modal").modal();
-		});
-
-		$("body").on("click", "a[name='open_login_modal']", function(){
-			$("div#login_modal").modal("open");
-		});
-
-	</script>
-
 </body>
 </html>
