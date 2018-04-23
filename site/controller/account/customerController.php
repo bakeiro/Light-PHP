@@ -2,7 +2,8 @@
 class customerController{
 
 	public function info(){
-		//Get info from the logged account
+		$data = array();
+		Output::load(VIEW."template/account/infoView.php", $data);
 	}
 
 	public function login(){
