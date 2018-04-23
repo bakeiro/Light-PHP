@@ -16,10 +16,8 @@ require(SYSTEM . 'engine/Errors.php');
 require(SYSTEM . 'engine/Loader.php');
 
 //Bootstrap
-require(SYSTEM. "Start.php");
-
-//Conf
 require("config_data.php");
+require(SYSTEM. "Start.php");
 
 //Cache
 Settings::set('cache_version', '1.0');

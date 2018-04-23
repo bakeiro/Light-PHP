@@ -22,3 +22,16 @@
 
 </head>
 <body>
+
+<div id="main">
+
+<?php
+	foreach(Errors::$exceptions as $exception){			
+		if($exception["type"] === "error"){
+			echo "<p><i class='material-icons red-text'>error</i>".$exception["text"]."</p>";
+		}
+		if($exception["type"] === "warning"){
+			echo "<p><i class='material-icons red-text'>error</i>".$exception["text"]."</p>";
+		}
+	}
+?>

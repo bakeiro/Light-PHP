@@ -53,6 +53,10 @@ class Errors{
 		
 		return true;
 	}
+
+	public static function createError($message){
+		//TODO: Finish here
+	}
 	
 	public static function sendEmail($message){
 	

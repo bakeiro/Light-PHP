@@ -41,7 +41,7 @@ class Controller{
 		//Method
 		require_once($this->file);
 		if (method_exists($this->class, $this->method) === false) {
-			$this->file = $temp_route . 'error/errorController.php';
+			$this->file = CONTROLLER . 'error/errorController.php';
 			$this->method = 'notFound';
 			$this->class = 'errorController';
 		}

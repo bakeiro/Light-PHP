@@ -1,4 +1,4 @@
-<!-- Define here the sidenav, header, etc -->
+<!-- Define here the sidenav, header etc -->
 
 <div class="container">
 	
