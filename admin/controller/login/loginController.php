@@ -21,7 +21,7 @@ class loginController{
 			$cont /= 0;
 
 			Session::set("logged", false);
-			Output::load(VIEW."template/login/loginView.php");
+			Output::rawload(VIEW."template/login/loginView.php");
 		}
 	}
 
@@ -40,7 +40,7 @@ class loginController{
 	}
 
 	public function loginPage(){
-		Output::load(VIEW."template/login/loginView.php");
+		Output::rawload(VIEW."template/login/loginView.php");
 	}
 
 	public function exit(){

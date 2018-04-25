@@ -23,7 +23,10 @@ class Output{
 	//TODO: Merge rawload and restLoad??
 
     public function rawLoad($route,$data = array()){
-        //Load with no JS/CSS/Template
+		ob_start();
+        extract($data);
+        require($route);
+		ob_end_flush();
 	}
 
 	public function restLoad($json){
