@@ -1,3 +1,3 @@
-</div> <!-- /#main -->
+</main> <!-- /#main -->
 </body>
 </html>

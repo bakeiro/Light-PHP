@@ -24,7 +24,7 @@
 <body>
 
 <nav>
-    <div class="nav-wrapper">
+    <div class="nav-wrapper blue lighten-2">
 		<a href="index.php?route=index/index" class="brand-logo">site</a>
 		<ul id="nav-mobile" class="right hide-on-med-and-down">
 			<li><a href="index.php?route=product/product">Products</a></li>

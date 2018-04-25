@@ -14,8 +14,10 @@
 	<!-- Custom resources -->
 	<link href="<?=$host?>/admin/view/www/<?=$cache?>/admin/admin.css" rel="stylesheet">
 	
-	<!-- Materialize -->
+	<!-- Materialize 
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	-->
+	<link href="http://frame.localhost/site/view/www/fonts/google_icons.css" rel="stylesheet">
     <link href="<?=$host?>/site/view/www/node_modules/materialize-css/dist/css/materialize.min.css" rel="stylesheet">
 	<script src="<?=$host?>/site/view/www/node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="<?=$host?>/site/view/www/node_modules/materialize-css/dist/js/materialize.min.js"></script> 
@@ -23,7 +25,30 @@
 </head>
 <body>
 
-<div id="main">
+<!-- Sidenav -->
+<div class="sidenav">
+	
+	<ul id="slide-out" class="side-nav fixed">
+		<li>
+		<div class="user-view blue lighten-2">
+			<a href="#!name"><span class="white-text name">John Doe</span></a>
+			<a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+		</li>
+		<li><a href="index.php?route=dashboard/dashboard">Dashboard</a></li>
+		<li><a href="index.php?route=database/database">Database</a></li>
+		<li><div class="divider"></div></li>
+		<li><a class="waves-effect grey-text" href="index.php?route=footer/footer">Footer</a></li>
+		<li><a class="grey-text" href="index.php?route=login/login/logout">Log out</a></li>
+  	</ul>
+
+  	<a href="#" data-activates="slide-out" class="button-collapse hide-on-large-only"><i class="material-icons">menu</i></a>
+</div>
+<script>
+	$(".button-collapse").sideNav();
+</script>
+
+<!-- Main content -->
+<main class="container" id="main">
 
 <?php
 	foreach(Errors::$exceptions as $exception){			

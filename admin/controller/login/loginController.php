@@ -16,6 +16,10 @@ class loginController{
 		}else{
 
 			//$this->logout();
+			
+			$cont = 5;
+			$cont /= 0;
+
 			Session::set("logged", false);
 			Output::load(VIEW."template/login/loginView.php");
 		}
