@@ -31,8 +31,8 @@
 	<ul id="slide-out" class="side-nav fixed">
 		<li>
 		<div class="user-view blue lighten-2">
-			<a href="#!name"><span class="white-text name">John Doe</span></a>
-			<a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+			<a href="#!name"><span class="white-text name"><?=Session::get("admin_name")?></span></a>
+			<a href="#!email"><span class="white-text email"><?=Session::get("admin_email")?></span></a>
 		</li>
 		<li><a href="index.php?route=dashboard/dashboard">Dashboard</a></li>
 		<li><a href="index.php?route=database/database">Database</a></li>

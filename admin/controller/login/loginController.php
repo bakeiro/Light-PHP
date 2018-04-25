@@ -10,6 +10,8 @@ class loginController{
 		$user = Connection::makeQuery("SELECT * FROM user WHERE `name` = '".$user_name."' AND `password` = '".$pass."' ");
 	
 		if(!empty($user)){
+			Session::set("admin_name", $user["name"]);
+			Session::set("admin_email", $user["email"]);
 			$this->login();
 		}else{
 			$this->logout();
