@@ -17,6 +17,12 @@
 	<br><br>
 	<div class="container">
 
+	<?php
+		if( Session::get("login_msg") !== null && Session::get("login_msg") !== ""){
+			echo "Login incorrect!";
+		}
+	?>
+
 		<form method="POST" action="index.php?route=login/login/checkLogin">
 			<div class="row">
 				<div class="col s8 offset-s2">
