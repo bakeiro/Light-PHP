@@ -36,6 +36,7 @@
 		</li>
 		<li><a href="index.php?route=dashboard/dashboard">Dashboard</a></li>
 		<li><a href="index.php?route=database/database">Database</a></li>
+		<li><a href="index.php?route=error_managent/error_managent">Error managent</a></li>
 		<li><div class="divider"></div></li>
 		<li><a class="waves-effect grey-text" href="index.php?route=footer/footer">Footer</a></li>
 		<li><a class="grey-text" href="index.php?route=login/login/logout">Log out</a></li>

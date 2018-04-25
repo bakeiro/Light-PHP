@@ -23,7 +23,7 @@ require(SYSTEM. "Start.php");
 Settings::set('cache_version', '1.0');
 
 //Errors
-Settings::Set("debug", false);
+Settings::Set("debug", true);
 set_error_handler( array(new Errors(),"my_error_handler") ,E_ALL);
 error_reporting(E_ALL);
 

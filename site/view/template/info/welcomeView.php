@@ -27,7 +27,7 @@ Created with a simple MVC structure, integrated with composer and npm, a console
 	<li>Self explained code</li>
 	<li>Easy structure</li>
 	<li>Social Login (coming soon)</li>
-	<li>Admin panel (coming soon)</li>
+	<li>Admin panel</li>
 	<li>Database included</li>
 	<li>Console to debug PHP errors</li>
 	<li>Php mailer integrated (send emails)</li>
