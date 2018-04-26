@@ -1,11 +1,19 @@
 # Light-PHP
-Just an simple MVC PHP application, useful for small projects and quick prototypes :)
+Micro PHP framework :)
+
+Light-PHP makes possible start working without reading in massive documentations of highly complex professional frameworks, if this is the case, then Light-PHP might be very useful for you. Light-PHP is easy to install, runs nearly everywhere and doesn't make things more complicated than necessary.
 
 ## Features
-- extremely simple, easy to understand
-- simple but clean structure
-- native PHP code
+- Extremely simple, easy to understand
+- Simple but clean structure
+- Native PHP code
+- Comes with a sample proyect (database, sample pages, admin panel, AJAX calls, API and much more!)
+- Console to debug PHP errors and messages
+- Configuration file depending enviroment
+- Much more!
 
+[![GitHub issues](https://img.shields.io/github/issues/bakeiro/Light-PHP.svg)](https://github.com/bakeiro/Light-PHP/issues)
+[![GitHub license](https://img.shields.io/github/license/bakeiro/Light-PHP.svg)](https://github.com/bakeiro/Light-PHP)
 
 ## License
 
