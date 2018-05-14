@@ -15,6 +15,27 @@
 <p>
 Created with a simple MVC structure, integrated with composer and npm, a console to debug the errors and warnings, admin panel and more!
 </p>
+
+<br>
+<div class="row">
+
+	<div class="col s6">
+		<h4>Controller</h4>
+		<img class="welcome" src="site/view/www/images/data/welcome/1.png" alt="">
+	</div>
+
+	<div class="col s6 offset-s6">
+		<h4>Model</h4>
+		<img class="welcome" src="site/view/www/images/data/welcome/2.png" alt="">
+	</div>
+
+	<div class="col s6">
+		<h4>View</h4>
+		<img class="welcome" src="site/view/www/images/data/welcome/3.png" alt="">
+	</div>
+</div>
+
+
 <br>
 
 <h4>Features:</h4>
