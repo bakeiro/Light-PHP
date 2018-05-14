@@ -1,6 +1,6 @@
 /system/logs/*
 /system/libraries/vendor/*
 /site/view/www/node_modules/*
-/site/view/images/*
+/site/view/www/images/*
 /.vscode/*
 Config.php
