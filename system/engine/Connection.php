@@ -8,27 +8,36 @@ class Connection{
        return Connection::$CONN;
     }
 
-   	static function makeQuery($sql_query){
+   	static function query($sql_query){
 		
 		$data = array();
 		$query = Connection::$CONN->query($sql_query);
 
-		while ($row = $query->fetch_assoc()) {
-			$data[] = $row;
-		}
-		$query->close();
+		//Select
+		if(gettype($query) === "object"){
+			
+			while ($row = $query->fetch_assoc()) {
+				$data[] = $row;
+			}
 
-		if(count($data) === 0){
-			$data = false;
+			if(count($data) === 0){
+				$data = false;
+			}
+			if(count($data) === 1){
+				$data = $data[0];
+			}
+			
+			$query->close();
+		}else{
+
+			//Insert
+			if(strpos($sql_query, "INSERT INTO")){
+				$data = Connection::$CONN->insert_id();
+			}
+
 		}
-		if(count($data) === 1){
-			$data = $data[0];
-		}
+
 		return $data;
-    }
-
-    static function execQuery($query){
-        Connection::$CONN->query($query);
     }
 
     static function getLastId(){

@@ -7,7 +7,7 @@ class loginController{
 		$pass = $_POST['pass'];
 
 		//FIXME: Implement the hash in the ddbb, not a simple select
-		$user = Connection::makeQuery("SELECT * FROM user WHERE `name` = '".$user_name."' AND `password` = '".$pass."' ");
+		$user = Connection::query("SELECT * FROM user WHERE `name` = '".$user_name."' AND `password` = '".$pass."' ");
 	
 		if(!empty($user)){
 			Session::set("admin_name", $user["name"]);
