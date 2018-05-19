@@ -3,7 +3,7 @@
 //Config
 require('config.php');
 
-//Load
+//Engine
 require(SYSTEM . 'engine/Settings.php');
 require(SYSTEM . 'engine/Url.php');
 require(SYSTEM . 'engine/Controller.php');
@@ -26,6 +26,9 @@ Settings::set('cache_version', '1.0');
 Settings::Set("debug", false);
 set_error_handler( array(new Errors(),"my_error_handler") ,E_ALL);
 error_reporting(E_ALL);
+
+//escape $_POST,$_GET,$_COOKIE
+Util::cleanInput();
 
 //Execute controller
 $Controller = new Controller();

@@ -24,4 +24,51 @@ class Util{
 	public static function escape($value) {
 		return str_replace(array("\\", "\0", "\n", "\r", "\x1a", "'", '"'), array("\\\\", "\\0", "\\n", "\\r", "\Z", "\'", '\"'), $value);
 	}
+
+	static function deleteSpacesAtEndAndBegining($string){
+
+        if($string !== "" && $string !== " "){
+            $i = 0;
+            $len = strlen($string);
+
+            //Spaces at the begining
+            for($i; $i < $len; $i++){
+                if($string[$i] === " "){
+                    if($i === 0){
+                        $string = substr($string, 1);
+                        $len = strlen($string);
+                        $i = -1;
+                    }
+                }
+            }
+
+            //Spaces at the end
+            $i = strlen($string);
+
+            for($i; $i >= 0; $i--){
+                if($string[$i-1] === " "){
+                    if($i === strlen($string)){
+                        $string = substr($string, 0, ($i - 1));
+                        $i = strlen($string) + 1;
+                    }else{
+                        break;
+                    }
+                }
+            }
+        }       
+
+        return $string;
+	}
+	
+	static function cleanInput(){
+
+		function array_clean(&$value) {
+			$value = Util::deleteSpacesAtEndAndBegining($value);
+			$value = Util::escape($value);
+		}
+		
+		array_walk_recursive($_GET, 'array_clean');
+		array_walk_recursive($_POST, 'array_clean');
+		array_walk_recursive($_COOKIE, 'array_clean');
+	}
 }
