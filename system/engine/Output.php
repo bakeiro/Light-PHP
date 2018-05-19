@@ -11,7 +11,7 @@ class Output{
         extract($data);
 		
         require(VIEW.'template/common/Header.php');
-        require($route);
+        require(VIEW.'template/'.$route.'.php');
         require(VIEW.'template/common/Footer.php');
 		
 		ob_end_flush();

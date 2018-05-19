@@ -2,7 +2,7 @@
 class loginController{
 
 	public function register(){
-		Output::Load(VIEW."template/login/registerView.php");
+		Output::load("login/registerView");
 	}
 
 	public function login(){

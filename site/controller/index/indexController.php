@@ -2,15 +2,15 @@
 class indexController{
 
 	public function index(){	
-		Output::load(VIEW.'template/info/welcomeView.php',array());
+		Output::load("info/welcomeView",array());
 	}
 
 	public function about(){
-		Output::load(VIEW.'template/info/aboutView.php',array());
+		Output::load("info/aboutView",array());
 	}
 
 	public function welcome(){
-		Output::load(VIEW.'template/welcome/welcomeView.php',array());
+		Output::load("welcome/welcomeView",array());
 	}
 
 	public function test(){

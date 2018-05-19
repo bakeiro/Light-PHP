@@ -26,11 +26,11 @@ class loginController{
 	public function logout(){
 		Session::set("login_msg", "User incorrect");
 		Session::set("logged", false);
-		Output::rawload(VIEW."template/login/loginView.php");
+		Output::rawload("login/loginView.php");
 	}
 
 	public function loginPage(){
-		Output::rawload(VIEW."template/login/loginView.php");
+		Output::rawload("login/loginView.php");
 	}
 
 	public function exit(){

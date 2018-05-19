@@ -3,12 +3,12 @@ class customerController{
 
 	public function info(){
 		$data = array();
-		Output::load(VIEW."template/account/infoView.php", $data);
+		Output::load("account/infoView", $data);
 	}
 
 	public function login(){
 		$data = array();
-		Output::load(VIEW."template/account/loginView.php", $data);
+		Output::load("account/loginView", $data);
 	}
 
 	public function logout(){
