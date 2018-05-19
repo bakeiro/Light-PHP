@@ -1,7 +1,9 @@
-
 <h3>Welcome to Light-php</h3>
 
-<p>Simple MVC Php framework, done to be the most simple possible and easy to understand</p>
+<p>
+	Simple MVC framework in PHP, done to be the most simple possible and easy to understand
+</p>
+
 <ul>
 	<li><i class="material-icons small">build</i>Powerfull</li>
 	<li><i class="material-icons small blue-text">flash_on</i>Fast</li>
@@ -11,26 +13,21 @@
 </ul>
 
 <br>
-<h4>How it works</h4>
-<p>
-Created with a simple MVC structure, integrated with composer and npm, a console to debug the errors and warnings, admin panel and more!
-</p>
 
-<br>
 <div class="row">
 
 	<div class="col s6">
-		<h4>Controller</h4>
+		<h5>Controller</h5>
 		<img class="welcome" src="site/view/www/images/data/welcome/1.png" alt="">
 	</div>
 
 	<div class="col s6 offset-s6">
-		<h4>Model</h4>
+		<h5>Model</h5>
 		<img class="welcome" src="site/view/www/images/data/welcome/2.png" alt="">
 	</div>
 
 	<div class="col s6">
-		<h4>View</h4>
+		<h5>View</h5>
 		<img class="welcome" src="site/view/www/images/data/welcome/3.png" alt="">
 	</div>
 </div>
