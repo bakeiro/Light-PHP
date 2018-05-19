@@ -1,5 +1,10 @@
 <?php
 
+//Engine
+Settings::set("start_time", microtime(true));
+Settings::set("console_messages", array());
+
+//Config
 Settings::set("site_name", "Backend");
 Settings::set("site_description", "Backend");
 Settings::set("site_creator", "David Baqueiro Santerbás");
@@ -16,9 +21,5 @@ Settings::set("email_from_name", "***");
 Settings::set("image_cache_size_small", "***");
 Settings::set("image_cache_size_medium", "***");
 Settings::set("image_cache_size_big", "***");
-
-Settings::set("start_time", microtime(true));
-
-Settings::set("console_messages", array());
 
 Settings::set("session_frontend_time", 14400); //4h
