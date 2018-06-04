@@ -14,6 +14,8 @@ require(SYSTEM . 'engine/Connection.php');
 require(SYSTEM . 'engine/Util.php');
 require(SYSTEM . 'engine/Errors.php');
 require(SYSTEM . 'engine/Loader.php');
+require(SYSTEM . 'engine/Model.php');
+//require(SYSTEM . 'engine/Controller.php');
 
 //Bootstrap
 require("config_data.php");
@@ -23,7 +25,7 @@ require(SYSTEM. "Start.php");
 Settings::set('cache_version', '1.0');
 
 //Errors
-Settings::Set("debug", true);
+Settings::Set("debug", false);
 set_error_handler( array(new Errors(),"my_error_handler") ,E_ALL);
 error_reporting(E_ALL);
 

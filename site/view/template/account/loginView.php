@@ -24,7 +24,7 @@
 						url: "index.php?rest=api/customerApi/checkLogin",
 						dataType: "json",
 						data: $("input[name='pass'], input[name='email']"),
-						method: "POST",
+						method: "POST",	
 						beforeSend: function(){
 						},
 						complete: function(){
@@ -48,8 +48,8 @@
 								window.location.href = "index.php?route=index/index";
 							}
 						},
-						error: function(){
-							console.log("something happend!");
+						error: function(xhr, ajaxOptions, thrownError){
+							alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
 						}
 					});
 				});
