@@ -63,8 +63,9 @@ class Util{
 	static function cleanInput(){
 
 		function array_clean(&$value) {
-			$value = Util::deleteSpacesAtEndAndBegining($value);
-			$value = Util::escape($value);
+			$value = Util::deleteSpacesAtEndAndBegining($value); //Duplicated values
+			$value = Util::escape($value); //SQL injections
+			$value = strip_tags($value); //Avoid XSS attacks
 		}
 		
 		array_walk_recursive($_GET, 'array_clean');

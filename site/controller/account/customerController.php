@@ -1,5 +1,5 @@
 <?php
-class customerController{
+class customerController extends Controller{
 
 	public function info(){
 		$data = array();
