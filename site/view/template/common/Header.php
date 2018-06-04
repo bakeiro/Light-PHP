@@ -12,7 +12,7 @@
 	<?php $host = Url::$host; ?>
 
 	<!-- my resources -->
-	<link href="<?=$host?>/site/view/www/<?=$cache?>/site/site.css" rel="stylesheet">
+	<link href="<?=$host?>/site/view/www/build/<?=$cache?>/site/site.css" rel="stylesheet">
 	
 	<!-- Materialize -->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">

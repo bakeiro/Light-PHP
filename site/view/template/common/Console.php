@@ -31,5 +31,5 @@
 		</div>
 	</div>
 
-	<script src="site/view/www/<?=$cache?>/console/console.js"></script>
-	<link rel="stylesheet" href="site/view/www/<?=$cache?>/console/console.css">
+	<script src="site/view/www/build/<?=$cache?>/console/console.js"></script>
+	<link rel="stylesheet" href="site/view/www/build/<?=$cache?>/console/console.css">
