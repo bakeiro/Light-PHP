@@ -11,7 +11,8 @@
 	"globals": {
 		"$": true,
 		"window": true,
-		"console": true
+		"console": true,
+		"e": true
     },
     "rules": {
         "indent": [
