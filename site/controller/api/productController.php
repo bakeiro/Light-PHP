@@ -1,5 +1,5 @@
 <?php
-class productController{
+class productController extends Controller{
 
 	public function getProdPage($page = 0){
 

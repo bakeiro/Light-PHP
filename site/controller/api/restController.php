@@ -1,5 +1,5 @@
 <?php
-class restController{
+class restController extends Controller{
 
 	public function index(){
 

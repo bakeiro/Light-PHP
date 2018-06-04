@@ -1,5 +1,5 @@
 <?php
-class loginController{
+class loginController extends Controller{
 
 	public function register(){
 		Output::load("login/registerView");

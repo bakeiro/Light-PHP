@@ -1,6 +1,6 @@
 <?php
 
-class errorController{
+class errorController extends Controller{
 
     function notFound(){
 

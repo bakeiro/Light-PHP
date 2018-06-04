@@ -1,5 +1,5 @@
 <?php
-class indexController{
+class indexController extends Controller{
 
 	public function index(){	
 		Output::load("info/welcomeView",array());
