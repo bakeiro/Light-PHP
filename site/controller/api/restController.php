@@ -7,7 +7,7 @@ class restController extends Controller{
 
 		Url::$action = Url::$restController;
 
-		$rest_controller = new Controller();
+		$rest_controller = new EngController();
 		$output = $rest_controller->execRest();
 
 		if($rest_controller->class !== "errorController"){
