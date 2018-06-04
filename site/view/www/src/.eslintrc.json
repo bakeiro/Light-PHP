@@ -9,7 +9,9 @@
         "sourceType": "module"
 	},
 	"globals": {
-        "$": true
+		"$": true,
+		"window": true,
+		"console": true
     },
     "rules": {
         "indent": [
