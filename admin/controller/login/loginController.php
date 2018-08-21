@@ -14,7 +14,8 @@ class loginController{
 			Session::set("admin_email", $user["email"]);
 			$this->login();
 		}else{
-			$this->logout();
+			Session::set("login_msg", "Incorrect password");
+			header("location: index.php");
 		}
 	}
 	
@@ -24,13 +25,13 @@ class loginController{
 	}
 
 	public function logout(){
-		Session::set("login_msg", "User incorrect");
+		Session::set("login_msg", "Logged out");
 		Session::set("logged", false);
-		Output::rawload("login/loginView.php");
+		Output::rawload("login/loginView");
 	}
 
 	public function loginPage(){
-		Output::rawload("login/loginView.php");
+		Output::rawload("login/loginView");
 	}
 
 	public function exit(){

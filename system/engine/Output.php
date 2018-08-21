@@ -20,12 +20,10 @@ class Output{
     public function gZipLoad($route,$data){
     }
 
-	//TODO: Merge rawload and restLoad??
-
-    public function rawLoad($route,$data = array()){
+    public static function rawLoad($route,$data = array()){
 		ob_start();
         extract($data);
-        require($route);
+        require(VIEW.'template/'.$route.'.php');
 		ob_end_flush();
 	}
 
