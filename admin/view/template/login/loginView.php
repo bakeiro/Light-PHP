@@ -27,7 +27,7 @@
 					if(Session::get("login_msg")){
 
 						$alert_html = '
-						<div class="col s12 m7">
+						<div class="col s8 offset-s2">
 							<div class="card horizontal yellow lighten-2 black-text">
 								<div class="card-stacked">
 									<div class="card-content">
