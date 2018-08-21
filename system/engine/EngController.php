@@ -30,7 +30,7 @@ class EngController{
 	}
 
 	public function checkController(){
-		
+
 		//File
 		if (!file_exists($this->file)) {
 			$this->file = CONTROLLER . 'error/errorController.php';
@@ -44,6 +44,7 @@ class EngController{
 			$this->file = CONTROLLER . 'error/errorController.php';
 			$this->method = 'notFound';
 			$this->class = 'errorController';
+			require_once($this->file);
 		}
 	}
 
