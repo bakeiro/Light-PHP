@@ -1,7 +1,7 @@
-<h3>Account</h3>
 
-<i class="material-icons prefix">account_circle</i>
-<?=$first_name?> <?=$last_name?>
+<h3> <i class="material-icons medium prefix">account_circle</i> <?=$first_name?> <?=$last_name?></h3>
+
+
 
 <br><br>
 

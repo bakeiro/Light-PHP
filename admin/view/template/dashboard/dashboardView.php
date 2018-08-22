@@ -1,6 +1,7 @@
-<h1>Dashboard!</h1>
+<h3><i class="material-icons medium">timeline</i>Dashboard</h3>
 
-<p>Here comes all the info</p>
+<p>Visits today: x</p>
 
-<br><br>
-<p>test</p>
+<p>Visits month: x</p>
+
+<p>Most saw product</p>
