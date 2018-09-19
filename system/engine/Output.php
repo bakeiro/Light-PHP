@@ -38,11 +38,11 @@ class Output{
 	}
 
 	public static function load_js($js_route){
-        Output::$scripts[] = '<script src="site/view/www/build/' . Settings::Get("cache_version") . '/' .$js_route . '.js" > </script>';
+        Output::$scripts[] = '<script src="site/view/www/build/' . Config::Get("cache_version") . '/' .$js_route . '.js" > </script>';
     }
 
 	public static function load_css($css_route){
-        Output::$styles[] = '<link href="site/view/www/build/' . Settings::Get("cache_version") . '/' .$css_route.'.css" rel="stylesheet">';
+        Output::$styles[] = '<link href="site/view/www/build/' . Config::Get("cache_version") . '/' .$css_route.'.css" rel="stylesheet">';
     }
 	
 }

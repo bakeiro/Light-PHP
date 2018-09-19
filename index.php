@@ -4,7 +4,7 @@
 require('config.php');
 
 //Engine
-require(SYSTEM . 'engine/Settings.php');
+require(SYSTEM . 'engine/Config.php');
 require(SYSTEM . 'engine/Url.php');
 require(SYSTEM . 'engine/Controller.php');
 require(SYSTEM . 'engine/Session.php');
@@ -21,10 +21,10 @@ require("config_data.php");
 require(SYSTEM. "Start.php");
 
 //Cache
-Settings::set('cache_version', '1.0');
+Config::set('cache_version', '1.0');
 
 //Errors
-Settings::Set("debug", false);
+Config::Set("debug", false);
 set_error_handler( array(new Errors(),"my_error_handler") ,E_ALL);
 error_reporting(E_ALL);
 

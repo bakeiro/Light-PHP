@@ -8,7 +8,7 @@
     <title>Light PHP</title>
 
 	<!-- Resources -->
-	<?php $cache = Settings::Get("cache_version"); ?>
+	<?php $cache = Config::Get("cache_version"); ?>
 	<?php $host = Url::$host; ?>
 
 	<!-- Custom resources -->

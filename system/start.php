@@ -35,4 +35,4 @@ Output::$styles = array();
 //Session
 Session::start();
 
-Settings::set("loaded", true);
+Config::set("loaded", true);

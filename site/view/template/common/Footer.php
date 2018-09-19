@@ -14,7 +14,7 @@
 
 	<!-- Console -->
 	<?php
-		if(Settings::Get("debug")){
+		if(Config::Get("debug")){
 			require(VIEW."template/common/Console.php");
 		}
 	?>

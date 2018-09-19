@@ -6,7 +6,7 @@ class Session{
 
 	public static function start(){
 
-		$session_time_out = Settings::get("session_frontend_time");
+		$session_time_out = Config::get("session_frontend_time");
 
 		if(session_status() === 0 || session_status() === 1){
 			session_start();

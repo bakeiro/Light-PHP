@@ -3,7 +3,7 @@
 class SecModel{
 
 	public function __construct(){
-		if(!Settings::get("loaded")){
+		if(!Config::get("loaded")){
 			die("Error, engine not loaded");
 		}
 	}

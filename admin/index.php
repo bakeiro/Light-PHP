@@ -17,7 +17,7 @@ require("config_data.php");
 require(SYSTEM. "Start.php");
 
 //Cache
-Settings::set('cache_version', '1.0');
+Config::set('cache_version', '1.0');
 
 //Errors
 error_reporting(E_ALL);

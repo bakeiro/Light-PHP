@@ -4,11 +4,11 @@
 		$memory = Util::convert(memory_get_usage(true));
 		
 		$end_time = microtime(true);
-		$time_script = $end_time - Settings::get("start_time");
+		$time_script = $end_time - Config::get("start_time");
 		$time_script = round($time_script, 4);
 
 		//Cache
-		$cache = Settings::Get("cache_version");
+		$cache = Config::Get("cache_version");
 	?>
 
 	<div id="error-console">

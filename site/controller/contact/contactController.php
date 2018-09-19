@@ -20,15 +20,15 @@ class contactController extends SecController{
 
 			//$mail->SMTPDebug = 2;
 			$mail->isSMTP();
-			$mail->Host = Settings::get("email_host");
+			$mail->Host = Config::get("email_host");
 			$mail->SMTPAuth = true;
-			$mail->Username = Settings::get("email_username");
-			$mail->Password = Settings::get("email_pass");
+			$mail->Username = Config::get("email_username");
+			$mail->Password = Config::get("email_pass");
 			$mail->SMTPSecure = 'tls';
-			$mail->Port = Settings::get("email_port");
+			$mail->Port = Config::get("email_port");
 
 			//Recipients
-			$mail->setFrom(Settings::get("email_from"), Settings::get("email_from_name"));
+			$mail->setFrom(Config::get("email_from"), Config::get("email_from_name"));
 			$mail->addAddress('ellen@example.com');
 			//$mail->addReplyTo('info@example.com', 'Information');
 			//$mail->addCC('cc@example.com');
