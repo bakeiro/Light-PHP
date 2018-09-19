@@ -13,8 +13,8 @@
 		<div id="error-console-top"></div>
 		<button id="error-console-button" >Open</button>
 		
-		<span id="error-console-script-time"> <i class="material-icons">access_time</i>  <?=$time_script;?> </span>
-		<span id="error-console-script-memory"> <i class="material-icons">dns</i>  <?=$memory;?> </span>
+		<span id="error-console-script-time"> <i class="material-icons">access_time</i>  {%time_script%} </span>
+		<span id="error-console-script-memory"> <i class="material-icons">dns</i>  {%memory%} </span>
 		
 		<div id="error-console-body">
 			<?php
