@@ -32,6 +32,9 @@ error_reporting(E_ALL);
 //escape $_POST,$_GET,$_COOKIE
 Util::cleanInput();
 
+//Autoload composer libraries
+require(SYSTEM."libraries/vendor/autoload.php");
+
 //Execute controller
 $Controller = new EngController();
 $Controller->execController();

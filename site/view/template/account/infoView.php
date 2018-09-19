@@ -1,5 +1,5 @@
 
-<h3> <i class="material-icons medium prefix">account_circle</i> <?=$first_name?> <?=$last_name?></h3>
+<h3> <i class="material-icons medium prefix">account_circle</i> {%first_name%} {%last_name%}</h3>
 
 
 

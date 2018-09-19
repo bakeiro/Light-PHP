@@ -1,20 +1,18 @@
 <?php
 
+use bakeiro\templateLoader;
+
 class Output{
 
     public static function Load($route, $data = array()){
 
-		//TODO: Headers ??
-		//TODO: Gzip ??
+		$templateLoader = new templateLoader();
+		
+		$content = $templateLoader->load(VIEW.'template/common/Header.php');
+		$content .= $templateLoader->load(VIEW.'template/'.$route.'.php', $data);
+		$content .= $templateLoader->load(VIEW.'template/common/Footer.php');
 
-        ob_start();
-        extract($data);
-		
-        require(VIEW.'template/common/Header.php');
-        require(VIEW.'template/'.$route.'.php');
-        require(VIEW.'template/common/Footer.php');
-		
-		ob_end_flush();
+		echo $content;		
 	}
 
     public function gZipLoad($route,$data){

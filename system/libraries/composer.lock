@@ -4,20 +4,58 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c862c102a2ab787a88683a05312c31e6",
+    "content-hash": "7abd62087655068155529422e93a8f48",
     "packages": [
         {
-            "name": "filp/whoops",
-            "version": "2.1.14",
+            "name": "bakeiro/micro_php_template_engine",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/filp/whoops.git",
-                "reference": "c6081b8838686aa04f1e83ba7e91f78b7b2a23e6"
+                "url": "https://github.com/bakeiro/micro_php_template_engine.git",
+                "reference": "d527b35959bb8e22c78388b8b992c672e157e547"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filp/whoops/zipball/c6081b8838686aa04f1e83ba7e91f78b7b2a23e6",
-                "reference": "c6081b8838686aa04f1e83ba7e91f78b7b2a23e6",
+                "url": "https://api.github.com/repos/bakeiro/micro_php_template_engine/zipball/d527b35959bb8e22c78388b8b992c672e157e547",
+                "reference": "d527b35959bb8e22c78388b8b992c672e157e547",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3.3 || ^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "bakeiro\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "David Baqueiro Santerbas",
+                    "email": "davidbaqueiro@outlook.com",
+                    "homepage": "http://davidbaqueiro.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A really simple template engine for PHP to make templates more simple/maintable",
+            "time": "2018-09-19T14:00:44+00:00"
+        },
+        {
+            "name": "filp/whoops",
+            "version": "2.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/filp/whoops.git",
+                "reference": "e79cd403fb77fc8963a99ecc30e80ddd885b3311"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/e79cd403fb77fc8963a99ecc30e80ddd885b3311",
+                "reference": "e79cd403fb77fc8963a99ecc30e80ddd885b3311",
                 "shasum": ""
             },
             "require": {
@@ -25,9 +63,9 @@
                 "psr/log": "^1.0.1"
             },
             "require-dev": {
-                "mockery/mockery": "0.9.*",
+                "mockery/mockery": "^0.9 || ^1.0",
                 "phpunit/phpunit": "^4.8.35 || ^5.7",
-                "symfony/var-dumper": "^2.6 || ^3.0"
+                "symfony/var-dumper": "^2.6 || ^3.0 || ^4.0"
             },
             "suggest": {
                 "symfony/var-dumper": "Pretty print complex values better with var-dumper available",
@@ -36,7 +74,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0-dev"
+                    "dev-master": "2.2-dev"
                 }
             },
             "autoload": {
@@ -65,7 +103,7 @@
                 "throwable",
                 "whoops"
             ],
-            "time": "2017-11-23T18:22:44+00:00"
+            "time": "2018-06-30T13:14:06+00:00"
         },
         {
             "name": "imagine/imagine",
@@ -127,16 +165,16 @@
         },
         {
             "name": "phpmailer/phpmailer",
-            "version": "v6.0.3",
+            "version": "v6.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPMailer/PHPMailer.git",
-                "reference": "44d49bab5ab1fef721d3ee07e75dc0865ddf4cc6"
+                "reference": "cb3ea134d4d3729e7857737d5f320cce9caf4d32"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/44d49bab5ab1fef721d3ee07e75dc0865ddf4cc6",
-                "reference": "44d49bab5ab1fef721d3ee07e75dc0865ddf4cc6",
+                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/cb3ea134d4d3729e7857737d5f320cce9caf4d32",
+                "reference": "cb3ea134d4d3729e7857737d5f320cce9caf4d32",
                 "shasum": ""
             },
             "require": {
@@ -189,7 +227,7 @@
                 }
             ],
             "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
-            "time": "2018-01-05T13:19:58+00:00"
+            "time": "2018-03-27T13:49:45+00:00"
         },
         {
             "name": "psr/log",
@@ -239,17 +277,17 @@
             "time": "2016-10-10T12:19:37+00:00"
         },
         {
-            "name": "tecnick.com/tcpdf",
-            "version": "6.2.17",
+            "name": "tecnickcom/tcpdf",
+            "version": "6.2.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tecnickcom/TCPDF.git",
-                "reference": "64fc19439863e1b1314487a72a74d9bfd0b55a53"
+                "reference": "ac6e92fccc7d9383dfd787056831349621b1aca2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tecnickcom/TCPDF/zipball/64fc19439863e1b1314487a72a74d9bfd0b55a53",
-                "reference": "64fc19439863e1b1314487a72a74d9bfd0b55a53",
+                "url": "https://api.github.com/repos/tecnickcom/TCPDF/zipball/ac6e92fccc7d9383dfd787056831349621b1aca2",
+                "reference": "ac6e92fccc7d9383dfd787056831349621b1aca2",
                 "shasum": ""
             },
             "require": {
@@ -298,14 +336,15 @@
                 "pdf417",
                 "qrcode"
             ],
-            "abandoned": "tecnickcom/tcpdf",
-            "time": "2018-02-24T11:48:20+00:00"
+            "time": "2018-09-14T15:26:29+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "bakeiro/micro_php_template_engine": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
