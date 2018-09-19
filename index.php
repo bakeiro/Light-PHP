@@ -18,7 +18,7 @@ require(SYSTEM . 'engine/SecController.php');
 
 //Bootstrap
 require("config_data.php");
-require(SYSTEM. "Start.php");
+require(SYSTEM. "start.php");
 
 //Cache
 Config::set('cache_version', '1.0');
