@@ -13,7 +13,6 @@ require(SYSTEM . "engine/Output.php");
 require(SYSTEM . 'engine/Connection.php');
 require(SYSTEM . 'engine/Util.php');
 require(SYSTEM . 'engine/Errors.php');
-require(SYSTEM . 'engine/Loader.php');
 require(SYSTEM . 'engine/SecModel.php');
 require(SYSTEM . 'engine/SecController.php');
 

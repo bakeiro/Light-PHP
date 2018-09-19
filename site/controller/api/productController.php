@@ -6,7 +6,7 @@ class productController extends SecController{
 		$results_per_page = 4;
 		$offset = $page * $results_per_page;
 
-		Loader::load_model("product/product");
+		require(MODEL."product/productModel.php");
 		$product_model = new productModel();
 
 		$products = array();
@@ -17,7 +17,7 @@ class productController extends SecController{
 
 	public function getProdInfo($prod_id){
 
-		Loader::load_model("product/product");
+		require(MODEL."product/productModel.php");
 		$product_model = new productModel();
 
 		$products = array();

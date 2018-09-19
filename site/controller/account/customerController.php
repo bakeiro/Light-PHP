@@ -3,7 +3,7 @@ class customerController extends SecController{
 
 	public function info(){
 		
-		Loader::load_model("customer/customer");
+		require(MODEL.'customer/customerModel.php');
 		$customer_model = new customerModel();
 		
 		$customer_info = $customer_model->getCustomerById(Session::get("customer_id"));

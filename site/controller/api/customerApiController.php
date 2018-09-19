@@ -6,7 +6,7 @@ class customerApiController extends SecController{
 		$email_post = $_POST['email'];
 		$pass_post = $_POST['pass'];
 
-		Loader::load_model("customer/customer");
+		require(MODEL."customer/customerModel.php");
 		$customer_model = new customerModel();
 
 		$customer = $customer_model->getCustomer($email_post);
