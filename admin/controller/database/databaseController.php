@@ -2,6 +2,6 @@
 class databaseController{
 	
 	public function index(){
-		Output::load("database/databaseView");
+		Output::loadCompileTemplate("database/databaseView");
 	}
 }

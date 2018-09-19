@@ -64,6 +64,7 @@ class Errors{
 		
 		$mail = new PHPMailer();
 		
+		//TODO: Here get the data from the config data file!
 		$mail->IsSMTP();
 		$mail->CharSet    = 'UTF-8';
 		$mail->Host       = "smtp.gmail.com";
@@ -71,13 +72,13 @@ class Errors{
 		$mail->Port       = 587;
 	
 		$mail->Username   = "davixt3@gmail.com";
-		$mail->Password   = "bertolas";
+		$mail->Password   = "***";
 		$mail->SMTPAuth   = true;
 	
 		$mail->From = "davixt3@gmail.com";
 		$mail->FromName = 'davixt3@gmail.com';
 		
-		$mail->addAddress("davidbaqueiro@outlook.com");
+		$mail->addAddress("***");
 	
 		$mail->Subject = "Error in backend";
 		$mail->Body = $message;

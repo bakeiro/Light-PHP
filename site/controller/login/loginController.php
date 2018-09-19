@@ -2,7 +2,7 @@
 class loginController extends SecController{
 
 	public function register(){
-		Output::load("login/registerView");
+		Output::loadCompileTemplate("login/registerView");
 	}
 
 	public function login(){

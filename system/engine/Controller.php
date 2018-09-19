@@ -23,29 +23,13 @@ class Controller{
 		}
 
 		if(Url::$type === "seo"){
+
+			//TODO:Get the url from the routes
+			//Exec the method associated to that route
 			//Seo url
 			//index page
 		}
 
-	}
-
-	public function checkController(){
-
-		//File
-		if (!file_exists($this->file)) {
-			$this->file = CONTROLLER . 'error/errorController.php';
-			$this->method = 'notFound';
-			$this->class = 'errorController';
-		}
-
-		//Method
-		require_once($this->file);
-		if (method_exists($this->class, $this->method) === false) {
-			$this->file = CONTROLLER . 'error/errorController.php';
-			$this->method = 'notFound';
-			$this->class = 'errorController';
-			require_once($this->file);
-		}
 	}
 
 	public function execController(){
@@ -71,6 +55,25 @@ class Controller{
 		$output = call_user_func_array(array($controller_class,$method),$data);
 		
 		return $output;
+	}
+
+	function checkController(){
+
+		//File
+		if (!file_exists($this->file)) {
+			$this->file = CONTROLLER . 'error/errorController.php';
+			$this->method = 'notFound';
+			$this->class = 'errorController';
+		}
+
+		//Method
+		require_once($this->file);
+		if (method_exists($this->class, $this->method) === false) {
+			$this->file = CONTROLLER . 'error/errorController.php';
+			$this->method = 'notFound';
+			$this->class = 'errorController';
+			require_once($this->file);
+		}
 	}
 
 }

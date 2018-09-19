@@ -1,5 +1,5 @@
 <?php
-class Admin{
+class SecAdmin{
 
 	public function checkSession(){
 

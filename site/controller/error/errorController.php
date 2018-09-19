@@ -9,6 +9,6 @@ class errorController /*extends Controller*/{
 
         $route_view = "error/notFoundView";
 
-        Output::load($route_view,$data);
+        Output::loadCompileTemplate($route_view,$data);
     }
 }

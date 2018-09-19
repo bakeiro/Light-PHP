@@ -2,15 +2,15 @@
 class indexController extends SecController{
 
 	public function index(){	
-		Output::load("info/welcomeView",array());
+		Output::loadCompileTemplate("info/welcomeView",array());
 	}
 
 	public function about(){
-		Output::load("info/aboutView",array());
+		Output::loadCompileTemplate("info/aboutView",array());
 	}
 
 	public function welcome(){
-		Output::load("welcome/welcomeView",array());
+		Output::loadCompileTemplate("welcome/welcomeView",array());
 	}
 
 	public function test(){

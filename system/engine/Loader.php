@@ -4,32 +4,6 @@ class Loader{
 	public static $styles;
     public static $scripts;
 
-	public static function load_template($route, $data){
-
-        extract($data);
-
-        ob_start();
-        
-        require($route);
-        
-        $output = ob_get_contents();
-        
-        ob_end_clean();
-        
-        return $output;
-	}
-	
-	public static function load_file($route){
-        ob_start();
-        
-        require($route);
-        
-        $output = ob_get_contents();
-        
-        ob_end_clean();
-        
-        return $output;
-	}
 
 	public static function load_model($model_route){
         require(MODEL.$model_route.'Model.php');
