@@ -6,7 +6,7 @@ require('config.php');
 //Engine
 require(SYSTEM . 'engine/Settings.php');
 require(SYSTEM . 'engine/Url.php');
-require(SYSTEM . 'engine/EngController.php');
+require(SYSTEM . 'engine/Controller.php');
 require(SYSTEM . 'engine/Session.php');
 //require(SYSTEM . 'engine/Security.php');
 require(SYSTEM . "engine/Output.php");
@@ -36,7 +36,7 @@ Util::cleanInput();
 require(SYSTEM."libraries/vendor/autoload.php");
 
 //Execute controller
-$Controller = new EngController();
+$Controller = new Controller();
 $Controller->execController();
 
 //FIXME: Somehow make the controller and model not callable if the index was not executed

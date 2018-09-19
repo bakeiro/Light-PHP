@@ -1,5 +1,5 @@
 <?php
-class EngController{
+class Controller{
 
 	var $file;
 	var $class;

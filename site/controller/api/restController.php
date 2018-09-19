@@ -7,7 +7,7 @@ class restController extends SecController{
 
 		Url::$action = Url::$restController;
 
-		$rest_controller = new EngController();
+		$rest_controller = new Controller();
 		$output = $rest_controller->execRest();
 
 		if($rest_controller->class !== "errorController"){

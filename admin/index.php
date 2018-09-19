@@ -25,7 +25,7 @@ error_reporting(E_ALL);
 set_error_handler(array(new Errors(),"my_error_handler") ,E_ALL);
 
 //Admin
-require(SYSTEM."engine/Admin.php");
+require(SYSTEM."engine/SecAdmin.php");
 $admin = new Admin();
 
 //Execute controller

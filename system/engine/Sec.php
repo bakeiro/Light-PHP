@@ -3,8 +3,8 @@ class Admin{
 
 	public function checkSession(){
 
-		require(SYSTEM . 'engine/EngController.php');
-		$controller = new EngController();
+		require(SYSTEM . 'engine/Controller.php');
+		$controller = new Controller();
 
 		if(!Session::get("logged")){
 			if($controller->method !== "checkLogin"){
