@@ -29,8 +29,8 @@ if(!isset($_REQUEST['route']) && !isset($_REQUEST['rest'])){
 }
 
 //Loader
-Loader::$scripts = array();
-Loader::$styles = array();
+Output::$scripts = array();
+Output::$styles = array();
 
 //Session
 Session::start();

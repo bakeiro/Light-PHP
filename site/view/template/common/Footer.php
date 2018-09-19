@@ -4,10 +4,10 @@
 	<?php
 
 	//Custom CSS/JS
-	foreach(Loader::$styles as $style){
+	foreach(Output::$styles as $style){
 		echo $style;
 	}
-	foreach(Loader::$scripts as $script){
+	foreach(Output::$scripts as $script){
 		echo $script;
 	}
 	?>
