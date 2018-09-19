@@ -1,5 +1,5 @@
 <?php
-class restController extends Controller{
+class restController extends SecController{
 
 	public function index(){
 

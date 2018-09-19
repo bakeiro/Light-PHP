@@ -1,5 +1,5 @@
 <?php
-class customerApiController extends Controller{
+class customerApiController extends SecController{
 
 	public function checkLogin(){
 

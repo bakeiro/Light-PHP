@@ -1,6 +1,6 @@
 <?php
 
-class Model{
+class SecModel{
 
 	public function __construct(){
 		if(!Settings::get("loaded")){

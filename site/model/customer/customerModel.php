@@ -1,5 +1,5 @@
 <?php
-class customerModel extends Model{
+class customerModel extends SecModel{
 
 	public function getCustomer($email){
 		$customer = Connection::query("SELECT * FROM customer WHERE `email` = '".$email."'");

@@ -1,5 +1,5 @@
 <?php
-class productController extends Controller{
+class productController extends SecController{
 
 	public function index(){
 		Loader::load_js("products/products");

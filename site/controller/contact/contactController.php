@@ -3,7 +3,7 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-class contactController extends Controller{
+class contactController extends SecController{
 
 	public function index(){
 		Output::load("info/contactView",array());

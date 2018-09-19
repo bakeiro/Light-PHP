@@ -1,5 +1,5 @@
 <?php
-class customerController extends Controller{
+class customerController extends SecController{
 
 	public function info(){
 		

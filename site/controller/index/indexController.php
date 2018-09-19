@@ -1,5 +1,5 @@
 <?php
-class indexController extends Controller{
+class indexController extends SecController{
 
 	public function index(){	
 		Output::load("info/welcomeView",array());

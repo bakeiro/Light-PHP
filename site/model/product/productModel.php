@@ -1,5 +1,5 @@
 <?php
-class productModel extends Model{
+class productModel extends SecModel{
 
 	public function getAllProducts(){
 		$prods = Connection::query("SELECT * FROM `product`");

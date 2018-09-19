@@ -1,5 +1,5 @@
 <?php
-class Controller{
+class SecController{
 
 	public function __contruct(){
 		if(!Settings::get("loaded")){
