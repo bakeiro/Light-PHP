@@ -15,18 +15,21 @@
 <br>
 
 <div class="row">
-
-	<div class="col s6">
+	<div class="col s6 left">
 		<h5>Controller</h5>
 		<img class="welcome" src="site/view/www/images/data/welcome/1.png" alt="">
 	</div>
+</div>
 
-	<div class="col s6 offset-s6">
+<div class="row">
+	<div class="col s6 right">
 		<h5>Model</h5>
 		<img class="welcome" src="site/view/www/images/data/welcome/2.png" alt="">
 	</div>
+</div>
 
-	<div class="col s6">
+<div class="row">
+	<div class="col s6 left">
 		<h5>View</h5>
 		<img class="welcome" src="site/view/www/images/data/welcome/3.png" alt="">
 	</div>
