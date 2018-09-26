@@ -1,5 +1,5 @@
 <?php
 
 $routes = array();
-$routes["welcome"] = "info/info/welcome";
-$routes["contact"] = "info/info/contact";
+$routes["welcome"] = "index/index";
+$routes["contact"] = "contact/contact";

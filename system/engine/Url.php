@@ -26,7 +26,8 @@ class Url{
 		}
 
 		//Action
-		Url::$action = $_SERVER["QUERY_STRING"];
+		Url::$action = $_SERVER["REQUEST_URI"];
+		Url::$action = substr(Url::$action, 1);
 		//Parse action
 
 		//Controller
@@ -38,19 +39,22 @@ class Url{
 			Url::$controller = 'api/rest';
 		}
 		if(!isset($_REQUEST['route']) && !isset($_REQUEST['rest'])){
-
-			URL::getSeoUrls();
-			Url::$controller = 'index/index';
+			Url::$controller = URL::getSeoUrlMethod();
 		}
 
 	}
 
-	public static function getSeoUrls(){
+	public static function getSeoUrlMethod(){
 
 		require(SYSTEM."config/routes.php");
-		//print_r($routes);
-		//print_r($_SERVER);
 
+		$routes_name = array_keys($routes);
+
+		if( in_array(Url::$action, $routes_name)){
+			return $routes[Url::$action];
+		}else{
+			return "error/error/notFound";
+		}
 
 	}
 }
