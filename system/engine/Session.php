@@ -3,6 +3,7 @@ class Session{
 	
 	//FIXME: Fix the Session fixation vulnerability -> https://stackoverflow.com/questions/520237/how-do-i-expire-a-php-session-after-30-minutes?rq=1
 	//FIXME: Make remenber me cookie
+	//TODO: Improve this class
 
 	public static function start(){
 
@@ -10,7 +11,7 @@ class Session{
 
 		if(session_status() === 0 || session_status() === 1){
 			session_start();
-			ini_set('session.gc-maxlifetime', $session_time_out);
+			ini_set('session.gc-maxlifetime', $session_time_out); //TODO: This in an config file?
 		}
 
 		if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > $session_time_out)) {

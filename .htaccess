@@ -5,6 +5,13 @@ Options -Indexes
 
 # SEO URL Settings
 RewriteEngine On
+RewriteBase /
+
+#not needed for seo url
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteCond %{REQUEST_URI} !.*\.(ico|gif|jpg|jpeg|png|js|css)
+RewriteRule ^([^?]*) index.php?_route_=$1 [L,QSA]
 
 # Compress HTML, CSS, JavaScript, Text, XML and fonts
 <IfModule mod_deflate.c>

@@ -15,20 +15,10 @@ require(SYSTEM . 'engine/Errors.php');
 require(SYSTEM . 'engine/SecModel.php');
 require(SYSTEM . 'engine/SecController.php');
 
-//Bootstrap
-require("config_data.php");
+//Startup
 require(SYSTEM. "start.php");
 
-set_error_handler( array(new Errors(),"my_error_handler") ,E_ALL);
-error_reporting(E_ALL);
-
-//escape $_POST,$_GET,$_COOKIE
-Util::cleanInput();
-
-//Composer
-require(SYSTEM."libraries/vendor/autoload.php");
-
-//Execute controller
+//Controller
 $Controller = new Controller();
 $Controller->execController();
 

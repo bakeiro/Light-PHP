@@ -5,7 +5,7 @@ class restController extends SecController{
 
 		$data = array();
 
-		Url::$action = Url::$restController;
+		Url::$controller = Url::$restController;
 
 		$rest_controller = new Controller();
 		$output = $rest_controller->execRest();

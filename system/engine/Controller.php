@@ -8,26 +8,15 @@ class Controller{
 
 	public function __construct(){
 
-		if(Url::$type !== "seo"){
+		$route = Url::$controller;
+		$url_split = explode('/', $route);
+		$this->file = CONTROLLER . $url_split[0] . '/' . $url_split[1] . 'Controller.php';
+		$this->class = $url_split[1] . 'Controller';
 
-			$route = Url::$action;
-			$url_split = explode('/', $route);
-			$this->file = CONTROLLER . $url_split[0] . '/' . $url_split[1] . 'Controller.php';
-			$this->class = $url_split[1] . 'Controller';
-
-			if(count($url_split) === 2){
-				$this->method = 'index';
-			}else{
-				$this->method = $url_split[2];
-			}
-		}
-
-		if(Url::$type === "seo"){
-
-			//TODO:Get the url from the routes
-			//Exec the method associated to that route
-			//Seo url
-			//index page
+		if(count($url_split) === 2){
+			$this->method = 'index';
+		}else{
+			$this->method = $url_split[2];
 		}
 
 	}
