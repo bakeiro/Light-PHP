@@ -28,7 +28,6 @@ class Url{
 		//Action
 		Url::$action = $_SERVER["REQUEST_URI"];
 		Url::$action = substr(Url::$action, 1);
-		//Parse action
 
 		//Controller
 		if(isset($_REQUEST['route']) && !isset($_REQUEST['rest'])){
