@@ -11,11 +11,11 @@ class Output{
 
 		$templateLoader = new templateLoader();
 		
-		$content = $templateLoader->load(VIEW.'template/common/Header.php');
+		$content = $templateLoader->load(VIEW.'template/common/Header.php', $data);
 		$content .= $templateLoader->load(VIEW.'template/'.$route.'.php', $data);
-		$content .= $templateLoader->load(VIEW.'template/common/Footer.php');
+		$content .= $templateLoader->load(VIEW.'template/common/Footer.php', $data);
 
-		echo $content;		
+		echo $content;
 	}
 
 	public static function loadTemplate($route, $data=array()){
