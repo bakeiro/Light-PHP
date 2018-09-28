@@ -36,13 +36,16 @@ class Errors{
 			error_log($error_string_log."\n", 3, SYSTEM."logs/notice.log");
 		}
 		
-		//Error/Fatal error/Unknown
+		//Fatal error/Unknown
 		if($error === "Fatal Error" || $error === "Unknown"){
 			Errors::$exceptions[] = array("text"=>$error_string_html, "type"=> $error);
 			error_log($error_string_log."\n", 3, SYSTEM."logs/errors.log");
 		}
 
-		Error::sendEmail($error_string_html, $error);
+		//Email if error
+		if(Config::get("send_email_errors")){
+			Error::sendEmail($error_string_html, $error);
+		}
 		
 		return true;
 	}
@@ -83,7 +86,6 @@ class Errors{
 		if(!$mail->send()) {
 			echo "ERROR: <br> " . $mail->ErrorInfo;
 		}
-	
 	}
 	
 }

@@ -4,8 +4,10 @@
 Config::set("start_time", microtime(true));
 Config::set("console_messages", array());
 Config::Set("debug", false);
+Config::set("send_email_errors", false);
 
 //Description
+Config::set("site_title", "Backend");
 Config::set("site_name", "Backend");
 Config::set("site_description", "Backend");
 Config::set("site_creator", "David Baqueiro Santerbás");
