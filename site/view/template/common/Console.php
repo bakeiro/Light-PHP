@@ -30,9 +30,9 @@
 					echo "<p><i class='material-icons lime-text'>warning</i>".$exception["text"]."</p>";
 				}
 			}
-			foreach(Config::get("console_messages") as $message){
-				echo "<p>".$message."</p>";
-			}
+			//foreach(Config::get("console_messages") as $message){
+			//	echo "<p>".$message."</p>";
+			//}
 			?>
 		</div>
 	</div>

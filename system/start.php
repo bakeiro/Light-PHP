@@ -33,5 +33,3 @@ Util::cleanInput();
 
 //Engine finished
 Config::set("loaded", true);
-
-Config::set("console_messages", array_push(Config::get("console_messages"),"loaded") );
