@@ -8,7 +8,7 @@
 		$time_script = round($time_script, 4);
 
 		//Cache
-		$cache = Config::Get("cache_version");
+		$cache = Config::get("cache_version");
 	?>
 
 	<div id="error-console">
@@ -23,12 +23,15 @@
 			<?php
 			foreach(Errors::$exceptions as $exception){
 				
-				if($exception["type"] === "error"){
+				if($exception["type"] === "Fatal Error" || $exception["type"] === "Unknown"){
 					echo "<p><i class='material-icons red-text'>error</i>".$exception["text"]."</p>";
 				}
-				if($exception["type"] === "warning"){
+				if($exception["type"] === "Warning" || $exception["type"] ===  "Notice"){
 					echo "<p><i class='material-icons lime-text'>warning</i>".$exception["text"]."</p>";
 				}
+			}
+			foreach(Config::get("console_messages") as $message){
+				echo "<p>".$message."</p>";
 			}
 			?>
 		</div>

@@ -24,7 +24,6 @@ Output::$styles = array();
 //Session
 Session::start();
 
-
 //Config
 require(SYSTEM."config/config_data.php");
 require(SYSTEM."config/php_settings.php");
@@ -34,3 +33,5 @@ Util::cleanInput();
 
 //Engine finished
 Config::set("loaded", true);
+
+Config::set("console_messages", array_push(Config::get("console_messages"),"loaded") );

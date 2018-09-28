@@ -3,7 +3,7 @@
 //Debug
 Config::set("start_time", microtime(true));
 Config::set("console_messages", array());
-Config::set("debug", false);
+Config::set("debug", true);
 Config::set("send_email_errors", false);
 
 //Description
