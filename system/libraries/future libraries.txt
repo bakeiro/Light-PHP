@@ -1,4 +1,4 @@
 
 Login library (social login + sessions)
 server status (graphs + current state)
-implement whoops library
+implement http://phpdebugbar.com/ instead of whoops

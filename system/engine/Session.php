@@ -11,7 +11,6 @@ class Session{
 
 		if(session_status() === 0 || session_status() === 1){
 			session_start();
-			ini_set('session.gc-maxlifetime', $session_time_out); //TODO: This in an config file?
 		}
 
 		if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > $session_time_out)) {

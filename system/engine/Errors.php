@@ -28,63 +28,51 @@ class Errors{
 	
 		$error_string_html = '<b>' . $error . '</b>: ' . $errstr . ' in <b>' . $errfile . '</b> on line <b>' . $errline . '</b>';
 		$error_string_log = $error.' - '.$errstr.' - '.$errfile.' - '.$errline;
+		$error_string_log = addslashes($error_string_log);
 		
-		//Warning
+		//Warning/Notice
 		if($error === "Notice" || $error === "Warning"){
-			$warning =  array("text"=>$error_string_html, "type"=> "warning");
-			Errors::$exceptions[] = $warning;
-			error_log( addslashes($error_string_log)."\n", 3, SYSTEM."logs/notice.log");
+			Errors::$exceptions[] = array("text"=>$error_string_html, "type"=> $error);
+			error_log($error_string_log."\n", 3, SYSTEM."logs/notice.log");
 		}
 		
-		//Error
-		if($error === "Fatal Error" || $error === "Unknown"){			
-			$error =  array("text"=>$error_string_html, "type"=> "error");
-			Errors::$exceptions[] = $error;
-
-			error_log( addslashes($error_string_log)."\n", 3, SYSTEM."logs/errors.log");
-	
-			if(Errors::$error_handle !== "developing"){
-				//Errors::sendEmail($error_string_html);
-			}
+		//Error/Fatal error/Unknown
+		if($error === "Fatal Error" || $error === "Unknown"){
+			Errors::$exceptions[] = array("text"=>$error_string_html, "type"=> $error);
+			error_log($error_string_log."\n", 3, SYSTEM."logs/errors.log");
 		}
-	
-		//TODO: Add the errors and warning in the DDBB
-		//TODO: Use woops library
+
+		Error::sendEmail($error_string_html, $error);
 		
 		return true;
 	}
-
-	public static function createError($message){
-		//TODO: Finish here
-	}
 	
-	public static function sendEmail($message){
+	public static function sendEmail($message, $error_type){
 	
 		require_once(SYSTEM.'modules/Mail/PHPMailerAutoload.php');
 		
 		$mail = new PHPMailer();
 		
-		//TODO: Here get the data from the config data file!
 		$mail->IsSMTP();
 		$mail->CharSet    = 'UTF-8';
-		$mail->Host       = "smtp.gmail.com";
+		$mail->Host       = Config::get("email_host");
 		$mail->isHTML();
-		$mail->Port       = 587;
+		$mail->Port       = Config::get("email_port");
 	
-		$mail->Username   = "davixt3@gmail.com";
-		$mail->Password   = "***";
+		$mail->Username   = Config::get("email_username");
+		$mail->Password   = Config::get("email_pass");
 		$mail->SMTPAuth   = true;
 	
-		$mail->From = "davixt3@gmail.com";
-		$mail->FromName = 'davixt3@gmail.com';
+		$mail->From = Config::get("email_from");
+		$mail->FromName = Config::get("email_from_name");
 		
-		$mail->addAddress("***");
+		$mail->addAddress(Config::get("email_from"));
 	
-		$mail->Subject = "Error in backend";
+		$mail->Subject = $error_type." in backend";
 		$mail->Body = $message;
 		$mail->AltBody = $message;
 	
-		//FIXME: localhost workaround
+		//Localhost workaround
 		$mail->SMTPOptions = array(
 			'ssl' => array(
 				'verify_peer' => false,

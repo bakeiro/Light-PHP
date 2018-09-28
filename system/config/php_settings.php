@@ -4,6 +4,7 @@ date_default_timezone_set('Europe/Madrid');
 
 ini_set('display_errors', 'On');
 ini_set("log_errors", 1);
+ini_set('session.gc-maxlifetime', Config::get("session_frontend_time")); //4h
 
 /*
 magic_quotes_gpc = Off

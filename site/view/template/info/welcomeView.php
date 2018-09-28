@@ -35,7 +35,6 @@
 	</div>
 </div>
 
-
 <br>
 
 <h4>Features:</h4>
@@ -44,7 +43,7 @@
 	<li> <input readonly type="checkbox" class="filled-in" id="checkbox_1" checked="checked" /> <label for="checkbox_1" >Npm integration</label> </li>
 	<li> <input readonly type="checkbox" class="filled-in" id="checkbox_2" checked="checked" /> <label for="checkbox_2" >Composer integration</label> </li>
 	<li> <input readonly type="checkbox" class="filled-in" id="checkbox_3" /> <label for="checkbox_3" >Gzip Compression (coming soon)</label> </li>
-	<li> <input readonly type="checkbox" class="filled-in" id="checkbox_4" /> <label for="checkbox_4" >Seo Url (coming soon)</label> </li>
+	<li> <input readonly type="checkbox" class="filled-in" id="checkbox_4" checked="checked" /> <label for="checkbox_4" >Seo Url</label> </li>
 	<li> <input readonly type="checkbox" class="filled-in" id="checkbox_5" checked="checked" /> <label for="checkbox_5" >Self explained code</label></li>
 	<li> <input readonly type="checkbox" class="filled-in" id="checkbox_6" checked="checked" /> <label for="checkbox_6" >Easy structure</label> </li>
 	<li> <input readonly type="checkbox" class="filled-in" id="checkbox_7" /> <label for="checkbox_7" >Social Login (coming soon)</label> </li>
