@@ -1,10 +1,11 @@
 <?php
 
 //Debug
-Config::set("start_time", microtime(true));
-Config::set("console_messages", array());
-Config::set("debug", true);
+Config::set("debug", false);
 Config::set("send_email_errors", false);
+
+//Console
+Config::set("start_time", microtime(true));
 
 //Description
 Config::set("site_title", "Backend");
@@ -31,5 +32,5 @@ Config::set("image_cache_size_big", "***");
 //Session
 Config::set("session_frontend_time", 14400); //4h
 
-//Cache
+//Cache (front-end folder)
 Config::set('cache_version', '1.0');

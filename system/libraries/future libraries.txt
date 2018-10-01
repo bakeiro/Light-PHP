@@ -1,3 +1,0 @@
-
-Login library (social login + sessions)
-server status (graphs + current state)

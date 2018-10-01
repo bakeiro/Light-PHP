@@ -1,10 +1,7 @@
 {
     "require": {
         "phpmailer/phpmailer": "^6.0",
-        "tecnickcom/tcpdf": "6.2.22",
         "imagine/imagine": "^0.7.1",
-		"filp/whoops": "^2.1",
-		"bakeiro/micro_php_template_engine" : "dev-master",
-		"maximebf/debugbar": "1.*"
+		"bakeiro/micro_php_template_engine" : "dev-master"
     }
 }

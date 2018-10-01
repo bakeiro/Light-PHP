@@ -9,11 +9,6 @@ Connection::$CONN = $temp_con;
 set_error_handler( array(new Errors(),"my_error_handler") ,E_ALL);
 error_reporting(E_ALL);
 
-//Whoops
-//$whoops = new \Whoops\Run;
-//$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
-//$whoops->register();
-
 //Url
 Url::init();
 
