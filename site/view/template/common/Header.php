@@ -11,8 +11,6 @@
 	<?php $cache = Config::Get("cache_version"); ?>
 	<?php $host = Url::$host; ?>
 
-	<!-- TODO: Update to materialize-css 1.0, delete custom styles and Jquery -->
-
 	<!-- my resources -->
 	<link href="<?=$host?>/site/view/www/build/<?=$cache?>/site/site.css" rel="stylesheet">
 	

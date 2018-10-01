@@ -9,7 +9,7 @@
   "author": "David Baqueiro",
   "license": "ISC",
   "dependencies": {
-    "materialize-css": "^0.100.2",
-    "vue": "^2.5.16"
+    "materialize-css": "1.00",
+    "vue": "^2.5.17"
   }
 }
