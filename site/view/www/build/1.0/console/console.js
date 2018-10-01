@@ -39,9 +39,20 @@ var error_console = (function(){
 	}
 
 	function checkErrors(){
-		var childs = $("div#error-console-body").children();
 
-		if(childs.length > 0){
+		let childs = $("div#error-console-body").children();
+		let errors_found = false;
+
+		let i = 0;
+		while(childs[i]){
+			if(childs[i].className === "warning" || childs[i].className === "error"){
+				errors_found = true;
+				break;
+			}
+			i++;
+		}
+
+		if(errors_found){
 			$("button#error-console-button").css("background-color", "#F44336");
 		}
 	}

@@ -1,7 +1,8 @@
 <?php
 class indexController extends SecController{
 
-	public function index(){	
+	public function index(){
+		Errors::$debug_info[] = "welcome page loaded ;)";
 		Output::loadCompileTemplate("info/welcomeView",array());
 	}
 

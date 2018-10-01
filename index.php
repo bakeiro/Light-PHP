@@ -21,9 +21,6 @@ require(SYSTEM."libraries/vendor/autoload.php");
 //Startup
 require(SYSTEM. "start.php");
 
-$num = 5;
-$num /0;
-
 //Controller
 $Controller = new Controller();
 $Controller->execController();

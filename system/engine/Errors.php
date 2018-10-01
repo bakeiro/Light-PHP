@@ -4,6 +4,7 @@ class Errors{
 
 	public static $messages = array();
 	public static $exceptions = array();
+	public static $debug_info = array();
 	public static $error_handle;
 
 	public static function my_error_handler($errno, $errstr, $errfile, $errline) {

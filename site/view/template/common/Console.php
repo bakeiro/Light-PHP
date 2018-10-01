@@ -21,18 +21,22 @@
 		
 		<div id="error-console-body">
 			<?php
+			
+			//Errors/warnings
 			foreach(Errors::$exceptions as $exception){
-				
 				if($exception["type"] === "Fatal Error" || $exception["type"] === "Unknown"){
-					echo "<p><i class='material-icons red-text'>error</i>".$exception["text"]."</p>";
+					echo "<p class='error'><i class='material-icons red-text'>error</i>".$exception["text"]."</p>";
 				}
 				if($exception["type"] === "Warning" || $exception["type"] ===  "Notice"){
-					echo "<p><i class='material-icons lime-text'>warning</i>".$exception["text"]."</p>";
+					echo "<p class='warning'><i class='material-icons lime-text'>warning</i>".$exception["text"]."</p>";
 				}
 			}
-			//foreach(Config::get("console_messages") as $message){
-			//	echo "<p>".$message."</p>";
-			//}
+
+			//Debug info
+			foreach(Errors::$debug_info as $message){
+				echo "<p class='message'>".$message."</p>";
+			}
+
 			?>
 		</div>
 	</div>
