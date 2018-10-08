@@ -8,6 +8,7 @@ ini_set("log_errors", 1);
 
 //Session
 ini_set('session.gc-maxlifetime', Config::get("session_frontend_time")); //4h
+
 //Research more about this
 ini_set('session.use_only_cookies', 'Off');
 ini_set('session.use_cookies', 'On');

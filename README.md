@@ -1,7 +1,9 @@
 # Light-PHP
-
 [![GitHub issues](https://img.shields.io/github/issues/bakeiro/Light-PHP.svg)](https://github.com/bakeiro/Light-PHP/issues)
 [![GitHub license](https://img.shields.io/github/license/bakeiro/Light-PHP.svg)](https://github.com/bakeiro/Light-PHP)
+
+### Documentation
+[Light-PHP documentation](https://bakeiro.github.io/Light-PHP-documentation/)  
 
 Micro PHP framework :)
 
