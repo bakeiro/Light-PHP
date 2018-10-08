@@ -2,9 +2,17 @@
 
 date_default_timezone_set('Europe/Madrid');
 
+//Errors
 ini_set('display_errors', 'On');
 ini_set("log_errors", 1);
+
+//Session
 ini_set('session.gc-maxlifetime', Config::get("session_frontend_time")); //4h
+//Research more about this
+ini_set('session.use_only_cookies', 'Off');
+ini_set('session.use_cookies', 'On');
+ini_set('session.use_trans_sid', 'Off');
+ini_set('session.cookie_httponly', 'On');
 
 /*
 magic_quotes_gpc = Off
@@ -16,14 +24,8 @@ upload_max_filesize = 999M
 safe_mode = Off
 mysql.connect_timeout = 20
 session.auto_start = Off
-session.use_only_cookies = On
-session.use_cookies = On
-session.use_trans_sid = Off
-session.cookie_httponly = On
 session.cookie_lifetime = 3600
-session.gc_maxlifetime = 3600
 allow_url_fopen = On
-;display_errors = 1
 ;error_reporting = E_ALL
 */
 
