@@ -21,9 +21,9 @@ Light-PHP makes possible start working without reading in massive documentations
 - Much more!
 
 ### Install
-Import database.sql
-Edit config.php file to set up the database name and folders paths
-Start web server
+- Import database.sql
+- Edit config.php file to set up the database name and folders paths
+- Start web server
 
 ### License
 
