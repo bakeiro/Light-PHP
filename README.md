@@ -7,7 +7,12 @@
 
 Micro PHP framework :)
 
-[Warning not security proofed, use at your risk!]
+
+### Disclaimer
+
+- The approach of this project is to create a framework-less site (with all features) using the most simple and understandable structure
+- This project was not security tested, use at your own risk!
+
 
 Light-PHP makes possible start working without reading in massive documentations of highly complex professional frameworks, if this is the case, then Light-PHP might be very useful for you. Light-PHP is easy to install, runs nearly everywhere and doesn't make things more complicated than necessary.
 
