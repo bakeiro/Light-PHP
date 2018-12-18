@@ -10,8 +10,6 @@ class Url{
 
 	public static function init(){
 
-		$url_config = array();
-
 		//Host
 		if(isset($_SERVER['HTTPS'])){ 
 			$url_host = 'https://';
@@ -40,22 +38,22 @@ class Url{
 			$url_controller = 'api/rest';
 		}
 		if(!isset($_REQUEST['route']) && !isset($_REQUEST['rest'])){
-			$url_controller = URL::getSeoUrlMethod();
+			$url_controller = URL::getSeoUrlMethod($url_action);
 		}
 
+		//Set config
 		Config::set("url_host", $url_host);
 		Config::set("url_protocol", $url_protocol);
 		Config::set("url_action", $url_action);
 		Config::set("url_controller", $url_controller);
+		
 	}
 
-	public static function getSeoUrlMethod(){
+	public static function getSeoUrlMethod($url_action){
 
 		require(SYSTEM."config/routes.php");
 
 		$routes_name = array_keys($routes);
-
-		$url_action = Config::get("url_action");
 
 		if( in_array($url_action, $routes_name)){
 			return $routes[$url_action];
