@@ -27,7 +27,7 @@ class Db implements SessionHandlerInterface{
 		}
 	}
 	
-	public function write($session_id, $data) {		
+	public function write($session_id, $data) {
 		Connection::query("REPLACE INTO `session` SET session_id = '".$session_id."', `data` = '".$data."', expire = '" . date('Y-m-d H:i:s', time() + $this->expire) . "'");
 		return true;
 	}

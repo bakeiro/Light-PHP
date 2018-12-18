@@ -30,7 +30,6 @@ class Session{
 		//Regenerate session method
 		//ip?
 		
-		
 		Session::set('last_activity',time());
 	}
 
