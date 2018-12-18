@@ -5,8 +5,5 @@ class loginController extends SecController{
 		Output::loadCompileTemplate("login/registerView");
 	}
 
-	public function login(){
-		Session::set("logged", true);
-		Session::set("customer_id", 1);
-	}
+	
 }

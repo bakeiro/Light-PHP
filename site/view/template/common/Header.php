@@ -17,7 +17,6 @@
 	<!-- Materialize -->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="<?=$host?>/site/view/www/node_modules/materialize-css/dist/css/materialize.min.css" rel="stylesheet">
-	<script src="<?=$host?>/site/view/www/node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="<?=$host?>/site/view/www/node_modules/materialize-css/dist/js/materialize.min.js"></script> 
 
 </head>
@@ -25,16 +24,15 @@
 
 <nav>
     <div class="nav-wrapper blue lighten-2">
-		<a href="index.php?route=index/index" class="brand-logo">Your site</a>
+		<a href="/welcome" class="brand-logo">Your site</a>
 		<ul id="nav-mobile" class="right hide-on-med-and-down">
-			<li><a href="index.php?route=product/product">Ajax</a></li>
-			<li><a href="index.php?route=index/index/about">About</a></li>
-			<li><a href="index.php?route=contact/contact">Contact</a></li>
+			<li><a href="index.php?route=index/index/products">Ajax</a></li>
+			<li><a href="index.php?route=index/index/contactForm">Contact</a></li>
 			
 			<?php if(Session::get("logged") && Session::get("customer_id")){ ?>
 				<li><a href="index.php?route=account/customer/info">Account</a></li>
 			<?php }else{ ?>
-				<li><a href="index.php?route=account/customer/login">Login</a></li>
+				<li><a href="index.php?route=account/customer/loginPage">Login</a></li>
 			<?php } ?>
 		</ul>
 	</div>
