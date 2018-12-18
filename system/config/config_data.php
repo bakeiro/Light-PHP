@@ -3,8 +3,6 @@
 //Debug
 Config::set("debug", false);
 Config::set("send_email_errors", false);
-
-//Console
 Config::set("start_time", microtime(true));
 
 //Description
@@ -30,7 +28,8 @@ Config::set("image_cache_size_medium", "***");
 Config::set("image_cache_size_big", "***");
 
 //Session
-Config::set("session_frontend_time", 14400); //4h
+Config::set("session_handle", "Db");
+//Config::set("session_handle", "file");
 
 //Cache (front-end folder)
 Config::set('cache_version', '1.0');

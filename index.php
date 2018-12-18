@@ -15,15 +15,9 @@ require(SYSTEM . 'engine/Errors.php');
 require(SYSTEM . 'engine/SecModel.php');
 require(SYSTEM . 'engine/SecController.php');
 
-//Composer
-require(SYSTEM."libraries/vendor/autoload.php");
-
 //Startup
 require(SYSTEM. "start.php");
 
 //Controller
 $Controller = new Controller();
 $Controller->execController();
-
-//DB
-Connection::$CONN->close();

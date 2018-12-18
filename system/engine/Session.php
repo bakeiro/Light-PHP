@@ -1,24 +1,37 @@
 <?php
 class Session{
-	
-	//FIXME: Fix the Session fixation vulnerability -> https://stackoverflow.com/questions/520237/how-do-i-expire-a-php-session-after-30-minutes?rq=1
-	//FIXME: Make remenber me cookie
-	//TODO: Improve this class
 
-	public static function start(){
+	public static $handler;
 
-		$session_time_out = Config::get("session_frontend_time");
+	public static function init(){
 
-		if(session_status() === 0 || session_status() === 1){
-			session_start();
-		}
+		//Handler
+		require("system/handlers/session_handler/".Config::get("session_handle").".php");
+		$handler_class = Config::get("session_handle");
+		$handler_class = new $handler_class();
+		Session::$handler = $handler_class;
 
-		if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > $session_time_out)) {
+		session_set_save_handler($handler_class);
+		
+		//Start
+		session_start();
+
+		//Timeout
+		/*
+		$user_session_time = ini_get('session.gc_maxlifetime');
+		if(Session::get('LAST_ACTIVITY') && ((time() - Session::get('LAST_ACTIVITY')) > $user_session_time)){
 			session_unset();
 			session_destroy();
+			session_start();
 		}
-		$_SESSION['LAST_ACTIVITY'] = time();
+		*/
 
+		//5% regenerate session id
+		//Regenerate session method
+		//ip?
+		
+		
+		Session::set('last_activity',time());
 	}
 
 	public static function get($key){

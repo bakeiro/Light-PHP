@@ -30,7 +30,7 @@ class Connection{
 			$query->close();
 		}else{
 
-			//Insert
+			//Insert (return last id generated)
 			if(strpos($sql_query, "INSERT INTO")){
 				$data = Connection::$CONN->insert_id();
 			}
