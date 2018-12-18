@@ -9,7 +9,7 @@
 
 	<!-- Variables -->
 	<?php $cache = Config::Get("cache_version"); ?>
-	<?php $host = Url::$host; ?>
+	<?php $host = Config::get("url_host"); ?>
 
 	<!-- my resources -->
 	<link href="<?=$host?>/site/view/www/build/<?=$cache?>/site/site.css" rel="stylesheet">

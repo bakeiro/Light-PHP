@@ -8,7 +8,7 @@ class Controller{
 
 	public function __construct(){
 
-		$route = Url::$controller;
+		$route = Config::get("url_controller");
 		$url_split = explode('/', $route);
 		$this->file = CONTROLLER . $url_split[0] . '/' . $url_split[1] . 'Controller.php';
 		$this->class = $url_split[1] . 'Controller';

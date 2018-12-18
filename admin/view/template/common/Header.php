@@ -8,8 +8,8 @@
     <title>Light PHP</title>
 
 	<!-- Resources -->
-	<?php $cache = Config::Get("cache_version"); ?>
-	<?php $host = Url::$host; ?>
+	<?php $cache = Config::get("cache_version"); ?>
+	<?php $host = Config::get("url_host"); ?>
 
 	<!-- Custom resources -->
 	<link href="<?=$host?>/admin/view/www/<?=$cache?>/admin/admin.css" rel="stylesheet">

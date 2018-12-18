@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Document</title>
 
-	<?php $host = Url::$host; ?>
+	<?php $host = Config::get("url_host;"); ?>
 
 	<link href="http://frame.localhost/site/view/www/fonts/google_icons.css" rel="stylesheet">
     <link href="<?=$host?>/site/view/www/node_modules/materialize-css/dist/css/materialize.min.css" rel="stylesheet">
