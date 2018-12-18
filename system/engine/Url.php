@@ -28,13 +28,14 @@ class Url{
 		//Action
 		$url_action = $_SERVER["REQUEST_URI"];
 		$url_action = substr($url_action, 1);
+		$rest_controller = null;
 
 		//Controller
 		if(isset($_REQUEST['route']) && !isset($_REQUEST['rest'])){
 			$url_controller = $_REQUEST['route'];
 		}
 		if(isset($_REQUEST['rest']) && !isset($_REQUEST['route'])){
-			Config::set("url_restController", $_REQUEST['rest']);
+			$rest_controller = $_REQUEST['rest'];
 			$url_controller = 'api/rest';
 		}
 		if(!isset($_REQUEST['route']) && !isset($_REQUEST['rest'])){
@@ -46,7 +47,7 @@ class Url{
 		Config::set("url_protocol", $url_protocol);
 		Config::set("url_action", $url_action);
 		Config::set("url_controller", $url_controller);
-		
+		Config::set("url_restController", $rest_controller);
 	}
 
 	public static function getSeoUrlMethod($url_action){

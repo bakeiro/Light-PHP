@@ -23,7 +23,12 @@
 <body>
 
 <nav>
-    <div class="nav-wrapper blue lighten-2">
+    <div class="nav-wrapper red lighten-2">
+
+		<a href="#" data-target="slide-out" class="sidenav-trigger">
+			<i class="material-icons">menu</i>
+		</a>
+		
 		<a href="/welcome" class="brand-logo">Your site</a>
 		<ul id="nav-mobile" class="right hide-on-med-and-down">
 			<li><a href="index.php?route=index/index/products">Ajax</a></li>
@@ -37,5 +42,15 @@
 		</ul>
 	</div>
 </nav>
+
+<ul id="slide-out" class="sidenav">
+	<br><br>
+    <li><a href="#!">Welcome</a></li>
+    <li><div class="divider"></div></li>
+	<li><a href="#!">Ajax</a></li>
+	<li><a href="#!">Contact</a></li>
+	<li><a href="#!">Login</a></li>
+</ul>
+
 <div class="container">
     <div id="main" class="main">

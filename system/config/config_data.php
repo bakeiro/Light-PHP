@@ -1,8 +1,5 @@
 <?php
 
-//Routes
-
-
 //Database
 Config::set("CONN_HOST", "localhost");
 Config::set("CONN_USER", "root");

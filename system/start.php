@@ -12,7 +12,7 @@ $temp_con = mysqli_connect(Config::get("CONN_HOST"), Config::get("CONN_USER"), C
 mysqli_set_charset($temp_con,"utf8");
 Database::$CONN = $temp_con;
 
-//Url TODO: use config values
+//Url
 Url::init();
 
 //Session

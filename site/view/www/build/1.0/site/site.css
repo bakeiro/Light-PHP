@@ -1,3 +1,9 @@
+hr {
+	border: 1px solid lightgray !important;
+}
+nav .brand-logo {
+    padding-left: 20px;
+}
 div.arrows i{
 	background-color: #121212;
     border-radius: 40px;
