@@ -6,12 +6,14 @@ class Session{
 	public static function init(){
 
 		//Handler
+		/*
 		require("system/handlers/session_handler/".Config::get("session_handle").".php");
 		$handler_class = Config::get("session_handle");
 		$handler_class = new $handler_class();
 		Session::$handler = $handler_class;
 
 		session_set_save_handler($handler_class);
+		*/
 		
 		//Start
 		session_start();
