@@ -54,7 +54,7 @@ class indexController extends SecController{
 	public function products(){
 		Output::load_js("products/products");
 		Output::load_css("products/products");
-		Output::loadCompileTemplate("products/productsView", array());
+		Output::loadCompileTemplate("info/productsView", array());
 	}
 
 }
