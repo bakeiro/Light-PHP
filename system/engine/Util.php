@@ -25,7 +25,7 @@ class Util{
 		return str_replace(array("\\", "\0", "\n", "\r", "\x1a", "'", '"'), array("\\\\", "\\0", "\\n", "\\r", "\Z", "\'", '\"'), $value);
 	}
 
-	static function deleteSpacesAtEndAndBegining($string){
+	static function deleteSpacesAtEndAndBeginning($string){
 
         if($string !== "" && $string !== " "){
             $i = 0;
@@ -63,7 +63,7 @@ class Util{
 	static function cleanInput(){
 
 		function array_clean(&$value) {
-			$value = Util::deleteSpacesAtEndAndBegining($value); //Duplicated values
+			$value = Util::deleteSpacesAtEndAndBeginning($value); //Duplicated values
 			$value = Util::escape($value); //SQL injections
 			$value = strip_tags($value); //Avoid XSS attacks
 		}

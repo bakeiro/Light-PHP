@@ -6,7 +6,7 @@ class dashboardController{
 		//TODO: Do here the main page
 
 		$data = array();
-		Output::loadCompileTemplate("dashboard/dashboardView", $data);
+		Output::load("dashboard/dashboardView", $data);
 
 	}
 

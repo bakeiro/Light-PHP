@@ -1,9 +1,5 @@
 <?php
 
-//Config
-require(SYSTEM."config/config_data.php");
-require(SYSTEM."config/php_settings.php");
-
 //Composer
 require(SYSTEM."libraries/vendor/autoload.php");
 
@@ -12,15 +8,11 @@ set_error_handler( array(new Errors(),"my_error_handler") ,E_ALL);
 error_reporting(E_ALL);
 
 //Database
-$temp_con = mysqli_connect(CONN_HOST, CONN_USER, CONN_PASS, CONN_DDBB);
+$temp_con = mysqli_connect(Config::get("CONN_HOST"), Config::get("CONN_USER"), Config::get("CONN_PASS"), Config::get("CONN_DDBB"));
 mysqli_set_charset($temp_con,"utf8");
 Connection::$CONN = $temp_con;
 
-//Output
-Output::$scripts = array();
-Output::$styles = array();
-
-//Url
+//Url TODO: use config values
 Url::init();
 
 //Session

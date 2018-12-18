@@ -13,12 +13,12 @@ class customerController extends SecController{
 		$data["first_name"] = $customer_info["first_name"];
 		$data["last_name"] = $customer_info["last_name"];
 
-		Output::loadCompileTemplate("account/infoView", $data);
+		Output::load("account/infoView", $data);
 	}
 
 	public function loginPage(){
 		$data = array();
-		Output::loadCompileTemplate("account/loginView", $data);
+		Output::load("account/loginView", $data);
 	}
 
 	public function logout(){

@@ -1,10 +1,18 @@
 <?php
 
+//Routes
+define('DIR_ROOT', 'C:/xampp/htdocs/framework_php/');
+define('SYSTEM', DIR_ROOT.'system/');
+define('MODEL', DIR_ROOT.'site/model/');
+define('CONTROLLER', DIR_ROOT.'site/controller/');
+define('VIEW', DIR_ROOT.'site/view/');
+
 //Config
-require('config.php');
+require(SYSTEM . "engine/Config.php");
+require(SYSTEM . "config/config_data.php");
+require(SYSTEM . "config/php_settings.php");
 
 //Engine
-require(SYSTEM . 'engine/Config.php');
 require(SYSTEM . 'engine/Url.php');
 require(SYSTEM . 'engine/Controller.php');
 require(SYSTEM . 'engine/Session.php');
@@ -21,3 +29,7 @@ require(SYSTEM. "start.php");
 //Controller
 $Controller = new Controller();
 $Controller->execController();
+
+//Finish script functions
+//Session::$handler->close();
+//Connection::$CONN->close()

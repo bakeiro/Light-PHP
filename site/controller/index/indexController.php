@@ -7,11 +7,11 @@ class indexController extends SecController{
 
 	public function index(){
 		Errors::$debug_info[] = "welcome page loaded ;)";
-		Output::loadCompileTemplate("info/welcomeView",array());
+		Output::load("info/welcomeView",array());
 	}
 
 	public function contactForm(){
-		Output::loadCompileTemplate("info/contactView",array());
+		Output::load("info/contactView",array());
 	}
 
 	public function contactSend(){
@@ -44,7 +44,7 @@ class indexController extends SecController{
 			$mail->AltBody = $email_name. "    ". $email_body;
 			$mail->send();
 
-			Output::loadCompileTemplate("info/contactSuccessView",array());
+			Output::load("info/contactSuccessView",array());
 
 		} catch (Exception $e) {
 			echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
@@ -54,7 +54,7 @@ class indexController extends SecController{
 	public function products(){
 		Output::load_js("products/products");
 		Output::load_css("products/products");
-		Output::loadCompileTemplate("info/productsView", array());
+		Output::load("info/productsView", array());
 	}
 
 }
