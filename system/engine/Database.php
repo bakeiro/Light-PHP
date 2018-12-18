@@ -1,17 +1,17 @@
 <?php
 
-class Connection{
+class Database{
 
 	public static $CONN;
 
-    static function getConnection(){
-       return Connection::$CONN;
+    static function getDatabase(){
+       return Database::$CONN;
     }
 
    	static function query($sql_query){
 		
 		$data = array();
-		$query = Connection::$CONN->query($sql_query);
+		$query = Database::$CONN->query($sql_query);
 
 		//Select
 		if(gettype($query) === "object"){
@@ -32,7 +32,7 @@ class Connection{
 
 			//Insert (return last id generated)
 			if(strpos($sql_query, "INSERT INTO")){
-				$data = Connection::$CONN->insert_id();
+				$data = Database::$CONN->insert_id();
 			}
 
 		}
@@ -41,6 +41,6 @@ class Connection{
     }
 
     static function getLastId(){
-        return Connection::$CONN->insert_id();
+        return Database::$CONN->insert_id();
     }
 }

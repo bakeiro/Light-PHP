@@ -10,7 +10,7 @@ error_reporting(E_ALL);
 //Database
 $temp_con = mysqli_connect(Config::get("CONN_HOST"), Config::get("CONN_USER"), Config::get("CONN_PASS"), Config::get("CONN_DDBB"));
 mysqli_set_charset($temp_con,"utf8");
-Connection::$CONN = $temp_con;
+Database::$CONN = $temp_con;
 
 //Url TODO: use config values
 Url::init();
@@ -30,5 +30,5 @@ register_shutdown_function(function(){
 });
 
 register_shutdown_function(function(){
-	//Connection::$CONN->close();//Closes db connection
+	//Database::$CONN->close();//Closes db Database
 });

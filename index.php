@@ -17,7 +17,7 @@ require(SYSTEM . 'engine/Url.php');
 require(SYSTEM . 'engine/Controller.php');
 require(SYSTEM . 'engine/Session.php');
 require(SYSTEM . "engine/Output.php");
-require(SYSTEM . 'engine/Connection.php');
+require(SYSTEM . 'engine/Database.php');
 require(SYSTEM . 'engine/Util.php');
 require(SYSTEM . 'engine/Errors.php');
 require(SYSTEM . 'engine/SecModel.php');
@@ -32,4 +32,4 @@ $Controller->execController();
 
 //Finish script functions
 //Session::$handler->close();
-//Connection::$CONN->close()
+//Database::$CONN->close()
