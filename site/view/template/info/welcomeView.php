@@ -3,14 +3,13 @@
 <p>
 	Simple MVC framework done in PHP, made to be the most simple possible and easy to understand!
 	<br><br>
-	You can start modifying the default site to make it your personal project!, as easy as change the HTML and then the MVC structure to give it the result you want.
-	<br>
+	You can start modifying this site to make it your personal project!, as easy as change the HTML in <span class="code">site/view/template/info/welcomeView.php</span> and then the <span class="code">Controller</span> plus the <span class="code">Model</span> files to give it the result you want.
+	<br><br>
 	Don't forget to see the documentation for <a target="_blank" href="https://bakeiro.github.io/Light-PHP-documentation/">help</a>
 </p>
 <br>
 
-<h4>Features</h4>
-<hr>
+<h4>Features</h4><hr>
 
 <ul>
 	<li><i class="material-icons small">build</i>Powerfull</li>
@@ -21,8 +20,7 @@
 </ul>
 <br>
 
-<h4>Adding a page</h4>
-<hr>
+<h4>Adding a page</h4><hr>
 
 <div class="row">
 	<div class="col s6 left">
@@ -48,7 +46,7 @@
 <div class="row">
 	<div class="col s6 right">
 		<h5>Route</h5>
-		<img class="welcome" src="site/view/www/images/data/welcome/3.png" alt="">
+		<img class="welcome" src="site/view/www/images/data/welcome/4.png" alt="">
 	</div>
 </div>
 
@@ -57,7 +55,7 @@
 <h4>Features:</h4>
 <hr>
 <label>
-    <input type="checkbox" disabled class="filled-in" />
+    <input type="checkbox" disabled class="filled-in" checked="checked" />
 	<span>Session management</span>
 </label>
 <br>

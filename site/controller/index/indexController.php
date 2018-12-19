@@ -6,8 +6,10 @@ use PHPMailer\PHPMailer\Exception;
 class indexController extends SecController{
 
 	public function index(){
+
 		Errors::$debug_info[] = "welcome page loaded ;)";
-		Output::load("info/welcomeView",array());
+
+		Output::load("info/welcomeView");
 	}
 
 	public function contactForm(){

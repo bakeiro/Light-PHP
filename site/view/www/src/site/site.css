@@ -2,7 +2,7 @@ hr {
  	border: 1px solid lightgray !important;
 }
 nav .brand-logo {
-    padding-left: 20px;
+    padding-left: 20px !important;
 }
 div.arrows i{
 	background-color: #121212;
