@@ -1,6 +1,10 @@
 hr {
 	border: 1px solid lightgray !important;
 }
+span.feature{
+	position: relative;
+    top: -7px;
+}
 div.card.code{
 	font-size: 14px;
 }

@@ -9,6 +9,7 @@
   "author": "David Baqueiro",
   "license": "ISC",
   "dependencies": {
+    "jquery": "^3.3.1",
     "materialize-css": "1.00",
     "vue": "^2.5.17"
   }
