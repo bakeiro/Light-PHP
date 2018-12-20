@@ -2,8 +2,14 @@ Options +FollowSymlinks
 
 #Block all files
 <Files *.*>
-	Order Deny,Allow
-	Deny from all
+    Order Deny,Allow
+    Deny from all
+</Files>
+
+#Allow files only from index.php
+<Files index.php>
+    Order Allow,Deny
+    Allow from all
 </Files>
 
 # Prevent Directoy listing

@@ -1,1 +1,4 @@
-Allow from all
+# except php?
+<Files *.*>
+	Allow from all
+</Files>
