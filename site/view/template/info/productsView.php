@@ -11,7 +11,6 @@
 
 <p>Here you can see all the products avaliable in the shop</p>
 
-
 <div id="prods" class="row">
 	
 	<div class="arrows" id="prevPage">

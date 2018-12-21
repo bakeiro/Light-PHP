@@ -45,6 +45,7 @@
             <div class="container">
 
 				© <span id="year_copyright"></span> Copyright Text
+				
 				<a class="grey-text text-lighten-4 right" href="#!">More Links</a>
 
 				<script> 
