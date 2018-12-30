@@ -26,6 +26,16 @@
 </head>
 <body>
 
+<?php
+	//Custom CSS/JS
+	foreach(Config::get("output_styles") as $style_file){
+		echo $style_file;
+	}
+	foreach(Config::get("output_scripts") as $script_file){
+		echo $script_file;
+	}
+?>
+
 <nav>
     <div class="nav-wrapper red lighten-2">
 
@@ -49,11 +59,17 @@
 
 <ul id="slide-out" class="sidenav">
 	<br><br>
-    <li><a href="#!">Welcome</a></li>
+    <li><a href="/welcome">Welcome</a></li>
     <li><div class="divider"></div></li>
-	<li><a href="#!">Ajax</a></li>
-	<li><a href="#!">Contact</a></li>
-	<li><a href="#!">Login</a></li>
+	<li><a href="index.php?route=index/index/products">Ajax</a></li>
+	<li><a href="index.php?route=index/index/contactForm">Contact</a></li>
+
+	<?php if(Session::get("logged") && Session::get("customer_id")){ ?>
+		<li><a href="index.php?route=account/customer/info">Account</a></li>
+	<?php }else{ ?>
+		<li><a href="index.php?route=account/customer/loginPage">Login</a></li>
+	<?php } ?>
+	
 </ul>
 
 <div class="container">

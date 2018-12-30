@@ -10,8 +10,15 @@ Micro PHP framework :)
 
 ### Disclaimer
 
-- The approach of this project is to create a framework-less site (with all features) using the most simple and understandable structure
-- This project was not security tested, use at your own risk!
+- This may be not 100% secure, use at your risk!
+
+### Minimum requirements
+- PHP OpenSSL extension (if wants session encryption, something recommended)
+- Web Server (Apache suggested)
+- PHP (at least 5.4)
+- Database (MySQLi suggested)
+
+
 
 
 Light-PHP makes possible start working without reading in massive documentations of highly complex professional frameworks, if this is the case, then Light-PHP might be very useful for you. Light-PHP is easy to install, runs nearly everywhere and doesn't make things more complicated than necessary.

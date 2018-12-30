@@ -21,7 +21,7 @@
 			<script>
 				$("body").on("click", "button[name='submit_login']", function(){
 					$.ajax({
-						url: "index.php?rest=api/customerApi/checkLogin",
+						url: "index.php?route=account/customer/checkLogin",
 						dataType: "json",
 						data: $("input[name='pass'], input[name='email']"),
 						method: "POST",	

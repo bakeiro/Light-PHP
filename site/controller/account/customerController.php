@@ -18,6 +18,7 @@ class customerController extends SecController{
 
 	public function loginPage(){
 		$data = array();
+		Output::load_js("jquery.min");
 		Output::load("account/loginView", $data);
 	}
 
@@ -58,7 +59,10 @@ class customerController extends SecController{
 			}
 		}
 
-		return $data;
+		header('Content-Type: application/json');
+		echo json_encode($data);
+
+		//return $data;
 	}
 
 	public function login(){
