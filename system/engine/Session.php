@@ -3,48 +3,27 @@ class Session{
 
 	public static $handler;
 
-	public static function init(){
+	public static function init($session_handler){
 
-		//Handler
-		/*
-		require("system/handlers/session_handler/".Config::get("session_handle").".php");
-		$handler_class = Config::get("session_handle");
-		$handler_class = new $handler_class();
-		Session::$handler = $handler_class;
+		ini_set('session.save_handler', 'files');
+		session_set_save_handler($session_handler, true);
+		session_save_path(SYSTEM . '/sessions');
 
-		session_set_save_handler($handler_class);
-		*/
-		
-		//Start
-		session_start();
+		$session_handler->start();
 
-		//Timeout
-		/*
-		$user_session_time = ini_get('session.gc_maxlifetime');
-		if(Session::get('LAST_ACTIVITY') && ((time() - Session::get('LAST_ACTIVITY')) > $user_session_time)){
-			session_unset();
-			session_destroy();
-			session_start();
+		if (!$session_handler->isValid(5)) {
+			$session_handler->destroy();
 		}
-		*/
 
-		//5% regenerate session id
-		//Regenerate session method
-		//ip?
-		
-		Session::set('last_activity',time());
+		Session::$handler = $session_handler;
 	}
 
 	public static function get($key){
-		if(isset($_SESSION[$key])){
-			return $_SESSION[$key];
-		}else{
-			return false;
-		}
+		return Session::$handler->get($key);
 	}
 
 	public static function set($key, $value){
-		$_SESSION[$key] = $value;
+		Session::$handler->put($key, $value);
 	}
 
 }

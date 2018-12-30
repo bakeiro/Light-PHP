@@ -16,7 +16,8 @@ Database::$CONN = $temp_con;
 Url::init();
 
 //Session
-Session::init();
+$sessionHandler = new SecureSessionHandler('key');
+Session::init($sessionHandler);
 
 //escape $_POST,$_GET,$_COOKIE
 Util::cleanInput();

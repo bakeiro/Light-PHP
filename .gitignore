@@ -1,4 +1,5 @@
 /system/logs/*
+/system/sessions/*
 /system/libraries/vendor/*
 /site/view/www/node_modules/*
 /site/view/www/build/*
