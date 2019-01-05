@@ -5,13 +5,13 @@ class Session{
 
 	public static function init($session_handler){
 
-		ini_set('session.save_handler', 'files');
+		//ini_set('session.save_handler', 'files');
 		session_set_save_handler($session_handler, true);
-		session_save_path(SYSTEM . '/sessions');
+		//session_save_path(SYSTEM . '/sessions');
 
 		$session_handler->start();
 
-		if (!$session_handler->isValid(5)) {
+		if (!$session_handler->isValid()){
 			$session_handler->destroy();
 		}
 

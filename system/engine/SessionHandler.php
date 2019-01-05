@@ -6,8 +6,7 @@ class SecureSessionHandler extends SessionHandler {
 
     public function __construct($key, $name = 'MY_SESSION', $cookie = []){
 
-		//$this->key = $key;
-		$this->key = substr(hash('sha256', $key), 0, 32); //New change
+		$this->key = substr(hash('sha256', $key), 0, 32);
         $this->name = $name;
         $this->cookie = $cookie;
 
@@ -75,11 +74,13 @@ class SecureSessionHandler extends SessionHandler {
     }
 
     public function read($id){
-		return (string)openssl_decrypt (parent::read($id) , "aes-256-cbc", $this->key);
+		$iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length('aes-256-cbc'));
+		return (string)openssl_decrypt (parent::read($id) , "aes-256-cbc", $this->key, 0, $iv);
     }
 
     public function write($id, $data){
-		return parent::write($id, openssl_encrypt($data, "aes-256-cbc", $this->key));
+		$iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length('aes-256-cbc'));
+		return parent::write($id, openssl_encrypt($data, "aes-256-cbc", $this->key, 0, $iv));
     }
 
     public function isExpired($ttl = 30){
