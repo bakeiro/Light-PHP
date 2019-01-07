@@ -30,44 +30,24 @@ class customerController extends SecController{
 
 	public function checkLogin(){
 
+		$data = array();
 		$email_post = $_POST['email'];
 		$pass_post = $_POST['pass'];
-
-		require(MODEL."customer/customerModel.php");
-		$customer_model = new customerModel();
-
-		$customer = $customer_model->getCustomer($email_post);
 		
-		$errors = [];
+		require(MODEL.'customer/customerModel.php');
+		$customer_model = new customerModel();
+		$customer = $customer_model->checkLogin($email_post, $pass_post, "1");
+
 		if($customer){
-			if($customer['password'] !== $pass_post){
-				$errors[] = array("msg"=>"Incorrect pass", "field" =>"pass");
-			}
+			Session::set("logged", true);
+			Session::set("customer_id", 1);
+			$data["success"] = true;
 		}else{
-			$errors[] = array("msg"=>"Email not found", "field" =>"email");
-		}
-
-		$data = array();
-		$data['errors'] = $errors;
-
-		if(count($errors) === 0){
-			if($customer['password'] === $pass_post){
-
-				$this->login();
-
-				$data["success"] = true;
-			}
+			$data["error"] = "Incorrect login info";
 		}
 
 		header('Content-Type: application/json');
 		echo json_encode($data);
-
-		//return $data;
-	}
-
-	public function login(){
-		Session::set("logged", true);
-		Session::set("customer_id", 1);
 	}
 
 }

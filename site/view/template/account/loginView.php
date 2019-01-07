@@ -31,19 +31,10 @@
 						},
 						success: function(json){
 									
-							var i = 0;
-							while(json["errors"][i]){
-								if(json["errors"][i]["field"] === "email"){
-									$("input#email_login").addClass("invalid");
-									alert(json["errors"][i]["msg"]);
-								}
-								if(json["errors"][i]["field"] === "pass"){
-									$("input#pass_login").addClass("invalid");
-									alert(json["errors"][i]["msg"]);
-								}
-								i++;
-							}
-									
+							if(json["error"]){
+								$("input#email_login").addClass("invalid");
+								alert(json["error"]);
+							}									
 							if(json["success"]){
 								window.location.href = "index.php?route=index/index";
 							}

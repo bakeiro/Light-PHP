@@ -8,8 +8,13 @@ set_error_handler( array(new Errors(),"my_error_handler") ,E_ALL);
 error_reporting(E_ALL);
 
 //Database
-$temp_con = mysqli_connect(Config::get("CONN_HOST"), Config::get("CONN_USER"), Config::get("CONN_PASS"), Config::get("CONN_DDBB"));
-mysqli_set_charset($temp_con,"utf8");
+$temp_con = new PDO("mysql:host=" .Config::get("CONN_HOST"). ";port=3306;dbname=" . Config::get("CONN_DDBB"), Config::get("CONN_USER"), Config::get("CONN_PASS"));
+$temp_con->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+
+$temp_con->exec("SET NAMES 'utf8'");
+$temp_con->exec("SET CHARACTER SET utf8");
+$temp_con->exec("SET CHARACTER_SET_CONNECTION=utf8");
+
 Database::$CONN = $temp_con;
 
 //Url
@@ -32,4 +37,5 @@ register_shutdown_function(function(){
 
 register_shutdown_function(function(){
 	//Database::$CONN->close();//Closes db Database
+	//$pdo->query('SELECT pg_terminate_backend(pg_backend_pid());');
 });
