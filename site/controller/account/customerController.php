@@ -36,7 +36,7 @@ class customerController extends SecController{
 		
 		require(MODEL.'customer/customerModel.php');
 		$customer_model = new customerModel();
-		$customer = $customer_model->checkLogin($email_post, $pass_post, "1");
+		$customer = $customer_model->checkLogin($email_post, $pass_post, "customer");
 
 		if($customer){
 			Session::set("logged", true);

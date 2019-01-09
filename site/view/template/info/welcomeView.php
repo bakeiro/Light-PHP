@@ -6,8 +6,11 @@
 	You can start modifying this site to make it your personal project!, as easy as change the HTML in <span class="code">site/view/template/info/welcomeView.php</span> and then the <span class="code">Controller</span> plus the <span class="code">Model</span> files to give it the result you want.
 	<br><br>
 	Don't forget to see the documentation for <a target="_blank" href="https://bakeiro.github.io/Light-PHP-documentation/">help</a>
+	<br><br>
+	Important: This default site is a showcase of how to do an app with my microframework, it doesn't pretend to be a full-featured site, you can use it to understand how the PHP framework works also it may be not 100% safe. Use it at your own risk!
 </p>
 <br>
+
 
 <h4>Features</h4><hr>
 

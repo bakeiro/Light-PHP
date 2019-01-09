@@ -7,17 +7,14 @@ ini_set('display_errors', 'On');
 ini_set("log_errors", 1);
 
 //Session
-ini_set('session.gc-maxlifetime', 14400); //4h
+ini_set('session.cookie_lifetime', 0);
+ini_set('session.gc_maxlifetime', 14400); //4h
+//ini_set("session.cookie_domain", ".".$_SERVER['HTTP_HOST']);
+
 
 /*
-ini_set('session.use_strict_mode', 'On');
-ini_set('session.use_only_cookies', 'Off');
-ini_set('session.use_cookies', 'On');
-ini_set('session.use_trans_sid', 'Off');
-ini_set('session.cookie_httponly', 'On');
-*/
-
-/*
+Common settings
+max_input_time = 200
 magic_quotes_gpc = Off
 register_globals = Off
 default_charset = UTF-8
@@ -29,28 +26,5 @@ mysql.connect_timeout = 20
 session.auto_start = Off
 session.cookie_lifetime = 3600
 allow_url_fopen = On
-;error_reporting = E_ALL
-*/
-
-/*
-# 1. If your cart only allows you to add one item at a time, it is possible register_globals is on. This may work to disable it:
-# php_flag register_globals off
-
-# 2. If your cart has magic quotes enabled, This may work to disable it:
-# php_flag magic_quotes_gpc Off
-
-# 3. Set max upload file size. Most hosts will limit this and not allow it to be overridden but you can try
-# php_value upload_max_filesize 999M
-
-# 4. set max post size. uncomment this line if you have a lot of product options or are getting errors where forms are not saving all fields
-# php_value post_max_size 999M
-
-# 5. set max time script can take. uncomment this line if you have a lot of product options or are getting errors where forms are not saving all fields
-# php_value max_execution_time 200
-
-# 6. set max time for input to be recieved. Uncomment this line if you have a lot of product options or are getting errors where forms are not saving all fields
-# php_value max_input_time 200
-
-# 7. disable open_basedir limitations
-# php_admin_value open_basedir none
+error_reporting = E_ALL
 */
