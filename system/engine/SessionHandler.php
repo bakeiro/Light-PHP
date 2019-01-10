@@ -1,13 +1,18 @@
 <?php
+
 class SecureSessionHandler extends SessionHandler {
-    protected $key, $name, $cookie;
-    public function __construct($key, $name = 'MY_SESSION', $cookie = [])
-    {
+
+	protected $key, $name, $cookie;
+	
+    public function __construct($key, $name = 'MY_SESSION', $cookie = []){
+
+		//$this->key = substr(hash('sha256', $key), 0, 32);
         $this->key = $key;
         $this->name = $name;
-        $this->cookie = $cookie;
+		$this->cookie = $cookie;
+		
         $this->cookie += [
-            'lifetime' => 0,
+            'lifetime' => 0, /* ini_get('session.gc_maxlifetime'),*/
             'path'     => ini_get('session.cookie_path'),
             'domain'   => ini_get('session.cookie_domain'),
             'secure'   => isset($_SERVER['HTTPS']),
@@ -15,8 +20,8 @@ class SecureSessionHandler extends SessionHandler {
         ];
         $this->setup();
     }
-    private function setup()
-    {
+    private function setup(){
+
         ini_set('session.use_cookies', 1);
         ini_set('session.use_only_cookies', 1);
         session_name($this->name);
@@ -57,10 +62,14 @@ class SecureSessionHandler extends SessionHandler {
         return session_regenerate_id(true);
     }
     public function read($id){
-        return mcrypt_decrypt(MCRYPT_3DES, $this->key, parent::read($id), MCRYPT_MODE_ECB);
+		return mcrypt_decrypt(MCRYPT_3DES, $this->key, parent::read($id), MCRYPT_MODE_ECB);
+		//$iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length('aes-256-cbc'));
+		//return (string)openssl_decrypt (parent::read($id) , "aes-256-cbc", $this->key, 0, $iv);
     }
     public function write($id, $data){
         return parent::write($id, mcrypt_encrypt(MCRYPT_3DES, $this->key, $data, MCRYPT_MODE_ECB));
+		//$iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length('aes-256-cbc'));
+		//return parent::write($id, openssl_encrypt($data, "aes-256-cbc", $this->key, 0, $iv));
     }
     public function isExpired($ttl = 30){
         $last = isset($_SESSION['_last_activity'])
