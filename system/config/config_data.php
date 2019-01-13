@@ -32,7 +32,7 @@ Config::set("image_cache_size_big", "***");
 //Config::set("session_handle", "file");
 
 //Cache (front-end folder)
-Config::set('cache_version', '1.0');
+Config::set('cache_version', '0001');
 
 //Output files
 Config::set("output_styles", array());

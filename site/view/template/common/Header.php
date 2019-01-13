@@ -12,7 +12,7 @@
 	<?php $host = Config::get("url_host"); ?>
 
 	<!-- my resources -->
-	<link href="<?=$host?>/site/view/www/build/<?=$cache?>/site/site.css" rel="stylesheet">
+	<link href="<?=$host?>/site/view/www/build/site/site.css?v=<?=$cache?>" rel="stylesheet">
 	
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">

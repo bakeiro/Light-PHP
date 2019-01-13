@@ -7,7 +7,7 @@ class productModel extends SecModel{
 	}
 
 	public function getProdInfo($prod_id){
-		$prod = Database::query("SELECT * FROM `product` p inner join product_info pfo on p.product_id = pfo.product_id WHERE p.product_id = '".$prod_id."'");
+		$prod = Database::query("SELECT * FROM `product` p inner join product_info pfo on p.id = pfo.id WHERE p.id = '".$prod_id."'");
 	
 		$prod['description'] = html_entity_decode($prod['description']);
 		
@@ -15,7 +15,7 @@ class productModel extends SecModel{
 	}
 
 	public function getProdsPage($offset){
-		$prod = Database::query("SELECT * FROM `product` p inner join product_info pfo on p.product_id = pfo.product_id LIMIT 4 OFFSET ".$offset);
+		$prod = Database::query("SELECT * FROM `product` p inner join product_info pfo on p.id = pfo.id LIMIT 4 OFFSET ".$offset);
 		return $prod;
 	}
 

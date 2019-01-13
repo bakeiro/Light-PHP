@@ -7,7 +7,7 @@
 	<br><br>
 	Don't forget to see the documentation for <a target="_blank" href="https://bakeiro.github.io/Light-PHP-documentation/">help</a>
 	<br><br>
-	Important: This default site is a showcase of how to do an app with my microframework, it doesn't pretend to be a full-featured site, you can use it to understand how the PHP framework works also it may be not 100% safe. Use it at your own risk!
+	Important: This default site is a showcase of how to do an app with my microframework, it doesn't pretend to be a full-featured site, you can use it to understand how the PHP framework works.
 </p>
 <br>
 
