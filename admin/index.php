@@ -30,7 +30,7 @@ require(SYSTEM. "startup.php");
 $Controller = new Controller();
 
 //Admin
-if(!Session::get("logged")){
+if(!Session::get("admin_logged")){
 	if($Controller->method !== "checkLogin"){
 		$Controller->method = "loginPage";
 		$Controller->file = CONTROLLER."login/loginController.php";

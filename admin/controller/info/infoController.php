@@ -2,11 +2,11 @@
 class infoController{
 
 	public function dashboard(){
-		Output::load("dashboard/dashboardView");
+		Output::load("info/dashboardView");
 	}
 
 	public function database(){
-		Output::load("database/databaseView");
+		Output::load("info/databaseView");
 	}
 
 }

@@ -3,14 +3,17 @@ class loginController{
 
 	public function checkLogin(){
 		
-		$user_name = $_POST['name'];
+		$user_email = $_POST['name'];
 		$pass = $_POST['pass'];
+		$role = "admin_master";
 
-		//FIXME: Implement the hash in the ddbb, not a simple select
-		$user = Database::query("SELECT * FROM user WHERE `name` = '".$user_name."' AND `password` = '".$pass."' ");
+		require_once(MODEL."user/userModel.php");
+		$user_model = new userModel();
+
+		$user = $user_model->checkLogin($user_email, $pass, $role);
 	
-		if(!empty($user)){
-			Session::set("admin_name", $user["name"]);
+		if($user){
+			Session::set("admin_name", $user["first_name"]);
 			Session::set("admin_email", $user["email"]);
 			$this->login();
 		}else{
@@ -20,13 +23,13 @@ class loginController{
 	}
 	
 	public function login(){
-		Session::set("logged", true);
-		header("location: index.php?route=dashboard/dashboard");
+		Session::set("admin_logged", true);
+		header("location: index.php?route=info/info/dashboard");
 	}
 
 	public function logout(){
 		Session::set("login_msg", "Logged out");
-		Session::set("logged", false);
+		Session::set("admin_logged", false);
 		Output::rawload("login/loginView");
 	}
 

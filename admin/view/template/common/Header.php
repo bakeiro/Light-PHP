@@ -12,7 +12,7 @@
 	<?php $host = Config::get("url_host"); ?>
 
 	<!-- Custom resources -->
-	<link href="<?=$host?>/admin/view/www/admin/admin.css?v=<?=$cache?>" rel="stylesheet">
+	<link href="<?=$host?>/admin/view/www/build/admin/admin.css?v=<?=$cache?>" rel="stylesheet">
 	
 	<!-- Materialize + jquery -->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -24,27 +24,28 @@
 <body>
 
 <!-- Sidenav -->
-<div class="sidenav">
-	
-	<ul id="slide-out" class="side-nav fixed">
-		<li>
+
+<ul id="slide-out" class="sidenav sidenav-fixed white">
+	<li>
 		<div class="user-view blue lighten-2">
 			<a href="#!name"><span class="white-text name"><?=Session::get("admin_name")?></span></a>
 			<a href="#!email"><span class="white-text email"><?=Session::get("admin_email")?></span></a>
-		</li>
-		<li><a href="index.php?route=dashboard/dashboard">Dashboard</a></li>
-		<li><a href="index.php?route=database/database">Database</a></li>
-		<li><a href="index.php?route=error_managent/error_managent">Error managent</a></li>
-		<li><div class="divider"></div></li>
-		<li><a class="waves-effect grey-text" href="index.php?route=footer/footer">Footer</a></li>
-		<li><a class="grey-text" href="index.php?route=login/login/logout">Log out</a></li>
-  	</ul>
+		</div>
+	</li>
+	<li><a href="index.php?route=info/info/dashboard">Dashboard</a></li>
+	<li><a href="index.php?route=info/info/database">Database</a></li>
+	<li><a href="index.php?route=info/info/error_managent">Error managent</a></li>
+	<li><div class="divider"></div></li>
+	<li><a class="red-text" href="index.php?route=login/login/logout">Log out</a></li>
+</ul>
 
-  	<a href="#" data-activates="slide-out" class="button-collapse hide-on-large-only"><i class="material-icons">menu</i></a>
-</div>
-<script>
-	$(".button-collapse").sideNav();
-</script>
+<nav class="top-nav white">
+	<a href="#" data-target="slide-out" class="sidenav-trigger black-text">
+		<i class="material-icons">menu</i>
+	</a>
+</nav>
+
+
 
 <!-- Main content -->
 <main class="container" id="main">
