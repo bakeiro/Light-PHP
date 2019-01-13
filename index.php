@@ -25,7 +25,7 @@ require(SYSTEM . 'engine/SecModel.php');
 require(SYSTEM . 'engine/SecController.php');
 
 //Startup
-require(SYSTEM. "start.php");
+require(SYSTEM. "startup.php");
 
 //Controller
 $Controller = new Controller();

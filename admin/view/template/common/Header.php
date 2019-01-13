@@ -5,23 +5,21 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta author="David Baqueiro">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Light PHP</title>
+    <title>Admin panel</title>
 
 	<!-- Resources -->
 	<?php $cache = Config::get("cache_version"); ?>
 	<?php $host = Config::get("url_host"); ?>
 
 	<!-- Custom resources -->
-	<link href="<?=$host?>/admin/view/www/<?=$cache?>/admin/admin.css" rel="stylesheet">
+	<link href="<?=$host?>/admin/view/www/admin/admin.css?v=<?=$cache?>" rel="stylesheet">
 	
-	<!-- Materialize 
+	<!-- Materialize + jquery -->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	-->
-	<link href="http://frame.localhost/site/view/www/fonts/google_icons.css" rel="stylesheet">
-    <link href="<?=$host?>/site/view/www/node_modules/materialize-css/dist/css/materialize.min.css" rel="stylesheet">
-	<script src="<?=$host?>/site/view/www/node_modules/jquery/dist/jquery.min.js"></script>
-	<script src="<?=$host?>/site/view/www/node_modules/materialize-css/dist/js/materialize.min.js"></script> 
-
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<script src="<?=$host?>/admin/view/www/build/jquery.min.js"></script>
+	
 </head>
 <body>
 
