@@ -1,6 +1,29 @@
+<p align="center">
+
+  <a href="https://bakeiro.github.io/Light-PHP-documentation/">
+    <img src="https://github.com/bakeiro/Light-PHP/blob/master/site/view/www/images/data/l.png" alt="logo" width=72 height=72>
+  </a>
+  <h3 align="center">Light-PHP</h3>
+  <p align="center">
+    Just Another micro PHP framework.
+    <br>
+    <a href="https://bakeiro.github.io/Light-PHP-documentation/"><strong>- Explore the DOCS -</strong></a>
+    <br>
+	<a href="https://github.com/bakeiro/Light-PHP/issues">
+      <img src="https://img.shields.io/github/issues/bakeiro/Light-PHP.svg" alt="Issues">
+    </a>
+	<a href="https://github.com/bakeiro/Light-PHP">
+      <img src="https://img.shields.io/github/license/bakeiro/Light-PHP.svg" alt="MIT license">
+    </a>
+    <a href="https://github.com/bakeiro/Light-PHP">
+      <img src="https://img.shields.io/badge/forkable-yes-green.svg" alt="This is a forkable respository">
+    </a>
+  </p>
+</p>
+<br>
+
+
 # Light-PHP
-[![GitHub issues](https://img.shields.io/github/issues/bakeiro/Light-PHP.svg)](https://github.com/bakeiro/Light-PHP/issues)
-[![GitHub license](https://img.shields.io/github/license/bakeiro/Light-PHP.svg)](https://github.com/bakeiro/Light-PHP)
 
 ### Documentation
 [Light-PHP documentation](https://bakeiro.github.io/Light-PHP-documentation/)   

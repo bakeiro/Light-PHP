@@ -1,12 +1,22 @@
 <?php
 class infoController{
 
-	public function dashboard(){
-		Output::load("info/dashboardView");
+	public function products(){
+
+		$data = array();
+		$data["title"] = "Products";
+		$data["total_products"] = Database::query("SELECT count(`id`) FROM product")["count(`id`)"];
+
+		Output::load("info/productsView", $data);
 	}
 
-	public function database(){
-		Output::load("info/databaseView");
+	public function users(){
+
+		$data = array();
+		$data["title"] = "Users";
+		$data["total_users"] = Database::query("SELECT count(`id`) FROM user")["count(`id`)"];
+
+		Output::load("info/usersView", $data);
 	}
 
 }
