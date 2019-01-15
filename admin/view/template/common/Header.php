@@ -45,8 +45,8 @@
 <ul id="slide-out" class="sidenav sidenav-fixed white">
 	<li>
 		<div class="user-view blue lighten-2">
-			<a href="#!name"><span class="white-text name"><?=Session::get("admin_name")?></span></a>
-			<a href="#!email"><span class="white-text email"><?=Session::get("admin_email")?></span></a>
+			<span class="white-text name"><?=Session::get("admin_name")?></span>
+			<span class="white-text email"><?=Session::get("admin_email")?></span>
 		</div>
 	</li>
 	<li><a href="index.php?route=info/info/products">Products</a></li>

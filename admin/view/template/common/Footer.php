@@ -3,6 +3,7 @@
 
 <script>
 
+	//Nav bar
 	$(document).ready(function(){
 		M.AutoInit();
 
@@ -10,8 +11,8 @@
     	var instances = M.Sidenav.init(elems, {});
 	});
 
-
-	$("#slide-out a").on("click", function(e){
+	//Dynamic loading
+	$("#slide-out a:not(.red-text)").on("click", function(e){
 		
 		e.preventDefault();
 

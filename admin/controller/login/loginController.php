@@ -3,7 +3,7 @@ class loginController{
 
 	public function checkLogin(){
 		
-		$user_email = $_POST['name'];
+		$user_email = $_POST['email'];
 		$pass = $_POST['pass'];
 		$role = "admin_master";
 

@@ -48,8 +48,8 @@
 							<div class="card-content">
 								<div class="input-field col s10 offset-s1">
 									<i class="material-icons prefix">account_circle</i>
-									<input name="name" id="name" type="text">
-									<label class="active" for="name">Name</label>
+									<input name="email" id="email" type="text">
+									<label class="active" for="email">email</label>
 								</div>
 								<div class="input-field col s10 offset-s1">
 									<i class="material-icons prefix">lock</i>
