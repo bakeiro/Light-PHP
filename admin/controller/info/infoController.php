@@ -5,7 +5,7 @@ class infoController{
 
 		$data = array();
 		$data["title"] = "Welcome";
-		Output::load("info/dashboardView", $data);
+		Output::adminLoad("info/dashboardView", $data);
 	}
 
 	public function products(){
@@ -14,7 +14,7 @@ class infoController{
 		$data["title"] = "Products";
 		$data["total_products"] = Database::query("SELECT count(`id`) FROM product")["count(`id`)"];
 
-		Output::rawLoad("info/productsView", $data);
+		Output::adminLoad("info/productsView", $data);
 	}
 
 	public function users(){
@@ -23,7 +23,7 @@ class infoController{
 		$data["title"] = "Users";
 		$data["total_users"] = Database::query("SELECT count(`id`) FROM user")["count(`id`)"];
 
-		Output::rawLoad("info/usersView", $data);
+		Output::adminLoad("info/usersView", $data);
 	}
 
 	public function error_managent(){
@@ -43,7 +43,7 @@ class infoController{
 		$data["warnings"] = fread($file_warnings_handler, filesize($file_warnings_path));
 		fclose($file_warnings_handler);
 
-		Output::rawLoad("info/errorsView", $data);
+		Output::adminLoad("info/errorsView", $data);
 	}
 
 }
