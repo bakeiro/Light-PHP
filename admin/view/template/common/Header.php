@@ -14,12 +14,18 @@
 	<!-- Custom resources -->
 	<link href="<?=$host?>/admin/view/www/build/admin/admin.css?v=<?=$cache?>" rel="stylesheet">
 	
-	<!-- Materialize + jquery -->
+	<!-- Materialize -->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-	<script src="<?=$host?>/admin/view/www/build/jquery.min.js"></script>
 	
+	<!-- Jquery -->
+	<script src="<?=$host?>/admin/view/www/build/jquery.min.js"></script>
+
+	<!-- Nprogress -->
+	<script src="<?=$host?>/admin/view/www/node_modules/nprogress/nprogress.js"></script>
+	<link href="<?=$host?>/admin/view/www/node_modules/nprogress/nprogress.css" rel="stylesheet">
+
 </head>
 <body>
 
@@ -49,3 +55,5 @@
 	<li><div class="divider"></div></li>
 	<li><a class="red-text" href="index.php?route=login/login/logout">Log out</a></li>
 </ul>
+
+<main id="main">

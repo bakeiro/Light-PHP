@@ -8,14 +8,5 @@
 </div>
 
 <div class="container">
-
-	<div class="errors">
-		
-	</div>
-	
-	
-	<div class="exceptions">
-		
-	</div>
-
+	<p>Welcome to the admin panel</p>
 </div>

@@ -7,7 +7,6 @@
 	</nav>
 </div>
 
-
-<main class="container" id="main">
-
+<div class="container">
 	<p>Total products: {%total_products%}</p>
+</div>

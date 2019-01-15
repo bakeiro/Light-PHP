@@ -2,13 +2,26 @@
 
 
 <script>
+
 	$(document).ready(function(){
 		M.AutoInit();
 
 		var elems = document.querySelectorAll('.sidenav');
     	var instances = M.Sidenav.init(elems, {});
-		//$('.sidenav').sidenav();
 	});
+
+
+	$("#slide-out a").on("click", function(e){
+		
+		e.preventDefault();
+
+		//start nprogress
+
+		$("main#main").empty();
+
+		$("main#main").load($(this).attr("href"));
+	});
+
 </script>
 
 </body>

@@ -26,12 +26,11 @@ class Output{
 		
 		ob_end_flush();
 	}
-
-    public static function rawLoad($route,$data = array()){
-		ob_start();
-        extract($data);
-        require(VIEW.'template/'.$route.'.php');
-		ob_end_flush();
+	
+	public static function rawLoad($route,$data = array()){
+		$templateLoader = new templateLoader();
+		$content = $templateLoader->load(VIEW.'template/'.$route.'.php', $data);
+		echo $content;
 	}
 
 	public static function load_js($js_route){

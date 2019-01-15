@@ -7,6 +7,6 @@
 	</nav>
 </div>
 
-
-<main class="container" id="main">
+<div class="container">
 	<p>Total users: {%total_users%}</p>
+</div>
