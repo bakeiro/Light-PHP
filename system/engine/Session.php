@@ -12,7 +12,9 @@ class Session{
 		$session_handler->start();
 
 		if (!$session_handler->isValid()){
-			$session_handler->destroy();
+			//$session_handler->destroy();
+			$session_id = session_id();
+			$session_handler->destroy($session_id);
 		}
 
 		Session::$handler = $session_handler;
