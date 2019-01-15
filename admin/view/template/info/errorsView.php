@@ -9,13 +9,12 @@
 
 <div class="container">
 
-	<div class="errors">
-		
-	</div>
-	
-	
-	<div class="exceptions">
-		
-	</div>
+	<h3>Errors</h3>
+	{%exceptions%}
 
+	<hr>
+
+	<h3>Warnings</h3>
+	<p>{%warnings%}</p>
+	
 </div>

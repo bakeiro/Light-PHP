@@ -26,4 +26,24 @@ class infoController{
 		Output::rawLoad("info/usersView", $data);
 	}
 
+	public function error_managent(){
+
+		$data = array();
+		$data["title"] = "Errors";
+		$data["warnings"] = array();
+		$data["exceptions"] = array();
+		
+		$file_errors_path = SYSTEM."logs/errors.log";
+		$file_errors_handler = fopen($file_errors_path, "r");
+		$data["exceptions"] = fread($file_errors_handler, filesize($file_errors_path));
+		fclose($file_errors_handler);
+
+		$file_warnings_path = SYSTEM."logs/notice.log";
+		$file_warnings_handler = fopen($file_warnings_path, "r");
+		$data["warnings"] = fread($file_warnings_handler, filesize($file_warnings_path));
+		fclose($file_warnings_handler);
+
+		Output::rawLoad("info/errorsView", $data);
+	}
+
 }
