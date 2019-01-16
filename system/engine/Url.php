@@ -11,18 +11,16 @@ class Url{
 	public static function init(){
 
 		//Host
+		$url_host = 'http://';
 		if(isset($_SERVER['HTTPS'])){ 
 			$url_host = 'https://';
-		}else{
-			$url_host = 'http://';
 		}
 		$url_host .= $_SERVER['HTTP_HOST'];
 
 		//Protocol
+		$url_protocol = "http";
 		if(isset($_SERVER['HTTPS'])){ 
 			$url_protocol = "https";
-		}else{
-			$url_protocol = "http";
 		}
 
 		//Action

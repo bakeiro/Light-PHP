@@ -28,12 +28,9 @@ Config::set("image_cache_size_medium", "***");
 Config::set("image_cache_size_big", "***");
 
 //Session
-//Config::set("session_handle", "Db");
-//Config::set("session_handle", "file");
 Config::set("session_encrypt_method", "aes-256-cbc");
 Config::set("session_encrypt_iv", "]JC+HIz3-aq128c]");
 Config::set("session_encrypt_password", "awd7192do3ab46sud10943qf00");
-
 
 //Cache (front-end folder)
 Config::set('cache_version', '0001');

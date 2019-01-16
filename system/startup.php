@@ -1,5 +1,8 @@
 <?php
 
+//Timezone
+date_default_timezone_set('Europe/Madrid');
+
 //Composer
 require(SYSTEM."libraries/vendor/autoload.php");
 
