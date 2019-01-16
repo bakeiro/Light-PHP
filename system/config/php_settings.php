@@ -9,7 +9,6 @@ ini_set("log_errors", 1);
 //Session
 ini_set('session.cookie_lifetime', 0);
 ini_set('session.gc_maxlifetime', 14400); //4h
-//ini_set("session.cookie_domain", ".".$_SERVER['HTTP_HOST']);
 ini_set("expose_php", "Off");
 
 
