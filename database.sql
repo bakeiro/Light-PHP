@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-11-2018 a las 00:06:21
+-- Tiempo de generación: 16-01-2019 a las 11:31:55
 -- Versión del servidor: 10.1.25-MariaDB
 -- Versión de PHP: 7.1.7
 
@@ -21,32 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `framework`
 --
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `customer`
---
-
-CREATE TABLE `customer` (
-  `id` int(11) NOT NULL,
-  `first_name` varchar(80) COLLATE utf8_bin NOT NULL,
-  `last_name` varchar(200) COLLATE utf8_bin NOT NULL,
-  `street` varchar(200) COLLATE utf8_bin DEFAULT NULL,
-  `city` varchar(70) COLLATE utf8_bin DEFAULT NULL,
-  `postcode` int(11) DEFAULT NULL,
-  `country` int(11) DEFAULT NULL,
-  `email` varchar(200) COLLATE utf8_bin DEFAULT NULL,
-  `password` varchar(200) COLLATE utf8_bin DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
---
--- Volcado de datos para la tabla `customer`
---
-
-INSERT INTO `customer` (`id`, `first_name`, `last_name`, `street`, `city`, `postcode`, `country`, `email`, `password`) VALUES
-(1, 'Jonh', 'Doe', 'street_name', 'city', 11111, 12, 'Jonh@email.com', '123'),
-(2, 'David', 'Doe', 'Street_name_2', 'city', 11111, 12, 'David@email.com', '321');
+CREATE DATABASE IF NOT EXISTS `framework` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+USE `framework`;
 
 -- --------------------------------------------------------
 
@@ -55,30 +31,28 @@ INSERT INTO `customer` (`id`, `first_name`, `last_name`, `street`, `city`, `post
 --
 
 CREATE TABLE `product` (
-  `product_id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `quantity` int(4) NOT NULL DEFAULT '0',
   `model` varchar(65) COLLATE utf8_bin NOT NULL,
   `image` varchar(255) COLLATE utf8_bin NOT NULL,
-  `price` decimal(15,2) NOT NULL DEFAULT '0.00',
-  `enable` tinyint(1) NOT NULL DEFAULT '0',
-  `viewed` int(5) DEFAULT '0'
+  `enable` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Volcado de datos para la tabla `product`
 --
 
-INSERT INTO `product` (`product_id`, `quantity`, `model`, `image`, `price`, `enable`, `viewed`) VALUES
-(0, 20, 'V20-061-2a', 'tiles/A0001b.jpg', '0.00', 1, 0),
-(1, 21, 'V20-062-2a', 'tiles/A0002b.jpg', '0.00', 1, 0),
-(2, 20, 'V20-063-1a', 'tiles/A0003b.jpg', '0.00', 1, 0),
-(3, 22, 'V20-064-1a', 'tiles/A0004b.jpg', '0.00', 1, 0),
-(4, 20, 'V20-001-1a', 'tiles/A0005b.jpg', '0.00', 1, 0),
-(5, 21, 'V20-002-1a', 'tiles/A0006b.jpg', '0.00', 1, 0),
-(6, 24, 'S021a', 'tiles/A0007b.jpg', '0.00', 1, 0),
-(7, 23, 'S022a', 'tiles/A0008b.jpg', '0.00', 1, 0),
-(8, 26, 'S019a', 'tiles/A0009b.jpg', '0.00', 1, 0),
-(9, 52, 'S018a', 'tiles/A0010b.jpg', '0.00', 1, 0);
+INSERT INTO `product` (`id`, `quantity`, `model`, `image`, `enable`) VALUES
+(0, 20, 'V20-061-2a', 'tiles/A0001b.jpg', 1),
+(1, 21, 'V20-062-2a', 'tiles/A0002b.jpg', 1),
+(2, 20, 'V20-063-1a', 'tiles/A0003b.jpg', 1),
+(3, 22, 'V20-064-1a', 'tiles/A0004b.jpg', 1),
+(4, 20, 'V20-001-1a', 'tiles/A0005b.jpg', 1),
+(5, 21, 'V20-002-1a', 'tiles/A0006b.jpg', 1),
+(6, 24, 'S021a', 'tiles/A0007b.jpg', 1),
+(7, 23, 'S022a', 'tiles/A0008b.jpg', 1),
+(8, 26, 'S019a', 'tiles/A0009b.jpg', 1),
+(9, 52, 'S018a', 'tiles/A0010b.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -87,7 +61,7 @@ INSERT INTO `product` (`product_id`, `quantity`, `model`, `image`, `price`, `ena
 --
 
 CREATE TABLE `product_info` (
-  `product_id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `title` varchar(65) COLLATE utf8_bin DEFAULT NULL,
   `short_description` varchar(200) COLLATE utf8_bin DEFAULT NULL,
   `description` text COLLATE utf8_bin
@@ -97,7 +71,7 @@ CREATE TABLE `product_info` (
 -- Volcado de datos para la tabla `product_info`
 --
 
-INSERT INTO `product_info` (`product_id`, `title`, `short_description`, `description`) VALUES
+INSERT INTO `product_info` (`id`, `title`, `short_description`, `description`) VALUES
 (0, 'Custom tile', 'cool tile', '&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 14px;&quot;&gt;Really The tile comes from Spain and bla bla bla.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;'),
 (1, 'Custom tile', 'cool tile', '&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 14px;&quot;&gt;Really Nice product, the tile comes from .&lt;/span&gt;&lt;/p&gt;&lt;p&gt;'),
 (2, 'Custom tile', 'cool tile', '&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 14px;&quot;&gt;Really Nice product, the tile comes from France and bla bla bla.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;'),
@@ -116,52 +90,46 @@ INSERT INTO `product_info` (`product_id`, `title`, `short_description`, `descrip
 --
 
 CREATE TABLE `user` (
-  `user_id` int(11) NOT NULL,
-  `name` varchar(45) COLLATE utf8_bin NOT NULL,
+  `id` int(11) NOT NULL,
+  `first_name` varchar(80) COLLATE utf8_bin NOT NULL,
+  `last_name` varchar(200) COLLATE utf8_bin NOT NULL,
   `email` varchar(200) COLLATE utf8_bin NOT NULL,
-  `password` varchar(100) COLLATE utf8_bin NOT NULL,
-  `hash` varchar(50) COLLATE utf8_bin NOT NULL,
-  `role` int(11) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table of users to login in the admin page';
+  `password` varchar(200) COLLATE utf8_bin NOT NULL,
+  `salt` varchar(45) COLLATE utf8_bin NOT NULL,
+  `role` varchar(45) COLLATE utf8_bin NOT NULL DEFAULT 'customer',
+  `address` varchar(45) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Volcado de datos para la tabla `user`
 --
 
-INSERT INTO `user` (`user_id`, `name`, `email`, `password`, `hash`, `role`) VALUES
-(1, 'user_1', 'test@email.com', '123', 'aaa', 1),
-(2, 'user_2', 'user2@email.com', '321', 'bbb', 2);
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `email`, `password`, `salt`, `role`, `address`) VALUES
+(1, 'Jonh', 'Doe', 'admin@email.com', 'd6674395604f7ae0a3750cf4a7280d623daf67d6', 'ySUrWaBHx', 'admin_master', ''),
+(2, 'David', 'Bak', 'customer@email.com', 'bdfe37077d9d67d6bec1d2dd8892c286fae37387', 'm7dcl8Acy', 'customer', '');
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `customer`
---
-ALTER TABLE `customer`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `email_UNIQUE` (`email`);
-
---
 -- Indices de la tabla `product`
 --
 ALTER TABLE `product`
-  ADD PRIMARY KEY (`product_id`),
+  ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `model_UNIQUE` (`model`);
 
 --
 -- Indices de la tabla `product_info`
 --
 ALTER TABLE `product_info`
-  ADD PRIMARY KEY (`product_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`user_id`),
-  ADD UNIQUE KEY `name_UNIQUE` (`name`),
+  ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email_UNIQUE` (`email`);
 
 --
@@ -172,12 +140,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT de la tabla `product`
 --
 ALTER TABLE `product`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9399;
---
--- AUTO_INCREMENT de la tabla `user`
---
-ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;COMMIT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9399;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
