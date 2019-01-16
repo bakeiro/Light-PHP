@@ -30,18 +30,24 @@ class infoController{
 
 		$data = array();
 		$data["title"] = "Errors";
-		$data["warnings"] = array();
-		$data["exceptions"] = array();
+		$data["warnings"] = "";
+		$data["exceptions"] = "";
 		
 		$file_errors_path = SYSTEM."logs/errors.log";
-		$file_errors_handler = fopen($file_errors_path, "r");
-		$data["exceptions"] = fread($file_errors_handler, filesize($file_errors_path));
-		fclose($file_errors_handler);
+		
+		if(filesize($file_errors_path) > 0){
+			$file_errors_handler = fopen($file_errors_path, "r");
+			$data["exceptions"] = fread($file_errors_handler, filesize($file_errors_path));
+			fclose($file_errors_handler);
+		}
 
 		$file_warnings_path = SYSTEM."logs/notice.log";
-		$file_warnings_handler = fopen($file_warnings_path, "r");
-		$data["warnings"] = fread($file_warnings_handler, filesize($file_warnings_path));
-		fclose($file_warnings_handler);
+		
+		if(filesize($file_warnings_path) > 0){
+			$file_warnings_handler = fopen($file_warnings_path, "r");
+			$data["warnings"] = fread($file_warnings_handler, filesize($file_warnings_path));
+			fclose($file_warnings_handler);
+		}
 
 		Output::adminLoad("info/errorsView", $data);
 	}

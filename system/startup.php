@@ -21,7 +21,7 @@ Database::$CONN = $temp_con;
 Url::init();
 
 //Session
-$sessionHandler = new SecureSessionHandler('cheeseh31731gfks519fk1gz');
+$sessionHandler = new SecureSessionHandler();
 Session::init($sessionHandler);
 
 //escape + strip tags + trim for $_POST,$_GET,$_COOKIE

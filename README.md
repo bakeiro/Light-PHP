@@ -8,7 +8,7 @@
     Just Another micro PHP framework.
     <br>
     <a href="https://bakeiro.github.io/Light-PHP-documentation/"><strong>- Explore the DOCS -</strong></a>
-    <br><br>
+    <br><br>`
 	<a href="https://github.com/bakeiro/Light-PHP/issues">
       <img src="https://img.shields.io/github/issues/bakeiro/Light-PHP.svg" alt="Issues">
     </a>

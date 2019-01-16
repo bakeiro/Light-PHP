@@ -2,14 +2,21 @@
 
 class SecureSessionHandler extends SessionHandler {
 
-	protected $key, $name, $cookie;
+	protected $key;
+	protected $name;
+	protected $cookie;
+	protected $iv;
+	protected $encrypt_method;
 	
-    public function __construct($key, $name = 'MY_SESSION', $cookie = []){
+    public function __construct($name = 'MY_SESSION', $cookie = []){
 
 		//$this->key = substr(hash('sha256', $key), 0, 32);
-        $this->key = $key;
         $this->name = $name;
 		$this->cookie = $cookie;
+
+        $this->key = "awd7192do3ab46sud10943qf00";
+		$this->encrypt_method = "aes-256-cbc";
+		$this->iv = "]JC+HIz3-aq128c[";
 		
         $this->cookie += [
             'lifetime' => 0, /* ini_get('session.gc_maxlifetime'),*/
@@ -62,14 +69,17 @@ class SecureSessionHandler extends SessionHandler {
         return session_regenerate_id(true);
     }
     public function read($id){
-		return mcrypt_decrypt(MCRYPT_3DES, $this->key, parent::read($id), MCRYPT_MODE_ECB);
-		//$iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length('aes-256-cbc'));
-		//return (string)openssl_decrypt (parent::read($id) , "aes-256-cbc", $this->key, 0, $iv);
-    }
+		//return mcrypt_decrypt(MCRYPT_3DES, $this->key, parent::read($id), MCRYPT_MODE_ECB);
+		$data = parent::read($id);
+		$data = (string)openssl_decrypt($data , $this->encrypt_method, $this->key, 0, $this->iv);
+		//$data = base64_decode($data);
+		return $data;
+	}
     public function write($id, $data){
-        return parent::write($id, mcrypt_encrypt(MCRYPT_3DES, $this->key, $data, MCRYPT_MODE_ECB));
-		//$iv = openssl_random_pseudo_bytes(openssl_cipher_iv_length('aes-256-cbc'));
-		//return parent::write($id, openssl_encrypt($data, "aes-256-cbc", $this->key, 0, $iv));
+		//return parent::write($id, mcrypt_encrypt(MCRYPT_3DES, $this->key, $data, MCRYPT_MODE_ECB));
+		//$data = base64_encode($data);
+		$encrypted_data = openssl_encrypt($data, $this->encrypt_method, $this->key, 0, $this->iv);
+		return parent::write($id, $encrypted_data);
     }
     public function isExpired($ttl = 30){
         $last = isset($_SESSION['_last_activity'])
