@@ -10,13 +10,12 @@ class SecureSessionHandler extends SessionHandler {
 	
     public function __construct($name = 'MY_SESSION', $cookie = []){
 
-		//$this->key = substr(hash('sha256', $key), 0, 32);
         $this->name = $name;
 		$this->cookie = $cookie;
 
-        $this->key = "awd7192do3ab46sud10943qf00";
-		$this->encrypt_method = "aes-256-cbc";
-		$this->iv = "]JC+HIz3-aq128c[";
+        $this->key = Config::get("session_encrypt_password");
+		$this->encrypt_method = Config::get("session_encrypt_method");
+		$this->iv = Config::get("session_encrypt_iv");
 		
         $this->cookie += [
             'lifetime' => 0, /* ini_get('session.gc_maxlifetime'),*/
