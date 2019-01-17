@@ -13,23 +13,25 @@ class loginController{
 		$user = $user_model->checkLogin($user_email, $pass, $role);
 	
 		if($user){
+			
 			Session::set("admin_name", $user["first_name"]);
 			Session::set("admin_email", $user["email"]);
-			$this->login();
+			Session::set("admin_logged", true);
+
+			header("location: index.php?route=info/info/dashboard");
+			
 		}else{
+
+			Session::set("admin_logged", false);
 			Session::set("login_msg", "Incorrect password");
 			header("location: index.php");
 		}
 	}
-	
-	public function login(){
-		Session::set("admin_logged", true);
-		header("location: index.php?route=info/info/dashboard");
-	}
 
 	public function logout(){
-		Session::set("login_msg", "Logged out");
-		Session::set("admin_logged", false);
+		
+		Session::$handler->forget();
+				
 		Output::rawload("login/loginView");
 	}
 
@@ -37,7 +39,4 @@ class loginController{
 		Output::rawload("login/loginView");
 	}
 
-	public function exit(){
-
-	}
 }

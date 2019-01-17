@@ -25,7 +25,7 @@ class Session{
 	}
 
 	public static function set($key, $value){
-		Session::$handler->put($key, $value);
+		Session::$handler->set($key, $value);
 	}
 
 }

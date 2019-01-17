@@ -71,12 +71,10 @@ class SecureSessionHandler extends SessionHandler {
 		//return mcrypt_decrypt(MCRYPT_3DES, $this->key, parent::read($id), MCRYPT_MODE_ECB);
 		$data = parent::read($id);
 		$data = (string)openssl_decrypt($data , $this->encrypt_method, $this->key, 0, $this->iv);
-		//$data = base64_decode($data);
 		return $data;
 	}
     public function write($id, $data){
 		//return parent::write($id, mcrypt_encrypt(MCRYPT_3DES, $this->key, $data, MCRYPT_MODE_ECB));
-		//$data = base64_encode($data);
 		$encrypted_data = openssl_encrypt($data, $this->encrypt_method, $this->key, 0, $this->iv);
 		return parent::write($id, $encrypted_data);
     }
@@ -117,7 +115,7 @@ class SecureSessionHandler extends SessionHandler {
         }
         return $result;
     }
-    public function put($name, $value){
+    public function set($name, $value){
         $parsed = explode('.', $name);
         $session =& $_SESSION;
         while (count($parsed) > 1) {
