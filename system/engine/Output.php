@@ -4,6 +4,9 @@ use bakeiro\templateLoader;
 
 class Output{
 
+	public static $output_scripts = array();
+	public static $output_styles = array();
+
     public static function load($route, $data = array()){
 
 		$templateLoader = new templateLoader();
@@ -39,15 +42,13 @@ class Output{
 	}
 
 	public static function load_js($js_route){
-		$output_scripts = Config::get("output_scripts");
-		$output_scripts[] = "<script src='site/view/www/build/".$js_route.".js?v=".Config::Get("cache_version")."' > </script>";
-		Config::set("output_scripts", $output_scripts);
+		$output_script = "<script src='site/view/www/build/".$js_route.".js?v=".Config::Get("cache_version")."' > </script>";
+		Output::$output_scripts[] = $output_script;
     }
 
 	public static function load_css($css_route){
-		$output_styles = Config::get("output_styles");
-		$output_styles["styles"][] = "<link href='site/view/www/build/".$css_route.".css?v=".Config::Get("cache_version")."' rel='stylesheet'>";
-		Config::set("output_styles", $output_styles);
+		$output_style = "<link href='site/view/www/build/".$css_route.".css?v=".Config::Get("cache_version")."' rel='stylesheet'>";
+		Output::$output_styles[] = $output_style;
     }
 	
 }

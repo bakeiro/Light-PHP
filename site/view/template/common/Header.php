@@ -28,10 +28,10 @@
 
 <?php
 	//Custom CSS/JS
-	foreach(Config::get("output_styles") as $style_file){
+	foreach(Output::$output_styles as $style_file){
 		echo $style_file;
 	}
-	foreach(Config::get("output_scripts") as $script_file){
+	foreach(Output::$output_scripts as $script_file){
 		echo $script_file;
 	}
 ?>

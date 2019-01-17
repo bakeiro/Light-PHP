@@ -1,0 +1,12 @@
+
+1. Import the database
+
+2. Edit system/config/config_data:
+	- Timezone (if needed)
+	- Change database credentials
+	- Email credentials
+	- Session iv + session pass
+
+3. Install composer dependences
+
+4. Install npm dependeces

@@ -1,12 +1,17 @@
 <?php
 
+//Global variables, this variables defines the framework behavior 
+
+//Timezone
+Config::set("default_time_zone", "Europe/Madrid");
+
 //Database
 Config::set("CONN_HOST", "localhost");
 Config::set("CONN_USER", "root");
 Config::set("CONN_PASS", "");
 Config::set("CONN_DDBB", "framework");
 
-//Debug
+//Debug console
 Config::set("debug", false);
 Config::set("send_email_errors", false);
 Config::set("start_time", microtime(true));
@@ -22,17 +27,13 @@ Config::set("email_port", "***");
 Config::set("email_from", "***");
 Config::set("email_from_name", "***");
 
-//Images
-Config::set("image_cache_size_small", "***");
-Config::set("image_cache_size_medium", "***");
-Config::set("image_cache_size_big", "***");
-
-//Session
+//Session 
+Config::set("session_name", "MY_SESSION");
 Config::set("session_encrypt_method", "aes-256-cbc");
-Config::set("session_encrypt_iv", "]JC+HIz3-aq128c]");
-Config::set("session_encrypt_password", "awd7192do3ab46sud10943qf00");
+Config::set("session_iv", "]JC+HIz3-aq128c]");
+Config::set("session_key", "awd7192do3ab46sud10943qf00");
 
-//Cache (front-end folder)
+//Cache (change this number every time you update any css/js/image/font resource)
 Config::set('cache_version', '0001');
 
 //Output files

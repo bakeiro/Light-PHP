@@ -17,15 +17,8 @@ class customerController extends SecController{
 	}
 
 	public function loginPage(){
-		$data = array();
 		Output::load_js("jquery.min");
-		Output::load("account/loginView", $data);
-	}
-
-	public function logout(){
-		Session::set("logged", false);
-		Session::set("customer_id", "");
-		header("location: index.php?index/index"); //TODO: Add a message to show
+		Output::load("account/loginView");
 	}
 
 	public function checkLogin(){
@@ -39,15 +32,28 @@ class customerController extends SecController{
 		$customer = $customer_model->checkLogin($email_post, $pass_post, "customer");
 
 		if($customer){
+
+			Session::refresh(); //If upgrade the privileges, I should create a new session_id to make even harder get the session_id
 			Session::set("logged", true);
 			Session::set("customer_id", 1);
 			$data["success"] = true;
+			
 		}else{
 			$data["error"] = "Incorrect login info";
 		}
 
 		header('Content-Type: application/json');
 		echo json_encode($data);
+	}
+
+	public function logout(){
+
+		Session::set("logged", false);
+		Session::set("customer_id", "");
+
+		Session::forget();
+		
+		header("location: index.php?index/index");
 	}
 
 }

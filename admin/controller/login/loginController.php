@@ -14,6 +14,8 @@ class loginController{
 	
 		if($user){
 			
+			Session::refresh();//If upgrade the privileges, I should create a new session_id to make even harder get the session_id
+
 			Session::set("admin_name", $user["first_name"]);
 			Session::set("admin_email", $user["email"]);
 			Session::set("admin_logged", true);
@@ -24,19 +26,17 @@ class loginController{
 
 			Session::set("admin_logged", false);
 			Session::set("login_msg", "Incorrect password");
-			header("location: index.php");
+
 		}
 	}
 
 	public function logout(){
-		
-		Session::$handler->forget();
-				
-		Output::rawload("login/loginView");
+		Session::forget();
+		header("location: index.php");
 	}
 
 	public function loginPage(){
-		Output::rawload("login/loginView");
+		header("location: index.php");
 	}
 
 }
