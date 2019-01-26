@@ -17,5 +17,3 @@
 	- Change database credentials
 	- Email credentials (if needed)
 	- Session iv + session pass
-
-5. Install composer dependencies
