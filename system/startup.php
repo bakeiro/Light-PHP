@@ -34,5 +34,9 @@ if (!Session::isValid()){
 //escape + strip tags + trim for $_POST,$_GET
 Util::cleanInput();
 
+//Output files
+Config::set("output_styles", array());
+Config::set("output_scripts", array());
+
 //Engine finished
 Config::set("loaded", true);

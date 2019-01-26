@@ -1,12 +1,21 @@
 
 1. Import the database
 
-2. Edit system/config/config_data:
+2. Rename system/config/
+	
+	- _config_data.php => config_data.php
+	- _php_settings.php => php_settings.php
+
+3. Rename system/logs/
+
+	- _notice.log => notice.log
+	- _errors.log => errors.log
+
+4. Edit system/config/config_data:
+
 	- Timezone (if needed)
 	- Change database credentials
-	- Email credentials
+	- Email credentials (if needed)
 	- Session iv + session pass
 
-3. Install composer dependences
-
-4. Install npm dependeces
+5. Install composer dependencies

@@ -1,6 +1,8 @@
 <?php
 
-date_default_timezone_set('Europe/Madrid');
+/**
+ * Here you can define the php_ini settings in one place, you can also make a php.ini file in the root of the app 
+ */
 
 //Errors
 ini_set('display_errors', 'On');
