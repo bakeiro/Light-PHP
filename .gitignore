@@ -1,16 +1,5 @@
-/system/logs/errors.log
-/system/logs/notice.log
-
 /system/config/config_data.php
 /system/config/php_settings.php
 
-/site/view/www/node_modules/*
-/site/view/www/build/*
-
-/admin/view/www/node_modules/*
-/admin/view/www/build/*
-
-
-/site/view/www/build/*
-
-/.vscode/*
+/system/logs/errors.log
+/system/logs/notice.log
