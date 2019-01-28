@@ -1,17 +1,19 @@
 
-1. Import the database
+1. Edit index.php to write the app folder's path
 
-2. Rename system/config/
-	
+2. Import the database
+
+3. Rename system/config/
+
 	- _config_data.php => config_data.php
 	- _php_settings.php => php_settings.php
 
-3. Rename system/logs/
+4. Rename system/logs/
 
 	- _notice.log => notice.log
 	- _errors.log => errors.log
 
-4. Edit system/config/config_data:
+5. Edit system/config/config_data:
 
 	- Timezone (if needed)
 	- Change database credentials
