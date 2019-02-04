@@ -8,11 +8,6 @@
 	- _config_data.php => config_data.php
 	- _php_settings.php => php_settings.php
 
-4. Rename system/logs/
-
-	- _notice.log => notice.log
-	- _errors.log => errors.log
-
 5. Edit system/config/config_data:
 
 	- Timezone (if needed)
