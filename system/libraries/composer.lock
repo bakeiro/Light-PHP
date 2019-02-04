@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bakeiro/micro_php_template_engine.git",
-                "reference": "764807df1b9ac07188de4d68d0fba6c71e6e187d"
+                "reference": "a65f33d2a75978e84b3a0698db968db866a81032"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bakeiro/micro_php_template_engine/zipball/764807df1b9ac07188de4d68d0fba6c71e6e187d",
-                "reference": "764807df1b9ac07188de4d68d0fba6c71e6e187d",
+                "url": "https://api.github.com/repos/bakeiro/micro_php_template_engine/zipball/a65f33d2a75978e84b3a0698db968db866a81032",
+                "reference": "a65f33d2a75978e84b3a0698db968db866a81032",
                 "shasum": ""
             },
             "require": {
@@ -42,7 +42,7 @@
                 }
             ],
             "description": "A really simple template engine for PHP to make templates more simple/maintable",
-            "time": "2018-09-28T08:36:18+00:00"
+            "time": "2019-02-04T16:00:35+00:00"
         },
         {
             "name": "bjeavons/zxcvbn-php",
@@ -291,16 +291,16 @@
         },
         {
             "name": "phpmailer/phpmailer",
-            "version": "v6.0.6",
+            "version": "v6.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPMailer/PHPMailer.git",
-                "reference": "8190d73eb5def11a43cfb020b7f36db65330698c"
+                "reference": "0c41a36d4508d470e376498c1c0c527aa36a2d59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/8190d73eb5def11a43cfb020b7f36db65330698c",
-                "reference": "8190d73eb5def11a43cfb020b7f36db65330698c",
+                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/0c41a36d4508d470e376498c1c0c527aa36a2d59",
+                "reference": "0c41a36d4508d470e376498c1c0c527aa36a2d59",
                 "shasum": ""
             },
             "require": {
@@ -353,7 +353,7 @@
                 }
             ],
             "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
-            "time": "2018-11-16T00:41:32+00:00"
+            "time": "2019-02-01T15:04:28+00:00"
         },
         {
             "name": "psr/log",
