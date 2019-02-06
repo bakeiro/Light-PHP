@@ -1,14 +1,17 @@
 <?php
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 class Errors{
 
-	public static $messages = array();
 	public static $exceptions = array();
 	public static $debug_info = array();
 	public static $error_handle;
 
 	public static function my_error_handler($errno, $errstr, $errfile, $errline) {
-    
+	
+		//Get error type
 		switch ($errno) {
 			case E_NOTICE:
 			case E_USER_NOTICE:
@@ -27,9 +30,21 @@ class Errors{
 			break;
 		}
 	
+		//Error message
 		$error_string_html = '<b>' . $error . '</b>: ' . $errstr . ' in <b>' . $errfile . '</b> on line <b>' . $errline . '</b>';
 		$error_string_log = $error.' - '.$errstr.' - '.$errfile.' - '.$errline;
 		$error_string_log = addslashes($error_string_log);
+
+		//Create file if doesn't exist
+		if(!file_exists(SYSTEM."logs/notice.log")){
+			fopen(SYSTEM."logs/notice.log", "w");
+			fclose(SYSTEM."logs/notice.log");
+		}
+
+		if(!file_exists(SYSTEM."logs/errors.log")){
+			fopen(SYSTEM."logs/errors.log", "w");
+			fclose(SYSTEM."logs/errors.log");
+		}
 		
 		//Warning/Notice
 		if($error === "Notice" || $error === "Warning"){
@@ -43,7 +58,7 @@ class Errors{
 			error_log($error_string_log."\n", 3, SYSTEM."logs/errors.log");
 		}
 
-		//Email if error
+		//Send email to us with error info
 		if(Config::get("send_email_errors")){
 			Error::sendEmail($error_string_html, $error);
 		}
@@ -77,13 +92,15 @@ class Errors{
 		$mail->AltBody = $message;
 	
 		//Localhost workaround
+		/*
 		$mail->SMTPOptions = array(
 			'ssl' => array(
 				'verify_peer' => false,
 				'verify_peer_name' => false,
 				'allow_self_signed' => true
 		));
-	
+		*/
+
 		if(!$mail->send()) {
 			echo "ERROR: <br> " . $mail->ErrorInfo;
 		}

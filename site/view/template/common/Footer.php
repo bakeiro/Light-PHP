@@ -3,12 +3,13 @@
 
 	<!-- Console -->
 	<?php
-		if(Config::Get("debug")){
+		if(Config::Get("debug_console")){
 			require(VIEW."template/common/Console.php");
 		}
 	?>
 
 	<br><br>
+	
 	<footer class="page-footer red lighten-2">
     
 	    <div class="container">

@@ -40,3 +40,10 @@ Config::set("output_scripts", array());
 
 //Engine finished
 Config::set("loaded", true);
+
+//Debug (whoops)
+if(Config::get("whoops")){
+	$whoops = new \Whoops\Run;
+	$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
+	$whoops->register();
+}

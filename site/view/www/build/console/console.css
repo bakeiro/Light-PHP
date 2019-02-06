@@ -31,6 +31,7 @@ button#error-console-button{
 }
 button#error-console-button:hover{
 	background-color: #757575; /*#F44336*/
+	cursor: pointer;
 }
 
 span#error-console-script-time{
