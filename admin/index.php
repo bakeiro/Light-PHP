@@ -1,11 +1,11 @@
 <?php
 
 //Routes
-define('DIR_ROOT', 'C:/xampp/htdocs/framework_php/');
-define('SYSTEM', DIR_ROOT.'system/');
-define('MODEL', DIR_ROOT.'admin/model/');
-define('CONTROLLER', DIR_ROOT.'admin/controller/');
-define('VIEW', DIR_ROOT.'admin/view/');
+define("DIR_ROOT", "C:/xampp/htdocs/framework_php/");
+define("SYSTEM", DIR_ROOT."system/");
+define("MODEL", DIR_ROOT."admin/model/");
+define("CONTROLLER", DIR_ROOT."admin/controller/");
+define("VIEW", DIR_ROOT."admin/view/");
 
 //Config
 require(SYSTEM . "engine/Config.php");
@@ -13,16 +13,16 @@ require(SYSTEM . "config/config_data.php");
 require(SYSTEM . "config/php_settings.php");
 
 //Engine
-require(SYSTEM . 'engine/Url.php');
-require(SYSTEM . 'engine/Controller.php');
-require(SYSTEM . 'engine/Session.php');
-require(SYSTEM . 'engine/SessionSecureHandler.php');
+require(SYSTEM . "engine/Url.php");
+require(SYSTEM . "engine/Controller.php");
+require(SYSTEM . "engine/Session.php");
+require(SYSTEM . "engine/SessionSecureHandler.php");
 require(SYSTEM . "engine/Output.php");
-require(SYSTEM . 'engine/Database.php');
-require(SYSTEM . 'engine/Util.php');
-require(SYSTEM . 'engine/Errors.php');
-require(SYSTEM . 'engine/SecModel.php');
-require(SYSTEM . 'engine/SecController.php');
+require(SYSTEM . "engine/Database.php");
+require(SYSTEM . "engine/Util.php");
+require(SYSTEM . "engine/Errors.php");
+require(SYSTEM . "engine/SecModel.php");
+require(SYSTEM . "engine/SecController.php");
 
 //Startup
 require(SYSTEM. "startup.php");
