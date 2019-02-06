@@ -5,8 +5,8 @@
 
 3. Rename system/config/
 
-	- _config_data.php => config_data.php
-	- _php_settings.php => php_settings.php
+	- config_data.example.php => config_data.php
+	- php_settings.example.php => php_settings.php
 
 5. Edit system/config/config_data:
 
