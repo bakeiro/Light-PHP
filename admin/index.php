@@ -16,7 +16,7 @@ require(SYSTEM . "config/php_settings.php");
 require(SYSTEM . 'engine/Url.php');
 require(SYSTEM . 'engine/Controller.php');
 require(SYSTEM . 'engine/Session.php');
-require(SYSTEM . 'engine/SessionHandler.php');
+require(SYSTEM . 'engine/SessionSecureHandler.php');
 require(SYSTEM . "engine/Output.php");
 require(SYSTEM . 'engine/Database.php');
 require(SYSTEM . 'engine/Util.php');

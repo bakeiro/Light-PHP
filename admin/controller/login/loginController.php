@@ -26,17 +26,17 @@ class loginController{
 
 			Session::set("admin_logged", false);
 			Session::set("login_msg", "Incorrect password");
-
+			Output::rawLoad("login/loginView");
 		}
 	}
 
 	public function logout(){
 		Session::forget();
-		header("location: index.php");
+		Output::rawLoad("login/loginView");
 	}
 
 	public function loginPage(){
-		header("location: index.php");
+		Output::rawLoad("login/loginView");
 	}
 
 }

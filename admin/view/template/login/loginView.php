@@ -8,17 +8,16 @@
 
 	<?php $host = Config::get("url_host;"); ?>
 
+	<!-- Resources -->
 	<link href="http://frame.localhost/site/view/www/fonts/google_icons.css" rel="stylesheet">
-    <link href="<?=$host?>/site/view/www/node_modules/materialize-css/dist/css/materialize.min.css" rel="stylesheet">
-	<script src="<?=$host?>/site/view/www/node_modules/jquery/dist/jquery.min.js"></script>
-	<script src="<?=$host?>/site/view/www/node_modules/materialize-css/dist/js/materialize.min.js"></script> 
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>	
 
 </head>
 <body>
 
 	<br><br>
 	<div class="container">
-
 
 		<form method="POST" action="index.php?route=login/login/checkLogin">
 			<div class="row">
@@ -46,6 +45,10 @@
 					<div class="card horizontal">
 						<div class="card-stacked">
 							<div class="card-content">
+
+								<p>admin@email.com</p>
+								<p>123</p>
+
 								<div class="input-field col s10 offset-s1">
 									<i class="material-icons prefix">account_circle</i>
 									<input name="email" id="email" type="text">

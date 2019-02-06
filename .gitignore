@@ -1,3 +1,5 @@
+/.vscode/*
+
 /system/config/config_data.php
 /system/config/php_settings.php
 

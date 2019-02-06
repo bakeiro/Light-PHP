@@ -8,22 +8,18 @@ class infoController{
 		Output::adminLoad("info/dashboardView", $data);
 	}
 
-	public function products(){
+	public function statistics(){
 
 		$data = array();
-		$data["title"] = "Products";
+		$data["title"] = "Statistics";
+		
+		//Prods
 		$data["total_products"] = Database::query("SELECT count(`id`) FROM product")["count(`id`)"];
 
-		Output::adminLoad("info/productsView", $data);
-	}
-
-	public function users(){
-
-		$data = array();
-		$data["title"] = "Users";
+		//Users
 		$data["total_users"] = Database::query("SELECT count(`id`) FROM user")["count(`id`)"];
 
-		Output::adminLoad("info/usersView", $data);
+		Output::adminLoad("info/statisticsView", $data);
 	}
 
 	public function error_managent(){

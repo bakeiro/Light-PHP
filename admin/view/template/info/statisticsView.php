@@ -9,4 +9,5 @@
 
 <div class="container">
 	<p>Total products: {{total_products}}</p>
+	<p>Total users: {{total_users}}</p>
 </div>

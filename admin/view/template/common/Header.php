@@ -49,8 +49,8 @@
 			<span class="white-text email"><?=Session::get("admin_email")?></span>
 		</div>
 	</li>
-	<li><a href="index.php?route=info/info/products">Products</a></li>
-	<li><a href="index.php?route=info/info/users">Users</a></li>
+	<li><a href="index.php?route=info/info/dashboard">Dashboard</a></li>
+	<li><a href="index.php?route=info/info/statistics">Statistics</a></li>
 	<li><a href="index.php?route=info/info/error_managent">Error managent</a></li>
 	<li><div class="divider"></div></li>
 	<li><a class="red-text" href="index.php?route=login/login/logout">Log out</a></li>
