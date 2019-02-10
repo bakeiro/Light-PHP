@@ -41,6 +41,6 @@
 		</div>
 	</div>
 
-	<script src="<?=$host?>/site/view/www/build/jquery.min.js"></script>
+	<script src="site/view/www/build/jquery.min.js"></script>
 	<script src="site/view/www/build/console/console.js"></script>
 	<link rel="stylesheet" href="site/view/www/build/console/console.css">

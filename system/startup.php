@@ -1,5 +1,8 @@
 <?php
 
+//Strict types
+declare(strict_types=1);
+
 //Timezone
 date_default_timezone_set(Config::get("default_time_zone"));
 

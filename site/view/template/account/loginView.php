@@ -2,6 +2,10 @@
 
 	<div class="col s6">
     	<h5><i class="material-icons prefix small">account_circle</i>Login</h5>
+		
+		<p>customer@email.com</p>
+		<p>321</p>
+		
 		<div>
 			<div class="row">
 				<div class="input-field inline col s12">
