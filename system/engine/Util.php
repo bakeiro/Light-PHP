@@ -2,7 +2,7 @@
 
 class Util{
     
-    public static function array_sort_by_column(&$arr, $col, $dir = SORT_ASC) {
+    public static function arraySortByColumn(&$arr, $col, $dir = SORT_ASC) {
 		
 		$sort_col = array();
 		
@@ -17,14 +17,14 @@ class Util{
 		return @round($size/pow(1024,($i=floor(log($size,1024)))),2).' '.$unit[$i];
 	}
 
-	public static function is_ajax_request(){
+	public static function isAjaxRequest(){
 		if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest') {
 			return TRUE;
 		}
 		return FALSE;
 	}
 
-	function sanitize_text($text){
+	function sanitizeText($text){
 		return trim(htmlentities(preg_replace("/([^a-z0-9!@#$%^&*()_\-+\]\[{}\s\n<>:\\/\.,\?;'\"]+)/i", '', $text), ENT_QUOTES, 'UTF-8'));
 	}
 
@@ -98,7 +98,7 @@ class Util{
 		//array_walk_recursive($_COOKIE, 'array_clean');
 	}
 
-	static function getToken($length){
+	static function generateSimpleToken($length){
 		$token = "";
 		$codeAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		$codeAlphabet.= "abcdefghijklmnopqrstuvwxyz";
@@ -110,5 +110,9 @@ class Util{
 	   }
    
 	   return $token;
-    }
+	}
+	
+	static function generateCSRFToken(){
+		return bin2hex(random_bytes(32));
+	}
 }

@@ -30,7 +30,7 @@ class Output{
 
 		$content = "";
 
-		if(Util::is_ajax_request()){
+		if(Util::isAjaxRequest()){
 			$content = $templateLoader->load(VIEW.'template/'.$route.'.php', $data);
 		}else{
 			$content = $templateLoader->load(VIEW.'template/common/Header.php', $data);

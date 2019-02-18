@@ -13,7 +13,7 @@ class customerModel extends SecModel{
 
 	public function encryptPass($entry_pass){
 		
-		$salt = Util::getToken(9);
+		$salt = Util::generateSimpleToken(9);
 		$output_pass = sha1($salt . sha1($salt . sha1($entry_pass)));
 
 		return array("db_pass"=>$output_pass, "salt"=>$salt);

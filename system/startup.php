@@ -1,7 +1,7 @@
 <?php
 
 //Strict types
-declare(strict_types=1);
+//declare(strict_types=1);
 
 //Timezone
 date_default_timezone_set(Config::get("default_time_zone"));
@@ -30,9 +30,16 @@ Url::init();
 Session::init();
 Session::start();
 
-if (!Session::isValid()){
+if(!Session::isValid()){
 	Session::forget();
 }
+
+/*
+if(Session::get("CSRF_token") === null){
+	Session::set("CSRF_token", Util::generateCSRFToken());
+	Session::set("CSRF_input", "<input type='text' hidden value='".Session::get("CSRF_token")."' />");
+}
+*/
 
 //escape + strip tags + trim for $_POST,$_GET
 Util::cleanInput();
@@ -41,12 +48,12 @@ Util::cleanInput();
 Config::set("output_styles", array());
 Config::set("output_scripts", array());
 
-//Engine finished
-Config::set("loaded", true);
-
 //Debug (whoops)
 if(Config::get("whoops")){
 	$whoops = new \Whoops\Run;
 	$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
 	$whoops->register();
 }
+
+//Engine finished
+Config::set("loaded", true);
