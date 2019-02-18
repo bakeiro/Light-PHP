@@ -32,7 +32,8 @@ class loginController{
 
 	public function logout(){
 		Session::forget();
-		$this->loginPage();
+
+		header("location: index.php");
 	}
 
 	public function loginPage(){
