@@ -11,6 +11,7 @@
 				<div class="input-field inline col s12">
 					<input name="email" id="email_login" type="email">
 					<label class="active" for="email">eMail</label>
+					{{CSRF_input}}
 				</div>
 			</div>
 
@@ -27,7 +28,7 @@
 					$.ajax({
 						url: "index.php?route=account/customer/checkLogin",
 						dataType: "json",
-						data: $("input[name='pass'], input[name='email']"),
+						data: $("input"),
 						method: "POST",	
 						beforeSend: function(){
 						},

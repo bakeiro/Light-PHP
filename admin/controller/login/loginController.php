@@ -32,11 +32,15 @@ class loginController{
 
 	public function logout(){
 		Session::forget();
-		Output::rawLoad("login/loginView");
+		$this->loginPage();
 	}
 
 	public function loginPage(){
-		Output::rawLoad("login/loginView");
+
+		$data = array();
+		$data["csrf_input"] = Session::get("CSRF_input");
+
+		Output::rawLoad("login/loginView", $data);
 	}
 
 }

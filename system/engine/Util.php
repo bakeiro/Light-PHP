@@ -115,4 +115,19 @@ class Util{
 	static function generateCSRFToken(){
 		return bin2hex(random_bytes(32));
 	}
+
+	static function checkPostCSRFToken(){
+
+		if($_SERVER["REQUEST_METHOD"] === "POST"){
+			if(isset($_POST["csrf_token"])){
+				if(!hash_equals(Session::get("csrf_token"), $_POST["csrf_token"])){
+					throw new Exception('The CSRF token doesn\'t match!');
+				}
+			}else{
+				throw new Exception('The CSRF token was not defined');
+				//trigger_error("The CSRF token was not defined", E_USER_WARNING);
+			}
+		}
+
+	}
 }

@@ -17,8 +17,12 @@ class customerController extends SecController{
 	}
 
 	public function loginPage(){
+
+		$data = array();
+		$data["CSRF_input"] = Session::get("CSRF_input");
+
 		Output::load_js("jquery.min");
-		Output::load("account/loginView");
+		Output::load("account/loginView", $data);
 	}
 
 	public function checkLogin(){

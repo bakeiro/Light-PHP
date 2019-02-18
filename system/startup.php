@@ -34,12 +34,13 @@ if(!Session::isValid()){
 	Session::forget();
 }
 
-/*
-if(Session::get("CSRF_token") === null){
-	Session::set("CSRF_token", Util::generateCSRFToken());
-	Session::set("CSRF_input", "<input type='text' hidden value='".Session::get("CSRF_token")."' />");
+//CSRF token
+if(Session::get("csrf_token") === null){
+	Session::set("csrf_token", Util::generateCSRFToken());
+	Session::set("CSRF_input", "<input type='text' name='csrf_token' hidden value='".Session::get("csrf_token")."' />");
 }
-*/
+
+Util::checkPostCSRFToken();
 
 //escape + strip tags + trim for $_POST,$_GET
 Util::cleanInput();

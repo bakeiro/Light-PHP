@@ -53,6 +53,7 @@
 									<i class="material-icons prefix">account_circle</i>
 									<input name="email" id="email" type="text">
 									<label class="active" for="email">email</label>
+									{{csrf_input}}
 								</div>
 								<div class="input-field col s10 offset-s1">
 									<i class="material-icons prefix">lock</i>
