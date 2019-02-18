@@ -11,7 +11,6 @@
 				<div class="input-field inline col s12">
 					<input name="email" id="email_login" type="email">
 					<label class="active" for="email">eMail</label>
-					{{CSRF_input}}
 				</div>
 			</div>
 
