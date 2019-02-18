@@ -40,7 +40,9 @@ if(Session::get("csrf_token") === null){
 	Session::set("CSRF_input", "<input type='text' name='csrf_token' hidden value='".Session::get("csrf_token")."' />");
 }
 
-Util::checkPostCSRFToken();
+if(!Config::get("allow_forms_without_csrf_input")){
+	Util::checkPostCSRFToken();
+}
 
 //escape + strip tags + trim for $_POST,$_GET
 Util::cleanInput();

@@ -124,9 +124,7 @@ class Util{
 					throw new Exception('The CSRF token doesn\'t match!');
 				}
 			}else{
-				if(!Config::get("allow_forms_without_csrf_input")){
-					throw new Exception('The CSRF token was not defined');
-				}
+				throw new Exception('The CSRF token was not defined');
 			}
 		}
 
