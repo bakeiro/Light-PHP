@@ -58,12 +58,34 @@ class Errors{
 			error_log($error_string_log."\n", 3, SYSTEM."logs/errors.log");
 		}
 
-		//Send email to us with error info
+		//Send email
 		if(Config::get("send_email_errors")){
 			Error::sendEmail($error_string_html, $error);
 		}
 		
 		return true;
+	}
+
+	public static function my_exception_handler($exception){
+
+		//Create file if doesn't exist
+		if(!file_exists(SYSTEM."logs/errors.log")){
+			fopen(SYSTEM."logs/errors.log", "w");
+			fclose(SYSTEM."logs/errors.log");
+		}
+
+		$exception_message = $exception->getMessage();
+
+		//Write
+		error_log($exception_message."\n", 3, SYSTEM."logs/errors.log");
+		
+		//Send email
+		if(Config::get("send_email_errors")){
+			Error::sendEmail($exception_message, "Exception");
+		}
+
+		die("Exception happen");
+
 	}
 	
 	public static function sendEmail($message, $error_type){
@@ -87,7 +109,7 @@ class Errors{
 		
 		$mail->addAddress(Config::get("email_from"));
 	
-		$mail->Subject = $error_type." in backend";
+		$mail->Subject = $error_type." happen";
 		$mail->Body = $message;
 		$mail->AltBody = $message;
 	

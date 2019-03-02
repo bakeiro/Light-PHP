@@ -9,6 +9,7 @@
  * TimeZone
  * Debug console (for outputting php errors and debug messages)
  * Cache number (in case you update the browser resources)
+ * Security stuff
  * 
  * The first time, you need at least, to modify the database credentials and the session variables.
  */
@@ -46,4 +47,5 @@ Config::set("start_time", microtime(true));
 Config::set("cache_version", "0001");
 
 //Security
+Config::set("silent_debug", false); //Enable this in production environment
 Config::set("allow_forms_without_csrf_input", true); //Disable this to force form to implement csrf inputs

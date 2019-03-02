@@ -1,16 +1,14 @@
 <?php
 
-//Strict types
-//declare(strict_types=1);
-
 //Timezone
 date_default_timezone_set(Config::get("default_time_zone"));
 
 //Composer
 require(SYSTEM."libraries/vendor/autoload.php");
 
-//Error reporting
-set_error_handler( array(new Errors(),"my_error_handler") ,E_ALL);
+//Error/warning reporting
+$error_class = new Errors();
+set_error_handler( array($error_class,"my_error_handler") ,E_ALL);
 error_reporting(E_ALL);
 
 //Database
@@ -51,7 +49,14 @@ Util::cleanInput();
 Config::set("output_styles", array());
 Config::set("output_scripts", array());
 
-//Debug (whoops)
+//Debug info
+if(Config::get("silent_debug")){
+	set_exception_handler( array($error_class,"my_exception_handler"));
+	Config::set("debug_console", false);
+	Config::set("whoops", false);	
+}
+
+//Whoops
 if(Config::get("whoops")){
 	$whoops = new \Whoops\Run;
 	$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
