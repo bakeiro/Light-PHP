@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5651dc754a0ae044928946cbf8b37568",
+    "content-hash": "6c454a5368702f2e5b3be13fbaf4db1f",
     "packages": [
         {
             "name": "bakeiro/micro_php_template_engine",
@@ -401,6 +401,53 @@
                 "psr-3"
             ],
             "time": "2018-11-20T15:27:04+00:00"
+        },
+        {
+            "name": "sunra/dbug",
+            "version": "0.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sunra/dBug.git",
+                "reference": "ecd8a589dc3ee1bba84095828c222ff560bc19e5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sunra/dBug/zipball/ecd8a589dc3ee1bba84095828c222ff560bc19e5",
+                "reference": "ecd8a589dc3ee1bba84095828c222ff560bc19e5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ospinto\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "sunra",
+                    "email": "sunra@yandex.ru",
+                    "homepage": "http://github.com/sunra"
+                },
+                {
+                    "name": "Kwaku Otchere",
+                    "email": "ospinto@hotmail.com"
+                }
+            ],
+            "description": "Most beautiful variable dump library for PHP (ColdFusion like style)",
+            "homepage": "http://github.com/sunra/dBug.git",
+            "keywords": [
+                "debug",
+                "dump",
+                "php"
+            ],
+            "time": "2015-12-14T22:37:24+00:00"
         }
     ],
     "packages-dev": [],

@@ -29,6 +29,10 @@ class ComposerStaticInit5ab98572b985be371649f1f1dc6fb4fa
             'PHPMailer\\PHPMailer\\' => 20,
             'PHPAuth\\' => 8,
         ),
+        'O' => 
+        array (
+            'Ospinto\\' => 8,
+        ),
         'F' => 
         array (
             'Faker\\' => 6,
@@ -63,6 +67,10 @@ class ComposerStaticInit5ab98572b985be371649f1f1dc6fb4fa
         'PHPAuth\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpauth/phpauth',
+        ),
+        'Ospinto\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sunra/dbug',
         ),
         'Faker\\' => 
         array (
