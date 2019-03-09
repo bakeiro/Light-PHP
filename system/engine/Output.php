@@ -41,12 +41,12 @@ class Output{
 		echo $content;
 	}
 
-	public static function load_js($js_route){
+	public static function add_js($js_route){
 		$output_script = "<script src='site/view/www/build/".$js_route.".js?v=".Config::Get("cache_version")."' > </script>";
 		Output::$output_scripts[] = $output_script;
     }
 
-	public static function load_css($css_route){
+	public static function add_css($css_route){
 		$output_style = "<link href='site/view/www/build/".$css_route.".css?v=".Config::Get("cache_version")."' rel='stylesheet'>";
 		Output::$output_styles[] = $output_style;
     }
