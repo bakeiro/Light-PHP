@@ -15,16 +15,16 @@ CREATE TABLE `product` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 INSERT INTO `product` (`id`, `quantity`, `model`, `image`, `enable`) VALUES
-(0, 20, 'V20-061-2a', 'tiles/A0001b.jpg', 1),
-(1, 21, 'V20-062-2a', 'tiles/A0002b.jpg', 1),
-(2, 20, 'V20-063-1a', 'tiles/A0003b.jpg', 1),
-(3, 22, 'V20-064-1a', 'tiles/A0004b.jpg', 1),
-(4, 20, 'V20-001-1a', 'tiles/A0005b.jpg', 1),
-(5, 21, 'V20-002-1a', 'tiles/A0006b.jpg', 1),
-(6, 24, 'S021a', 'tiles/A0007b.jpg', 1),
-(7, 23, 'S022a', 'tiles/A0008b.jpg', 1),
-(8, 26, 'S019a', 'tiles/A0009b.jpg', 1),
-(9, 52, 'S018a', 'tiles/A0010b.jpg', 1);
+(0, 20, 'V20-061-2a', 'src/images/tiles/A0001b.jpg', 1),
+(1, 21, 'V20-062-2a', 'src/images/tiles/A0002b.jpg', 1),
+(2, 20, 'V20-063-1a', 'src/images/tiles/A0003b.jpg', 1),
+(3, 22, 'V20-064-1a', 'src/images/tiles/A0004b.jpg', 1),
+(4, 20, 'V20-001-1a', 'src/images/tiles/A0005b.jpg', 1),
+(5, 21, 'V20-002-1a', 'src/images/tiles/A0006b.jpg', 1),
+(6, 24, 'S021a', 'src/images/tiles/A0007b.jpg', 1),
+(7, 23, 'S022a', 'src/images/tiles/A0008b.jpg', 1),
+(8, 26, 'S019a', 'src/images/tiles/A0009b.jpg', 1),
+(9, 52, 'S018a', 'src/images/tiles/A0010b.jpg', 1);
 
 CREATE TABLE `product_info` (
   `id` int(11) NOT NULL,

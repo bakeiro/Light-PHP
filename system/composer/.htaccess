@@ -1,0 +1,2 @@
+#Some libraries need to be accesible from outside
+Allow from all

@@ -7,6 +7,7 @@ class Errors{
 
 	public static $exceptions = array();
 	public static $debug_info = array();
+	public static $debug_queries = array();
 	public static $error_handle;
 
 	public static function my_error_handler($errno, $errstr, $errfile, $errline) {
@@ -36,26 +37,19 @@ class Errors{
 		$error_string_log = addslashes($error_string_log);
 
 		//Create file if doesn't exist
-		if(!file_exists(SYSTEM."logs/notice.log")){
-			fopen(SYSTEM."logs/notice.log", "w");
-			fclose(SYSTEM."logs/notice.log");
-		}
-
-		if(!file_exists(SYSTEM."logs/errors.log")){
-			fopen(SYSTEM."logs/errors.log", "w");
-			fclose(SYSTEM."logs/errors.log");
-		}
-		
+		Errors::checkLogFile(SYSTEM."writable/logs/errors.log");
+		Errors::checkLogFile(SYSTEM."writable/logs/notice.log");
+				
 		//Warning/Notice
 		if($error === "Notice" || $error === "Warning"){
 			Errors::$exceptions[] = array("text"=>$error_string_html, "type"=> $error);
-			error_log($error_string_log."\n", 3, SYSTEM."logs/notice.log");
+			error_log($error_string_log."\n", 3, SYSTEM."writable/logs/notice.log");
 		}
 		
 		//Fatal error/Unknown
 		if($error === "Fatal Error" || $error === "Unknown"){
 			Errors::$exceptions[] = array("text"=>$error_string_html, "type"=> $error);
-			error_log($error_string_log."\n", 3, SYSTEM."logs/errors.log");
+			error_log($error_string_log."\n", 3, SYSTEM."writable/logs/errors.log");
 		}
 
 		//Send email
@@ -68,16 +62,13 @@ class Errors{
 
 	public static function my_exception_handler($exception){
 
-		//Create file if doesn't exist
-		if(!file_exists(SYSTEM."logs/errors.log")){
-			fopen(SYSTEM."logs/errors.log", "w");
-			fclose(SYSTEM."logs/errors.log");
-		}
+		//Check file
+		Errors::checkLogFile(SYSTEM."writable/logs/notice.log");
 
 		$exception_message = $exception->getMessage();
 
 		//Write
-		error_log($exception_message."\n", 3, SYSTEM."logs/errors.log");
+		error_log($exception_message."\n", 3, SYSTEM."writable/logs/errors.log");
 		
 		//Send email
 		if(Config::get("send_email_errors")){
@@ -85,14 +76,11 @@ class Errors{
 		}
 
 		die("Exception happen");
-
 	}
 	
 	public static function sendEmail($message, $error_type){
 	
-		require_once(SYSTEM.'modules/Mail/PHPMailerAutoload.php');
-		
-		$mail = new PHPMailer();
+		$mail = new PHPMailer\PHPMailer\PHPMailer();
 		
 		$mail->IsSMTP();
 		$mail->CharSet    = 'UTF-8';
@@ -125,6 +113,13 @@ class Errors{
 
 		if(!$mail->send()) {
 			echo "ERROR: <br> " . $mail->ErrorInfo;
+		}
+	}
+
+	private function checkLogFile($file_name){
+		if(!file_exists($file_name)){
+			fopen($file_name, "w");
+			fclose($file_name);
 		}
 	}
 	
