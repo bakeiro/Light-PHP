@@ -4,7 +4,7 @@
 date_default_timezone_set(Config::get("default_time_zone"));
 
 //Composer
-require(SYSTEM."libraries/vendor/autoload.php");
+require(SYSTEM."composer/vendor/autoload.php");
 
 //Error/warning reporting
 $error_class = new Errors();

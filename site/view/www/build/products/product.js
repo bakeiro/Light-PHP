@@ -58,7 +58,7 @@ class products{
 		<div class='col s6' >	
 			<div id="${prod.product_id}" class='card small'>
 				<div class="card-image">
-					<img src='site/view/www/images/data/${prod.image}' />
+					<img src='site/view/www/${prod.image}' />
 					<span class="card-title black-text">${prod.title}</span>
 				</div>
 				<div class="card-content">
@@ -104,7 +104,7 @@ class products{
 				let prod_img = `
 				<div class="row">
 					<div class="col s6">
-						<img class="responsive-img"  src="site/view/www/images/data/${prod_data.image}" >
+						<img class="responsive-img"  src="site/view/www/${prod_data.image}" >
 					</div>
 				</div>`;
 				
