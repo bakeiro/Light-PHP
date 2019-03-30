@@ -116,7 +116,7 @@ class Errors{
 		}
 	}
 
-	private function checkLogFile($file_name){
+	public static function checkLogFile($file_name){
 		if(!file_exists($file_name)){
 			fopen($file_name, "w");
 			fclose($file_name);
