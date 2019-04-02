@@ -12,6 +12,8 @@ ini_set("log_errors", 1);
 ini_set("session.cookie_lifetime", 0);
 ini_set("session.gc_maxlifetime", 14400); //4h
 ini_set("session.auto_start", "Off");
+ini_set("session.gc_probability", 1);
+ini_set("session.gc_divisor", 100);
 
 //Others
 ini_set("expose_php", "Off");
