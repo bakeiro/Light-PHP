@@ -63,5 +63,12 @@ if(Config::get("whoops")){
 	$whoops->register();
 }
 
+//Console info
+Config::set("console_db_queries", array());
+Config::set("console_warnings", array());
+Config::set("console_errors", array());
+Config::set("console_debug_info", array());
+Config::set("console_execution_trace", array());
+
 //Engine finished
 Config::set("loaded", true);

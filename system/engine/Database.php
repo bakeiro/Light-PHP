@@ -5,17 +5,19 @@ class Database{
 	public static $CONN;
 
 	static function getDatabase(){
-    	return Database::$CONN;
-  	}
+		return Database::$CONN;
+	}
 
   	static function query($sql_query, $params = array()){
 		
+		//Console
+		Console::addQuery($sql_query);
+
+		//Exec
 		$smtp = Database::$CONN->prepare($sql_query);
 		$smtp->setFetchMode(PDO::FETCH_ASSOC);
 		$query = $smtp->execute($params);
-
-		Errors::$debug_queries[] = $sql_query;	
-			
+		
 		$data = array();
 				
 		//Select

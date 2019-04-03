@@ -5,9 +5,6 @@ use PHPMailer\PHPMailer\Exception;
 
 class Errors{
 
-	public static $exceptions = array();
-	public static $debug_info = array();
-	public static $debug_queries = array();
 	public static $error_handle;
 
 	public static function my_error_handler($errno, $errstr, $errfile, $errline) {
@@ -42,15 +39,15 @@ class Errors{
 				
 		//Warning/Notice
 		if($error === "Notice" || $error === "Warning"){
-			Errors::$exceptions[] = array("text"=>$error_string_html, "type"=> $error);
 			error_log($error_string_log."\n", 3, SYSTEM."writable/logs/notice.log");
+			Console::addWarning($error_string_html);
 		}
 		
 		//Fatal error/Unknown
 		if($error === "Fatal Error" || $error === "Unknown"){
-			Errors::$exceptions[] = array("text"=>$error_string_html, "type"=> $error);
 			error_log($error_string_log."\n", 3, SYSTEM."writable/logs/errors.log");
-		}
+			Console::addError($error_string_html);
+		}	
 
 		//Send email
 		if(Config::get("send_email_errors")){

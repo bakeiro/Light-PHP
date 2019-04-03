@@ -6,11 +6,11 @@ class Session{
 
 	public static function init($cookie = []){
 
-		//Session handler        
+		//Session handler
         $session_handler = new SessionSecureHandler();
-        //ini_set('session.save_handler', 'files');
+        ini_set('session.save_handler', 'files'); //Comment here to disable session files
         session_set_save_handler($session_handler, true);
-		//session_save_path(SYSTEM . '/writable/sessions');
+		session_save_path(SYSTEM . '/writable/sessions'); //Comment also here disable session files
 
 		//Variables
 		Session::$cookie = $cookie;
