@@ -29,7 +29,7 @@ class infoController{
 		$data["warnings"] = "";
 		$data["exceptions"] = "";
 		
-		$file_errors_path = SYSTEM."logs/errors.log";
+		$file_errors_path = SYSTEM."writable/logs/errors.log";
 		
 		if(filesize($file_errors_path) > 0){
 			$file_errors_handler = fopen($file_errors_path, "r");
@@ -37,7 +37,7 @@ class infoController{
 			fclose($file_errors_handler);
 		}
 
-		$file_warnings_path = SYSTEM."logs/notice.log";
+		$file_warnings_path = SYSTEM."writable/logs/notice.log";
 		
 		if(filesize($file_warnings_path) > 0){
 			$file_warnings_handler = fopen($file_warnings_path, "r");

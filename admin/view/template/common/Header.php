@@ -31,12 +31,15 @@
 
 <!-- PHP errors -->
 <?php
-	foreach(Errors::$exceptions as $exception){			
-		if($exception["type"] === "error"){
-			echo "<p><i class='material-icons red-text'>error</i>".$exception["text"]."</p>";
+
+	$stack_messages = Config::get("console_execution_trace");
+
+	foreach($stack_messages as $trace_message){
+		if($trace_message["type"] === "error"){
+			echo "<p class='error'><i class='material-icons red-text'>error</i>".$trace_message["message"]."</p>";
 		}
-		if($exception["type"] === "warning"){
-			echo "<p><i class='material-icons red-text'>error</i>".$exception["text"]."</p>";
+		if($trace_message["type"] === "warning"){
+			echo "<p class='warning'><i class='material-icons lime-text'>warning</i>".$trace_message["message"]."</p>";
 		}
 	}
 ?>
