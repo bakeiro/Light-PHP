@@ -9,16 +9,20 @@ var error_console = (function(){
 		$("div#error-console-top").css("background-color", "#9E9E9E");
 	}
 
-	function open(){
-		$("div#error-console").css("height", "200px");
-		$("div#error-console-body").css("height", "200px");
+	function open(height = "200px"){
+		$("div#error-console").css("height", height);
+		$("div#error-console-body").css("height", height);
 		$("button#error-console-button").text("Close");
+
+		sessionStorage.setItem("console_position", height);
 	}
 
 	function close(){
 		$("div#error-console").css("height", "30px");
 		$("div#error-console-body").css("height", "30px");
 		$("button#error-console-button").text("Open");
+
+		sessionStorage.setItem("console_position", "closed");
 	}
 
 	function updateHeight(){
@@ -27,6 +31,8 @@ var error_console = (function(){
 			$("div#error-console-top").css("background-color", "lightgrey");
 			$("div#error-console").css("height", this.dragged);
 			$("div#error-console-body").css("height", this.dragged);
+
+			sessionStorage.setItem("console_position", this.dragged);
 		}
 	}
 
@@ -77,10 +83,10 @@ $("body").on("click", "button#error-console-button", function(e){
 
 	var text = $("button#error-console-button").text();
 
-	if(text === "Open"){
+	if(text.search("Open") !== -1){
 		error_console.open();
 	}
-	if(text === "Close"){
+	if(text.search("Close") !== -1){
 		error_console.close();
 	}
 });
@@ -90,7 +96,7 @@ $("body").on("click", "div#error-console-top", function(e){
 
 	var text = $("button#error-console-button").text();
 
-	if(text === "Close"){
+	if(text.search("Close") !== -1){
 		$("div#error-console-top").css("background-color", "#ee6e73");
 		error_console.event_track = true;
 	}
@@ -107,4 +113,10 @@ $("body").on("mousemove", function(e){
 //Check errors
 $(document).ready(function(){
 	error_console.checkErrors();
+
+	if(sessionStorage.getItem("console_position")){
+		if(sessionStorage.getItem("console_position") !== "closed"){
+			error_console.open(sessionStorage.getItem("console_position"));
+		}
+	}
 });

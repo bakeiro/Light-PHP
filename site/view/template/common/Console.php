@@ -9,21 +9,22 @@
 
 		//Cache
 		$cache = Config::get("cache_version");
+
+		//Console info
+		$stack_messages = Config::get("console_execution_trace");
+		$num_messages = count($stack_messages);
 	?>
 
 	<div id="error-console">
 
 		<div id="error-console-top"></div>
-		<button id="error-console-button" >Open</button>
+		<button id="error-console-button">Open </button>
 		
 		<span id="error-console-script-time"> <i class="material-icons">access_time</i>  <?=$time_script?> </span>
 		<span id="error-console-script-memory"> <i class="material-icons">equalizer</i>  <?=$memory?> </span>
 		
 		<div id="error-console-body">
-			<?php
-
-			//Errors/Warnings/Queries/Debug info
-			$stack_messages = Config::get("console_execution_trace");
+			<?php			
 
 			foreach($stack_messages as $trace_message){
 				if($trace_message["type"] === "error"){

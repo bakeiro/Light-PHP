@@ -59,3 +59,11 @@ span#error-console-script-memory{
     float: right;
     padding: 0 7px;
 }
+
+span.console_messages{
+    padding: 0 5px;
+    border-radius: 10px;
+    color: #424141;
+    background-color: white;
+    font-weight: bold;
+}
