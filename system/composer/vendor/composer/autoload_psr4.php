@@ -7,10 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'bakeiro\\' => array($vendorDir . '/bakeiro/micro_php_template_engine/src'),
-    'ZxcvbnPhp\\' => array($vendorDir . '/bjeavons/zxcvbn-php/src'),
     'Whoops\\' => array($vendorDir . '/filp/whoops/src/Whoops'),
-    'ReCaptcha\\' => array($vendorDir . '/google/recaptcha/src/ReCaptcha'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
     'PHPMailer\\PHPMailer\\' => array($vendorDir . '/phpmailer/phpmailer/src'),
-    'PHPAuth\\' => array($vendorDir . '/phpauth/phpauth'),
 );

@@ -19,7 +19,7 @@
         },
         "time": "2019-02-04T16:00:35+00:00",
         "type": "library",
-        "installation-source": "dist",
+        "installation-source": "source",
         "autoload": {
             "psr-4": {
                 "bakeiro\\": "src/"
@@ -38,53 +38,6 @@
             }
         ],
         "description": "A really simple template engine for PHP to make templates more simple/maintable"
-    },
-    {
-        "name": "bjeavons/zxcvbn-php",
-        "version": "0.4.0",
-        "version_normalized": "0.4.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/bjeavons/zxcvbn-php.git",
-            "reference": "7a7e1130c74c715e84c60c27384f657e9574a933"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/bjeavons/zxcvbn-php/zipball/7a7e1130c74c715e84c60c27384f657e9574a933",
-            "reference": "7a7e1130c74c715e84c60c27384f657e9574a933",
-            "shasum": ""
-        },
-        "require": {
-            "php": "^5.6 || ^7.0"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "*",
-            "satooshi/php-coveralls": "*"
-        },
-        "time": "2018-07-23T05:05:36+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "ZxcvbnPhp\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "See contributors",
-                "homepage": "https://github.com/bjeavons/zxcvbn-php"
-            }
-        ],
-        "description": "Realistic password strength estimation PHP library based on Zxcvbn JS",
-        "homepage": "https://github.com/bjeavons/zxcvbn-php",
-        "keywords": [
-            "password",
-            "zxcvbn"
-        ]
     },
     {
         "name": "filp/whoops",
@@ -147,99 +100,6 @@
             "library",
             "throwable",
             "whoops"
-        ]
-    },
-    {
-        "name": "google/recaptcha",
-        "version": "1.2.1",
-        "version_normalized": "1.2.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/google/recaptcha.git",
-            "reference": "e7add3be59211482ecdb942288f52da64a35f61a"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/google/recaptcha/zipball/e7add3be59211482ecdb942288f52da64a35f61a",
-            "reference": "e7add3be59211482ecdb942288f52da64a35f61a",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.5"
-        },
-        "require-dev": {
-            "friendsofphp/php-cs-fixer": "^2.2.20|^2.12",
-            "php-coveralls/php-coveralls": "^2.1",
-            "phpunit/phpunit": "^4.8.36|^5.7.27|^6.59|^7"
-        },
-        "time": "2018-08-05T09:31:53+00:00",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.2.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "ReCaptcha\\": "src/ReCaptcha"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "description": "Client library for reCAPTCHA, a free service that protects websites from spam and abuse.",
-        "homepage": "https://www.google.com/recaptcha/",
-        "keywords": [
-            "Abuse",
-            "captcha",
-            "recaptcha",
-            "spam"
-        ]
-    },
-    {
-        "name": "phpauth/phpauth",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/PHPAuth/PHPAuth.git",
-            "reference": "a74fd70201d354ef0b1e9929df9a25a7e81331f3"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/PHPAuth/PHPAuth/zipball/a74fd70201d354ef0b1e9929df9a25a7e81331f3",
-            "reference": "a74fd70201d354ef0b1e9929df9a25a7e81331f3",
-            "shasum": ""
-        },
-        "require": {
-            "bjeavons/zxcvbn-php": "^0.4",
-            "google/recaptcha": "^1.2",
-            "php": ">=7.0.0",
-            "phpmailer/phpmailer": "^6.0"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "6.*"
-        },
-        "time": "2019-02-05T07:25:04+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "PHPAuth\\": "/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "description": "A secure user authentication class for PHP websites, using a powerful password hashing system and attack blocking to keep your website and users secure.",
-        "homepage": "http://phpauth.github.io/PHPAuth/",
-        "keywords": [
-            "Authentication",
-            "class",
-            "secure"
         ]
     },
     {

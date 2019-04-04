@@ -12,7 +12,7 @@
 	<?php $host = Config::get("url_host"); ?>
 
 	<!-- Custom resources -->
-	<link href="<?=$host?>/admin/view/www/build/admin/admin.css?v=<?=$cache?>" rel="stylesheet">
+	<link href="<?=$host?>/admin/view/www/src/admin/admin.css?v=<?=$cache?>" rel="stylesheet">
 	
 	<!-- Materialize -->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -20,7 +20,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 	
 	<!-- Jquery -->
-	<script src="<?=$host?>/admin/view/www/build/jquery.min.js"></script>
+	<script src="<?=$host?>/admin/view/www/src/jquery.min.js"></script>
 
 	<!-- Nprogress -->
 	<script src="<?=$host?>/admin/view/www/node_modules/nprogress/nprogress.js"></script>

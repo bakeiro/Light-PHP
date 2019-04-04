@@ -2,7 +2,6 @@
     "require": {
         "phpmailer/phpmailer": "^6.0",
 		"bakeiro/micro_php_template_engine" : "dev-master",
-		"filp/whoops": "^2.3",
-        "phpauth/phpauth": "dev-master"
+		"filp/whoops": "^2.3"
     }
 }
