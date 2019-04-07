@@ -8,25 +8,23 @@ class Session{
 
 		//Session handler
         $session_handler = new SessionSecureHandler();
-        ini_set('session.save_handler', 'files'); //Comment here to disable session files
+        //ini_set('session.save_handler', 'files'); //Comment here to disable session files
         session_set_save_handler($session_handler, true);
-		session_save_path(SYSTEM . '/writable/sessions'); //Comment also here disable session files
+		//session_save_path(SYSTEM . '/writable/sessions'); //Comment also here disable session files
 
 		//Variables
 		Session::$cookie = $cookie;
 		Session::$name = Config::get("session_name");
         Session::$cookie += [
-            'lifetime' => 0, /* ini_get('session.gc_maxlifetime'),*/
-            'path'     => ini_get('session.cookie_path'),
-            'domain'   => ini_get('session.cookie_domain'),
+            'lifetime' => ini_get('session.gc_maxlifetime'),
+            'path'     => "/",
+            'domain'   => "",
             'secure'   => isset($_SERVER['HTTPS']),
             'httponly' => true
 		];
 		
 	
 		//Setup
-		ini_set('session.use_cookies', 1);
-        ini_set('session.use_only_cookies', 1);
         session_name(Session::$name);
         session_set_cookie_params(
             Session::$cookie['lifetime'],

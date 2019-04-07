@@ -6,5 +6,4 @@
 
 /system/writable/cache/*
 /system/writable/logs/*
-/system/writable/sessions/*
 /system/writable/upload/*

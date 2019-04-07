@@ -18,7 +18,7 @@ class SessionSecureHandler extends SessionHandler {
 		return $data;
 	}
 
-    public function write($session_id, $data){
+  	public function write($session_id, $data){
 		$encrypted_data = openssl_encrypt($data, $this->encrypt_method, $this->key, 0, $this->iv);
 		return parent::write($session_id, $encrypted_data);
 	}
