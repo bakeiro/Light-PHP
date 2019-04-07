@@ -38,9 +38,9 @@ Config::set("email_from_name", "***");
 Config::set("default_time_zone", "Europe/Madrid");
 
 //Debug
-Config::set("debug_console", false);
+Config::set("debug_console", true);
 Config::set("send_email_errors", false); //enable this for sending one email every time an exception happens
-Config::set("whoops", true);
+Config::set("whoops", false);
 Config::set("start_time", microtime(true));
 
 //Cache (change this number every time you update any css/js/image/font resource)
