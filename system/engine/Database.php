@@ -33,10 +33,9 @@ class Database{
 			if(count($data) === 0){
 				$data = false;
 			}
-		}else{
-
+			
 			//Insert (return last id generated)
-			if(strpos($sql_query, "INSERT INTO")){
+			if(strpos($sql_query, "INSERT INTO") !== false){
 				$data = Database::$CONN->lastInsertId();
 			}
 		}
