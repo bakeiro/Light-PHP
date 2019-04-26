@@ -4,7 +4,7 @@
 /system/config/config_data.php
 /system/config/php_settings.php
 
-/system/writable/cache/*
-/system/writable/logs/*
-/system/writable/upload/*
-/system/writable/sessions/*
+#/system/writable/cache/*
+#/system/writable/logs/*
+#/system/writable/upload/*
+#/system/writable/sessions/*
