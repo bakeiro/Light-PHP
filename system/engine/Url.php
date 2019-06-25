@@ -24,8 +24,7 @@ class Url{
 		}
 
 		//Action
-		$url_action = $_SERVER["REQUEST_URI"];
-		$url_action = substr($url_action, 1);
+		$url_action = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 		$rest_controller = null;
 
 		//Controller
