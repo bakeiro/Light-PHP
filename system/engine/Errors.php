@@ -115,8 +115,8 @@ class Errors{
 
 	public static function checkLogFile($file_name){
 		if(!file_exists($file_name)){
-			fopen($file_name, "w");
-			fclose($file_name);
+			$fileResource = fopen($file_name, "w");
+			fclose($fileResource);
 		}
 	}
 	
