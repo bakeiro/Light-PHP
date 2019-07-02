@@ -1,3 +1,5 @@
+0. Edit index.php and admin/index.php to write the correct path
+
 1. Import the database
 
 2. Rename system/config/
@@ -7,7 +9,7 @@
 
 3. Edit system/config/config_data:
 
-	- Change database credentials
+	- Set database credentials
 	- Session iv + session pass: replace by a random string
 	- Timezone (if needed)
 	- Email credentials (if needed)

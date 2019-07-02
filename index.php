@@ -1,7 +1,7 @@
 <?php
 
 //Routes
-define("DIR_ROOT", getcwd());// You can type here the path if any error
+define("DIR_ROOT", "C:/laragon/www/framework_php/");
 define("SYSTEM", DIR_ROOT."/system/");
 define("MODEL", DIR_ROOT."/site/model/");
 define("CONTROLLER", DIR_ROOT."/site/controller/");
