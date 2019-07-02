@@ -1,5 +1,5 @@
 <?php
-class Url{
+class Router{
 
 	public static $protocol;
 	public static $host;
@@ -36,7 +36,7 @@ class Url{
 			$url_controller = 'api/rest';
 		}
 		if(!isset($_REQUEST['route']) && !isset($_REQUEST['rest'])){
-			$url_controller = URL::getSeoUrlMethod($url_action);
+			$url_controller = Router::getSeoUrlMethod($url_action);
 		}
 
 		//Set config

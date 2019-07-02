@@ -6,6 +6,6 @@
  */
 
 $routes = array();
-$routes[""] = "index/index";
-$routes["welcome"] = "index/index";
-$routes["user"] = "account/customer/loginPage";
+$routes["/"] = "index/index";
+$routes["/welcome"] = "index/index";
+$routes["/user"] = "account/customer/loginPage";

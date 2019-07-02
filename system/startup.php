@@ -21,8 +21,8 @@ $temp_con->exec("SET CHARACTER_SET_CONNECTION=utf8");
 
 Database::$CONN = $temp_con;
 
-//Url
-Url::init();
+//Urls
+Router::init();
 
 //Session
 Session::init();

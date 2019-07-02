@@ -1,11 +1,11 @@
 <?php
 
 //Routes
-define("DIR_ROOT", "C:/laragon/www/framework_php/");
-define("SYSTEM", DIR_ROOT."system/");
-define("MODEL", DIR_ROOT."site/model/");
-define("CONTROLLER", DIR_ROOT."site/controller/");
-define("VIEW", DIR_ROOT."site/view/");
+define("DIR_ROOT", getcwd());// You can type here the path if any error
+define("SYSTEM", DIR_ROOT."/system/");
+define("MODEL", DIR_ROOT."/site/model/");
+define("CONTROLLER", DIR_ROOT."/site/controller/");
+define("VIEW", DIR_ROOT."/site/view/");
 
 //Config
 require(SYSTEM . "engine/Config.php");
@@ -13,7 +13,7 @@ require(SYSTEM . "config/config_data.php");
 require(SYSTEM . "config/php_settings.php");
 
 //Engine
-require(SYSTEM . "engine/Url.php");
+require(SYSTEM . "engine/Router.php");
 require(SYSTEM . "engine/Controller.php");
 require(SYSTEM . "engine/Session.php");
 require(SYSTEM . "engine/Console.php");
