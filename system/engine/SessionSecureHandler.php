@@ -24,14 +24,6 @@ class SessionSecureHandler extends SessionHandler {
 	}
 
 	//Methods for deleting remaining session files
-	public function destroy($session_id) {
-		$file = SYSTEM.'/writable/sessions/sess_'.basename($session_id);
-		if (is_file($file)) {
-			unlink($file);
-		}
-	}
-
-	//Methods for deleting remaining session files
 	public function __destruct() {
 		
 		$gc_divisor = ini_get('session.gc_divisor');

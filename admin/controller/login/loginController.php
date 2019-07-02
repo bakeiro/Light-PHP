@@ -14,7 +14,7 @@ class loginController{
 	
 		if($user){
 			
-			Session::refresh();//If the privileges are upgraded, I should create a new session_id to make even harder get the session_id
+			session_regenerate_id(true);//If the privileges are upgraded, I should create a new session_id to make even harder get the session_id
 
 			Session::set("admin_name", $user["first_name"]);
 			Session::set("admin_email", $user["email"]);

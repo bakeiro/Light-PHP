@@ -39,7 +39,7 @@ class Session{
 	public static function start(){
         if (session_id() === '') {
             if (session_start()) {
-                return mt_rand(0, 4) === 0 ? Session::refresh() : true; // 1/5
+                return mt_rand(0, 4) === 0 ? session_regenerate_id() : true; // 1/5
             }
         }
         return false;
@@ -97,10 +97,6 @@ class Session{
         }
         $_SESSION['_last_activity'] = time();
         return false;
-	}
-
-	public static function refresh(){
-        return session_regenerate_id(true);
 	}
 
     public static function forget(){

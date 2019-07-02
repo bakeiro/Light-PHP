@@ -33,7 +33,7 @@ class customerController extends SecController{
 
 		if($customer){
 
-			Session::refresh(); //If upgrade the privileges, I should create a new session_id to make even harder get the session_id
+			session_regenerate_id(true); //If upgrade the privileges, I should create a new session_id to make even harder get the session_id
 			Session::set("logged", true);
 			Session::set("customer_id", 1);
 			$data["success"] = true;
