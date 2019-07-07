@@ -1,7 +1,17 @@
+
+# Editors
 /.idea/*
 /.vscode/*
 
+# Frontend
+/site/view/www/.cache/*
+/site/view/www/node_modules/*
+/site/view/www/package-lock.json
+/site/view/www/package.json
+
+# Config
 /system/config/config_data.php
 /system/config/php_settings.php
 
+# Dinamic folder
 #/system/writable/*
