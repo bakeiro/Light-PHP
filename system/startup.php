@@ -8,18 +8,20 @@ require(SYSTEM."composer/vendor/autoload.php");
 
 //Error/warning reporting
 $error_class = new Errors();
-set_error_handler( array($error_class,"my_error_handler") ,E_ALL);
+set_error_handler( array($error_class,"myErrorHandler") ,E_ALL);
 error_reporting(E_ALL);
 
 //Database
-$temp_con = new PDO("mysql:host=" .Config::get("CONN_HOST"). ";port=3306;dbname=" . Config::get("CONN_DDBB"), Config::get("CONN_USER"), Config::get("CONN_PASS"));
-$temp_con->setAttribute(PDO::ATTR_EMULATE_PREPARES, false); //true prepare statements
+if(class_exists("Database")){
+    $temp_con = new PDO("mysql:host=" .Config::get("CONN_HOST"). ";port=3306;dbname=" . Config::get("CONN_DDBB"), Config::get("CONN_USER"), Config::get("CONN_PASS"));
+    $temp_con->setAttribute(PDO::ATTR_EMULATE_PREPARES, false); //true prepare statements
 
-$temp_con->exec("SET NAMES 'utf8'");
-$temp_con->exec("SET CHARACTER SET utf8");
-$temp_con->exec("SET CHARACTER_SET_CONNECTION=utf8");
+    $temp_con->exec("SET NAMES 'utf8'");
+    $temp_con->exec("SET CHARACTER SET utf8");
+    $temp_con->exec("SET CHARACTER_SET_CONNECTION=utf8");
 
-Database::$CONN = $temp_con;
+    Database::$CONN = $temp_con;
+}
 
 //Urls
 Router::init();
@@ -53,7 +55,7 @@ Config::set("output_scripts", array());
 if(Config::get("silent_debug")){
 	set_exception_handler( array($error_class,"my_exception_handler"));
 	Config::set("debug_console", false);
-	Config::set("whoops", false);	
+	Config::set("whoops", false);
 }
 
 //Whoops
