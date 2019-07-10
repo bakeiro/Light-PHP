@@ -19,7 +19,7 @@ require SYSTEM . "engine/Session.php";
 require SYSTEM . "engine/Console.php";
 require SYSTEM . "engine/SessionSecureHandler.php";
 require SYSTEM . "engine/Output.php";
-require SYSTEM . "engine/Database.php";
+require SYSTEM . "engine/Database.php"; //Comment it if your project doesn't require it
 require SYSTEM . "engine/Util.php";
 require SYSTEM . "engine/Errors.php";
 require SYSTEM . "engine/SecModel.php";
@@ -32,6 +32,5 @@ require SYSTEM . "startup.php";
 $Controller = new Controller();
 $Controller->execController();
 
-//Close db conn
-//Session::$handler->close();
-Database::destruct();
+//End script
+$Controller->endExecution();

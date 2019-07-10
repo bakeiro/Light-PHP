@@ -65,4 +65,10 @@ class Controller
         }
     }
 
+    public function endExecution(){
+        if(class_exists("Database")){
+            Database::destruct();
+        }
+        //Session::$handler->close();
+    }
 }
