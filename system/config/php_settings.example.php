@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Here you can define the php_ini settings in one place, you can also make a php.ini file in the root of the app 
+ * Here you can define the php_ini settings in one place, you can also make a php.ini file in the root of the app
  */
 
 //Errors
@@ -23,7 +23,6 @@ ini_set("session.gc_maxlifetime", 90); //4h, 14400
 ini_set("session.gc_probability", 1);
 ini_set("session.gc_divisor", 100);
 
-
 //Others
 ini_set("expose_php", "Off");
 ini_set("default_charset", "UTF-8");
@@ -43,4 +42,4 @@ safe_mode = Off
 session.cookie_lifetime = 3600
 allow_url_fopen = On
 error_reporting = E_ALL
-*/
+ */

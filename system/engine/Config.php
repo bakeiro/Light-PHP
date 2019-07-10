@@ -1,18 +1,21 @@
 <?php
-class Config{
 
-	public static $data;
-	
-	public static function Set($key, $value =""){
-		Config::$data[$key] = $value;
-	}
+class Config
+{
 
-	public static function Get($key){
+    public static $data;
 
-		if(isset(Config::$data[$key])){
-			return Config::$data[$key];
-		}else{
-			return null;
-		}
-	}
+    public static function Set($key, $value = "")
+    {
+        Config::$data[$key] = $value;
+    }
+
+    public static function Get($key)
+    {
+        if (isset(Config::$data[$key])) {
+            return Config::$data[$key];
+        } else {
+            return null;
+        }
+    }
 }

@@ -2,7 +2,7 @@
 
 /**
  * Global variables, here you can set the configuration values like:
- * 
+ *
  * Database credentials
  * Session variables
  * Email credentials
@@ -10,7 +10,7 @@
  * Debug console (for outputting php errors and debug messages)
  * Cache number (in case you update the browser resources)
  * Security stuff
- * 
+ *
  * The first time, you need at least, to modify the database credentials and the session variables.
  */
 
@@ -20,7 +20,7 @@ Config::set("CONN_USER", "root");
 Config::set("CONN_PASS", "");
 Config::set("CONN_DDBB", "framework");
 
-//Session 
+//Session
 Config::set("session_name", "MY_SESSION");
 Config::set("session_encrypt_method", "aes-256-cbc");
 Config::set("session_iv", "ThisIsMySecretIv"); //Replace here by a 16 char string (for encrypt and decrypt session data, ex: openssl_random_pseudo_bytes(16); //16 length string since openssl_cipher_iv_length("aes-256-cbc")) it's 16

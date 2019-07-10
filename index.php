@@ -32,7 +32,6 @@ require SYSTEM . "startup.php";
 $Controller = new Controller();
 $Controller->execController();
 
-//Finish script functions
+//Close db conn
 //Session::$handler->close();
-//Database::$CONN->close();
-//Database::query("SELECT pg_terminate_backend(pg_backend_pid())");
+Database::destruct();

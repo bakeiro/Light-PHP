@@ -2,7 +2,7 @@
 
 /**
  * Here you can define the routes, the key it's the seo-friendly url, and the value it's the folder/class/method string which
- * specifies the method to be executed 
+ * specifies the method to be executed
  */
 
 $routes = array();
