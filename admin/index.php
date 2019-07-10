@@ -42,5 +42,5 @@ if (!Session::get("admin_logged")) {
 //Execute controller
 $Controller->execController();
 
-
-Database::destruct();
+//End script
+$Controller->endExecution();
