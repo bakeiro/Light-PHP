@@ -1,4 +1,7 @@
 
+#.gitignore
+.gitignore
+
 # Editors
 /.idea/*
 /.vscode/*
@@ -14,4 +17,4 @@
 /system/config/php_settings.php
 
 # Dinamic folder
-#/system/writable/*
+/system/writable/*
