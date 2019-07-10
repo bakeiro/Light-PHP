@@ -2,10 +2,10 @@
 
 	<div class="col s6">
     	<h5><i class="material-icons prefix small">account_circle</i>Login</h5>
-		
+
 		<p>customer@email.com</p>
 		<p>321</p>
-		
+
 		<div>
 			<div class="row">
 				<div class="input-field inline col s12">
@@ -21,24 +21,24 @@
 				</div>
 			</div>
 			<button class="waves-effect waves-light btn" name="submit_login" type="button">Send!</button>
-					
+
 			<script>
 				$("body").on("click", "button[name='submit_login']", function(){
 					$.ajax({
 						url: "index.php?route=account/customer/checkLogin",
 						dataType: "json",
 						data: $("input"),
-						method: "POST",	
+						method: "POST",
 						beforeSend: function(){
 						},
 						complete: function(){
 						},
 						success: function(json){
-									
+
 							if(json["error"]){
 								$("input#email_login").addClass("invalid");
 								alert(json["error"]);
-							}									
+							}
 							if(json["success"]){
 								window.location.href = "index.php?route=index/index";
 							}

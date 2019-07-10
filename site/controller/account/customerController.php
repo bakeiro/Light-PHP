@@ -1,59 +1,60 @@
 <?php
-class customerController extends SecController{
+class customerController extends SecController
+{
+    public function info()
+    {
+        require MODEL . 'customer/customerModel.php';
+        $customer_model = new customerModel();
 
-	public function info(){
-		
-		require(MODEL.'customer/customerModel.php');
-		$customer_model = new customerModel();
-		
-		$customer_info = $customer_model->getCustomerById(Session::get("customer_id"));
-		
-		$data = array();
-		$data["customer_id"] = Session::get("customer_id");
-		$data["first_name"] = $customer_info["first_name"];
-		$data["last_name"] = $customer_info["last_name"];
+        $customer_info = $customer_model->getCustomerById(Session::get("customer_id"));
 
-		Output::load("account/infoView", $data);
-	}
+        $data = array();
+        $data["customer_id"] = Session::get("customer_id");
+        $data["first_name"] = $customer_info["first_name"];
+        $data["last_name"] = $customer_info["last_name"];
 
-	public function loginPage(){
-		Output::add_js("jquery.min");
-		Output::load("account/loginView");
-	}
+        Output::load("account/infoView", $data);
+    }
 
-	public function checkLogin(){
+    public function loginPage()
+    {
+        Output::add_js("jquery.min");
+        Output::load("account/loginView");
+    }
 
-		$data = array();
-		$email_post = $_POST['email'];
-		$pass_post = $_POST['pass'];
-		
-		require(MODEL.'customer/customerModel.php');
-		$customer_model = new customerModel();
-		$customer = $customer_model->checkLogin($email_post, $pass_post, "customer");
+    public function checkLogin()
+    {
 
-		if($customer){
+        $data = array();
+        $email_post = $_POST['email'];
+        $pass_post = $_POST['pass'];
 
-			session_regenerate_id(true); //If upgrade the privileges, I should create a new session_id to make even harder get the session_id
-			Session::set("logged", true);
-			Session::set("customer_id", 1);
-			$data["success"] = true;
-			
-		}else{
-			$data["error"] = "Incorrect login info";
-		}
+        require MODEL . 'customer/customerModel.php';
+        $customer_model = new customerModel();
+        $customer = $customer_model->checkLogin($email_post, $pass_post, "customer");
 
-		header('Content-Type: application/json');
-		echo json_encode($data);
-	}
+        if ($customer) {
+            session_regenerate_id(true); //If upgrade the privileges, I should create a new session_id to make even harder get the session_id
+            Session::set("logged", true);
+            Session::set("customer_id", 1);
+            $data["success"] = true;
 
-	public function logout(){
+        } else {
+            $data["error"] = "Incorrect login info";
+        }
 
-		Session::set("logged", false);
-		Session::set("customer_id", "");
+        header('Content-Type: application/json');
+        echo json_encode($data);
+    }
 
-		Session::forget();
-		
-		header("location: index.php?index/index");
-	}
+    public function logout()
+    {
 
+        Session::set("logged", false);
+        Session::set("customer_id", "");
+
+        Session::forget();
+
+        header("location: index.php?index/index");
+    }
 }

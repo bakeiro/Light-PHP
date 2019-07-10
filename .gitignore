@@ -5,6 +5,7 @@
 
 # Frontend
 /site/view/www/.cache/*
+/site/view/www/dist/*
 /site/view/www/node_modules/*
 /site/view/www/package-lock.json
 /site/view/www/package.json

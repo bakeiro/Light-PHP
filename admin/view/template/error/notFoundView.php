@@ -7,10 +7,7 @@
 	</nav>
 </div>
 
-
 <!-- Main content -->
 <div class="container">
-
 	<p>The page <?=Config::get("url_controller");?> wasn't found</p>
-
 </div>

@@ -1,19 +1,17 @@
 <?php
-class restController extends SecController{
 
-	public function index(){
+class restController extends SecController
+{
+    public function index()
+    {
+        Config::set("url_controller", Config::get("url_restController"));
 
-		$data = array();
+        $rest_controller = new Controller();
+        $output = $rest_controller->execRest();
 
-		Config::set("url_controller", Config::get("url_restController"));
-
-		$rest_controller = new Controller();
-		$output = $rest_controller->execRest();
-
-		if($rest_controller->class !== "errorController"){
-			header('Content-Type: application/json');
-			echo json_encode($output);
-		}
-	}
-
+        if ($rest_controller->class !== "errorController") {
+            header('Content-Type: application/json');
+            echo json_encode($output);
+        }
+    }
 }
