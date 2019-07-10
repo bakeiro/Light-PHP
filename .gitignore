@@ -6,6 +6,7 @@
 # Frontend
 /site/view/www/.cache/*
 /site/view/www/dist/*
+/site/view/www/build/*
 /site/view/www/node_modules/*
 
 # Config

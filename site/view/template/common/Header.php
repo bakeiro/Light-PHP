@@ -12,12 +12,12 @@
 	<?php $host = Config::get("url_host"); ?>
 
 	<!-- my resources -->
-	<link href="<?=$host?>/site/view/www/build/site/site.css?v=<?=$cache?>" rel="stylesheet">
-	
+	<link href="<?=$host?>/site/view/www/dist/site.css?v=<?=$cache?>" rel="stylesheet">
+
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-	
+
 </head>
 <body>
 
@@ -37,10 +37,10 @@
 		<a href="#" data-target="slide-out" class="sidenav-trigger">
 			<i class="material-icons">menu</i>
 		</a>
-		
+
 		<a href="/welcome" class="brand-logo">Your site</a>
 		<ul id="nav-mobile" class="right hide-on-med-and-down">
-			<li><a href="index.php?route=index/index/products">Ajax</a></li>			
+			<li><a href="index.php?route=index/index/products">Ajax</a></li>
 			<?php if(Session::get("logged") && Session::get("customer_id")){ ?>
 				<li><a href="index.php?route=account/customer/info">Account</a></li>
 			<?php }else{ ?>
@@ -61,7 +61,7 @@
 	<?php }else{ ?>
 		<li><a href="index.php?route=account/customer/loginPage">Login</a></li>
 	<?php } ?>
-	
+
 </ul>
 
 <div class="container">

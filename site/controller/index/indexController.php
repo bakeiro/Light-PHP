@@ -28,9 +28,9 @@ class indexController extends SecController
 
     public function products()
     {
-        Output::add_js("jquery.min");
-        Output::add_js("products/product");
-        Output::add_js("products/events");
+        Output::addJs("jquery.min");
+        Output::addJs("products/product");
+        Output::addJs("products/events");
 
         Output::load("info/productsView", array());
     }
