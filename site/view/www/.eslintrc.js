@@ -20,21 +20,9 @@ module.exports = {
         "sourceType": "module"
     },
     "rules": {
-        "indent": [
-            "error",
-            "tab"
-        ],
-        "linebreak-style": [
-            "error",
-            "windows"
-        ],
-        "quotes": [
-            "error",
-            "double"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ]
+        "linebreak-style": ["error","unix" ],
+        "quotes": ["error","double" ],
+        "no-alert": "off", // disabled
+        "class-methods-use-this": "off" // disable
     }
 };

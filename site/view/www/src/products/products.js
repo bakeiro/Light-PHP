@@ -1,148 +1,129 @@
-var products = (function(){
+class products {
+  constructor() {
+    this.actualPage = 0;
+    this.actualPage = 0;
+  }
 
-	var actualPage = 0;
+  getNextPage() {
+    this.getPage(this.actualPage + 1);
+  }
 
-	function getNextPage(){
-		this.getPage(actualPage + 1);
-	}
+  getPrevPage() {
+    this.getPage(this.actualPage - 1);
+  }
 
-	function getPrevPage(){
-		this.getPage(actualPage - 1);
-	}
+  getPage(page) {
+    const startLoadingFun = this.startLoading;
+    const stopLoadingFun = this.stopLoading;
+    const getProdFun = this.getProdHtml;
 
-	function getPage(page){
+    if (page >= 0 && page < 3) {
+      this.actualPage = page;
+      $.ajax({
+        url: `index.php?rest=product/product/getProdPage&page=${page}`,
+        dataType: "json",
+        beforeSend: () => {
+          startLoadingFun();
+        },
+        success: (prods) => {
+          $("div#prods_container").promise().done(() => {
+            let prodsHtml = "";
+            let i = 0;
 
-		if(page >= 0 && page < 3){
+            while (prods[i]) {
+              prodsHtml += getProdFun(prods[i]);
+              i += 1;
+            }
 
-			actualPage = page;
-			$.ajax({
-				url: "index.php?rest=api/product/getProdPage&page=" + page,
-				dataType: "json",
-				beforeSend: function(){
-					products.startLoading();
-				},
-				success: function(prods){
-					
-					$("div#prods_container").promise().done(function(){
-						var prods_html = "";
-		
-						var i = 0;
-						while(prods[i]){
-							prods_html = prods_html + products.getProdHtml(prods[i]);
-							i++;
-						}
-		
-						$("div#prods_container").prop("innerHTML",prods_html);
-					});
-				},
-				complete: function(){
-					products.stopLoading();
-				},
-				error: function(){
-					alert("something happend!");
-				}
-			});
-		}
-	}
+            $("div#prods_container").prop("innerHTML", prodsHtml);
+          });
+        },
+        complete: () => {
+          stopLoadingFun();
+        },
+        error: (xhr, ajaxOptions, thrownError) => {
+          alert(`${thrownError}\r\n${xhr.statusText}\r\n${xhr.responseText}`);
+        },
+      });
+    }
+  }
 
-	function getProdHtml(prod){
-		
-		var prod_html = `
-		<div class='col s6' >	
-			<div id="${prod.product_id}" class='card small'>
-				<div class="card-image">
-					<img src='site/view/www/images/data/${prod.image}' />
-					<span class="card-title black-text">${prod.title}</span>
-				</div>
-				<div class="card-content">
-					<p>${prod.short_description}</p>
-				</div>
-				<div class="card-action">
-					<a name="prod_info" class="waves-effect waves-green btn-flat">More</a>
-				</div>
-			</div>
-		</div>`;
+  getProdHtml(prod) {
+    const prodHtml = `
+    <div class='col s6' >
+      <div id="${prod.product_id}" class='card small'>
+        <div class="card-image">
+          <img src='site/view/www/${prod.image}' />
+          <span class="card-title black-text">${prod.title}</span>
+        </div>
+        <div class="card-content">
+          <p>${prod.short_description}</p>
+        </div>
+        <div class="card-action">
+          <a name="prod_info" class="waves-effect waves-green btn-flat">More</a>
+        </div>
+      </div>
+    </div>`;
 
-		return prod_html;
-	}
+    return prodHtml;
+  }
 
-	function showProdInfo(prod_id){
-		
-		//Loading
-		var modal_content = $("div#prod_modal div.modal-content");
-		var html_spinner = `
-		<div class="preloader-wrapper active">
-			<div class="spinner-layer spinner-red-only">
-				<div class="circle-clipper left">
-					<div class="circle"></div>
-				</div>
-				<div class="gap-patch">
-					<div class="circle"></div>
-					</div><div class="circle-clipper right">
-					<div class="circle"></div>
-				</div>
-			</div>
-		</div>`;
-		modal_content.html(html_spinner);
+  showProdInfo(prodId) {
+    // Loading
+    const modalContent = $("div#prod_modal div.modal-content");
+    const htmlSpinner = `
+    <div class="preloader-wrapper active">
+      <div class="spinner-layer spinner-red-only">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div>
+        <div class="gap-patch">
+          <div class="circle"></div>
+          </div><div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>`;
+    modalContent.html(htmlSpinner);
 
-		//Open
-		$("div#prod_modal").modal("open");
+    // Open
+    prod_modal.open();
 
-		//Prod info
-		$.ajax({
-			url: "index.php?rest=api/product/getProdInfo&prod_id=" + prod_id,
-			dataType: "json",
-			success: function(prod_data){
+    // Prod info
+    $.ajax({
+      url: `index.php?rest=product/product/getProdInfo&prod_id=${prodId}`,
+      dataType: "json",
+      success: (prodData) => {
+        const prodImg = `
+        <div class="row">
+          <div class="col s6">
+            <img class="responsive-img"  src="site/view/www/${prodData.image}" >
+          </div>
+        </div>`;
 
-				var prod_img = `<img src="site/view/www/images/data/${prod_data.image}" >`;
-				var prod_description = `<div class="prod_description">${prod_data.description}</div>`;
+        const prodDescription = `
+        <div class="row">
+          <div class="col s6">
+            <div class="prod_description">${prodData.description}</div>
+            </div>
+        </div>`;
 
-				var prod_html = `<div class="prod_info">${prod_img} <br> ${prod_description}`;
+        const prodHtml = `${prodImg} <br> ${prodDescription}`;
+        modal_content.html(prodHtml);
+      },
+      error: () => {
+        alert("something happend!");
+      },
+    });
+  }
 
-				modal_content.html(prod_html);
-			},
-			error: function(){
-				alert("something happend!");
-			}
-		});
+  startLoading() {
+    $("div#prods_container").children().fadeOut();
+  }
 
-	}
+  stopLoading() {
+    $("div#prods_container").children().fadeIn();
+  }
+}
 
-	function startLoading(){
-		$("div#prods_container").children().fadeOut();
-	}
-
-	function stopLoading(){
-		$("div#prods_container").children().fadeIn();
-	}
-
-	return {
-		getNextPage,
-		getPrevPage,
-		getPage,
-		startLoading,
-		stopLoading,
-		getProdHtml,
-		showProdInfo
-	};
-
-})();
-
-products.getPage(0);
-
-$("body").on("click", "div#nextPage i", function(){
-	products.getNextPage();
-});
-
-$("body").on("click", "div#prevPage i", function(){
-	products.getPrevPage();
-});
-
-$("body").on("click", "a[name='prod_info']", function(){
-	var prod_id = $(this).parent().parent().prop("id");
-	products.showProdInfo(prod_id);
-});
-
-$(document).ready(function(){
-	$("div#prod_modal").modal(); //Init modal
-});
+export default { products };

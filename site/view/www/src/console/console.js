@@ -1,99 +1,117 @@
-var error_console = (function(){
+const error_console = (() => {
+  const errors = false;
+  const eventTrack = false;
+  const dragged = null;
 
-	var errors = false;
-	var event_track = false;
-	var dragged;
+  function activateError() {
+    $("button#error-console-button").css("background-color", "#F44336");
+    $("div#error-console-top").css("background-color", "#9E9E9E");
+  }
 
-	function activateError(){
-		$("button#error-console-button").css("background-color", "#F44336");
-		$("div#error-console-top").css("background-color", "#9E9E9E");
-	}
+  function open(height = "200px") {
+    $("div#error-console").css("height", height);
+    $("div#error-console-body").css("height", height);
+    $("button#error-console-button").text("Close");
 
-	function open(){
-		$("div#error-console").css("height", "200px");
-		$("div#error-console-body").css("height", "200px");
-		$("button#error-console-button").text("Close");
-	}
+    sessionStorage.setItem("console_position", height);
+  }
 
-	function close(){
-		$("div#error-console").css("height", "30px");
-		$("div#error-console-body").css("height", "30px");
-		$("button#error-console-button").text("Open");
-	}
+  function close() {
+    $("div#error-console").css("height", "30px");
+    $("div#error-console-body").css("height", "30px");
+    $("button#error-console-button").text("Open");
 
-	function updateHeight(){
-		if(this.event_track){
-			this.event_track = false;
-			$("div#error-console-top").css("background-color", "lightgrey");
-			$("div#error-console").css("height", this.dragged);
-			$("div#error-console-body").css("height", this.dragged);
-		}
-	}
+    sessionStorage.setItem("console_position", "closed");
+  }
 
-	function trackMouse(){
-		if(this.event_track){
-			var posY = event.clientY;
-			var px_height = (620 - posY) + "px";
-			this.dragged = px_height;
-		}
-	}
+  function updateHeight() {
+    if (this.eventTrack) {
+      this.eventTrack = false;
+      $("div#error-console-top").css("background-color", "lightgrey");
+      $("div#error-console").css("height", this.dragged);
+      $("div#error-console-body").css("height", this.dragged);
+      sessionStorage.setItem("console_position", this.dragged);
+    }
+  }
 
-	function checkErrors(){
-		var childs = $("div#error-console-body").children();
+  function trackMouse() {
+    if (this.eventTrack) {
+      const posY = event.clientY;
+      const px_height = (620 - posY) + "px";
+      this.dragged = px_height;
+    }
+  }
 
-		if(childs.length > 0){
-			$("button#error-console-button").css("background-color", "#F44336");
-		}
-	}
+  function checkErrors() {
+    const childs = $("div#error-console-body").children();
+    let errorsFound = false;
 
-	return{
-		errors,
-		event_track,
-		dragged,
-		activateError,
-		open,
-		close,
-		trackMouse,
-		updateHeight,
-		checkErrors
-	};
+    let i = 0;
+    while (childs[i]) {
+      if (childs[i].className === "warning" || childs[i].className === "error") {
+        errorsFound = true;
+        break;
+      }
+      i += 1;
+    }
+
+    if (errorsFound) {
+      $("button#error-console-button").css("background-color", "#F44336");
+    }
+  }
+
+  return {
+    errors,
+    eventTrack,
+    dragged,
+    activateError,
+    open,
+    close,
+    trackMouse,
+    updateHeight,
+    checkErrors,
+  };
 
 })();
 
 
-//Button
-$("body").on("click", "button#error-console-button", function(e){
+// Button
+$("body").on("click", "button#error-console-button", (e) => {
+  const text = $("button#error-console-button").text();
 
-	var text = $("button#error-console-button").text();
-
-	if(text === "Open"){
-		error_console.open();
-	}
-	if(text === "Close"){
-		error_console.close();
-	}
+  if (text.search("Open") !== -1) {
+    error_console.open();
+  }
+  if (text.search("Close") !== -1) {
+    error_console.close();
+  }
 });
 
-//Move
-$("body").on("click", "div#error-console-top", function(e){
+// Move
+$("body").on("click", "div#error-console-top", (e) => {
+  const text = $("button#error-console-button").text();
 
-	var text = $("button#error-console-button").text();
-
-	if(text === "Close"){
-		$("div#error-console-top").css("background-color", "#ee6e73");
-		error_console.event_track = true;
-	}
+  if (text.search("Close") !== -1) {
+    $("div#error-console-top").css("background-color", "#ee6e73");
+    error_console.eventTrack = true;
+  }
 });
 
-$("body").on("mouseup", function(e){
-	error_console.updateHeight();
+$("body").on("mouseup", () => {
+  error_console.updateHeight();
 });
 
-$("body").on("mousemove", function(e){
-	error_console.trackMouse();
+$("body").on("mousemove", () => {
+  error_console.trackMouse();
 });
 
-//Check errors
-$(document).ready(function(){
-	error_console.checkErrors();
+// Check errors
+$(document).ready(() => {
+  error_console.checkErrors();
+
+  if (sessionStorage.getItem("console_position")) {
+    if (sessionStorage.getItem("console_position") !== "closed") {
+      error_console.open(sessionStorage.getItem("console_position"));
+    }
+  }
 });
