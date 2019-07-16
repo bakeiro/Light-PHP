@@ -15,10 +15,10 @@
  */
 
 //Database
-Config::set("CONN_HOST", "localhost");
-Config::set("CONN_USER", "root");
-Config::set("CONN_PASS", "");
-Config::set("CONN_DDBB", "framework");
+Config::set("CONN_HOST", "%host%");
+Config::set("CONN_USER", "%user%");
+Config::set("CONN_PASS", "%pass%");
+Config::set("CONN_DDBB", "%database%");
 
 //Session
 Config::set("session_name", "MY_SESSION");
@@ -27,12 +27,12 @@ Config::set("session_iv", "ThisIsMySecretIv"); //Replace here by a 16 char strin
 Config::set("session_key", "ThisIsMySecretPass"); //Replace by a random string here (for encrypt and decrypt session data. ex: openssl_random_pseudo_bytes(32);
 
 //Email
-Config::set("email_host", "***");
-Config::set("email_username", "***");
-Config::set("email_pass", "***");
-Config::set("email_port", "***");
-Config::set("email_from", "***");
-Config::set("email_from_name", "***");
+Config::set("email_host", "%email_host%");
+Config::set("email_username", "%email_username%");
+Config::set("email_pass", "%email_pass%");
+Config::set("email_port", "%email_port%");
+Config::set("email_from", "%email_from%");
+Config::set("email_from_name", "%email_from_name%");
 
 //Timezone
 Config::set("default_time_zone", "Europe/Madrid");

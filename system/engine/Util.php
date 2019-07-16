@@ -119,9 +119,9 @@ class Util
             $value = Util::escape($value); //SQL injections
         }
 
-        array_walk_recursive($_GET, 'array_clean');
-        array_walk_recursive($_POST, 'array_clean');
-        //array_walk_recursive($_COOKIE, 'array_clean');
+        array_walk_recursive($_GET, 'arrayClean');
+        array_walk_recursive($_POST, 'arrayClean');
+        //array_walk_recursive($_COOKIE, 'arrayClean');
     }
 
     public static function sanitizeText($text)
