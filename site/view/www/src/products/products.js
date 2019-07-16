@@ -1,4 +1,4 @@
-class products {
+class product {
   constructor() {
     this.actualPage = 0;
     this.actualPage = 0;
@@ -53,7 +53,7 @@ class products {
     <div class='col s6' >
       <div id="${prod.product_id}" class='card small'>
         <div class="card-image">
-          <img src='site/view/www/${prod.image}' />
+          <img src='site/view/www/src/images/${prod.image}' />
           <span class="card-title black-text">${prod.title}</span>
         </div>
         <div class="card-content">
@@ -87,7 +87,7 @@ class products {
     modalContent.html(htmlSpinner);
 
     // Open
-    prod_modal.open();
+    window.prod_modal.open();
 
     // Prod info
     $.ajax({
@@ -97,7 +97,7 @@ class products {
         const prodImg = `
         <div class="row">
           <div class="col s6">
-            <img class="responsive-img"  src="site/view/www/${prodData.image}" >
+            <img class="responsive-img"  src="site/view/www/src/images/${prodData.image}" >
           </div>
         </div>`;
 
@@ -109,7 +109,7 @@ class products {
         </div>`;
 
         const prodHtml = `${prodImg} <br> ${prodDescription}`;
-        modal_content.html(prodHtml);
+        modalContent.html(prodHtml);
       },
       error: () => {
         alert("something happend!");
@@ -125,5 +125,3 @@ class products {
     $("div#prods_container").children().fadeIn();
   }
 }
-
-export default { products };
