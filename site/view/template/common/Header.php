@@ -9,10 +9,11 @@
 
 	<!-- Variables -->
 	<?php $cache = Config::Get("cache_version"); ?>
-	<?php $host = Config::get("url_host"); ?>
+	<?php $host = Config::Get("url_host"); ?>
 
 	<!-- my resources -->
-	<link href="<?=$host?>/site/view/www/dist/site.css?v=<?=$cache?>" rel="stylesheet">
+    <link href="<?=$host?>/site/view/www/dist/site.css?v=<?=$cache?>" rel="stylesheet">
+    <script src="site/view/www/dist/jquery.min.js"></script>
 
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">

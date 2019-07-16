@@ -18,7 +18,6 @@ class customerController extends SecController
 
     public function loginPage()
     {
-        Output::addJs("jquery.min");
         Output::load("account/loginView");
     }
 
