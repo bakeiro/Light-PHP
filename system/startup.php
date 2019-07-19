@@ -74,3 +74,6 @@ Config::set("console_execution_trace", array());
 
 //Engine finished
 Config::set("loaded", true);
+
+//Track execution time
+Config::set("controller_execution_time", microtime(true));

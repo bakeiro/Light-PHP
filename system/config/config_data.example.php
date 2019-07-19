@@ -41,7 +41,7 @@ Config::set("default_time_zone", "Europe/Madrid");
 Config::set("debug_console", true);
 Config::set("send_email_errors", false); //enable this for sending one email every time an exception happens
 Config::set("whoops", false);
-Config::set("start_time", microtime(true));
+Config::set("execution_time", microtime(true));
 
 //Cache (change this number every time you update any css/js/image/font resource)
 Config::set("cache_version", "0001");
