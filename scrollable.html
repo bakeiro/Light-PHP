@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+    <style>
+        body, html {
+            background: black;
+        }
+        .resizable {
+            background: white;
+            width: 700px;
+            height: 100px;
+            position: absolute;
+            left: 0px;
+            bottom: 0px;
+        }
+        div.resizer {
+            height: 10px;
+            width: 100%;
+            background-color: grey;
+        }
+    </style>
+</head>
+<body>
+
+    <br><br>
+    <div class='resizable'>
+        <div class='resizer top-bar'></div>
+    </div>
+
+    <script>
+        function makeResizableDiv(div) {
+
+            const element = document.querySelector(div);
+
+            let original_height = parseFloat(getComputedStyle(element, null).getPropertyValue('height').replace('px', ''));
+            let original_y = element.getBoundingClientRect().top;
+            let original_mouse_y;
+            const resizer = document.querySelector('div.resizer.top-bar');
+            
+            const currentResizer = resizer;
+            currentResizer.addEventListener('mousedown', function(e) {
+                original_mouse_y = e.pageY;
+                e.preventDefault();
+                window.addEventListener('mousemove', resize);
+                window.addEventListener('mouseup', stopResize);
+            })
+            
+            function resize(e) {
+                if (currentResizer.classList.contains('top-bar')) {
+                    
+                    const height = original_height - (e.pageY - original_mouse_y)
+                    if (height > 50) {
+                        element.style.height = height + 'px'
+                    }
+                }
+            }
+            
+            function stopResize() {
+                window.removeEventListener('mousemove', resize);
+            }
+        }
+
+        makeResizableDiv('.resizable');
+    </script>
+</body>
+</html>
