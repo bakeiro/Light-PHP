@@ -28,43 +28,41 @@
 <body>
 
     <br><br>
-    <div class='resizable'>
+    <div id="console-body" class='resizable'>
         <div class='resizer top-bar'></div>
     </div>
 
     <script>
         function makeResizableDiv(div) {
 
-            let updated_height;
-            let original_mouse_y;
+            let original_mouse_y = 0;
             let element = document.querySelector(div);
             let resizer = document.querySelector('div.resizer.top-bar');
             let original_height = parseFloat(getComputedStyle(element, null).getPropertyValue('height').replace('px', ''));
             
-            let currentResizer = resizer;
-            currentResizer.addEventListener('mousedown', function(e) {
+            resizer.addEventListener('mousedown', function(e) {
+                original_height = document.querySelector(div).clientHeight;
                 original_mouse_y = e.pageY;
                 e.preventDefault();
                 window.addEventListener('mousemove', resize);
                 window.addEventListener('mouseup', stopResize);
-            })
+            });
             
             function resize(e) {
-                if (currentResizer.classList.contains('top-bar')) {
-                    updated_height = original_height - (e.pageY - original_mouse_y)
-                    if (updated_height > 50 && updated_height < 800) {
-                        element.style.height = updated_height + 'px'
+                if (resizer.classList.contains('top-bar')) {
+                    let updated_height = original_height - (e.pageY - original_mouse_y);
+                    if (updated_height > 50 && updated_height < 600) {
+                        element.style.height = updated_height + 'px';
                     }
                 }
             }
             
             function stopResize() {
-                original_height = updated_height;
                 window.removeEventListener('mousemove', resize);
             }
         }
 
-        makeResizableDiv('.resizable');
+        makeResizableDiv('div#console-body');
     </script>
 </body>
 </html>
