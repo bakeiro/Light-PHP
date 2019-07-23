@@ -19,7 +19,7 @@
             bottom: 0px;
         }
         div.resizer {
-            height: 10px;
+            height: 30px;
             width: 100%;
             background-color: grey;
         }
@@ -35,14 +35,13 @@
     <script>
         function makeResizableDiv(div) {
 
-            const element = document.querySelector(div);
-
-            let original_height = parseFloat(getComputedStyle(element, null).getPropertyValue('height').replace('px', ''));
-            let original_y = element.getBoundingClientRect().top;
+            let updated_height;
             let original_mouse_y;
-            const resizer = document.querySelector('div.resizer.top-bar');
+            let element = document.querySelector(div);
+            let resizer = document.querySelector('div.resizer.top-bar');
+            let original_height = parseFloat(getComputedStyle(element, null).getPropertyValue('height').replace('px', ''));
             
-            const currentResizer = resizer;
+            let currentResizer = resizer;
             currentResizer.addEventListener('mousedown', function(e) {
                 original_mouse_y = e.pageY;
                 e.preventDefault();
@@ -52,15 +51,15 @@
             
             function resize(e) {
                 if (currentResizer.classList.contains('top-bar')) {
-                    
-                    const height = original_height - (e.pageY - original_mouse_y)
-                    if (height > 50) {
-                        element.style.height = height + 'px'
+                    updated_height = original_height - (e.pageY - original_mouse_y)
+                    if (updated_height > 50 && updated_height < 800) {
+                        element.style.height = updated_height + 'px'
                     }
                 }
             }
             
             function stopResize() {
+                original_height = updated_height;
                 window.removeEventListener('mousemove', resize);
             }
         }
