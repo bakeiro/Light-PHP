@@ -29,7 +29,7 @@ button#error-console-button{
     color: white;
 }
 button#error-console-button:hover{
-	background-color: #757575; /*#F44336*/
+	background-color: #757575;
 }
 
 div.right-console-info{

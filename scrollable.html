@@ -18,10 +18,13 @@
             left: 0px;
             bottom: 0px;
         }
-        div.resizer {
+        div#error-console-top{
             height: 30px;
             width: 100%;
             background-color: grey;
+        }
+        div#error-console-top:hover{
+            cursor: n-resize;
         }
     </style>
 </head>
@@ -29,19 +32,19 @@
 
     <br><br>
     <div id="console-body" class='resizable'>
-        <div class='resizer top-bar'></div>
+        <div id='error-console-top'></div>
     </div>
 
     <script>
-        function makeResizableDiv(div) {
+        function makeResizableDiv(div_selector, top_div_selector) {
 
             let original_mouse_y = 0;
-            let element = document.querySelector(div);
-            let resizer = document.querySelector('div.resizer.top-bar');
+            let element = document.querySelector(div_selector);
+            let resizer = document.querySelector(top_div_selector);
             let original_height = parseFloat(getComputedStyle(element, null).getPropertyValue('height').replace('px', ''));
             
             resizer.addEventListener('mousedown', function(e) {
-                original_height = document.querySelector(div).clientHeight;
+                original_height = document.querySelector(div_selector).clientHeight;
                 original_mouse_y = e.pageY;
                 e.preventDefault();
                 window.addEventListener('mousemove', resize);
@@ -49,7 +52,7 @@
             });
             
             function resize(e) {
-                if (resizer.classList.contains('top-bar')) {
+                if (resizer.id === 'error-console-top') {
                     let updated_height = original_height - (e.pageY - original_mouse_y);
                     if (updated_height > 50 && updated_height < 600) {
                         element.style.height = updated_height + 'px';
@@ -62,7 +65,7 @@
             }
         }
 
-        makeResizableDiv('div#console-body');
+        makeResizableDiv('div#console-body', 'div#error-console-top');
     </script>
 </body>
 </html>
