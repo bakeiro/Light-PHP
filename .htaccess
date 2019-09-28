@@ -1,12 +1,12 @@
 Options +FollowSymlinks
 
-#Block all files
+# Block all files
 <Files *.*>
     Order Deny,Allow
     Deny from all
 </Files>
 
-#Allow files only from index.php
+# Allow files only from index.php
 <Files index.php>
     Order Allow,Deny
     Allow from all
@@ -48,7 +48,7 @@ RewriteRule ^([^?]*) index.php?_route_=$1 [L,QSA]
   AddOutputFilterByType DEFLATE text/xml
 </IfModule>
 
-#Cache
+# Cache
 <filesMatch ".(css|jpg|jpeg|png|gif|js|ico)$">
   Header set Cache-Control "max-age=2628000, public"
 </filesMatch>
