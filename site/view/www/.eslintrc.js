@@ -23,6 +23,8 @@ module.exports = {
         "linebreak-style": ["error","unix" ],
         "quotes": ["error","double" ],
         "no-alert": "off", // disabled
-        "class-methods-use-this": "off" // disable
+        "class-methods-use-this": "off", // disable
+        //"camelcase": ["error", {properties: "never"}]
+        "camelcase": "off"
     }
 };

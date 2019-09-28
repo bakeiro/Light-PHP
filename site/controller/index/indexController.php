@@ -28,9 +28,8 @@ class indexController extends SecController
 
     public function products()
     {
-        Output::addJs("products/product");
-        Output::addJs("products/events");
-
+        Output::addJs("products");
+        Output::addJs("events");
         Output::load("info/productsView", array());
     }
 }

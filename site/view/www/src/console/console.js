@@ -7,7 +7,6 @@ class ErrorConsole {
     this.error_console_top = window.document.querySelector("div#error-console-top");
     this.error_console_buttons = window.document.querySelectorAll("button#error-console-button");
     this.error_console_body = window.document.querySelector("div#error-console-body-debug");
-    //this.error_console_body_2 = window.document.querySelector("div#error-console-body");
   }
 
   activateError() {
