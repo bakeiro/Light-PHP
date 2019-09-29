@@ -45,4 +45,4 @@ You can use this project to build your APIS or your web apps.
 ### License
 
 Light-PHP is licensed under the Open Source MIT license, feel free to use it, modify it or contribute it!</p>
-Built by [David Baqueiro](https://bakeiro.github.io/materialize-portfolio/)
+Built by [David Baqueiro](https://davidbaqueiro.com)
