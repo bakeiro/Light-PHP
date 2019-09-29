@@ -39,7 +39,7 @@ You can use this project to build your APIS or your web apps.
 ### Minimum requirements
 - PHP OpenSSL extension (if wants session encryption, something recommended)
 - Web Server (Apache suggested)
-- PHP (at least 5.4)
+- PHP (at least 7.X)
 - Database (MySQL suggested)
 
 ### License
