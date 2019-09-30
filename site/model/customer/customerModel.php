@@ -4,13 +4,13 @@ class customerModel extends SecModel
 
     public function getCustomer($email)
     {
-        $customer = Database::query("SELECT * FROM user WHERE `email` = '" . $email . "'");
+        $customer = Database::query("SELECT * FROM user WHERE `email` = :email", array(":email" => $email));
         return $customer;
     }
 
     public function getCustomerById($id)
     {
-        $customer = Database::query("SELECT * FROM user WHERE `id` = '" . $id . "'");
+        $customer = Database::query("SELECT * FROM user WHERE `id` = :id", array(":id" => $id));
         return $customer;
     }
 
