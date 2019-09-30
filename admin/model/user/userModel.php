@@ -2,13 +2,19 @@
 
 class userModel
 {
-    public function checkLogin($email, $pass, $role)
+
+    public function checkLogin($user_email, $input_pass)
     {
-        $user_email = strtolower($email);
+        //Already escaped! see Util::cleanInput();
+        $user_email = strtolower($user_email);
 
-        $params = array(":email" => $user_email, ":pass" => $pass, ":user_role" => $role);
-        $customer_query = Database::query("SELECT * FROM `user` WHERE LOWER(`email`) = :email AND `password` = SHA1(CONCAT(salt, SHA1(CONCAT(salt, SHA1(:pass))))) AND `role` = :user_role", $params);
+        $params = array(":email" => $user_email);
+        $customer_query = Database::query("SELECT * FROM `user` WHERE LOWER(`email`) = :email", $params);
 
-        return $customer_query;
+        if(password_verify($input_pass, $customer_query["password"])) {
+            return $customer_query;
+        } else {
+            return NULL;
+        }
     }
 }

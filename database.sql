@@ -51,14 +51,13 @@ CREATE TABLE `user` (
   `last_name` varchar(200) COLLATE utf8_bin NOT NULL,
   `email` varchar(200) COLLATE utf8_bin NOT NULL,
   `password` varchar(200) COLLATE utf8_bin NOT NULL,
-  `salt` varchar(45) COLLATE utf8_bin NOT NULL,
   `role` varchar(45) COLLATE utf8_bin NOT NULL DEFAULT 'customer',
   `address` varchar(45) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
-INSERT INTO `user` (`id`, `first_name`, `last_name`, `email`, `password`, `salt`, `role`, `address`) VALUES
-(1, 'Jonh', 'Doe', 'admin@email.com', 'd6674395604f7ae0a3750cf4a7280d623daf67d6', 'ySUrWaBHx', 'admin_master', ''),
-(2, 'David', 'Bak', 'customer@email.com', 'bdfe37077d9d67d6bec1d2dd8892c286fae37387', 'm7dcl8Acy', 'customer', '');
+INSERT INTO `user` (`id`, `first_name`, `last_name`, `email`, `password`, `role`, `address`) VALUES
+(1, 'Jonh', 'Doe', 'admin@email.com', '$2y$10$92/CblxMcJPwCHpAcY0.ne6XfYzLQN9ssseW5BtG9IikzdThq0wbS', 'admin_master', ''),
+(2, 'David', 'Bak', 'customer@email.com', '$2y$10$ih5AOHQZwBZX7RcLvzlyqefxk3QF3Yo.tgJe6zcm99sBLT8ic2Gy.', 'customer', '');
 
 ALTER TABLE `product`
   ADD PRIMARY KEY (`id`),

@@ -16,20 +16,22 @@ class customerModel extends SecModel
 
     public function encryptPass($entry_pass)
     {
-        $salt = Util::generateSimpleToken(9);
-        $output_pass = sha1($salt . sha1($salt . sha1($entry_pass)));
-
-        return array("db_pass" => $output_pass, "salt" => $salt);
+        $encrypted_pass = password_hash($entry_pass, PASSWORD_BCRYPT);
+        return $encrypted_pass;
     }
 
-    public function checkLogin($user_email, $pass, $role)
+    public function checkLogin($user_email, $input_pass)
     {
         //Already escaped! see Util::cleanInput();
         $user_email = strtolower($user_email);
 
-        $params = array(":email" => $user_email, ":pass" => $pass, ":user_role" => $role);
-        $customer_query = Database::query("SELECT * FROM `user` WHERE LOWER(`email`) = :email AND `password` = SHA1(CONCAT(salt, SHA1(CONCAT(salt, SHA1(:pass))))) AND `role` = :user_role", $params);
+        $params = array(":email" => $user_email);
+        $customer_query = Database::query("SELECT * FROM `user` WHERE LOWER(`email`) = :email", $params);
 
-        return $customer_query;
+        if(password_verify($input_pass, $customer_query["password"])) {
+            return $customer_query;
+        } else {
+            return NULL;
+        }
     }
 }
