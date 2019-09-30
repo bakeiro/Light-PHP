@@ -1,11 +1,11 @@
 <?php
 
 //Routes
-define("DIR_ROOT", "C:/laragon/www/framework_php/");
-define("SYSTEM", DIR_ROOT . "system/");
-define("MODEL", DIR_ROOT . "admin/model/");
-define("CONTROLLER", DIR_ROOT . "admin/controller/");
-define("VIEW", DIR_ROOT . "admin/view/");
+define("DIR_ROOT", dirname(__DIR__));
+define("SYSTEM", DIR_ROOT . "/system/");
+define("MODEL", DIR_ROOT . "/admin/model/");
+define("CONTROLLER", DIR_ROOT . "/admin/controller/");
+define("VIEW", DIR_ROOT . "/admin/view/");
 
 //Config
 require SYSTEM . "engine/Config.php";
