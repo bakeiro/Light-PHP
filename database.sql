@@ -3,9 +3,6 @@ SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-CREATE DATABASE IF NOT EXISTS `framework` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
-USE `framework`;
-
 CREATE TABLE `product` (
   `id` int(11) NOT NULL,
   `quantity` int(4) NOT NULL DEFAULT '0',
