@@ -1,5 +1,3 @@
-0. Edit index.php and admin/index.php to write the correct path
-
 1. Import the database
 
 2. Rename system/config/
