@@ -17,18 +17,18 @@ class Database
         Console::addQuery($sql_query);
 
         //Exec
-        $smtp = Database::$CONN->prepare($sql_query);
-        $smtp->setFetchMode(PDO::FETCH_ASSOC);
-        $query = $smtp->execute($params);
+        $db = Database::$CONN->prepare($sql_query);
+        $db->setFetchMode(PDO::FETCH_ASSOC);
+        $query = $db->execute($params);
 
         $data = array();
 
         //Select
         if ($query) {
-            while ($row = $smtp->fetch()) {
+            while ($row = $db->fetch()) {
                 $data[] = $row;
             }
-            $smtp = null;
+            $db = null;
 
             if (count($data) === 1) {
                 $data = $data[0];
