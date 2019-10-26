@@ -10,5 +10,8 @@
 # config.php
 # php.ini
 
+# Libraries
+system/Libraries/composer/vendor/*
+
 # Dinamic folder
 /system/writable/*
