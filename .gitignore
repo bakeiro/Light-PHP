@@ -1,7 +1,3 @@
-
-#.gitignore
-.gitignore
-
 # Editors
 /.idea/*
 /.vscode/*
@@ -9,12 +5,11 @@
 # Frontend
 /site/view/www/.cache/*
 /site/view/www/dist/*
-/site/view/www/build/*
 /site/view/www/node_modules/*
 
 # Config
-/system/config/config_data.php
-/system/config/php_settings.php
+# config.php
+# php.ini
 
 # Dinamic folder
 /system/writable/*

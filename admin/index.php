@@ -9,8 +9,7 @@ define("VIEW", DIR_ROOT . "/admin/view/");
 
 //Config
 require SYSTEM . "engine/Config.php";
-require SYSTEM . "config/config_data.php";
-require SYSTEM . "config/php_settings.php";
+require DIR_ROOT . "config.php";
 
 //Engine
 require SYSTEM . "engine/Router.php";

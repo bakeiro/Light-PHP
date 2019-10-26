@@ -49,7 +49,7 @@ class Router
 
     public static function getSeoUrlMethod($url_action)
     {
-        require SYSTEM . "config/routes.php";
+        require SYSTEM . "routes.php";
 
         $routes_name = array_keys($routes);
 

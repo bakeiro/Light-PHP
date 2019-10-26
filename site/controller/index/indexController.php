@@ -7,8 +7,6 @@ class indexController extends SecController
         //Start some dbug info
         Console::addDebugInfo("welcome page loaded ;)");
 
-        Database::query("select * from user");
-
         $cont = 5;
         $cont++;
         Console::addDebugInfo($cont);
