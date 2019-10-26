@@ -1,5 +1,7 @@
 <?php
 
+use Ospinto\dBug;
+
 // Memory
 $memory = Util::convert(memory_get_usage(true));
 
@@ -64,11 +66,10 @@ $num_messages   = count($stack_messages);
         </div>
 
         <div class="console-body-seccion" id="info-log-body">
-            <hr>
-            <hr>
-            <hr>
-            <hr>
-            <hr>
+            <?php
+            $server_info = Console::getServerInfo();
+            new dBug($server_info);
+            ?>
         </div>
 
         <!--
