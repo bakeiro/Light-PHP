@@ -11,7 +11,7 @@
 # php.ini
 
 # Libraries
-system/Libraries/composer/vendor/*
+/system/composer/vendor/*
 
 # Dinamic folder
 /system/writable/*
