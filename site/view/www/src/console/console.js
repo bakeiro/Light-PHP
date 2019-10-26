@@ -1,73 +1,62 @@
-class ErrorConsole {
-  constructor() {
-    this.errors = false;
-    this.event_track = false;
-    this.dragged = null;
-    this.div_error_console = window.document.querySelector("div#error-console");
-    this.error_console_top = window.document.querySelector("div#error-console-top");
-    this.error_console_buttons = window.document.querySelectorAll("button#error-console-button");
-    this.error_console_body = window.document.querySelector("div#error-console-body-debug");
-  }
+function makeResizableDiv(div_selector, top_div_selector) {
 
-  activateError() {
-    this.error_console_buttons.forEach((elem) => {
-      elem.style.backgroundColor = "#F44336";
-      elem.style.border = "2px solid red";
-    });
+  let original_mouse_y = 0;
+  let element = document.querySelector(div_selector);
+  let resizer = document.querySelector(top_div_selector);
+  let original_height = parseFloat(getComputedStyle(element, null).getPropertyValue("height").replace("px", "));
 
-    const div_console = this.error_console_top[0];
-    div_console.style.backgroundColor = "#9E9E9E";
-  }
+  resizer.addEventListener("mousedown", (e) => {
+    original_height = document.querySelector(div_selector).clientHeight;
+    original_mouse_y = e.pageY;
+    e.preventDefault();
+    window.addEventListener("mousemove", resize);
+    window.addEventListener("mouseup", stopResize);
+  });
 
-  open(height = "200px") {
-    this.div_error_console.style.height = height;
-    sessionStorage.setItem("console_position", height);
-  }
-
-  close() {
-    this.div_error_console.style.height = "35px";
-    sessionStorage.setItem("console_position", "closed");
-  }
-
-  checkErrors() {
-    const childs = this.error_console_body.children;
-    let errors_found = false;
-
-    let i = 0;
-    while (childs[i]) {
-      if (childs[i].className === "warning" || childs[i].className === "error") {
-        errors_found = true;
-        break;
+  function resize(e) {
+    if (resizer.id === "error-console-top") {
+      let updated_height = original_height - (e.pageY - original_mouse_y);
+      if (updated_height > 40 && updated_height < 600) {
+        element.style.height = updated_height + "px";
+        sessionStorage.setItem("console_position", updated_height + "px");
       }
-      i += 1;
     }
+  }
 
-    if (errors_found) {
-      this.error_console_buttons.forEach((elem) => {
-        elem.style.backgroundColor = "#F44336";
-      });
-    }
+  function stopResize() {
+    window.removeEventListener("mousemove", resize);
   }
 }
 
-window.debug_console = new ErrorConsole();
+makeResizableDiv("div#console-div", "div#error-console-top");
 
-$("body").on("click", "button#error-console-button", () => {
-  debugger;
-  if (sessionStorage.getItem("console_position") !== "closed") {
-    window.debug_console.close();
-  } else {
-    window.debug_console.open();
-  }
+let buttons = document.querySelectorAll("button.enable");
+buttons.forEach( (value, key) => {
+  value.addEventListener("click", (event) => {
+
+    // Remove active div
+    let console_bodies = document.querySelectorAll("div.console-body-seccion");
+    console_bodies.forEach((console_body) => {
+      console_body.classList.remove("active");
+    });
+
+    // Remove active buttons
+    let console_buttons = document.querySelectorAll("button.btn-console");
+    console_buttons.forEach((console_button) => {
+      console_button.classList.remove("active");
+    });
+
+    // Add active div
+    let id_div_to_enable = event.srcElement.className;
+    id_div_to_enable = id_div_to_enable.split(/ /)[2];
+    document.getElementById(id_div_to_enable).className += " active";
+
+    // Add active button
+    event.srcElement.className += " active";
+  });
 });
 
-// Check errors
-$(document).ready(() => {
-  window.debug_console.checkErrors();
-  // Height
-  if (sessionStorage.getItem("console_position")) {
-    if (sessionStorage.getItem("console_position") !== "closed") {
-      window.debug_console.open(sessionStorage.getItem("console_position"));
-    }
-  }
-});
+//DOM loaded
+if (sessionStorage.getItem("console_position")) {
+  document.querySelector("div#console-div").style.height = sessionStorage.getItem("console_position");
+}
