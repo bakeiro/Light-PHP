@@ -18,6 +18,8 @@ $stack_messages = Config::get("console_execution_trace");
 $num_messages   = count($stack_messages);
 ?>
 
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 <div id="console-div" class='resizable'>
 
     <div id='error-console-top'>
@@ -70,6 +72,7 @@ $num_messages   = count($stack_messages);
             $server_info = Console::getServerInfo();
             new dBug($server_info);
             ?>
+            <br><br><br>
         </div>
 
         <!--
