@@ -1,3 +1,9 @@
+/*
+    The database is needed for loading the demo site,
+    in case you don't need to load the demo site (you can do it for learn how a demo project works)
+    just skip this
+*/
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;

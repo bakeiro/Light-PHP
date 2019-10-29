@@ -13,15 +13,21 @@ error_reporting(E_ALL);
 
 //Database
 if(class_exists("Database")){
-    $temp_con = new PDO("mysql:host=" .Config::get("CONN_HOST"). ";port=3306;dbname=" . Config::get("CONN_DDBB"), Config::get("CONN_USER"), Config::get("CONN_PASS"));
-    $temp_con->setAttribute(PDO::ATTR_EMULATE_PREPARES, false); //true prepare statements
 
-    //array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET time_zone ='Europe/Madrid'") //TODO: set timezone also for the database
-    $temp_con->exec("SET NAMES 'utf8'");
-    $temp_con->exec("SET CHARACTER SET utf8");
-    $temp_con->exec("SET CHARACTER_SET_CONNECTION=utf8");
+    try {
+        $temp_con = new PDO("mysql:host=" .Config::get("CONN_HOST"). ";port=3306;dbname=" . Config::get("CONN_DDBB"), Config::get("CONN_USER"), Config::get("CONN_PASS"));
+        $temp_con->setAttribute(PDO::ATTR_EMULATE_PREPARES, false); //true prepare statements
 
-    Database::$CONN = $temp_con;
+        //array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET time_zone ='Europe/Madrid'") //TODO: set timezone also for the database
+        $temp_con->exec("SET NAMES 'utf8'");
+        $temp_con->exec("SET CHARACTER SET utf8");
+        $temp_con->exec("SET CHARACTER_SET_CONNECTION=utf8");
+
+        Database::$CONN = $temp_con;
+
+    } catch (\Throwable $th) {
+        Console::addDebugInfo("Error loading database");
+    }
 }
 
 //Urls
