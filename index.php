@@ -30,6 +30,3 @@ require SYSTEM . "startup.php";
 //Controller
 $Controller = new Controller();
 $Controller->execController();
-
-//End script
-$Controller->endExecution();
