@@ -18,7 +18,7 @@
 <p><i class="material-icons small">build</i> <span class="feature">Powerful</span> </p>
 <p><i class="material-icons small blue-text">flash_on</i> <span class="feature">Fast</span> </p>
 <p><i class="material-icons small lime-text">child_care</i> <span class="feature">Simple</span> </p>
-<p><i class="material-icons small green-text">line_style</i> <span class="feature">Shelf explained code</span> </p>
+<p><i class="material-icons small green-text">line_style</i> <span class="feature">Self-explanatory code</span> </p>
 <p><i class="material-icons small grey-text">flight_takeoff</i> <span class="feature">Ready to deploy</span> </p>
 <br>
 
