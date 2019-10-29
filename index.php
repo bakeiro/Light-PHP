@@ -18,7 +18,7 @@ require SYSTEM . "engine/Session.php";
 require SYSTEM . "engine/Console.php";
 require SYSTEM . "engine/SessionSecureHandler.php";
 require SYSTEM . "engine/Output.php";
-require SYSTEM . "engine/Database.php"; //Comment it if your project doesn't require it
+require SYSTEM . "engine/Database.php"; //Comment if database it's optional
 require SYSTEM . "engine/Util.php";
 require SYSTEM . "engine/Errors.php";
 require SYSTEM . "engine/SecModel.php";
