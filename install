@@ -1,0 +1,10 @@
+1. Rename files:
+
+php.rename.ini => php.ini
+config.rename.php => config.php
+
+2. (optional) Edit the config.php to set the database credentials
+
+3. (optional) Import database
+
+4. Start server!

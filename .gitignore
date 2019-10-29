@@ -4,14 +4,14 @@
 
 # Frontend
 /site/view/www/.cache/*
-/site/view/www/node_modules/*
 
 # Config
-# config.php
-# php.ini
+config.php
+php.ini
 
 # Libraries
 /system/composer/vendor/*
+/site/view/www/node_modules/*
 
 # Dinamic folder
 /system/writable/*
