@@ -3,8 +3,10 @@
 php.rename.ini => php.ini
 config.rename.php => config.php
 
-2. (optional) Edit the config.php to set the database credentials
+2. Start server!
 
-3. (optional) Import database
-
-4. Start server!
+Optional:
+1. Edit the config.php to set the database credentials
+2. Import database
+3. Install composer libraries in system/
+4. Install npm libraries in site/view/www/
