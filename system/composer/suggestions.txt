@@ -1,4 +1,4 @@
-Suggestions of useful libraries:
+Useful libraries:
 
 - phpauth/phpauth:
     For common login, recovery pass, send emails functions

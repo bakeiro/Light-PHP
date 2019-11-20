@@ -1,0 +1,38 @@
+{
+    "name": "bakeiro/light-php",
+    "type": "project",
+    "license": "MIT",
+    "description": "A really simple MVC PHP framework to start building awesome apps right away",
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^7.0"
+    },
+    "scripts": {
+        "post-create-project-cmd": [
+            "php -r \"rename('config.rename.php', 'config.php');\"",
+            "php -r \"rename('php.rename.ini', 'php.ini');\"",
+            "php -r \"rename('composer.json', 'system/composer/composer.json');\"",
+            "php -r \"rename('composer.lock', 'system/composer/composer.lock');\"",
+            "php -r \"rename('vendor/', 'system/composer/vendor/');\""
+        ]
+    },
+    "authors": [
+        {
+            "name": "David Baqueiro Santerbas",
+            "email": "davidbaqueiro@outlook.com",
+            "homepage": "http://davidbaqueiro.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.0",
+        "bakeiro/micro_php_template_engine": "dev-master",
+        "filp/whoops": "^2.3",
+        "sunra/dbug": "^0.2.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "bakeiro\\": "src/"
+        }
+    }
+}
