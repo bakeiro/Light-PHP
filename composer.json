@@ -11,10 +11,7 @@
     "scripts": {
         "post-create-project-cmd": [
             "php -r \"rename('config.rename.php', 'config.php');\"",
-            "php -r \"rename('php.rename.ini', 'php.ini');\"",
-            "php -r \"rename('composer.json', 'system/composer/composer.json');\"",
-            "php -r \"rename('composer.lock', 'system/composer/composer.lock');\"",
-            "php -r \"rename('vendor/', 'system/composer/vendor/');\""
+            "php -r \"rename('php.rename.ini', 'php.ini');\""
         ]
     },
     "authors": [
