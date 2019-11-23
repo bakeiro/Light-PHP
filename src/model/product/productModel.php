@@ -9,7 +9,7 @@ class productModel extends SecModel
 
     public function getProdInfo($prod_id)
     {
-        $prod = Database::query("SELECT * FROM `product` WHERE p.id = :prod_id", array(":prod_id" => $prod_id));
+        $prod = Database::query("SELECT * FROM `product` WHERE id = :prod_id", array(":prod_id" => $prod_id));
         $prod['description'] = html_entity_decode($prod['description']);
         return $prod;
     }

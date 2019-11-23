@@ -51,13 +51,13 @@ class product {
   getProdHtml(prod) {
     const prodHtml = `
     <div class='col s6' >
-      <div id="${prod.product_id}" class='card small'>
+      <div id="${prod.id}" class='card small'>
         <div class="card-image">
           <img src='src/view/www/src/images/${prod.image}' />
           <span class="card-title black-text">${prod.title}</span>
         </div>
         <div class="card-content">
-          <p>${prod.short_description}</p>
+          <p>${prod.title}</p>
         </div>
         <div class="card-action">
           <a name="prod_info" class="waves-effect waves-green btn-flat">More</a>
