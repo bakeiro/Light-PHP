@@ -8,6 +8,7 @@
 # Config
 config.php
 php.ini
+composer.lock
 
 # Libraries
 /system/composer/vendor/*

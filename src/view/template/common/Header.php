@@ -39,7 +39,7 @@
 			<i class="material-icons">menu</i>
 		</a>
 
-		<a href="/welcome" class="brand-logo">Your src</a>
+		<a href="/welcome" class="brand-logo">Logo</a>
 		<ul id="nav-mobile" class="right hide-on-med-and-down">
 			<li><a href="index.php?route=index/index/products">Ajax</a></li>
 			<?php if(Session::get("logged") && Session::get("customer_id")){ ?>
