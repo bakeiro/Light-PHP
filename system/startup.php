@@ -12,7 +12,7 @@ set_error_handler( array($error_class,"myErrorHandler") ,E_ALL);
 error_reporting(E_ALL);
 
 //Database
-if(class_exists("Database")){
+if(Config::get("initialize_database")){
 
     try {
         $temp_con = new PDO("mysql:host=" .Config::get("CONN_HOST"). ";port=3306;dbname=" . Config::get("CONN_DDBB"), Config::get("CONN_USER"), Config::get("CONN_PASS"));

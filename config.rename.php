@@ -14,6 +14,7 @@
  */
 
 //Database
+Config::set("initialize_database", false);
 Config::set("CONN_HOST", "localhost");
 Config::set("CONN_USER", "root");
 Config::set("CONN_PASS", "");
