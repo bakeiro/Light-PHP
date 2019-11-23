@@ -83,5 +83,5 @@ $num_messages   = count($stack_messages);
     </div>
 </div>
 
-<script src="site/view/www/dist/console.js"></script>
-<link rel="stylesheet" href="site/view/www/dist/console.css">
+<script src="src/view/www/dist/console.js"></script>
+<link rel="stylesheet" href="src/view/www/dist/console.css">

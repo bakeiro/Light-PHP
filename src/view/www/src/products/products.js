@@ -53,7 +53,7 @@ class product {
     <div class='col s6' >
       <div id="${prod.product_id}" class='card small'>
         <div class="card-image">
-          <img src='site/view/www/src/images/${prod.image}' />
+          <img src='src/view/www/src/images/${prod.image}' />
           <span class="card-title black-text">${prod.title}</span>
         </div>
         <div class="card-content">
@@ -97,7 +97,7 @@ class product {
         const prodImg = `
         <div class="row">
           <div class="col s6">
-            <img class="responsive-img"  src="site/view/www/src/images/${prodData.image}" >
+            <img class="responsive-img"  src="src/view/www/src/images/${prodData.image}" >
           </div>
         </div>`;
 

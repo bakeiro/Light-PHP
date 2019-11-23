@@ -12,8 +12,8 @@
 	<?php $host = Config::Get("url_host"); ?>
 
 	<!-- my resources -->
-    <link href="<?=$host?>/site/view/www/dist/site.css?v=<?=$cache?>" rel="stylesheet">
-    <script src="site/view/www/dist/jquery.min.js"></script>
+    <link href="<?=$host?>/src/view/www/dist/src.css?v=<?=$cache?>" rel="stylesheet">
+    <script src="src/view/www/dist/jquery.min.js"></script>
 
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -39,7 +39,7 @@
 			<i class="material-icons">menu</i>
 		</a>
 
-		<a href="/welcome" class="brand-logo">Your site</a>
+		<a href="/welcome" class="brand-logo">Your src</a>
 		<ul id="nav-mobile" class="right hide-on-med-and-down">
 			<li><a href="index.php?route=index/index/products">Ajax</a></li>
 			<?php if(Session::get("logged") && Session::get("customer_id")){ ?>

@@ -3,9 +3,9 @@
 	font-family: 'Material Icons';
 	font-style: normal;
 	font-weight: 400;
-	src: url(http://frame.localhost/site/view/www/fonts/google_icons.woff2) format('woff2');
+	src: url(http://frame.localhost/src/view/www/fonts/google_icons.woff2) format('woff2');
   }
-  
+
   .material-icons {
 	font-family: 'Material Icons';
 	font-weight: normal;
@@ -21,3 +21,5 @@
 	-webkit-font-feature-settings: 'liga';
 	-webkit-font-smoothing: antialiased;
   }
+
+/*# sourceMappingURL=/google_icons.de06537a.css.map */

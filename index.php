@@ -3,9 +3,9 @@
 //Routes
 define("DIR_ROOT", __DIR__);
 define("SYSTEM", DIR_ROOT . "/system/");
-define("MODEL", DIR_ROOT . "/site/model/");
-define("CONTROLLER", DIR_ROOT . "/site/controller/");
-define("VIEW", DIR_ROOT . "/site/view/");
+define("MODEL", DIR_ROOT . "/src/model/");
+define("CONTROLLER", DIR_ROOT . "/src/controller/");
+define("VIEW", DIR_ROOT . "/src/view/");
 
 //Config
 require SYSTEM . "engine/Config.php";

@@ -13,7 +13,8 @@
     "scripts": {
         "post-create-project-cmd": [
             "php -r \"rename('config.rename.php', 'config.php');\"",
-            "php -r \"rename('php.rename.ini', 'php.ini');\""
+            "php -r \"rename('php.rename.ini', 'php.ini');\"",
+            "php -r \"unlink('README.md');\""
         ]
     },
     "authors": [

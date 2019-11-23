@@ -44,13 +44,13 @@ class Output
 
     public static function addJs($js_route)
     {
-        $output_script = "<script src='site/view/www/dist/" . $js_route . ".js?v=" . Config::Get("cache_version") . "' > </script>";
+        $output_script = "<script src='src/view/www/dist/" . $js_route . ".js?v=" . Config::Get("cache_version") . "' > </script>";
         Output::$output_scripts[] = $output_script;
     }
 
     public static function addCss($css_route)
     {
-        $output_style = "<link href='site/view/www/dist/" . $css_route . ".css?v=" . Config::Get("cache_version") . "' rel='stylesheet'>";
+        $output_style = "<link href='src/view/www/dist/" . $css_route . ".css?v=" . Config::Get("cache_version") . "' rel='stylesheet'>";
         Output::$output_styles[] = $output_style;
     }
 }
