@@ -3,7 +3,7 @@ function makeResizableDiv(div_selector, top_div_selector) {
   let original_mouse_y = 0;
   let element = document.querySelector(div_selector);
   let resizer = document.querySelector(top_div_selector);
-  let original_height = parseFloat(getComputedStyle(element, null).getPropertyValue("height").replace("px", "));
+  let original_height = parseFloat(getComputedStyle(element, null).getPropertyValue("height").replace("px", ""));
 
   resizer.addEventListener("mousedown", (e) => {
     original_height = document.querySelector(div_selector).clientHeight;
@@ -16,7 +16,7 @@ function makeResizableDiv(div_selector, top_div_selector) {
   function resize(e) {
     if (resizer.id === "error-console-top") {
       let updated_height = original_height - (e.pageY - original_mouse_y);
-      if (updated_height > 40 && updated_height < 600) {
+      if (updated_height > 30 && updated_height < 600) {
         element.style.height = updated_height + "px";
         sessionStorage.setItem("console_position", updated_height + "px");
       }
