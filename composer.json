@@ -4,6 +4,7 @@
     "license": "MIT",
     "description": "A really simple MVC PHP framework to start building awesome apps right away",
     "minimum-stability": "stable",
+    "vendor-dir": "./system/composer/vendor/",
     "require": {
         "php": "^7.0"
     },
