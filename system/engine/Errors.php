@@ -1,14 +1,12 @@
 <?php
 
-use PHPMailer\PHPMailer\PHPMailer;
-
 class Errors
 {
     public static $error_handle;
 
     public static function myErrorHandler($errno, $errstr, $errfile, $errline)
     {
-        //Get error type
+        // Get error type
         switch ($errno) {
             case E_NOTICE:
             case E_USER_NOTICE:
@@ -27,28 +25,28 @@ class Errors
                 break;
         }
 
-        //Error message
+        // Message
         $error_string_html = '<b>' . $error . '</b>: ' . $errstr . ' in <b>' . $errfile . '</b> on line <b>' . $errline . '</b>';
         $error_string_log = $error . ' - ' . $errstr . ' - ' . $errfile . ' - ' . $errline;
         $error_string_log = addslashes($error_string_log);
 
-        //Create file if doesn't exist
+        // Check file
         Errors::checkLogFile(SYSTEM . "writable/logs/errors.log");
         Errors::checkLogFile(SYSTEM . "writable/logs/notice.log");
 
-        //Warning/Notice
+        // Warning/Notice
         if ($error === "Notice" || $error === "Warning") {
             error_log($error_string_log . "\n", 3, SYSTEM . "writable/logs/notice.log");
             Console::addWarning($error_string_html);
         }
 
-        //Fatal error/Unknown
+        // Fatal error/Unknown
         if ($error === "Fatal Error" || $error === "Unknown") {
             error_log($error_string_log . "\n", 3, SYSTEM . "writable/logs/errors.log");
             Console::addError($error_string_html);
         }
 
-        //Send email
+        // Email
         if (Config::get("send_email_errors")) {
             Error::sendEmail($error_string_html, $error);
         }
@@ -58,58 +56,19 @@ class Errors
 
     public static function myExceptionHandler($exception)
     {
-        //Check file
+        // Check file
         Errors::checkLogFile(SYSTEM . "writable/logs/notice.log");
 
         $exception_message = $exception->getMessage();
 
-        //Write
         error_log($exception_message . "\n", 3, SYSTEM . "writable/logs/errors.log");
 
-        //Send email
+        // Send email
         if (Config::get("send_email_errors")) {
-            Error::sendEmail($exception_message, "Exception");
+            //  TODO: Here I encourage to implement a send email function with the exception in case
         }
 
         die("Exception happen");
-    }
-
-    public static function sendEmail($message, $error_type)
-    {
-        $mail = new PHPMailer\PHPMailer\PHPMailer();
-
-        $mail->IsSMTP();
-        $mail->CharSet = 'UTF-8';
-        $mail->Host = Config::get("email_host");
-        $mail->isHTML();
-        $mail->Port = Config::get("email_port");
-
-        $mail->Username = Config::get("email_username");
-        $mail->Password = Config::get("email_pass");
-        $mail->SMTPAuth = true;
-
-        $mail->From = Config::get("email_from");
-        $mail->FromName = Config::get("email_from_name");
-
-        $mail->addAddress(Config::get("email_from"));
-
-        $mail->Subject = $error_type . " happen";
-        $mail->Body = $message;
-        $mail->AltBody = $message;
-
-        //Localhost workaround
-        /*
-        $mail->SMTPOptions = array(
-        'ssl' => array(
-        'verify_peer' => false,
-        'verify_peer_name' => false,
-        'allow_self_signed' => true
-        ));
-         */
-
-        if (!$mail->send()) {
-            echo "ERROR: <br> " . $mail->ErrorInfo;
-        }
     }
 
     public static function checkLogFile($file_name)
