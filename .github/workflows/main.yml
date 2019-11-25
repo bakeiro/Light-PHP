@@ -1,15 +1,21 @@
 name: PHP Lint
-
 on: [push]
 
 jobs:
   build:
-
+    
     runs-on: ubuntu-latest
 
     steps:
+
     - uses: michaelw90/PHP-Lint@1.0.0
     - name: Run a multi-line script
       run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+        echo PHPLint,
+        echo test.
+        
+    - name: Run ESLint
+    - uses: stefanoeb/eslint-action@1.0.0
+    - run: |
+        echo ESLint,
+        echo test.
