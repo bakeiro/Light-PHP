@@ -1,21 +1,22 @@
 name: PHP Lint
-on: [push]
+on: push
 
 jobs:
-  build:
-    
+  Eslint:
     runs-on: ubuntu-latest
-
     steps:
-
-    - uses: michaelw90/PHP-Lint@1.0.0
-    - name: Run a multi-line script
-      run: |
-        echo PHPLint,
-        echo test.
-        
     - name: Run ESLint
     - uses: stefanoeb/eslint-action@1.0.0
     - run: |
         echo ESLint,
         echo test.
+    
+  phpcs:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: rtCamp/action-phpcs-code-review@master
+      env:
+        GH_BOT_TOKEN: ${{ secrets.GH_BOT_TOKEN }}
+      with:
+        args: "WordPress,WordPress-Core,WordPress-Docs"
