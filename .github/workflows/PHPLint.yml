@@ -1,0 +1,14 @@
+name: PHP Lint
+on: push
+
+jobs:
+  phpcs:
+    runs-on: ubuntu-latest
+    steps:
+    - name: PHP CS
+    - uses: actions/checkout@v1
+    - uses: rtCamp/action-phpcs-code-review@master
+      env:
+        GH_BOT_TOKEN: ${{ secrets.GH_BOT_TOKEN }}
+      with:
+        args: "WordPress,WordPress-Core,WordPress-Docs"
