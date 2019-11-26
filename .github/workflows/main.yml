@@ -10,13 +10,3 @@ jobs:
     - run: |
         echo ESLint,
         echo test.
-    
-  phpcs:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v1
-    - uses: rtCamp/action-phpcs-code-review@master
-      env:
-        GH_BOT_TOKEN: ${{ secrets.GH_BOT_TOKEN }}
-      with:
-        args: "WordPress,WordPress-Core,WordPress-Docs"
