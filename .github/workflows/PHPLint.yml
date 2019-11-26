@@ -1,11 +1,11 @@
-name: PHP Lint
+name: PHP-Lint
 on: push
 
 jobs:
-  phpcs:
+  PHP-Lint:
     runs-on: ubuntu-latest
     steps:
-    - name: PHP CS
+    - name: PHP-Lint
     - uses: actions/checkout@v1
     - uses: rtCamp/action-phpcs-code-review@master
       env:
