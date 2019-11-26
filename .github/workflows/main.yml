@@ -1,4 +1,4 @@
-name: PHP Lint
+name: ESLint
 on: push
 
 jobs:
