@@ -12,4 +12,6 @@ $config_string = str_replace("ThisIsMySecretPass", $token_pass , $config_string)
 file_put_contents('config.readme.php', $config_string);
 rename('config.rename.php', 'config.php');
 
+rename('php.rename.ini', 'php.ini');
+
 unlink('README.md');
