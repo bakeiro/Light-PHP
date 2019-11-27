@@ -12,9 +12,8 @@
     },
     "scripts": {
         "post-create-project-cmd": [
-            "php -r \"rename('config.rename.php', 'config.php');\"",
-            "php -r \"rename('php.rename.ini', 'php.ini');\"",
-            "php -r \"unlink('README.md');\""
+            "php -r \"require_once('./post-install.php'); \"",
+            "php -r \"unlink('./post-install.php'); \""
         ]
     },
     "authors": [
