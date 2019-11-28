@@ -7,4 +7,4 @@ jobs:
     steps:
     - uses: StephaneBour/actions-php-lint@7.2
       with:
-        dir: './src'
+        dir: './'
