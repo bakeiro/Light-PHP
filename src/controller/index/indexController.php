@@ -1,25 +1,30 @@
 <?php
 
-class indexController extends SecController
+use Model\productModel;
+
+class indexController
 {
     public function index()
     {
-        //Start some dbug info
+        // String in console
         Console::addDebugInfo("welcome page loaded ;)");
 
+        // Exception
         $cont = 5;
         $cont = $cont / 0;
 
+        // Array in console
         $list = array(1, "my_value", "hi there! ");
         Console::addDebugInfo($list);
 
+        // Add js file
+        Output::addJs("products");
+
+        // Model info...
+        // productModel->getProductById(12345);
+
+        // Load template
         Output::load("info/welcomeView");
     }
 
-    public function products()
-    {
-        Output::addJs("products");
-        Output::addJs("events");
-        Output::load("info/productsView", array());
-    }
 }
