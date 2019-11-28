@@ -9,9 +9,7 @@ class Session
     {
         //Session handler
         $session_handler = new SessionSecureHandler();
-        ini_set('session.save_handler', 'files'); //Uncomment to disable session files
         session_set_save_handler($session_handler, true);
-        session_save_path(SYSTEM . '/writable/sessions'); //Uncomment to disable session files
 
         //Variables
         Session::$cookie = $cookie;

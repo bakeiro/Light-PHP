@@ -9,38 +9,29 @@ class Output
 
     public static function load($route, $data = array())
     {
-        $templateLoader = new templateLoader();
-
-        $content = $templateLoader->load(VIEW . 'template/common/Header.php', $data);
-        $content .= $templateLoader->load(VIEW . 'template/' . $route . '.php', $data);
-        $content .= $templateLoader->load(VIEW . 'template/common/Footer.php', $data);
+        $content = Output::loadFile(VIEW . 'template/common/Header.php', $data);
+        $content .= Output::loadFile(VIEW . 'template/' . $route . '.php', $data);
+        $content .= Output::loadFile(VIEW . 'template/common/Footer.php', $data);
 
         echo $content;
     }
 
     public static function rawLoad($route, $data = array())
     {
-        $templateLoader = new templateLoader();
-        $content = $templateLoader->load(VIEW . 'template/' . $route . '.php', $data);
+        $content = Output::loadFile(VIEW . 'template/' . $route . '.php', $data);
         echo $content;
     }
 
-    public static function adminLoad($route, $data = array())
+    public static function loadFile($route, $data)
     {
-        $templateLoader = new templateLoader();
+        ob_start();
+        require $route;
+        $template = ob_get_clean();
 
-        $content = "";
-
-        if (Util::isAjaxRequest()) {
-            $content = $templateLoader->load(VIEW . 'template/' . $route . '.php', $data);
-        } else {
-            $content = $templateLoader->load(VIEW . 'template/common/Header.php', $data);
-            $content .= $templateLoader->load(VIEW . 'template/' . $route . '.php', $data);
-            $content .= $templateLoader->load(VIEW . 'template/common/Footer.php', $data);
-        }
-
-        echo $content;
+        $template = $this->compile($template, $data);
+        return $template;
     }
+
 
     public static function addJs($js_route)
     {

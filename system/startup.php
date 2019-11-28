@@ -59,7 +59,7 @@ Config::set("output_styles", array());
 Config::set("output_scripts", array());
 
 //Debug info
-if(Config::get("silent_debug")){
+if(Config::get("show_debug_info")){
 	set_exception_handler( array($error_class,"my_exception_handler"));
 	Config::set("debug_console", false);
 	Config::set("whoops", false);

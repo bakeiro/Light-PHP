@@ -26,7 +26,6 @@
     ],
     "require": {
         "bakeiro/micro_php_template_engine": "dev-master",
-        "filp/whoops": "^2.3",
         "sunra/dbug": "^0.2.1"
     },
     "autoload": {
