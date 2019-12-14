@@ -2,8 +2,7 @@
     "name": "bakeiro/light-php",
     "type": "project",
     "license": "MIT",
-    "description": "A really simple MVC PHP framework to start building awesome apps right away",
-    "minimum-stability": "stable",
+    "description": "Easiest and simplest PHP framework, start building your api/apps right away!",
     "config": {
         "vendor-dir": "./system/composer/vendor/"
     },
@@ -24,10 +23,5 @@
     "require": {
         "sunra/dbug": "^0.2.1",
         "php": "^7.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "App\\": "src/"
-        }
     }
 }

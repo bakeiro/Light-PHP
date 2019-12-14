@@ -51,7 +51,7 @@ class Errors
     {
         $exception_message = $exception->getMessage();
 
-        Console::addError($error_string_html);
+        Console::addError($exception_message);
 
         die($exception_message);
     }

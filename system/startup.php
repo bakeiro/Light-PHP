@@ -1,17 +1,17 @@
 <?php
 
-//Timezone
+// Timezone
 date_default_timezone_set(Config::get("default_time_zone"));
 
-//Composer
+// Composer
 require(SYSTEM."composer/vendor/autoload.php");
 
-//Error/warning reporting
+// Error/warning reporting
 $error_class = new Errors();
 set_error_handler( array($error_class,"myErrorHandler") ,E_ALL);
 error_reporting(E_ALL);
 
-//Database
+// Database
 if(Config::get("initialize_database")){
 
     try {
@@ -29,10 +29,10 @@ if(Config::get("initialize_database")){
     }
 }
 
-//Urls
+// Urls
 Router::init();
 
-//Session
+// Session
 Session::init();
 Session::start();
 
@@ -40,7 +40,7 @@ if(!Session::isValid()){
 	Session::forget();
 }
 
-//CSRF token
+// CSRF token
 if(Session::get("csrf_token") === null){
 	Session::set("csrf_token", Util::generateCSRFToken());
 	Session::set("CSRF_input", "<input type='text' name='csrf_token' hidden value='".Session::get("csrf_token")."' />");
@@ -50,26 +50,33 @@ if(!Config::get("allow_forms_without_csrf_input")){
 	Util::checkPostCSRFToken();
 }
 
-//escape + strip tags + trim for $_POST,$_GET
+// escape + strip tags + trim for $_POST,$_GET
 Util::cleanInput();
 
-//Output files
+// Output files
 Config::set("output_styles", array());
 Config::set("output_scripts", array());
 
-//Debug info
+// Debug info
 if(Config::get("show_debug_info")){
-	set_exception_handler( array($error_class,"my_exception_handler"));
+	set_exception_handler(array($error_class,"my_exception_handler"));
 	Config::set("debug_console", false);
 	Config::set("whoops", false);
 }
 
-//Console info
+// Console info
 Config::set("console_db_queries", array());
 Config::set("console_warnings", array());
 Config::set("console_errors", array());
 Config::set("console_debug_info", array());
 Config::set("console_execution_trace", array());
 
-//Track execution time
+// Track execution time
 Config::set("controller_execution_time", microtime(true));
+
+// Autoloader
+$loader = new \System\Psr4AutoloaderClass;
+$loader->register();
+$loader->addNamespace('App\Controller', DIR_ROOT.'/controller');
+$loader->addNamespace('App\Model', DIR_ROOT.'/model');
+$loader->addNamespace('App\System', DIR_ROOT.'/system');
