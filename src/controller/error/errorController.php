@@ -1,6 +1,6 @@
 <?php
 
-class errorController extends SecController
+class errorController
 {
     public function notFound()
     {

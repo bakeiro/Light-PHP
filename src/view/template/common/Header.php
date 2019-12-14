@@ -39,14 +39,12 @@
 			<i class="material-icons">menu</i>
 		</a>
 
-		<a href="/welcome" class="brand-logo">Logo</a>
+        <a href="/welcome" class="brand-logo">Logo</a>
+        <span style="position: absolute; left: 99px; top: 15px;">src/view/template/common/header.php</span>
+        
 		<ul id="nav-mobile" class="right hide-on-med-and-down">
-			<li><a href="index.php?route=index/index/products">Ajax</a></li>
-			<?php if(Session::get("logged") && Session::get("customer_id")){ ?>
-				<li><a href="index.php?route=account/customer/info">Account</a></li>
-			<?php }else{ ?>
-				<li><a href="index.php?route=account/customer/loginPage">Login</a></li>
-			<?php } ?>
+            <li><a href="index.php?route=index/index/products">Sample</a></li>
+            <li><a href="index.php?route=index/index/products">Not found page</a></li>
 		</ul>
 	</div>
 </nav>
@@ -55,13 +53,8 @@
 	<br><br>
     <li><a href="/welcome">Welcome</a></li>
     <li><div class="divider"></div></li>
-	<li><a href="index.php?route=index/index/products">Ajax</a></li>
-
-	<?php if(Session::get("logged") && Session::get("customer_id")){ ?>
-		<li><a href="index.php?route=account/customer/info">Account</a></li>
-	<?php }else{ ?>
-		<li><a href="index.php?route=account/customer/loginPage">Login</a></li>
-	<?php } ?>
+    <li><a href="index.php?route=index/index/products">Sample</a></li>
+    <li><a href="index.php?route=index/index/products">Not found page</a></li>
 
 </ul>
 

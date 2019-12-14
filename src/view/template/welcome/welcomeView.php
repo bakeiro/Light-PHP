@@ -1,6 +1,4 @@
-<h4>Welcome to Light-php</h4>
-
-<h4>Adding a page</h4><hr>
+<h4>Create your first page!</h4><hr>
 
 <div class="row">
 	<div class="col s6 left">

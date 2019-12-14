@@ -24,7 +24,7 @@ class indexController
         // productModel->getProductById(12345);
 
         // Load template
-        Output::load("info/welcomeView");
+        Output::load("welcome/welcomeView");
     }
 
 }
