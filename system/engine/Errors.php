@@ -36,19 +36,12 @@ class Errors
 
         // Warning/Notice
         if ($error === "Notice" || $error === "Warning") {
-            error_log($error_string_log . "\n", 3, SYSTEM . "writable/logs/notice.log");
             Console::addWarning($error_string_html);
         }
 
         // Fatal error/Unknown
         if ($error === "Fatal Error" || $error === "Unknown") {
-            error_log($error_string_log . "\n", 3, SYSTEM . "writable/logs/errors.log");
             Console::addError($error_string_html);
-        }
-
-        // Email
-        if (Config::get("send_email_errors")) {
-            Error::sendEmail($error_string_html, $error);
         }
 
         return true;
@@ -56,19 +49,11 @@ class Errors
 
     public static function myExceptionHandler($exception)
     {
-        // Check file
-        Errors::checkLogFile(SYSTEM . "writable/logs/notice.log");
-
         $exception_message = $exception->getMessage();
 
-        error_log($exception_message . "\n", 3, SYSTEM . "writable/logs/errors.log");
+        Console::addError($error_string_html);
 
-        // Send email
-        if (Config::get("send_email_errors")) {
-            //  TODO: Here I encourage to implement a send email function with the exception in case
-        }
-
-        die("Exception happen");
+        die($exception_message);
     }
 
     public static function checkLogFile($file_name)
