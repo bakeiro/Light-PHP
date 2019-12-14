@@ -1,7 +1,5 @@
 <?php
 
-use bakeiro\templateLoader;
-
 class Output
 {
     public static $output_scripts = array();
@@ -28,7 +26,7 @@ class Output
         require $route;
         $template = ob_get_clean();
 
-        $template = $this->compile($template, $data);
+        $template = Output::compile($template, $data);
         return $template;
     }
 
@@ -43,5 +41,15 @@ class Output
     {
         $output_style = "<link href='src/view/www/dist/" . $css_route . ".css?v=" . Config::Get("cache_version") . "' rel='stylesheet'>";
         Output::$output_styles[] = $output_style;
+    }
+
+    public static function compile($template, $data)
+    {
+        $keys = array();
+        foreach ($data as $key => $value) {
+            $keys[] = "{{" . $key . "}}";
+        }
+
+        return str_replace($keys, array_values($data), $template);
     }
 }
