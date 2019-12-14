@@ -59,4 +59,5 @@ buttons.forEach( (value, key) => {
 //DOM loaded
 if (sessionStorage.getItem("console_position")) {
   document.querySelector("div#console-div").style.height = sessionStorage.getItem("console_position");
+  document.querySelector("body").style.paddingBottom = "30px";
 }
