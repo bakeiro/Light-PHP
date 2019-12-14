@@ -41,7 +41,7 @@ You can use this project to build your APIS or your web apps.
 - PHP (at least 7.X)
 - Database (MySQL suggested)
 
-### Instalation:
+### Installation:
 ``` php
 composer create-project bakeiro/light-php
 ```

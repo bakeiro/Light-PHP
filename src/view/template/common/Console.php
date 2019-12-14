@@ -75,11 +75,6 @@ $num_messages   = count($stack_messages);
             <br><br><br>
         </div>
 
-        <!--
-        <div class="console-body-seccion" id="ajax-log-body">
-            <h1>This is the ajax body</h1>
-        </div>
-        -->
     </div>
 </div>
 

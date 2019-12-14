@@ -27,4 +27,14 @@ class indexController
         Output::load("welcome/welcomeView");
     }
 
+    public function sample()
+    {
+        $product_name = "my first product";
+        $product_price = 900;
+        $product_description = "nice product from Spain";
+
+        $data = array("product_name" => $product_name, "product_price" => $product_price, "product_description" => $product_description);
+        Output::load("welcome/sampleView", $data);
+    }
+
 }

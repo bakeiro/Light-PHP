@@ -23,7 +23,7 @@
 <body>
 
 <?php
-	//Custom CSS/JS
+	// Custom CSS/JS
 	foreach(Output::$output_styles as $style_file){
 		echo $style_file;
 	}
@@ -40,11 +40,11 @@
 		</a>
 
         <a href="/welcome" class="brand-logo">Logo</a>
-        <span style="position: absolute; left: 99px; top: 15px;">src/view/template/common/header.php</span>
-        
+        <span style="position: absolute; left: 99px; top: 15px;">Modify me: src/view/template/common/Header.php</span>
+
 		<ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="index.php?route=index/index/products">Sample</a></li>
-            <li><a href="index.php?route=index/index/products">Not found page</a></li>
+            <li><a href="index.php?route=index/index/sample">Sample</a></li>
+            <li><a href="index.php?route=index/index/test">Not found page</a></li>
 		</ul>
 	</div>
 </nav>
@@ -53,8 +53,8 @@
 	<br><br>
     <li><a href="/welcome">Welcome</a></li>
     <li><div class="divider"></div></li>
-    <li><a href="index.php?route=index/index/products">Sample</a></li>
-    <li><a href="index.php?route=index/index/products">Not found page</a></li>
+    <li><a href="index.php?route=index/index/sample">Sample</a></li>
+    <li><a href="index.php?route=index/index/test">Not found page</a></li>
 
 </ul>
 
