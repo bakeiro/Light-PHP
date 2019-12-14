@@ -29,9 +29,9 @@ class indexController
 
     public function sample()
     {
-        $product_name = "my first product";
-        $product_price = 900;
-        $product_description = "nice product from Spain";
+        $product_name = "test product";
+        $product_price = "900€";
+        $product_description = "this is just a test product";
 
         $data = array("product_name" => $product_name, "product_price" => $product_price, "product_description" => $product_description);
         Output::load("welcome/sampleView", $data);
