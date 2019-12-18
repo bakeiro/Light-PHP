@@ -42,8 +42,8 @@ This project follows the PSR-1, PSR-4 standars and the good practices, MVC struc
 
 ### Installation and startup:
 ``` php
-composer create-project bakeiro/light-php ./
-php -S localhost:8080
+composer create-project bakeiro/light-php
+php -S localhost:8080 -t light-php/
 ```
 ### License
 
