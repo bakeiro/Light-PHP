@@ -28,22 +28,22 @@
 ### Documentation
 [Light-PHP documentation](https://bakeiro.github.io/Light-PHP-documentation/)   
 
-Micro PHP framework :)
+**Create your API/Web app immediately!**  
 
-Light-PHP makes possible start working without reading in massive documentations of professional frameworks, if this is the case, then Light-PHP might be very useful for you. Light-PHP is easy to install, and doesn't make things more complicated than necessary.
+Light-PHP makes possible start working without reading massive documentations, if this is the case, then Light-PHP might be very useful for you.  
+This was created to be the most simple framework to read/understand  
 
-It offers a MVC structure, micro template engine, database abstraction, session management, debug console (for PHP) and more!.
-This was created to be the most simple framework to read/understand, so you can use it for learning or use it in your projects if you wish.  
-You can use this project to build your APIS or your web apps.
+This project follows the coding standars and the good practices, and it offers a MVC structure, micro template engine, database abstraction, session management, debug console (for PHP) and much more!.
 
 ### Minimum requirements
 - PHP OpenSSL extension (if wants session encryption, something recommended)
 - PHP (at least 7.X)
 - Database (MySQL suggested)
 
-### Installation:
+### Installation and startup:
 ``` php
-composer create-project bakeiro/light-php
+composer create-project bakeiro/light-php ./
+php -S localhost:8080
 ```
 ### License
 
