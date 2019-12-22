@@ -2,9 +2,6 @@
 /.idea/*
 /.vscode/*
 
-# Frontend
-/src/view/www/.cache/*
-
 # Config
 config.php
 php.ini
