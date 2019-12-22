@@ -5,7 +5,7 @@
   </a>
   <h3 align="center">Light-PHP</h3>
   <p align="center">
-    Just Another micro PHP framework.
+    Micro PHP framework.
     <br>
     <a href="https://bakeiro.github.io/Light-PHP-documentation/"><strong>- Explore the DOCS -</strong></a>
     <br><br>
