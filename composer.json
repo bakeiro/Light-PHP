@@ -23,5 +23,8 @@
     "require": {
         "sunra/dbug": "^0.2.1",
         "php": "^7.0"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "3.*"
     }
 }
