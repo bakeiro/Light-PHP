@@ -12,10 +12,10 @@
             "php -r \"unlink('./post-install.php'); \""
         ],
         "lint": [
-            "phpcs --encoding=utf-8 -n -p src/"
+            "phpcs --encoding=utf-8 --ignore=src/view/www/* -n -p src/"
         ],
         "solve-lint": [
-            "phpcbf --encoding=utf-8 -n -p src/"
+            "phpcbf --encoding=utf-8 --ignore=src/view/www/* -n -p src/"
         ]
     },
     "authors": [
