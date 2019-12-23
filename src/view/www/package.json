@@ -4,7 +4,7 @@
   "description": "",
   "main": ".eslintrc.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "echo \"define here lint script\" && exit 1"
   },
   "author": "David Baqueiro Santerbas",
   "license": "MIT",
