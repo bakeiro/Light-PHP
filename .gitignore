@@ -9,7 +9,7 @@
 config.php
 php.ini
 composer.lock
-scr/view/www/package-lock.json
+src/view/www/package-lock.json
 
 # Libraries
 /system/composer/vendor/*
