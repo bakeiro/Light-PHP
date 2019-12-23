@@ -28,11 +28,11 @@ $num_messages   = count($stack_messages);
         <!-- <button class="btn-console enable ajax-log-body">Ajax helper</button> -->
 
         <div class="right-console-info">
-            <span class="error-console-right"><?=$time_script;?> ms</span>
+            <span class="error-console-right"><?php echo $time_script;?> ms</span>
             <i class="material-icons console">access_time</i>
         </div>
         <div class="right-console-info">
-            <span class="error-console-right"><?=$memory;?></span>
+            <span class="error-console-right"><?php echo $memory;?></span>
             <i class="material-icons console">storage</i>
             <span> | </span>
         </div>

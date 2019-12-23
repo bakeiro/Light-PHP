@@ -3,10 +3,10 @@
 
 <!-- Console -->
 <?php
-if (Config::Get("debug_console")) {
-    require VIEW . "template/common/Console.php";
-}
-?>
+    if (Config::Get("debug_console")) {
+        include VIEW . "template/common/Console.php";
+    }
+    ?>
 
 <br><br>
 
