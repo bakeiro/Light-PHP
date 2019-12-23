@@ -1,6 +1,6 @@
 <?php
 
-class restController
+class RestController
 {
     public function index()
     {

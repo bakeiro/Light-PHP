@@ -2,7 +2,7 @@
 
 use Model\productModel;
 
-class indexController
+class IndexController
 {
     public function index()
     {

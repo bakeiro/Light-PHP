@@ -4,7 +4,7 @@
  * Just a sample...
  */
 
-class productModel
+class ProductModel
 {
     public function getAllProducts()
     {
