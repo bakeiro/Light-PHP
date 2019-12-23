@@ -10,6 +10,12 @@
         "post-create-project-cmd": [
             "php -r \"require_once('./post-install.php'); \"",
             "php -r \"unlink('./post-install.php'); \""
+        ],
+        "lint": [
+            "phpcs --encoding=utf-8 -n -p src/"
+        ],
+        "solve-lint": [
+            "phpcbf --encoding=utf-8 -n -p src/"
         ]
     },
     "authors": [
