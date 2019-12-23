@@ -21,6 +21,6 @@ jobs:
       run: |
         cd src/view/www/
         npm install
-        npm lint
+        npm run lint
       env:
         CI: true
