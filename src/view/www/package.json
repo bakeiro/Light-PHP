@@ -4,7 +4,7 @@
   "description": "",
   "main": ".eslintrc.js",
   "scripts": {
-    "lint": "eslint \"src/**/*.js\" \""
+    "lint": "eslint \"src/**/*.js\" "
   },
   "author": "David Baqueiro Santerbas",
   "license": "MIT",
