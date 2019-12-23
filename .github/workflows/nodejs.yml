@@ -19,7 +19,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: npm install, lint
       run: |
-        cd src/view/www/
+        cd src/view/www
         npm install
         npm run lint
       env:
