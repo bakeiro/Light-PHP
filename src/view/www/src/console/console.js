@@ -32,6 +32,7 @@ makeResizableDiv("div#console-div", "div#error-console-top");
 const buttons = document.querySelectorAll("button.enable");
 buttons.forEach((value) => {
   value.addEventListener("click", (event) => {
+    
     // Remove active div
     const console_bodies = document.querySelectorAll("div.console-body-seccion");
     console_bodies.forEach((console_body) => {
