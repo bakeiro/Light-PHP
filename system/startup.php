@@ -38,6 +38,12 @@ if(Config::get("initialize_database")){
 // Urls
 Router::init();
 
+Config::set("url_host", Router::$protocol);
+Config::set("url_protocol", Router::$host);
+Config::set("url_action", Router::$action);
+Config::set("url_controller", Router::$controller);
+Config::set("url_restController", Router::$restController);
+
 // Session
 Session::init();
 Session::start();

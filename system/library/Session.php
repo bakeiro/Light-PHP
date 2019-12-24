@@ -3,7 +3,6 @@
 namespace Library;
 
 use Library\Config;
-use SessionSecureHandler;
 
 class Session
 {
@@ -13,7 +12,7 @@ class Session
     public static function init($cookie = [])
     {
         //Session handler
-        $session_handler = new SessionSecureHandler();
+        $session_handler = new SessionSecureHandler(Config::get("session_iv"), Config::get("session_key"), Config::get("session_encrypt_method"));
         session_set_save_handler($session_handler, true);
 
         //Variables

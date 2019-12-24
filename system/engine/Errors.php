@@ -58,6 +58,21 @@ class Errors
         die($exception_message);
     }
 
+    public static function noticeHandler()
+    {
+
+    }
+
+    public static function errorHandler()
+    {
+
+    }
+
+    public static function warningHandler()
+    {
+        
+    }
+
     public static function checkLogFile($file_name)
     {
         if (!file_exists($file_name)) {

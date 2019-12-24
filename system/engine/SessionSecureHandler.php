@@ -1,20 +1,24 @@
 <?php
 
-use Library\Config;
-
 class SessionSecureHandler extends SessionHandler
 {
     protected $iv;
     protected $key;
     protected $encrypt_method;
 
-    public function __construct()
+    /**
+     * Constructor
+     */
+    public function __construct($session_iv, $session_key, $session_encrypt_method)
     {
-        $this->iv = Config::get("session_iv");
-        $this->key = Config::get("session_key");
-        $this->encrypt_method = Config::get("session_encrypt_method");
+        $this->iv = $session_iv;
+        $this->key = $session_key;
+        $this->encrypt_method = $session_encrypt_method;
     }
 
+    /**
+     * Read the encrypted values
+     */
     public function read($session_id)
     {
         $data = parent::read($session_id);
@@ -22,13 +26,18 @@ class SessionSecureHandler extends SessionHandler
         return $data;
     }
 
+    /**
+     * Writes encrypted session values
+     */
     public function write($session_id, $data)
     {
         $encrypted_data = openssl_encrypt($data, $this->encrypt_method, $this->key, 0, $this->iv);
         return parent::write($session_id, $encrypted_data);
     }
 
-    //Methods for deleting remaining session files
+    /**
+     * Ending the current session
+     */
     public function __destruct()
     {
         $gc_divisor = ini_get('session.gc_divisor');

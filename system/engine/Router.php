@@ -1,12 +1,9 @@
 <?php
 
-use Library\Config;
-
 class Router
 {
     public static $protocol;
     public static $host;
-
     public static $action;
     public static $controller;
     public static $restController;
@@ -42,12 +39,11 @@ class Router
             $url_controller = Router::getSeoUrlMethod($url_action);
         }
 
-        //Set config
-        Config::set("url_host", $url_host);
-        Config::set("url_protocol", $url_protocol);
-        Config::set("url_action", $url_action);
-        Config::set("url_controller", $url_controller);
-        Config::set("url_restController", $rest_controller);
+        Router::$protocol = $url_protocol;
+        Router::$host = $url_host;
+        Router::$action = $url_action;
+        Router::$controller = $url_controller;
+        Router::$restController = $rest_controller;
     }
 
     public static function getSeoUrlMethod($url_action)

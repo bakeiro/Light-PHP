@@ -29,5 +29,5 @@ require DIR_ROOT . "/config.php";
 require SYSTEM . "startup.php";
 
 // Controller
-$Controller = new Controller();
+$Controller = new Controller(Router::$controller);
 $Controller->execController();

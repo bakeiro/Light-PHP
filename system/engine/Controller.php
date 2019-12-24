@@ -1,7 +1,5 @@
 <?php
 
-use Library\Config;
-
 class Controller
 {
     public $file;
@@ -9,9 +7,8 @@ class Controller
     public $data;
     public $method;
 
-    public function __construct()
+    public function __construct($route)
     {
-        $route = Config::get("url_controller");
         $url_split = explode('/', $route);
         $this->file = CONTROLLER . $url_split[0] . '/' . $url_split[1] . 'Controller.php';
         $this->class = "Controller\\" . ucfirst($url_split[1]) . 'Controller';
