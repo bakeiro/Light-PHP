@@ -1,5 +1,9 @@
 <?php
 
+namespace Model;
+
+use Library\Database;
+
 /**
  * Just a sample...
  */

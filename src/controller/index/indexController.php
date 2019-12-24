@@ -1,5 +1,9 @@
 <?php
 
+namespace Controller;
+
+use Library\Output;
+use Library\Console;
 use Model\productModel;
 
 class indexController

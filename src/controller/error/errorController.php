@@ -1,5 +1,10 @@
 <?php
 
+namespace Controller;
+
+use Library\Config;
+use Library\Output;
+
 class errorController
 {
     public function notFound()
