@@ -7,21 +7,23 @@ define("MODEL", DIR_ROOT . "/src/model/");
 define("CONTROLLER", DIR_ROOT . "/src/controller/");
 define("VIEW", DIR_ROOT . "/src/view/");
 
-// Config
-require SYSTEM . "engine/Config.php";
-require DIR_ROOT . "/config.php";
-
 // Engine
 require SYSTEM . "engine/Router.php";
 require SYSTEM . "engine/Controller.php";
-require SYSTEM . "engine/Session.php";
-require SYSTEM . "engine/Console.php";
 require SYSTEM . "engine/SessionSecureHandler.php";
-require SYSTEM . "engine/Output.php";
-require SYSTEM . "engine/Database.php";
-require SYSTEM . "engine/Util.php";
 require SYSTEM . "engine/Errors.php";
 require SYSTEM . "engine/Autoloader.php";
+
+// Library
+require SYSTEM . "library/Config.php";
+require SYSTEM . "library/Console.php";
+require SYSTEM . "library/Output.php";
+require SYSTEM . "library/Session.php";
+require SYSTEM . "library/Database.php";
+require SYSTEM . "library/Util.php";
+
+// Config
+require DIR_ROOT . "/config.php";
 
 // Startup
 require SYSTEM . "startup.php";

@@ -1,5 +1,7 @@
 <?php
 
+namespace Library;
+
 class Console
 {
     public static function addQuery($query)

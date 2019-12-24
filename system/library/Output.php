@@ -1,5 +1,7 @@
 <?php
 
+namespace Library;
+
 class Output
 {
     public static $output_scripts = array();

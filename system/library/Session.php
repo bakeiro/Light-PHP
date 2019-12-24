@@ -1,5 +1,7 @@
 <?php
 
+namespace Library;
+
 class Session
 {
     public static $name;

@@ -1,8 +1,9 @@
 <?php
 
+namespace Library;
+
 class Database
 {
-
     public static $CONN;
 
     public static function getDatabase()
