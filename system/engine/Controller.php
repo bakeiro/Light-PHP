@@ -12,7 +12,7 @@ class Controller
         $route = Config::get("url_controller");
         $url_split = explode('/', $route);
         $this->file = CONTROLLER . $url_split[0] . '/' . $url_split[1] . 'Controller.php';
-        $this->class = $url_split[1] . 'Controller';
+        $this->class = ucfirst($url_split[1]) . 'Controller';
 
         if (count($url_split) === 2) {
             $this->method = 'index';
@@ -63,12 +63,5 @@ class Controller
             $this->class = 'errorController';
             require_once $this->file;
         }
-    }
-
-    public function endExecution(){
-        if(class_exists("Database")){
-            Database::destruct();
-        }
-        //Session::$handler->close();
     }
 }

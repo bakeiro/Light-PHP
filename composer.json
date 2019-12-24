@@ -10,6 +10,12 @@
         "post-create-project-cmd": [
             "php -r \"require_once('./post-install.php'); \"",
             "php -r \"unlink('./post-install.php'); \""
+        ],
+        "lint": [
+            "phpcs --encoding=utf-8 --ignore=src/view/www/* -n -p src/"
+        ],
+        "solve-lint": [
+            "phpcbf --encoding=utf-8 --ignore=src/view/www/* -n -p src/"
         ]
     },
     "authors": [
@@ -21,7 +27,10 @@
         }
     ],
     "require": {
-        "sunra/dbug": "^0.2.1",
         "php": "^7.0"
+    },
+    "require-dev": {
+        "sunra/dbug": "^0.2.1",
+        "squizlabs/php_codesniffer": "3.*"
     }
 }

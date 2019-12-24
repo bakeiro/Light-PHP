@@ -22,8 +22,9 @@ module.exports = {
     "rules": {
         "linebreak-style": ["error","unix" ],
         "quotes": ["error","double" ],
-        "no-alert": "off", // disabled
-        "class-methods-use-this": "off", // disable
+        "no-alert": "off",
+        "prefer-destructuring": "off",
+        "class-methods-use-this": "off",
         //"camelcase": ["error", {properties: "never"}]
         "camelcase": "off"
     }

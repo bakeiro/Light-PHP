@@ -6,7 +6,7 @@ use Library\Output;
 use Library\Console;
 use Model\productModel;
 
-class indexController
+class IndexController
 {
     public function index()
     {
