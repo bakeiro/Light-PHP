@@ -2,6 +2,9 @@
 
 namespace Library;
 
+use Library\Config;
+use SessionSecureHandler;
+
 class Session
 {
     public static $name;

@@ -1,5 +1,7 @@
 <?php
 
+use Library\Config;
+
 class SessionSecureHandler extends SessionHandler
 {
     protected $iv;

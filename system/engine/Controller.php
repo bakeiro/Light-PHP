@@ -1,5 +1,7 @@
 <?php
 
+use Library\Config;
+
 class Controller
 {
     public $file;
@@ -12,7 +14,7 @@ class Controller
         $route = Config::get("url_controller");
         $url_split = explode('/', $route);
         $this->file = CONTROLLER . $url_split[0] . '/' . $url_split[1] . 'Controller.php';
-        $this->class = ucfirst($url_split[1]) . 'Controller';
+        $this->class = "Controller\\" . ucfirst($url_split[1]) . 'Controller';
 
         if (count($url_split) === 2) {
             $this->method = 'index';

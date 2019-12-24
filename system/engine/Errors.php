@@ -1,5 +1,7 @@
 <?php
 
+use Library\Console;
+
 class Errors
 {
     public static $error_handle;

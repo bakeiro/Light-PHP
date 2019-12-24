@@ -3,6 +3,9 @@
 
 <!-- Console -->
 <?php
+
+    use Library\Config;
+
     if (Config::Get("debug_console")) {
         include VIEW . "template/common/Console.php";
     }

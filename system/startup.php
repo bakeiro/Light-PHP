@@ -1,5 +1,11 @@
 <?php
 
+use Library\Util;
+use Library\Config;
+use Library\Console;
+use Library\Session;
+use Library\Database;
+
 // Timezone
 date_default_timezone_set(Config::get("default_time_zone"));
 

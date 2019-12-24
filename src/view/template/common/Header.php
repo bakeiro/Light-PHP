@@ -2,6 +2,10 @@
 <html>
 <head>
 
+    <?php
+        use Library\Config;
+        use Library\Output;
+    ?>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta author="David Baqueiro">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,7 +27,7 @@
 <body>
 
 <?php
-    // Custom CSS/JS
+// Custom CSS/JS
 foreach(Output::$output_styles as $style_file){
     echo $style_file;
 }

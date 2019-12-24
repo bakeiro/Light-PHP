@@ -1,4 +1,7 @@
 <?php
+
+use Library\Config;
+
 class Router
 {
     public static $protocol;

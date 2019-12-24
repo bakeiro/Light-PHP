@@ -1,6 +1,9 @@
 <?php
 
+use Library\Util;
 use Ospinto\dBug;
+use Library\Config;
+use Library\Console;
 
 // Memory
 $memory = Util::convert(memory_get_usage(true));
