@@ -39,7 +39,6 @@ class Psr4AutoloaderClass
     public function addNamespace($prefix, $base_dir, $prepend = false)
     {
         $prefix = trim($prefix, '\\') . '\\';
-
         $base_dir = rtrim($base_dir, DIRECTORY_SEPARATOR) . '/';
 
         if (isset($this->prefixes[$prefix]) === false) {
@@ -69,7 +68,7 @@ class Psr4AutoloaderClass
             $prefix = substr($class, 0, $pos + 1);
             $relative_class = substr($class, $pos + 1);
             $mapped_file = $this->loadMappedFile($prefix, $relative_class);
-            
+
             if ($mapped_file) {
                 return $mapped_file;
             }
@@ -95,9 +94,7 @@ class Psr4AutoloaderClass
         }
 
         foreach ($this->prefixes[$prefix] as $base_dir) {
-            $file = $base_dir
-                  . str_replace('\\', '/', $relative_class)
-                  . '.php';
+            $file = $base_dir . str_replace('\\', '/', $relative_class) . '.php';
 
             if ($this->requireFile($file)) {
                 return $file;

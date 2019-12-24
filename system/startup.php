@@ -87,8 +87,8 @@ Config::set("console_execution_trace", array());
 Config::set("controller_execution_time", microtime(true));
 
 // Autoloader
-$loader = new \System\Psr4AutoloaderClass;
+$loader = new Psr4AutoloaderClass();
 $loader->register();
 $loader->addNamespace('Controller', DIR_ROOT.'/controller');
 $loader->addNamespace('Model', DIR_ROOT.'/model');
-$loader->addNamespace('System', DIR_ROOT.'/system');
+$loader->addNamespace('Library', DIR_ROOT.'/system/library');
