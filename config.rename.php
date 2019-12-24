@@ -1,5 +1,7 @@
 <?php
 
+use Library\Config;
+
 /**
  * Config variables:
  *
