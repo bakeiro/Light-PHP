@@ -15,10 +15,10 @@ use Library\Config;
 
 // Database
 Config::set("initialize_database", false);
-Config::set("CONN_HOST", "localhost");
-Config::set("CONN_USER", "root");
-Config::set("CONN_PASS", "");
-Config::set("CONN_DDBB", "framework");
+Config::set("CONN_HOST", "%CONN_HOST%");
+Config::set("CONN_USER", "%CONN_USER%");
+Config::set("CONN_PASS", "%CONN_PASS%");
+Config::set("CONN_DDBB", "%CONN_DB%");
 
 // Session
 Config::set("session_name", "MY_SESSION");
@@ -27,12 +27,12 @@ Config::set("session_iv", "ThisIsMySecretIv"); // randomly generated in post ins
 Config::set("session_key", "ThisIsMySecretPass"); // randomly generated in post install script
 
 // Email
-Config::set("email_host", "***");
-Config::set("email_username", "***");
-Config::set("email_pass", "***");
-Config::set("email_port", "***");
-Config::set("email_from", "***");
-Config::set("email_from_name", "***");
+Config::set("email_host", "%EMAIL_HOST%");
+Config::set("email_username", "%EMAIL_USERNAME%");
+Config::set("email_pass", "%EMAIL_PASS%");
+Config::set("email_port", "%EMAIL_PORT%");
+Config::set("email_from", "%EMAIL_FROM%");
+Config::set("email_from_name", "%EMAIL_FROM_NAME%");
 
 // Timezone
 Config::set("default_time_zone", "Europe/Madrid");
