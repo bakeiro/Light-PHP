@@ -14,6 +14,8 @@ class IndexController
 {
     /**
      * Main page
+     *
+     * @return void
      */
     public function index()
     {
@@ -40,6 +42,8 @@ class IndexController
 
     /**
      * Just an sample
+     *
+     * @return void
      */
     public function sample()
     {

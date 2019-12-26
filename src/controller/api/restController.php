@@ -12,6 +12,8 @@ class RestController
     /**
      * Takes the model function, executes it, and returns an
      * json back to the client
+     *
+     * @return JSON
      */
     public function index()
     {

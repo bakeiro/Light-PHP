@@ -16,6 +16,8 @@ class ErrorController
     /**
      * Returns the same template when the
      * route/method/class was not found
+     *
+     * @return void
      */
     public function notFound()
     {

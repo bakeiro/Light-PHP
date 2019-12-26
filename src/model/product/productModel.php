@@ -13,6 +13,8 @@ class ProductModel
 
     /**
      * Sample function to show how a model's function it's done
+     *
+     * @return Array
      */
     public function getAllProducts()
     {
@@ -22,6 +24,10 @@ class ProductModel
 
     /**
      * Another sample
+     *
+     * @param int $prod_id product id for searching
+     *
+     * @return Array
      */
     public function getProductById($prod_id)
     {
