@@ -50,5 +50,4 @@ class IndexController
         $data = array("product_name" => $product_name, "product_price" => $product_price, "product_description" => $product_description);
         Output::load("welcome/sampleView", $data);
     }
-
 }

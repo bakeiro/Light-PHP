@@ -1,5 +1,5 @@
 <?php
-
+// phpcs:disable
 use Library\Config;
 
 /**
