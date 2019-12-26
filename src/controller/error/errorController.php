@@ -5,8 +5,18 @@ namespace Controller;
 use Library\Config;
 use Library\Output;
 
-class errorController
+/**
+ * Controller used for returning 404 error
+ * pages
+ */
+
+class ErrorController
 {
+
+    /**
+     * Returns the same template when the
+     * route/method/class was not found
+     */
     public function notFound()
     {
         $data = array();

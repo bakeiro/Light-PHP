@@ -6,8 +6,15 @@ use Library\Output;
 use Library\Console;
 use Model\productModel;
 
+/**
+ * Welcome page controller, just an sample
+ */
+
 class IndexController
 {
+    /**
+     * Main page
+     */
     public function index()
     {
         // String in console
@@ -31,6 +38,9 @@ class IndexController
         Output::load("welcome/welcomeView");
     }
 
+    /**
+     * Just an sample
+     */
     public function sample()
     {
         $product_name = "test product";
