@@ -5,14 +5,14 @@ namespace Model;
 use Library\Database;
 
 /**
- * Just a sample...
+ * Sample of how a model class is
  */
 
 class ProductModel
 {
 
     /**
-     * Sample function to show how a model's function it's done
+     * Sample function: get all the rows from the table `product`
      *
      * @return Array
      */
@@ -23,7 +23,7 @@ class ProductModel
     }
 
     /**
-     * Another sample
+     * Sample function: get product by id
      *
      * @param int $prod_id product id for searching
      *

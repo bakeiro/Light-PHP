@@ -6,16 +6,15 @@ use Library\Config;
 use Library\Output;
 
 /**
- * Controller used for returning 404 error
- * pages
+ * Return the 404 error pages, this is executed when the route it's not found
+ * either in system/routes.php, or the path folder/class/method was wrong
  */
 
 class ErrorController
 {
 
     /**
-     * Returns the same template when the
-     * route/method/class was not found
+     * Returns the 404 error page
      *
      * @return void
      */

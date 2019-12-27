@@ -16,7 +16,7 @@
     <?php $host = Config::Get("url_host"); ?>
 
     <!-- my resources -->
-    <link href="src/view/www/dist/src.css?v=<?php echo $cache?>" rel="stylesheet">
+    <link href="src/view/www/dist/src.css?v=<?=$cache?>" rel="stylesheet">
     <script src="src/view/www/dist/jquery.min.js"></script>
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">

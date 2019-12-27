@@ -7,41 +7,37 @@ use Library\Console;
 use Model\productModel;
 
 /**
- * Welcome page controller, just an sample
+ * Default's controller, this shows the demo pages when you run for first time
+ * this project
  */
 
 class IndexController
 {
     /**
-     * Main page
+     * First sample page, returns welcome template
+     * and uses the Console as example of how to use it
      *
      * @return void
      */
     public function index()
     {
-        // String in console
         Console::addDebugInfo("welcome page loaded ;)");
 
-        // Exception
         $cont = 5;
         $cont = $cont / 0;
 
-        // Array in console
         $list = array(1, "my_value", "hi there! ");
         Console::addDebugInfo($list);
 
-        // Add js file
         Output::addJs("products");
 
-        // Model info...
         // productModel->getProductById(12345);
 
-        // Load template
         Output::load("welcome/welcomeView");
     }
 
     /**
-     * Just an sample
+     * Second sample page
      *
      * @return void
      */

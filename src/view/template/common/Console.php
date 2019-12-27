@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Console script, shows the console at the bottom of the page showing all
+ * errors/warnings and exception along other messages, database queries and other useful data
+ */
+
 use Library\Util;
 use Ospinto\dBug;
 use Library\Config;
@@ -28,14 +33,13 @@ $num_messages   = count($stack_messages);
     <div id='error-console-top'>
         <button class="btn-console enable error-log-body active">Error log</button>
         <button class="btn-console enable info-log-body">System info</button>
-        <!-- <button class="btn-console enable ajax-log-body">Ajax helper</button> -->
 
         <div class="right-console-info">
-            <span class="error-console-right"><?php echo $time_script;?> ms</span>
+            <span class="error-console-right"><?=$time_script;?> ms</span>
             <i class="material-icons console">access_time</i>
         </div>
         <div class="right-console-info">
-            <span class="error-console-right"><?php echo $memory;?></span>
+            <span class="error-console-right"><?=$memory;?></span>
             <i class="material-icons console">storage</i>
             <span> | </span>
         </div>

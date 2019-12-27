@@ -3,7 +3,9 @@
 use Library\Config;
 
 /**
- * Middleware for returning the database model's function to a JSON to the client
+ * Special controller, this class it's executed when the route it's model=file/class/method
+ * this controller, executes the model's function, and return a JSON to the client
+ * basically, if you developed the model's function, with this you don't need a controller
  */
 
 class RestController
@@ -13,7 +15,7 @@ class RestController
      * Takes the model function, executes it, and returns an
      * json back to the client
      *
-     * @return JSON
+     * @return void
      */
     public function index()
     {

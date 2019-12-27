@@ -14,14 +14,6 @@ require SYSTEM . "engine/SessionSecureHandler.php";
 require SYSTEM . "engine/Errors.php";
 require SYSTEM . "engine/Autoloader.php";
 
-// Library
-require SYSTEM . "library/Config.php";
-require SYSTEM . "library/Console.php";
-require SYSTEM . "library/Output.php";
-require SYSTEM . "library/Session.php";
-require SYSTEM . "library/Database.php";
-require SYSTEM . "library/Util.php";
-
 // Config
 require DIR_ROOT . "/config.php";
 
