@@ -33,7 +33,7 @@
 Light-PHP makes possible to start working without reading massive documentations, if this is the case, then Light-PHP might be very useful for you.  
 This was created to be the most simple framework to read/understand.
 
-This project follows the PSR-1, PSR-4 standard, good practices, MVC structure, micro template engine, database abstraction, session management, debug console (for PHP), and much more!.
+This project follows the PSR-0, PSR-1 and PSR-4 standards, good practices, MVC structure, micro template engine, database abstraction, session management, debug console (for PHP), and much more!.
 
 ### Minimum requirements
 
