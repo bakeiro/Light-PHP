@@ -22,29 +22,32 @@
 </p>
 <br>
 
-
 # Light-PHP
 
 ### Documentation
-[Light-PHP documentation](https://bakeiro.github.io/Light-PHP-documentation/)   
 
-**Create your API/Web app immediately!**  
+[Light-PHP documentation](https://bakeiro.github.io/Light-PHP-documentation/)
 
-Light-PHP makes possible start working without reading massive documentations, if this is the case, then Light-PHP might be very useful for you.  
-This was created to be the most simple framework to read/understand  
+**Create your API/Web app immediately!**
 
-This project follows the PSR-1, PSR-4 standars and the good practices, MVC structure, micro template engine, database abstraction, session management, debug console (for PHP) and much more!.
+Light-PHP makes possible to start working without reading massive documentations, if this is the case, then Light-PHP might be very useful for you.  
+This was created to be the most simple framework to read/understand.
+
+This project follows the PSR-1, PSR-4 standard, good practices, MVC structure, micro template engine, database abstraction, session management, debug console (for PHP), and much more!.
 
 ### Minimum requirements
+
 - PHP OpenSSL extension (if wants session encryption, something recommended)
 - PHP (at least 7.X)
 - Database (MySQL suggested)
 
 ### Installation and startup:
-``` php
+
+```php
 composer create-project bakeiro/light-php
 php -S localhost:8080 -t light-php/
 ```
+
 ### License
 
 Light-PHP is licensed under the Open Source MIT license, feel free to use it, modify it or contribute it!</p>
