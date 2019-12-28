@@ -52,6 +52,23 @@ class Database
         return Database::$CONN->lastInsertId();
     }
 
+    public static function initialize()
+    {
+        try {
+            $temp_con = new PDO("mysql:host=" .Config::get("CONN_HOST"). ";port=3306;dbname=" . Config::get("CONN_DDBB"), Config::get("CONN_USER"), Config::get("CONN_PASS"));
+            $temp_con->setAttribute(PDO::ATTR_EMULATE_PREPARES, false); // true prepare statements
+
+            $temp_con->exec("SET NAMES 'utf8'");
+            $temp_con->exec("SET CHARACTER SET utf8");
+            $temp_con->exec("SET CHARACTER_SET_CONNECTION=utf8");
+
+            Database::$CONN = $temp_con;
+
+        } catch (\Throwable $th) {
+            Console::addDebugInfo("Error loading database");
+        }
+    }
+
     public static function destruct()
     {
         //More info about this here: https://php.net/pdo.connections

@@ -27,7 +27,7 @@ class SessionSecureHandler extends SessionHandler
     }
 
     /**
-     * Writes encrypted session values
+     * Encrypt and save session values
      */
     public function write($session_id, $data)
     {

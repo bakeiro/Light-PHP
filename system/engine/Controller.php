@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Controller class, this class executes the main function based in the url,
+ * checks wether the file, class and method exists, and executes it
+ */
 class Controller
 {
     public $file;
@@ -7,6 +11,12 @@ class Controller
     public $data;
     public $method;
 
+    /**
+     * Sets the correct values based in the url
+     *
+     * @param $route String route to parse
+     * @return void
+     */
     public function __construct($route)
     {
         $url_split = explode('/', $route);
@@ -20,11 +30,13 @@ class Controller
         }
     }
 
+    /**
+     * Executes the controller
+     */
     public function execController()
     {
         $this->checkController();
 
-        //Action
         $controller_class = new $this->class();
         $method = $this->method;
         $controller_class->$method();
@@ -45,16 +57,19 @@ class Controller
         return $output;
     }
 
+    /**
+     * Checks wether the file, class and method exist in order to execute it
+     *
+     * @return void
+     */
     public function checkController()
     {
-        //File
         if (!file_exists($this->file)) {
             $this->file = CONTROLLER . 'error/errorController.php';
             $this->method = 'notFound';
             $this->class = 'errorController';
         }
 
-        //Method
         require_once $this->file;
         if (method_exists($this->class, $this->method) === false) {
             $this->file = CONTROLLER . 'error/errorController.php';

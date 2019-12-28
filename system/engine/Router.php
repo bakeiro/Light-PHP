@@ -2,32 +2,32 @@
 
 class Router
 {
-    public static $protocol;
-    public static $host;
-    public static $action;
-    public static $controller;
-    public static $restController;
+    public $protocol;
+    public $host;
+    public $action;
+    public $controller;
+    public $restController;
 
-    public static function init()
+    public function __construct()
     {
-        //Host
+        // Host
         $url_host = 'http://';
         if (isset($_SERVER['HTTPS'])) {
             $url_host = 'https://';
         }
         $url_host .= $_SERVER['HTTP_HOST'];
 
-        //Protocol
+        // Protocol
         $url_protocol = "http";
         if (isset($_SERVER['HTTPS'])) {
             $url_protocol = "https";
         }
 
-        //Action
+        // Action
         $url_action = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
         $rest_controller = null;
 
-        //Controller
+        // Controller
         if (isset($_REQUEST['route']) && !isset($_REQUEST['rest'])) {
             $url_controller = $_REQUEST['route'];
         }
@@ -36,17 +36,17 @@ class Router
             $url_controller = 'api/rest';
         }
         if (!isset($_REQUEST['route']) && !isset($_REQUEST['rest'])) {
-            $url_controller = Router::getSeoUrlMethod($url_action);
+            $url_controller = $this->getSeoUrlMethod($url_action);
         }
 
-        Router::$protocol = $url_protocol;
-        Router::$host = $url_host;
-        Router::$action = $url_action;
-        Router::$controller = $url_controller;
-        Router::$restController = $rest_controller;
+        $this->protocol = $url_protocol;
+        $this->host = $url_host;
+        $this->action = $url_action;
+        $this->controller = $url_controller;
+        $this->restController = $rest_controller;
     }
 
-    public static function getSeoUrlMethod($url_action)
+    public function getSeoUrlMethod($url_action)
     {
         require SYSTEM . "routes.php";
 

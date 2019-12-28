@@ -2,13 +2,15 @@
 
 use Library\Console;
 
+/**
+ * Error handling class, define callbacks to execute and handle warnings, errors, exceptions and unknown errors
+ */
 class Errors
 {
-    public static $error_handle;
+    public $error_handle;
 
-    public static function myErrorHandler($errno, $errstr, $errfile, $errline)
+    public function myErrorHandler($errno, $error_string, $error_file, $error_line)
     {
-        // Get error type
         switch ($errno) {
             case E_NOTICE:
             case E_USER_NOTICE:
@@ -27,58 +29,73 @@ class Errors
                 break;
         }
 
-        // Message
-        $error_string_html = '<b>' . $error . '</b>: ' . $errstr . ' in <b>' . $errfile . '</b> on line <b>' . $errline . '</b>';
-        $error_string_log = $error . ' - ' . $errstr . ' - ' . $errfile . ' - ' . $errline;
+        $error_string_log = " *" . $error . "* " . $error_string . "\n - file: " . $error_file . "\n - on line: " . $error_line. "\n\n";
         $error_string_log = addslashes($error_string_log);
 
-        // Check file
-        Errors::checkLogFile(SYSTEM . "writable/logs/errors.log");
-        Errors::checkLogFile(SYSTEM . "writable/logs/notice.log");
-
-        // Warning/Notice
-        if ($error === "Notice" || $error === "Warning") {
-            Console::addWarning($error_string_html);
+        if ($error === "Warning") {
+            $this->warningHandler($error_string_log);
         }
 
-        // Fatal error/Unknown
-        if ($error === "Fatal Error" || $error === "Unknown") {
-            Console::addError($error_string_html);
+        if ($error === "Notice") {
+            $this->noticeHandler($error_string_log);
+        }
+
+        if ($error === "Fatal Error") {
+            $this->errorHandler($error_string_log);
+        }
+
+        if ($error === "Unknown") {
+            $this->noticeHandler($error_string_log);
         }
 
         return true;
     }
 
-    public static function myExceptionHandler($exception)
+    public function myExceptionHandler($exception)
     {
         $exception_message = $exception->getMessage();
 
         Console::addError($exception_message);
 
+        $this->checkLogFile(SYSTEM . "writable/logs/errors.log");
+        error_log($exception_message."\n", 3, SYSTEM . "writable/logs/errors.log");
+
         die($exception_message);
     }
 
-    public static function noticeHandler()
+    public function noticeHandler($error_string)
     {
-
+        Console::addWarning($error_string);
+        $this->checkLogFile(SYSTEM . "writable/logs/notice.log");
+        error_log($error_string."\n", 3, SYSTEM . "writable/logs/notice.log");
     }
 
-    public static function errorHandler()
+    public function warningHandler($error_string)
     {
-
+        Console::addWarning($error_string);
+        $this->checkLogFile(SYSTEM . "writable/logs/warnings.log");
+        error_log($error_string."\n", 3, SYSTEM . "writable/logs/warnings.log");
     }
 
-    public static function warningHandler()
+    public function errorHandler($error_string)
     {
-        
+        Console::addError($error_string);
+        $this->checkLogFile(SYSTEM . "writable/writable/logs/errors.log");
+        error_log($error_string."\n", 3, SYSTEM . "writable/logs/errors.log");
     }
 
-    public static function checkLogFile($file_name)
+    public function unknownErrorHandler($error_string)
+    {
+        Console::addError($error_string);
+        $this->checkLogFile(SYSTEM . "writable/logs/unknown-errors.log");
+        error_log($error_string."\n", 3, SYSTEM . "writable/logs/unknown-errors.log");
+    }
+
+    public function checkLogFile($file_name)
     {
         if (!file_exists($file_name)) {
             $fileResource = fopen($file_name, "w");
             fclose($fileResource);
         }
     }
-
 }

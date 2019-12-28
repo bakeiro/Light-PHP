@@ -4,45 +4,33 @@ use Library\Util;
 use Library\Config;
 use Library\Console;
 use Library\Session;
-use Library\Database;
-
-// Timezone
-date_default_timezone_set(Config::get("default_time_zone"));
 
 // Composer
 require(SYSTEM."composer/vendor/autoload.php");
+
+// Timezone
+date_default_timezone_set(Config::get("default_time_zone"));
 
 // Error/warning reporting
 $error_class = new Errors();
 set_error_handler( array($error_class,"myErrorHandler") ,E_ALL);
 error_reporting(E_ALL);
 
-// Database
-if(Config::get("initialize_database")){
-
-    try {
-        $temp_con = new PDO("mysql:host=" .Config::get("CONN_HOST"). ";port=3306;dbname=" . Config::get("CONN_DDBB"), Config::get("CONN_USER"), Config::get("CONN_PASS"));
-        $temp_con->setAttribute(PDO::ATTR_EMULATE_PREPARES, false); // true prepare statements
-
-        $temp_con->exec("SET NAMES 'utf8'");
-        $temp_con->exec("SET CHARACTER SET utf8");
-        $temp_con->exec("SET CHARACTER_SET_CONNECTION=utf8");
-
-        Database::$CONN = $temp_con;
-
-    } catch (\Throwable $th) {
-        Console::addDebugInfo("Error loading database");
-    }
+// Debug info
+if(Config::get("show_debug_info")){
+	set_exception_handler(array($error_class,"my_exception_handler"));
+	Config::set("debug_console", false);
+	Config::set("whoops", false);
 }
 
 // Urls
-Router::init();
+$router = new Router();
 
-Config::set("url_host", Router::$protocol);
-Config::set("url_protocol", Router::$host);
-Config::set("url_action", Router::$action);
-Config::set("url_controller", Router::$controller);
-Config::set("url_restController", Router::$restController);
+Config::set("url_host", $router->protocol);
+Config::set("url_protocol", $router->host);
+Config::set("url_action", $router->action);
+Config::set("url_controller", $router->controller);
+Config::set("url_restController", $router->restController);
 
 // Session
 Session::init();
@@ -69,13 +57,6 @@ Util::cleanInput();
 Config::set("output_styles", array());
 Config::set("output_scripts", array());
 
-// Debug info
-if(Config::get("show_debug_info")){
-	set_exception_handler(array($error_class,"my_exception_handler"));
-	Config::set("debug_console", false);
-	Config::set("whoops", false);
-}
-
 // Console info
 Config::set("console_db_queries", array());
 Config::set("console_warnings", array());
@@ -83,12 +64,12 @@ Config::set("console_errors", array());
 Config::set("console_debug_info", array());
 Config::set("console_execution_trace", array());
 
-// Track execution time
-Config::set("controller_execution_time", microtime(true));
-
 // Autoloader
 $loader = new Psr4AutoloaderClass();
 $loader->register();
 $loader->addNamespace('Controller', DIR_ROOT.'/controller');
 $loader->addNamespace('Model', DIR_ROOT.'/model');
 $loader->addNamespace('Library', DIR_ROOT.'/system/library');
+
+// Track execution time
+Config::set("controller_execution_time", microtime(true));

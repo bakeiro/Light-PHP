@@ -2,6 +2,9 @@
 
 namespace Library;
 
+/**
+ * Class for adding information in the debug console
+ */
 class Console
 {
     public static function addQuery($query)
