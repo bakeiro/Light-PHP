@@ -2,7 +2,6 @@
 
 use Library\Util;
 use Library\Config;
-use Library\Console;
 use Library\Session;
 
 // Composer

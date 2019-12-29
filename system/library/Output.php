@@ -2,11 +2,24 @@
 
 namespace Library;
 
+/**
+ * Library class, loads templates, replaces the double brackets by the variable value,
+ * and can add JS and CSS files to the end of a template.
+ */
 class Output
 {
     public static $output_scripts = array();
     public static $output_styles = array();
 
+    /**
+     * Loads a templates using the $route, and uses the $data Array (if exists) in the template.
+     * this load also the header and the footer template
+     *
+     * @param $route String path of the template to load
+     * @param $data String array of data to use in the template (if any)
+     *
+     * @return void
+     */
     public static function load($route, $data = array())
     {
         $content = Output::loadFile(VIEW . 'template/common/Header.php', $data);
@@ -16,12 +29,14 @@ class Output
         echo $content;
     }
 
-    public static function rawLoad($route, $data = array())
-    {
-        $content = Output::loadFile(VIEW . 'template/' . $route . '.php', $data);
-        echo $content;
-    }
-
+    /**
+     * Load a template, replaces the brackets for the variables in the array $data, and returns
+     * the template as String
+     *
+     * @param $route String route of the template to load
+     * @param $data Array Array with values to print in the template
+     * @return String template
+     */
     public static function loadFile($route, $data)
     {
         ob_start();

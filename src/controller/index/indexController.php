@@ -15,7 +15,7 @@ class IndexController
 {
     /**
      * First sample page, returns welcome template
-     * and uses the Console as example of how to use it
+     * and uses the Console class as example of how to use it
      *
      * @return void
      */

@@ -46,4 +46,4 @@ Config::set("show_debug_info", false);
 Config::set("cache_version", "0001");
 
 // Security
-Config::set("allow_forms_without_csrf_input", true); // Force form to implement csrf inputs
+Config::set("allow_forms_without_csrf_input", true); // Force POST request to implement csrf data

@@ -5,12 +5,13 @@
 # Config
 config.php
 php.ini
-composer.lock
-src/view/www/package-lock.json
 
 # Libraries
+composer.lock
 /system/composer/vendor/*
+
+src/view/www/package-lock.json
 /src/view/www/node_modules/*
 
-# Dinamic folder
+# Dynamic folder
 /system/writable/*
