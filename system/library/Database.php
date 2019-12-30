@@ -6,11 +6,11 @@ class Database
 {
     public static $CONN;
 
-    public static function getDatabase()
-    {
-        return Database::$CONN;
-    }
-
+    /**
+     * Query the sql statement in the first param
+     *
+     * @return Array|Boolean
+     */
     public static function query($sql_query, $params = array())
     {
 
@@ -47,11 +47,20 @@ class Database
         return $data;
     }
 
+    /**
+     * Get the last id of the inserted value in the database
+     *
+     */
     public static function getLastId()
     {
         return Database::$CONN->lastInsertId();
     }
 
+    /**
+     * Initializes the database connections, and sets the connection obj in the CONN property
+     *
+     * @return void
+     */
     public static function initialize()
     {
         try {
@@ -69,6 +78,11 @@ class Database
         }
     }
 
+    /**
+     * Kills the database connection, more info: https://php.net/pdo.connections
+     *
+     * @return void
+     */
     public static function destruct()
     {
         //More info about this here: https://php.net/pdo.connections

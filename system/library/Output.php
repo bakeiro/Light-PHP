@@ -48,18 +48,37 @@ class Output
     }
 
 
+    /**
+     * Adds a js file at the end of the html document
+     *
+     * @param $js_route String path of the js file (without extension)
+     * @return void
+     */
     public static function addJs($js_route)
     {
         $output_script = "<script src='src/view/www/dist/" . $js_route . ".js?v=" . Config::Get("cache_version") . "' > </script>";
         Output::$output_scripts[] = $output_script;
     }
 
+    /**
+     * Adds a css file at the end of the html document
+     *
+     * @param $css_route String path of the css file (without extension)
+     * @return void
+     */
     public static function addCss($css_route)
     {
         $output_style = "<link href='src/view/www/dist/" . $css_route . ".css?v=" . Config::Get("cache_version") . "' rel='stylesheet'>";
         Output::$output_styles[] = $output_style;
     }
 
+    /**
+     * Replaces the double brackets by the value in the $data Array
+     *
+     * @param $template String path of the template to import
+     * @param $data Array Array of data to replace in the template
+     * @return String
+     */
     public static function compile($template, $data)
     {
         $keys = array();

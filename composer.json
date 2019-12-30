@@ -12,10 +12,10 @@
             "php -r \"unlink('./post-install.php'); \""
         ],
         "lint": [
-            "phpcs --encoding=utf-8 -n --colors --standard=PSR1,PSR2,PEAR --exclude=PEAR.Commenting.ClassComment,PEAR.Commenting.FileComment --ignore=src/view/* src/"
+            "phpcs --encoding=utf-8 -n --colors --standard=PSR1,PSR2,PEAR --exclude=PEAR.Commenting.ClassComment,PEAR.Commenting.FileComment --ignore=src/view/*,system/composer/*,system/writable/*,system/tests/* ./ "
         ],
         "solve-lint": [
-            "phpcbf --encoding=utf-8 -n --colors --standard=PSR1,PSR2,PEAR --exclude=PEAR.Commenting.ClassComment,PEAR.Commenting.FileComment --ignore=src/view/* src/"
+            "phpcbf --encoding=utf-8 -n --colors --standard=PSR1,PSR2,PEAR --exclude=PEAR.Commenting.ClassComment,PEAR.Commenting.FileComment --ignore=src/view/*,system/composer/*,system/writable/*,system/tests/* ./"
         ]
     },
     "authors": [

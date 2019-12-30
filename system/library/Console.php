@@ -7,6 +7,13 @@ namespace Library;
  */
 class Console
 {
+
+    /**
+     * Adds the query passed in the parameter and displays it in the debug console (already implemented in /library/database)
+     *
+     * @param $query String SQL query for display in the debug console
+     * @return void
+     */
     public static function addQuery($query)
     {
         $db_queries = Config::get("console_db_queries");
@@ -16,6 +23,12 @@ class Console
         Console::addStackTrace($query, "query");
     }
 
+    /**
+     * Adds the error given in the parameter, and display it in the debug console as an error
+     *
+     * @param $error String Errors message to display
+     * @return void
+     */
     public static function addError($error)
     {
         $errors = Config::get("console_errors");
@@ -25,6 +38,9 @@ class Console
         Console::addStackTrace($error, "error");
     }
 
+    /**
+     * 
+     */
     public static function addWarning($warning)
     {
         $warnings = Config::get("console_warnings");
