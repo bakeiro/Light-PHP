@@ -49,7 +49,6 @@ class Database
 
     /**
      * Get the last id of the inserted value in the database
-     *
      */
     public static function getLastId()
     {
@@ -72,7 +71,6 @@ class Database
             $temp_con->exec("SET CHARACTER_SET_CONNECTION=utf8");
 
             Database::$CONN = $temp_con;
-
         } catch (\Throwable $th) {
             Console::addDebugInfo("Error loading database");
         }

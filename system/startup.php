@@ -5,21 +5,21 @@ use Library\Config;
 use Library\Session;
 
 // Composer
-require(SYSTEM."composer/vendor/autoload.php");
+require SYSTEM."composer/vendor/autoload.php";
 
 // Timezone
 date_default_timezone_set(Config::get("default_time_zone"));
 
 // Error/warning reporting
 $error_class = new Errors();
-set_error_handler( array($error_class,"myErrorHandler") ,E_ALL);
+set_error_handler(array($error_class,"myErrorHandler"), E_ALL);
 error_reporting(E_ALL);
 
 // Debug info
-if(Config::get("show_debug_info")){
-	set_exception_handler(array($error_class,"my_exception_handler"));
-	Config::set("debug_console", false);
-	Config::set("whoops", false);
+if (Config::get("show_debug_info")) {
+    set_exception_handler(array($error_class,"my_exception_handler"));
+    Config::set("debug_console", false);
+    Config::set("whoops", false);
 }
 
 // Urls
@@ -35,18 +35,18 @@ Config::set("url_restController", $router->restController);
 Session::init();
 Session::start();
 
-if(!Session::isValid()){
-	Session::forget();
+if (!Session::isValid()) {
+    Session::forget();
 }
 
 // CSRF token
-if(Session::get("csrf_token") === null){
-	Session::set("csrf_token", Util::generateCSRFToken());
-	Session::set("CSRF_input", "<input type='text' name='csrf_token' hidden value='".Session::get("csrf_token")."' />");
+if (Session::get("csrf_token") === null) {
+    Session::set("csrf_token", Util::generateCSRFToken());
+    Session::set("CSRF_input", "<input type='text' name='csrf_token' hidden value='".Session::get("csrf_token")."' />");
 }
 
-if(!Config::get("allow_forms_without_csrf_input")){
-	Util::checkPostCSRFToken();
+if (!Config::get("allow_forms_without_csrf_input")) {
+    Util::checkPostCSRFToken();
 }
 
 // escape + strip tags + trim for $_POST,$_GET

@@ -12,20 +12,20 @@ class Errors
     public function myErrorHandler($errno, $error_string, $error_file, $error_line)
     {
         switch ($errno) {
-            case E_NOTICE:
-            case E_USER_NOTICE:
-                $error = 'Notice';
+        case E_NOTICE:
+        case E_USER_NOTICE:
+            $error = 'Notice';
                 break;
-            case E_WARNING:
-            case E_USER_WARNING:
-                $error = 'Warning';
+        case E_WARNING:
+        case E_USER_WARNING:
+            $error = 'Warning';
                 break;
-            case E_ERROR:
-            case E_USER_ERROR:
-                $error = 'Fatal Error';
+        case E_ERROR:
+        case E_USER_ERROR:
+            $error = 'Fatal Error';
                 break;
-            default:
-                $error = 'Unknown';
+        default:
+            $error = 'Unknown';
                 break;
         }
 

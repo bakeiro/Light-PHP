@@ -11,7 +11,7 @@ class Console
     /**
      * Adds the query passed in the parameter and displays it in the debug console (already implemented in /library/database)
      *
-     * @param $query String SQL query for display in the debug console
+     * @param String $query SQL query for display in the debug console
      * @return void
      */
     public static function addQuery($query)
@@ -39,7 +39,7 @@ class Console
     }
 
     /**
-     * 
+     *
      */
     public static function addWarning($warning)
     {
@@ -73,7 +73,13 @@ class Console
 
             $entitiesToUtf8 = function ($input) {
                 // http://php.net/manual/en/function.html-entity-decode.php#104617
-                return preg_replace_callback("/(&#[0-9]+;)/", function ($m) {return mb_convert_encoding($m[1], "UTF-8", "HTML-ENTITIES");}, $input);
+                return preg_replace_callback(
+                    "/(&#[0-9]+;)/",
+                    function ($m) {
+                        return mb_convert_encoding($m[1], "UTF-8", "HTML-ENTITIES");
+                    },
+                    $input
+                );
             };
             $plainText = function ($input) use ($entitiesToUtf8) {
                 return trim(html_entity_decode($entitiesToUtf8(strip_tags($input))));
@@ -101,7 +107,8 @@ class Console
                 $input,
                 $matches,
                 PREG_SET_ORDER
-            )) {
+            )
+            ) {
                 foreach ($matches as $match) {
                     $fn = strpos($match[0], '<th') === false ? $plainText : $titlePlainText;
                     if (strlen($match[1])) {
