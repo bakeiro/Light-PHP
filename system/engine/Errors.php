@@ -1,5 +1,5 @@
 <?php
-
+// phpcs:disable
 use Library\Console;
 
 /**
@@ -12,21 +12,21 @@ class Errors
     public function myErrorHandler($errno, $error_string, $error_file, $error_line)
     {
         switch ($errno) {
-        case E_NOTICE:
-        case E_USER_NOTICE:
-            $error = 'Notice';
-                break;
-        case E_WARNING:
-        case E_USER_WARNING:
-            $error = 'Warning';
-                break;
-        case E_ERROR:
-        case E_USER_ERROR:
-            $error = 'Fatal Error';
-                break;
-        default:
-            $error = 'Unknown';
-                break;
+            case E_NOTICE:
+            case E_USER_NOTICE:
+                $error = 'Notice';
+            break;
+            case E_WARNING:
+            case E_USER_WARNING:
+                $error = 'Warning';
+            break;
+            case E_ERROR:
+            case E_USER_ERROR:
+                $error = 'Fatal Error';
+            break;
+            default:
+                $error = 'Unknown';
+            break;
         }
 
         $error_string_log = " *" . $error . "* " . $error_string . "\n - file: " . $error_file . "\n - on line: " . $error_line. "\n\n";

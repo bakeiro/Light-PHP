@@ -9,7 +9,7 @@ class Database
     /**
      * Query the sql statement in the first param
      *
-     * @return Array|Boolean
+     * @return array|boolean
      */
     public static function query($sql_query, $params = array())
     {

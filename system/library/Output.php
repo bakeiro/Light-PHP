@@ -77,7 +77,8 @@ class Output
      *
      * @param string $template path of the template to import
      * @param array $data Array of data to replace in the template
-     * @return String
+     * 
+     * @return string
      */
     public static function compile($template, $data)
     {
