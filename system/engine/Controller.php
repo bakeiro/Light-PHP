@@ -14,7 +14,7 @@ class Controller
     /**
      * Sets the correct values based in the url
      *
-     * @param $route String route to parse
+     * @param string $route route to parse
      * @return void
      */
     public function __construct($route)

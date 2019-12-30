@@ -57,6 +57,5 @@ class Router
         } else {
             return "error/error/notFound";
         }
-
     }
 }

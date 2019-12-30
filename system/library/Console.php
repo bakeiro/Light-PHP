@@ -11,7 +11,7 @@ class Console
     /**
      * Adds the query passed in the parameter and displays it in the debug console (already implemented in /library/database)
      *
-     * @param String $query SQL query for display in the debug console
+     * @param string $query SQL query for display in the debug console
      * @return void
      */
     public static function addQuery($query)
@@ -26,7 +26,7 @@ class Console
     /**
      * Adds the error given in the parameter, and display it in the debug console as an error
      *
-     * @param $error String Errors message to display
+     * @param string $error String Errors message to display
      * @return void
      */
     public static function addError($error)
