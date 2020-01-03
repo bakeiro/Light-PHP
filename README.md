@@ -10,8 +10,7 @@
     <a href="https://bakeiro.github.io/Light-PHP-documentation/"><strong>- Explore the DOCS -</strong></a>
     <br><br>
     
-    <a href="https://github.com/bakeiro/Light-PHP/actions">
-    	<img src="https://github.com/bakeiro/Light-PHP/workflows/CI/badge.svg" alt="GitHub Actions Status" style="max-width:100%;">
+    [![GitHub Actions Status](<a href="https://github.com/bakeiro/Light-PHP/actions"><img src="https://github.com/bakeiro/Light-PHP/workflows/CI/badge.svg" alt="GitHub Actions Status" style="max-width:100%;">)
     </a>
     <a href="https://github.com/bakeiro/Light-PHP/stargazers">
     	<img alt="GitHub stars" src="https://img.shields.io/github/stars/bakeiro/Light-PHP">
