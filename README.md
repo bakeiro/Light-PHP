@@ -12,7 +12,9 @@
 <a href="https://github.com/bakeiro/Light-PHP/blob/master/LICENSE.md"><img alt="GitHub" src="https://img.shields.io/github/license/bakeiro/light-PHP"></a>
 <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/bakeiro/light-php">
 <a href="https://github.com/bakeiro/Light-PHP/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/bakeiro/Light-PHP"></a>
-<img alt="Packagist Version" src="https://img.shields.io/packagist/v/bakeiro/light-php?color=green">
+<a href="https://packagist.org/packages/bakeiro/light-php"><img alt="Packagist Version" src="https://img.shields.io/packagist/v/bakeiro/light-php?color=green"></a>
+	
+
 	
   </p>
 </p>
