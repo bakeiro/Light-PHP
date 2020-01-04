@@ -15,6 +15,7 @@ class Controller
      * Sets the correct values based in the url
      *
      * @param string $route route to parse
+     *
      * @return void
      */
     public function __construct($route)
@@ -70,12 +71,12 @@ class Controller
             $this->class = 'errorController';
         }
 
-        require_once $this->file;
+        include_once $this->file;
         if (method_exists($this->class, $this->method) === false) {
             $this->file = CONTROLLER . 'error/errorController.php';
             $this->method = 'notFound';
             $this->class = 'errorController';
-            require_once $this->file;
+            include_once $this->file;
         }
     }
 }

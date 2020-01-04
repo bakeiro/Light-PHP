@@ -35,7 +35,8 @@ class Output
      *
      * @param string $route route of the template to load
      * @param array $data  Array with values to print in the template
-     * @return String template
+     *
+     * @return string template
      */
     public static function loadFile($route, $data)
     {
@@ -52,6 +53,7 @@ class Output
      * Adds a js file at the end of the html document
      *
      * @param string $js_route path of the js file (without extension)
+     * 
      * @return void
      */
     public static function addJs($js_route)
@@ -64,6 +66,7 @@ class Output
      * Adds a css file at the end of the html document
      *
      * @param string $css_route path of the css file (without extension)
+     *
      * @return void
      */
     public static function addCss($css_route)
@@ -77,7 +80,7 @@ class Output
      *
      * @param string $template path of the template to import
      * @param array $data Array of data to replace in the template
-     * 
+     *
      * @return string
      */
     public static function compile($template, $data)

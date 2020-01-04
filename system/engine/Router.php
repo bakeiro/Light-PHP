@@ -48,7 +48,7 @@ class Router
 
     public function getSeoUrlMethod($url_action)
     {
-        require SYSTEM . "routes.php";
+        include SYSTEM . "routes.php";
 
         $routes_name = array_keys($routes);
 
