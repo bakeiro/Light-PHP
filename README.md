@@ -9,15 +9,13 @@
     <br>
     <a href="https://bakeiro.github.io/Light-PHP-documentation/"><strong>- Explore the DOCS -</strong></a>
     <br><br>
-	<a href="https://github.com/bakeiro/Light-PHP/issues">
-      <img src="https://img.shields.io/github/issues/bakeiro/Light-PHP.svg" alt="Issues">
-    </a>
-	<a href="https://github.com/bakeiro/Light-PHP">
-      <img src="https://img.shields.io/github/license/bakeiro/Light-PHP.svg" alt="MIT license">
-    </a>
-    <a href="https://github.com/bakeiro/Light-PHP">
-      <img src="https://img.shields.io/badge/forkable-yes-green.svg" alt="This is a forkable respository">
-    </a>
+<a href="https://github.com/bakeiro/Light-PHP/blob/master/LICENSE.md"><img alt="GitHub" src="https://img.shields.io/github/license/bakeiro/light-PHP"></a>
+<img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/bakeiro/light-php">
+<a href="https://github.com/bakeiro/Light-PHP/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/bakeiro/Light-PHP"></a>
+<a href="https://packagist.org/packages/bakeiro/light-php"><img alt="Packagist Version" src="https://img.shields.io/packagist/v/bakeiro/light-php?color=green"></a>
+	
+
+	
   </p>
 </p>
 <br>
