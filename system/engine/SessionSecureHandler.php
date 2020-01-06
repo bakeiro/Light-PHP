@@ -8,6 +8,12 @@ class SessionSecureHandler extends SessionHandler
 
     /**
      * Constructor
+     *
+     * @param string $session_iv             session iv
+     * @param string $session_key            session key
+     * @param string $session_encrypt_method session encrypt method
+     *
+     * @return void
      */
     public function __construct($session_iv, $session_key, $session_encrypt_method)
     {
@@ -18,6 +24,10 @@ class SessionSecureHandler extends SessionHandler
 
     /**
      * Read the encrypted values
+     *
+     * @param string $session_id session id to read the values
+     *
+     * @return array
      */
     public function read($session_id)
     {
@@ -28,6 +38,11 @@ class SessionSecureHandler extends SessionHandler
 
     /**
      * Encrypt and save session values
+     *
+     * @param string $session_id session to write in the information
+     * @param string $data       data to write into the session id
+     *
+     * @return array
      */
     public function write($session_id, $data)
     {

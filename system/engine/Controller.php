@@ -33,6 +33,8 @@ class Controller
 
     /**
      * Executes the controller
+     *
+     * @return void
      */
     public function execController()
     {
@@ -43,6 +45,11 @@ class Controller
         $controller_class->$method();
     }
 
+    /**
+     * Executes the model function and returns the json to the client
+     *
+     * @return void
+     */
     public function execRest()
     {
         $this->checkController();

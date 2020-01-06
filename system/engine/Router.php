@@ -8,26 +8,27 @@ class Router
     public $controller;
     public $restController;
 
+    /**
+     * Construct
+     *
+     * @return void
+     */
     public function __construct()
     {
-        // Host
         $url_host = 'http://';
         if (isset($_SERVER['HTTPS'])) {
             $url_host = 'https://';
         }
         $url_host .= $_SERVER['HTTP_HOST'];
 
-        // Protocol
         $url_protocol = "http";
         if (isset($_SERVER['HTTPS'])) {
             $url_protocol = "https";
         }
 
-        // Action
         $url_action = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
         $rest_controller = null;
 
-        // Controller
         if (isset($_REQUEST['route']) && !isset($_REQUEST['rest'])) {
             $url_controller = $_REQUEST['route'];
         }
@@ -46,6 +47,13 @@ class Router
         $this->restController = $rest_controller;
     }
 
+    /**
+     * Executes the function associated in the SEO url
+     *
+     * @param string $url_action seo url to search
+     *
+     * @return string
+     */
     public function getSeoUrlMethod($url_action)
     {
         include SYSTEM . "routes.php";

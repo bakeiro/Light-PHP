@@ -12,8 +12,8 @@
     <title>Light PHP</title>
 
     <!-- Variables -->
-    <?php $cache = Config::Get("cache_version"); ?>
-    <?php $host = Config::Get("url_host"); ?>
+    <?php $cache = Config::get("cache_version"); ?>
+    <?php $host = Config::get("url_host"); ?>
 
     <!-- my resources -->
     <link href="src/view/www/dist/src.css?v=<?=$cache?>" rel="stylesheet">

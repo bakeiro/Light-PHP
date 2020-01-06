@@ -41,7 +41,7 @@ class Console
     }
 
     /**
-     *
+     * 
      */
     public static function addWarning($warning)
     {

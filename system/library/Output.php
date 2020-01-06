@@ -34,14 +34,14 @@ class Output
      * the template as String
      *
      * @param string $route route of the template to load
-     * @param array $data  Array with values to print in the template
+     * @param array  $data  Array with values to print in the template
      *
      * @return string template
      */
     public static function loadFile($route, $data)
     {
         ob_start();
-        require $route;
+        include $route;
         $template = ob_get_clean();
 
         $template = Output::compile($template, $data);
@@ -53,12 +53,12 @@ class Output
      * Adds a js file at the end of the html document
      *
      * @param string $js_route path of the js file (without extension)
-     * 
+     *
      * @return void
      */
     public static function addJs($js_route)
     {
-        $output_script = "<script src='src/view/www/dist/" . $js_route . ".js?v=" . Config::Get("cache_version") . "' > </script>";
+        $output_script = "<script src='src/view/www/dist/" . $js_route . ".js?v=" . Config::get("cache_version") . "' > </script>";
         Output::$output_scripts[] = $output_script;
     }
 
@@ -71,7 +71,7 @@ class Output
      */
     public static function addCss($css_route)
     {
-        $output_style = "<link href='src/view/www/dist/" . $css_route . ".css?v=" . Config::Get("cache_version") . "' rel='stylesheet'>";
+        $output_style = "<link href='src/view/www/dist/" . $css_route . ".css?v=" . Config::get("cache_version") . "' rel='stylesheet'>";
         Output::$output_styles[] = $output_style;
     }
 
@@ -79,7 +79,7 @@ class Output
      * Replaces the double brackets by the value in the $data Array
      *
      * @param string $template path of the template to import
-     * @param array $data Array of data to replace in the template
+     * @param array  $data     Array of data to replace in the template
      *
      * @return string
      */
