@@ -4,6 +4,16 @@ use Library\Util;
 use Library\Config;
 use Library\Session;
 
+// Autoloader
+$loader = new Psr4AutoloaderClass();
+$loader->register();
+$loader->addNamespace('Controller', DIR_ROOT.'/controller');
+$loader->addNamespace('Model', DIR_ROOT.'/model');
+$loader->addNamespace('Library', DIR_ROOT.'/system/library');
+
+// Config
+require DIR_ROOT . "/config.php";
+
 // Composer
 require SYSTEM."composer/vendor/autoload.php";
 
@@ -32,7 +42,9 @@ Config::set("url_controller", $router->controller);
 Config::set("url_restController", $router->restController);
 
 // Session
-Session::init();
+$session_handler = new SessionSecureHandler(Config::get("session_iv"), Config::get("session_key"), Config::get("session_encrypt_method"));
+
+Session::init($session_handler);
 Session::start();
 
 if (!Session::isValid()) {
@@ -62,13 +74,6 @@ Config::set("console_warnings", array());
 Config::set("console_errors", array());
 Config::set("console_debug_info", array());
 Config::set("console_execution_trace", array());
-
-// Autoloader
-$loader = new Psr4AutoloaderClass();
-$loader->register();
-$loader->addNamespace('Controller', DIR_ROOT.'/controller');
-$loader->addNamespace('Model', DIR_ROOT.'/model');
-$loader->addNamespace('Library', DIR_ROOT.'/system/library');
 
 // Track execution time
 Config::set("controller_execution_time", microtime(true));

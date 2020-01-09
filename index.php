@@ -14,9 +14,6 @@ require SYSTEM . "engine/SessionSecureHandler.php";
 require SYSTEM . "engine/Errors.php";
 require SYSTEM . "engine/Autoloader.php";
 
-// Config
-require DIR_ROOT . "/config.php";
-
 // Startup
 require SYSTEM . "startup.php";
 

@@ -9,10 +9,9 @@ class Session
     public static $name;
     public static $cookie;
 
-    public static function init($cookie = [])
+    public static function init($session_handler, $cookie = [])
     {
         //Session handler
-        $session_handler = new SessionSecureHandler(Config::get("session_iv"), Config::get("session_key"), Config::get("session_encrypt_method"));
         session_set_save_handler($session_handler, true);
 
         //Variables
