@@ -72,7 +72,6 @@ class Console
     {
         function phpinfo2array()
         {
-
             $entitiesToUtf8 = function ($input) {
                 // http://php.net/manual/en/function.html-entity-decode.php#104617
                 return preg_replace_callback(

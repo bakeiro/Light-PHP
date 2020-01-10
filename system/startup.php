@@ -37,7 +37,7 @@ Config::set("url_restController", $router->restController);
 // Session
 $session_handler = new SessionSecureHandler(Config::get("session_iv"), Config::get("session_key"), Config::get("session_encrypt_method"));
 
-Session::init($session_handler);
+Session::init($session_handler, Config::get("session_name"));
 Session::start();
 
 if (!Session::isValid()) {

@@ -2,21 +2,19 @@
 
 namespace Library;
 
-use Library\Config;
-
 class Session
 {
     public static $name;
     public static $cookie;
 
-    public static function init($session_handler, $cookie = [])
+    public static function init($session_handler, $session_name, $cookie = [])
     {
         //Session handler
         session_set_save_handler($session_handler, true);
 
         //Variables
         Session::$cookie = $cookie;
-        Session::$name = Config::get("session_name");
+        Session::$name = $session_name;
         Session::$cookie += [
             'lifetime' => ini_get('session.gc_maxlifetime'),
             'path' => "/",

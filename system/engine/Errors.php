@@ -1,5 +1,6 @@
 <?php
 // phpcs:disable PSR1.Classes.ClassDeclaration
+
 use Library\Console;
 
 /**
@@ -11,22 +12,15 @@ class Errors
 
     public function myErrorHandler($errno, $error_string, $error_file, $error_line)
     {
-        switch ($errno) {
-            case E_NOTICE:
-            case E_USER_NOTICE:
+        $error = "Unknown";
+        if($errno === E_NOTICE || $errno === E_USER_NOTICE) {
             $error = 'Notice';
-            break;
-            case E_WARNING:
-            case E_USER_WARNING:
+        }
+        if($errno === E_WARNING || $errno === E_USER_WARNING) {
             $error = 'Warning';
-            break;
-            case E_ERROR:
-            case E_USER_ERROR:
+        }
+        if($errno === E_ERROR || $errno === E_USER_ERROR) {
             $error = 'Fatal Error';
-            break;
-            default:
-            $error = 'Unknown';
-            break;
         }
 
         $error_string_log = " *" . $error . "* " . $error_string . "\n - file: " . $error_file . "\n - on line: " . $error_line. "\n\n";
