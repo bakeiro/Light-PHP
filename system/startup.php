@@ -4,13 +4,6 @@ use Library\Util;
 use Library\Config;
 use Library\Session;
 
-// AutoLoader
-$loader = new Psr4AutoloaderClass();
-$loader->register();
-$loader->addNamespace('Controller', DIR_ROOT.'/controller');
-$loader->addNamespace('Model', DIR_ROOT.'/model');
-$loader->addNamespace('Library', DIR_ROOT.'/system/library');
-
 // Config
 require DIR_ROOT . "/config.php";
 

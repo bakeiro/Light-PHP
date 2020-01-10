@@ -1,5 +1,6 @@
 <?php
-// phpcs:disable
+// phpcs:disable PSR1.Classes.ClassDeclaration
+
 /**
  * An example of a general-purpose implementation that includes the optional
  * functionality of allowing multiple base directories for a single namespace
@@ -28,12 +29,13 @@ class Psr4AutoloaderClass
     /**
      * Adds a base directory for a namespace prefix.
      *
-     * @param string $prefix The namespace prefix.
+     * @param string $prefix   The namespace prefix.
      * @param string $base_dir A base directory for class files in the
-     * namespace.
-     * @param bool $prepend If true, prepend the base directory to the stack
-     * instead of appending it; this causes it to be searched first rather
-     * than last.
+     *                         namespace.
+     * @param bool   $prepend  If true, prepend the base directory to the stack
+     *                         instead of appending it; this causes it to be
+     *                         searched first rather than last.
+     *
      * @return void
      */
     public function addNamespace($prefix, $base_dir, $prepend = false)
@@ -56,6 +58,7 @@ class Psr4AutoloaderClass
      * Loads the class file for a given class name.
      *
      * @param string $class The fully-qualified class name.
+     *
      * @return mixed The mapped file name on success, or boolean false on
      * failure.
      */
@@ -64,7 +67,6 @@ class Psr4AutoloaderClass
         $prefix = $class;
 
         while (false !== $pos = strrpos($prefix, '\\')) {
-
             $prefix = substr($class, 0, $pos + 1);
             $relative_class = substr($class, $pos + 1);
             $mapped_file = $this->loadMappedFile($prefix, $relative_class);
@@ -82,8 +84,9 @@ class Psr4AutoloaderClass
     /**
      * Load the mapped file for a namespace prefix and relative class.
      *
-     * @param string $prefix The namespace prefix.
+     * @param string $prefix         The namespace prefix.
      * @param string $relative_class The relative class name.
+     *
      * @return mixed Boolean false if no mapped file can be loaded, or the
      * name of the mapped file that was loaded.
      */
@@ -108,12 +111,13 @@ class Psr4AutoloaderClass
      * If a file exists, require it from the file system.
      *
      * @param string $file The file to require.
+     *
      * @return bool True if the file exists, false if not.
      */
     protected function requireFile($file)
     {
         if (file_exists($file)) {
-            require $file;
+            include $file;
             return true;
         }
         return false;

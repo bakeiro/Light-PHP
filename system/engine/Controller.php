@@ -1,4 +1,5 @@
 <?php
+// phpcs:disable PSR1.Classes.ClassDeclaration
 
 /**
  * Controller class, this class executes the main function based in the url,

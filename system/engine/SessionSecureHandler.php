@@ -1,5 +1,5 @@
 <?php
-
+// phpcs:disable PSR1.Classes.ClassDeclaration
 class SessionSecureHandler extends SessionHandler
 {
     protected $iv;

@@ -1,5 +1,5 @@
 <?php
-// phpcs:disable
+// phpcs:disable PSR1.Classes.ClassDeclaration
 use Library\Console;
 
 /**

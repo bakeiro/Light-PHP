@@ -14,6 +14,13 @@ require SYSTEM . "engine/SessionSecureHandler.php";
 require SYSTEM . "engine/Errors.php";
 require SYSTEM . "engine/Autoloader.php";
 
+// AutoLoader
+$loader = new Psr4AutoloaderClass();
+$loader->register();
+$loader->addNamespace('Controller', DIR_ROOT.'/controller');
+$loader->addNamespace('Model', DIR_ROOT.'/model');
+$loader->addNamespace('Library', DIR_ROOT.'/system/library');
+
 // Startup
 require SYSTEM . "startup.php";
 
