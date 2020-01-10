@@ -4,7 +4,7 @@ use Library\Util;
 use Library\Config;
 use Library\Session;
 
-// Autoloader
+// AutoLoader
 $loader = new Psr4AutoloaderClass();
 $loader->register();
 $loader->addNamespace('Controller', DIR_ROOT.'/controller');

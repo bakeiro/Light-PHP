@@ -14,18 +14,18 @@ class Errors
         switch ($errno) {
             case E_NOTICE:
             case E_USER_NOTICE:
-                $error = 'Notice';
+            $error = 'Notice';
             break;
             case E_WARNING:
             case E_USER_WARNING:
-                $error = 'Warning';
+            $error = 'Warning';
             break;
             case E_ERROR:
             case E_USER_ERROR:
-                $error = 'Fatal Error';
+            $error = 'Fatal Error';
             break;
             default:
-                $error = 'Unknown';
+            $error = 'Unknown';
             break;
         }
 
