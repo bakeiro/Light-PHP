@@ -69,15 +69,25 @@ class Util
      */
     public static function cleanInput()
     {
+        /*
         function arrayClean(&$value)
         {
             $value = trim($value); // Duplicated values
             $value = strip_tags($value); // Avoid XSS attacks
             $value = Util::escape($value); // SQL injections
         }
+        */
 
-        array_walk_recursive($_GET, 'arrayClean');
-        array_walk_recursive($_POST, 'arrayClean');
+        //TODO: Check this!
+        array_walk_recursive($_GET, 'trim');
+        array_walk_recursive($_GET, 'strip_tags');
+        array_walk_recursive($_GET, array("Util", "escape"));
+
+        array_walk_recursive($_POST, 'trim');
+        array_walk_recursive($_POST, 'strip_tags');
+        array_walk_recursive($_POST, array("Util", "escape"));
+
+        // array_walk_recursive($_POST, 'arrayClean');
     }
 
     /**

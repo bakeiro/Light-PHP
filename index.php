@@ -12,10 +12,10 @@ require SYSTEM . "engine/Router.php";
 require SYSTEM . "engine/Controller.php";
 require SYSTEM . "engine/SessionSecureHandler.php";
 require SYSTEM . "engine/Errors.php";
-require SYSTEM . "engine/Autoloader.php";
+require SYSTEM . "engine/AutoLoader.php";
 
 // AutoLoader
-$loader = new Psr4AutoloaderClass();
+$loader = new Psr4AutoLoaderClass();
 $loader->register();
 $loader->addNamespace('Controller', DIR_ROOT.'/controller');
 $loader->addNamespace('Model', DIR_ROOT.'/model');
