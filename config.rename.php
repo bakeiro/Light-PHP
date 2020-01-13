@@ -15,10 +15,10 @@ use Library\Config;
 
 // Database
 Config::set("initialize_database", false);
-Config::set("CONN_HOST", "%CONN_HOST%");
-Config::set("CONN_USER", "%CONN_USER%");
-Config::set("CONN_PASS", "%CONN_PASS%");
-Config::set("CONN_DDBB", "%CONN_DB%");
+Config::set("DB_HOST", "%DB_HOST%");
+Config::set("DB_USER", "%DB_USER%");
+Config::set("DB_PASS", "%DB_PASS%");
+Config::set("DB_NAME", "%DB_NAME%");
 
 // Session
 Config::set("session_name", "MY_SESSION");
@@ -28,7 +28,7 @@ Config::set("session_key", "ThisIsMySecretPass"); // randomly generated in post 
 
 // Email
 Config::set("email_host", "%EMAIL_HOST%");
-Config::set("email_username", "%EMAIL_USERNAME%");
+Config::set("email_name", "%EMAIL_NAME%");
 Config::set("email_pass", "%EMAIL_PASS%");
 Config::set("email_port", "%EMAIL_PORT%");
 Config::set("email_from", "%EMAIL_FROM%");
@@ -40,7 +40,6 @@ Config::set("default_time_zone", "Europe/Madrid");
 // Debug
 Config::set("debug_console", true);
 Config::set("execution_time", microtime(true));
-Config::set("show_debug_info", false);
 
 // Cache (change it from update css/js/fonts in the client browser)
 Config::set("cache_version", "0001");
