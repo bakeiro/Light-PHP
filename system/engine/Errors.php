@@ -13,13 +13,13 @@ class Errors
     public function myErrorHandler($errno, $error_string, $error_file, $error_line)
     {
         $error = "Unknown";
-        if($errno === E_NOTICE || $errno === E_USER_NOTICE) {
+        if ($errno === E_NOTICE || $errno === E_USER_NOTICE) {
             $error = 'Notice';
         }
-        if($errno === E_WARNING || $errno === E_USER_WARNING) {
+        if ($errno === E_WARNING || $errno === E_USER_WARNING) {
             $error = 'Warning';
         }
-        if($errno === E_ERROR || $errno === E_USER_ERROR) {
+        if ($errno === E_ERROR || $errno === E_USER_ERROR) {
             $error = 'Fatal Error';
         }
 
