@@ -49,7 +49,11 @@ class Errors
     }
 
     /**
+     * Handler function to execute always that an exception happen
      *
+     * @param object $exception Exception object containing all the information about the exception
+     *
+     * @return void
      */
     public function myExceptionHandler($exception)
     {
@@ -64,7 +68,11 @@ class Errors
     }
 
     /**
+     * Notice error handler, it executes always a Notice is triggered
      *
+     * @param string $error_string String of the notice message
+     *
+     * @return void
      */
     public function noticeHandler($error_string)
     {
