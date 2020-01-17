@@ -9,22 +9,21 @@ class Database
     /**
      * Query the sql statement in the first param
      *
+     * @param string $sql_query SQL query statement to execute
+     * @param array  $params    array containing all the values to replace in the $sql_query variable to do safe prepare statements
+     *
      * @return array|boolean
      */
     public static function query($sql_query, $params = array())
     {
-
-        //Console
         Console::addQuery($sql_query);
 
-        //Exec
         $smtp = Database::$CONN->prepare($sql_query);
         $smtp->setFetchMode(PDO::FETCH_ASSOC);
         $query = $smtp->execute($params);
 
         $data = array();
 
-        //Select
         if ($query) {
             while ($row = $smtp->fetch()) {
                 $data[] = $row;
@@ -38,7 +37,6 @@ class Database
                 $data = false;
             }
 
-            //Insert (return last id generated)
             if (strpos($sql_query, "INSERT INTO") !== false) {
                 $data = Database::$CONN->lastInsertId();
             }
@@ -49,6 +47,8 @@ class Database
 
     /**
      * Get the last id of the inserted value in the database
+     *
+     * @return int
      */
     public static function getLastId()
     {

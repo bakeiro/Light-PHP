@@ -10,6 +10,9 @@ class Errors
 {
     public $error_handle;
 
+    /**
+     *
+     */
     public function myErrorHandler($errno, $error_string, $error_file, $error_line)
     {
         $error = "Unknown";
@@ -45,6 +48,9 @@ class Errors
         return true;
     }
 
+    /**
+     *
+     */
     public function myExceptionHandler($exception)
     {
         $exception_message = $exception->getMessage();
@@ -57,6 +63,9 @@ class Errors
         die($exception_message);
     }
 
+    /**
+     *
+     */
     public function noticeHandler($error_string)
     {
         Console::addWarning($error_string);
@@ -64,6 +73,9 @@ class Errors
         error_log($error_string."\n", 3, SYSTEM . "writable/logs/notice.log");
     }
 
+    /**
+     *
+     */
     public function warningHandler($error_string)
     {
         Console::addWarning($error_string);
@@ -71,6 +83,9 @@ class Errors
         error_log($error_string."\n", 3, SYSTEM . "writable/logs/warnings.log");
     }
 
+    /**
+     *
+     */
     public function errorHandler($error_string)
     {
         Console::addError($error_string);
@@ -78,6 +93,9 @@ class Errors
         error_log($error_string."\n", 3, SYSTEM . "writable/logs/errors.log");
     }
 
+    /**
+     *
+     */
     public function unknownErrorHandler($error_string)
     {
         Console::addError($error_string);
@@ -85,6 +103,9 @@ class Errors
         error_log($error_string."\n", 3, SYSTEM . "writable/logs/unknown-errors.log");
     }
 
+    /**
+     *
+     */
     public function checkLogFile($file_name)
     {
         if (!file_exists($file_name)) {

@@ -7,12 +7,19 @@ class Session
     public static $name;
     public static $cookie;
 
+    /**
+     * Initializes the session settings using a custom session handler
+     *
+     * @param SessionHandler $session_handler custom session handler
+     * @param string         $session_name    name of the session
+     * @param array          $cookie          cookie
+     *
+     * @return void
+     */
     public static function init($session_handler, $session_name, $cookie = [])
     {
-        //Session handler
         session_set_save_handler($session_handler, true);
 
-        //Variables
         Session::$cookie = $cookie;
         Session::$name = $session_name;
         Session::$cookie += [
@@ -23,7 +30,6 @@ class Session
             'httponly' => true,
         ];
 
-        //Setup
         session_name(Session::$name);
         session_set_cookie_params(
             Session::$cookie['lifetime'],
@@ -34,6 +40,12 @@ class Session
         );
     }
 
+    /**
+     * Starts the session and checks that it's not empty, and regenerates the id of the session
+     * with a probability of 1/5
+     *
+     * @return boolean
+     */
     public static function start()
     {
         if (session_id() === '') {
@@ -44,6 +56,13 @@ class Session
         return false;
     }
 
+    /**
+     * Get function, gets the value inserted in the $name param
+     *
+     * @param string $name name of the array key to get the session value
+     *
+     * @return string|boolean
+     */
     public static function get($name)
     {
         $parsed = explode('.', $name);
@@ -59,6 +78,14 @@ class Session
         return $result;
     }
 
+    /**
+     * Writes the $value param into the $name index of the array
+     *
+     * @param string $name  name of the session index to store the value
+     * @param string $value value to write into the session $name index
+     *
+     * @return void
+     */
     public static function set($name, $value)
     {
         $parsed = explode('.', $name);
@@ -73,11 +100,22 @@ class Session
         $session[array_shift($parsed)] = $value;
     }
 
+    /**
+     * Checks if the current session is valid, this means, that it's not expired
+     * and that the fingerprint, didn't change
+     *
+     * @return boolean
+     */
     public static function isValid()
     {
         return !Session::isExpired() && Session::isFingerprint();
     }
 
+    /**
+     * Checks wether the clients headers and the remote ip address didn't change
+     *
+     * @return boolean
+     */
     public static function isFingerprint()
     {
         $hash = md5(
@@ -91,6 +129,13 @@ class Session
         return true;
     }
 
+    /**
+     * Checks wether the session didn't expire (ttl)
+     *
+     * @param int $ttl time to live setting
+     *
+     * @return boolean
+     */
     public static function isExpired($ttl = 30)
     {
         $last = isset($_SESSION['_last_activity'])
@@ -103,6 +148,11 @@ class Session
         return false;
     }
 
+    /**
+     * Deletes and cleans the session
+     *
+     * @return boolean
+     */
     public static function forget()
     {
         if (session_id() === '') {

@@ -3,7 +3,7 @@
 namespace Library;
 
 /**
- * Class for adding information in the debug console
+ * Class to interact with the debug console
  */
 class Console
 {
@@ -41,7 +41,11 @@ class Console
     }
 
     /**
+     * Adds a warning text to the debug console
      *
+     * @param string $warning warning message to display in the debug console
+     *
+     * @return void
      */
     public static function addWarning($warning)
     {
@@ -52,6 +56,14 @@ class Console
         Console::addStackTrace($warning, "warning");
     }
 
+    /**
+     * Outputs the $debug_message variable into the console, in case that the param argument, it's
+     * an array, it displays all the array values
+     *
+     * @param string $debug_message variable to display in the debug console
+     *
+     * @return void
+     */
     public static function addDebugInfo($debug_message)
     {
         $debug_info = Config::get("console_debug_info");
@@ -61,6 +73,14 @@ class Console
         Console::addStackTrace($debug_message, "debug_info");
     }
 
+    /**
+     * Adds a message to display into the debug console
+     *
+     * @param string $message
+     * @param string $type
+     *
+     * @return void
+     */
     public static function addStackTrace($message, $type)
     {
         $console_execution_traces = Config::get("console_execution_trace");
@@ -68,6 +88,12 @@ class Console
         Config::set("console_execution_trace", $console_execution_traces);
     }
 
+    /**
+     * Gets all the server information, including session settings, cookie, server settings
+     * date and time information and much more to display it into the debug console
+     *
+     * @return string
+     */
     public static function getServerInfo()
     {
         function phpinfo2array()
@@ -150,6 +176,7 @@ class Console
         if (isset($important_info["PHP Variables"])) {
             $debug_info["environment"] = $important_info["PHP Variables"];
         }
+        
         return $debug_info;
     }
 }

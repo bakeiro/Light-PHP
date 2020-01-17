@@ -6,6 +6,12 @@ class Util
 {
     /**
      * Sort one array by one column
+     *
+     * @param array     $arr Array to sort
+     * @param array|int $col column name to sort the array by
+     * @param array|int $dir sort options
+     *
+     * @return array
      */
     public static function arraySortByColumn(&$arr, $col, $dir = SORT_ASC)
     {
@@ -19,6 +25,10 @@ class Util
 
     /**
      * Convert the size into a readable size measurement
+     *
+     * @param int $size size number of memory to convert into a readable value
+     *
+     * @return string
      */
     public static function convert($size)
     {
@@ -28,6 +38,8 @@ class Util
 
     /**
      * Check if the running request is started by an AJAX
+     *
+     * @return boolean
      */
     public static function isAjaxRequest()
     {
@@ -39,6 +51,8 @@ class Util
 
     /**
      * Get IP address - if proxy lets get the REAL IP address
+     *
+     * @return string
      */
     public function ipAddress()
     {
@@ -57,7 +71,11 @@ class Util
     }
 
     /**
-     * Clean string
+     * Cleans the param value, and escapes all the quotes/special characters
+     *
+     * @param string $value String to clean all the quotes, break lines and special chars
+     *
+     * @return string
      */
     public static function escape($value)
     {
@@ -66,6 +84,8 @@ class Util
 
     /**
      * Clean $_POST and $_GET values
+     *
+     * @return void
      */
     public static function cleanInput()
     {
@@ -92,6 +112,10 @@ class Util
 
     /**
      * Deletes special characters
+     *
+     * @param string $text text to clean special characters
+     *
+     * @return string
      */
     public static function sanitizeText($text)
     {
@@ -99,7 +123,11 @@ class Util
     }
 
     /**
-     * Generates simple token
+     * Generates an simple random token with an specified length
+     *
+     * @param int $length length of the token to generate
+     *
+     * @return string
      */
     public static function generateSimpleToken($length)
     {
@@ -116,11 +144,21 @@ class Util
         return $token;
     }
 
+    /**
+     * Generates a random token for use in the CSRF token (this is used to check the POST forms integrity)
+     *
+     * @return string
+     */
     public static function generateCSRFToken()
     {
         return bin2hex(random_bytes(32));
     }
 
+    /**
+     * Checks wether the CSRF token used in the POST form, matches with the CSRF token stored in the session
+     *
+     * @return void
+     */
     public static function checkPostCSRFToken()
     {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
