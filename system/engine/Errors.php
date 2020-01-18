@@ -11,7 +11,14 @@ class Errors
     public $error_handle;
 
     /**
+     * Error handler
      *
+     * @param string $errno        File number
+     * @param string $error_string Error message
+     * @param string $error_file   File of the error
+     * @param string $error_line   line of the error
+     *
+     * @return void
      */
     public function myErrorHandler($errno, $error_string, $error_file, $error_line)
     {
@@ -44,8 +51,6 @@ class Errors
         if ($error === "Unknown") {
             $this->noticeHandler($error_string_log);
         }
-
-        return true;
     }
 
     /**
@@ -82,7 +87,11 @@ class Errors
     }
 
     /**
+     * Warning handler, it executes always a Warning is triggered
      *
+     * @param string $error_string String of the warning message
+     *
+     * @return void
      */
     public function warningHandler($error_string)
     {
@@ -92,7 +101,11 @@ class Errors
     }
 
     /**
+     * Error handler, it executes always a Error is triggered
      *
+     * @param string $error_string String of the error message
+     *
+     * @return void
      */
     public function errorHandler($error_string)
     {
@@ -102,7 +115,11 @@ class Errors
     }
 
     /**
+     * Notice error handler, it executes always a Notice is triggered
      *
+     * @param string $error_string String of the unknown error message
+     *
+     * @return void
      */
     public function unknownErrorHandler($error_string)
     {
@@ -112,7 +129,11 @@ class Errors
     }
 
     /**
+     * Notice error handler, it executes always a Notice is triggered
      *
+     * @param string $file_name String of the unknown error message
+     *
+     * @return void
      */
     public function checkLogFile($file_name)
     {
