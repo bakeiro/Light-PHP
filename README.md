@@ -24,7 +24,7 @@
 
 Light-php it's a really simple yet powerful framework which makes possible to start working without reading massive documentations, so you can focus in the application development and you can understand how the framework works thanks to it's easy MVC structure.  
 
-Yet it looks simple, this project follows the PSR-0, PSR-1 and PSR-4 standards, good coding practices, MVC structure and much more, so this doens't create an "alternative" way to develop apps.  
+Yet it looks simple, this project follows the PSR-0, PSR-1 and PSR-4 standards, good coding practices, MVC structure, dependency injection, and much more!, so this doens't create an "alternative" way to develop apps.  
 
 This project also contains security implementations, micro template engine, database abstraction, session management, and much more!.  
 
