@@ -1,5 +1,10 @@
 <?php
 // phpcs:disable PSR1.Classes.ClassDeclaration
+
+/**
+ * Parses the url, and sets usesful information based in that, like if it's https, the domain name
+ * protocol etc
+ */
 class Router
 {
     public $protocol;
@@ -9,7 +14,7 @@ class Router
     public $restController;
 
     /**
-     * Construct
+     * Parses the url, and saves useful information
      *
      * @return void
      */
@@ -29,14 +34,10 @@ class Router
         $url_action = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
         $rest_controller = null;
 
-        if (isset($_REQUEST['route']) && !isset($_REQUEST['rest'])) {
+        if (isset($_REQUEST['route'])) {
             $url_controller = $_REQUEST['route'];
         }
-        if (isset($_REQUEST['rest']) && !isset($_REQUEST['route'])) {
-            $rest_controller = $_REQUEST['rest'];
-            $url_controller = 'api/rest';
-        }
-        if (!isset($_REQUEST['route']) && !isset($_REQUEST['rest'])) {
+        if (!isset($_REQUEST['route'])) {
             $url_controller = $this->getSeoUrlMethod($url_action);
         }
 
@@ -48,7 +49,8 @@ class Router
     }
 
     /**
-     * Executes the function associated in the SEO url
+     * Search the seo url entered in the function's parameter, in the routes.php file, and sets
+     * controller, class and method associated to that seo url
      *
      * @param string $url_action seo url to search
      *

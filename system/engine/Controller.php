@@ -2,8 +2,8 @@
 // phpcs:disable PSR1.Classes.ClassDeclaration
 
 /**
- * Controller class, this class executes the main function based in the url,
- * checks wether the file, class and method exists, and executes it
+ * Controller class, this class executes the main controller's function based in the url,
+ * checks wether the file, class and method exists, and executes it, if not executes the error method
  */
 class Controller
 {
@@ -13,9 +13,9 @@ class Controller
     public $method;
 
     /**
-     * Sets the correct values based in the url
+     * Parses the url, and sets the controller, class and method based in that
      *
-     * @param string $route route to parse
+     * @param string $route url to parse
      *
      * @return void
      */
@@ -47,27 +47,7 @@ class Controller
     }
 
     /**
-     * Executes the model function and returns the json to the client
-     *
-     * @return void
-     */
-    public function execRest()
-    {
-        $this->checkController();
-
-        $data = $_GET;
-        unset($data['rest']);
-        $data = array_values($data);
-
-        $controller_class = new $this->class();
-        $method = $this->method;
-        $output = call_user_func_array(array($controller_class, $method), $data);
-
-        return $output;
-    }
-
-    /**
-     * Checks wether the file, class and method exist in order to execute it
+     * Checks wether the file, class and method exist, if not, uses the error controller
      *
      * @return void
      */
