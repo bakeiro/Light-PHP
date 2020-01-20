@@ -1,5 +1,9 @@
 <?php
 // phpcs:disable PSR1.Classes.ClassDeclaration
+
+/**
+ * Class used to encrypt and decrypt session data
+ */
 class SessionSecureHandler extends SessionHandler
 {
     protected $iv;
@@ -7,7 +11,8 @@ class SessionSecureHandler extends SessionHandler
     protected $encrypt_method;
 
     /**
-     * Constructor
+     * Constructor, sets the session_iv, session_key, and session_encrypt_method to the session Handler
+     * in order to encrypt and decrypt
      *
      * @param string $session_iv             session iv
      * @param string $session_key            session key

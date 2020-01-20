@@ -4,19 +4,20 @@
 use Library\Console;
 
 /**
- * Error handling class, define callbacks to execute and handle warnings, errors, exceptions and unknown errors
+ * Error handling class, define callbacks to execute when warnings, errors, exceptions and unknown errors happen
  */
 class Errors
 {
     public $error_handle;
 
     /**
-     * Error handler
+     * Error handler, parses the error, and wether it's a warning, exception, notice or something else, executes the
+     * correct callback
      *
-     * @param string $errno        File number
-     * @param string $error_string Error message
+     * @param string $errno        Error name
+     * @param string $error_string Error description
      * @param string $error_file   File of the error
-     * @param string $error_line   line of the error
+     * @param string $error_line   Line of the error
      *
      * @return void
      */
@@ -54,9 +55,9 @@ class Errors
     }
 
     /**
-     * Handler function to execute always that an exception happen
+     * Exception callback
      *
-     * @param object $exception Exception object containing all the information about the exception
+     * @param string $exception Exception message
      *
      * @return void
      */
@@ -73,9 +74,9 @@ class Errors
     }
 
     /**
-     * Notice error handler, it executes always a Notice is triggered
+     * Notice callback
      *
-     * @param string $error_string String of the notice message
+     * @param string $error_string Notice message
      *
      * @return void
      */
@@ -87,9 +88,9 @@ class Errors
     }
 
     /**
-     * Warning handler, it executes always a Warning is triggered
+     * Warning handler
      *
-     * @param string $error_string String of the warning message
+     * @param string $error_string Warning message
      *
      * @return void
      */
@@ -101,9 +102,9 @@ class Errors
     }
 
     /**
-     * Error handler, it executes always a Error is triggered
+     * Error handler
      *
-     * @param string $error_string String of the error message
+     * @param string $error_string Error message
      *
      * @return void
      */
@@ -115,9 +116,9 @@ class Errors
     }
 
     /**
-     * Notice error handler, it executes always a Notice is triggered
+     * Unknown Error handler
      *
-     * @param string $error_string String of the unknown error message
+     * @param string $error_string Unknown error message
      *
      * @return void
      */
@@ -129,9 +130,9 @@ class Errors
     }
 
     /**
-     * Notice error handler, it executes always a Notice is triggered
+     * Checks, wether the file passed in the argument exist, if not, creates it
      *
-     * @param string $file_name String of the unknown error message
+     * @param string $file_name path of the log file
      *
      * @return void
      */

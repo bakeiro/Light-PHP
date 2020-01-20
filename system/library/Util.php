@@ -73,7 +73,7 @@ class Util
     /**
      * Escapes input fields from cross site scripting attacks
      * 
-     * @param $value String to clean all the tags, and prevent running javascript script attacks and html tags
+     * @param string $value  String to clean all the tags, and prevent running        * javascript script attacks and html tags
      * 
      * @return string
      */
