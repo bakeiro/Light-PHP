@@ -7,7 +7,6 @@ use Library\Database;
 /**
  * Sample of how a model class is
  */
-
 class ProductModel
 {
 
