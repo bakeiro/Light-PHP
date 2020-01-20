@@ -34,10 +34,15 @@ This project also contains security implementations, micro template engine, data
 - PHP 7.X
 - Database (MySQL suggested)
 
-### Installation and startup:
+### Installation:
 
 ```php
 composer create-project bakeiro/light-php
+```
+
+### Start up:
+
+```php
 php -S localhost:8080 -t light-php/
 ```
 
