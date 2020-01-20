@@ -24,7 +24,7 @@ class Util
     }
 
     /**
-     * Convert the size into a readable size measurement
+     * Convert the size number into a human readable value
      *
      * @param int $size size number of memory to convert into a readable value
      *
@@ -37,7 +37,7 @@ class Util
     }
 
     /**
-     * Check if the running request is started by an AJAX
+     * Check if the running HTTP request is started by an AJAX
      *
      * @return boolean
      */
@@ -50,7 +50,7 @@ class Util
     }
 
     /**
-     * Get IP address - if proxy lets get the REAL IP address
+     * Get client's IP address - if proxy lets get the REAL IP address
      *
      * @return string
      */
@@ -71,7 +71,7 @@ class Util
     }
 
     /**
-     * Cleans the param value, and escapes all the quotes/special characters
+     * Escapes all the quotes/special characters
      *
      * @param string $value String to clean all the quotes, break lines and special chars
      *

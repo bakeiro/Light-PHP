@@ -13,36 +13,36 @@
 <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/bakeiro/light-php">
 <a href="https://github.com/bakeiro/Light-PHP/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/bakeiro/Light-PHP"></a>
 <a href="https://packagist.org/packages/bakeiro/light-php"><img alt="Packagist Version" src="https://img.shields.io/packagist/v/bakeiro/light-php?color=green"></a>
-	
 
-	
   </p>
 </p>
 <br>
 
 # Light-PHP
 
-### Documentation
+**Create your Web/API apps immediately!**
 
-[Light-PHP documentation](https://bakeiro.github.io/Light-PHP-documentation/)
+Light-php it's a really simple yet powerful framework which makes possible to start working without reading massive documentations, so you can focus in the application development and you can understand how the framework works thanks to it's easy MVC structure.  
 
-**Create your API/Web app immediately!**
+Yet it looks simple, this project follows the PSR-0, PSR-1 and PSR-4 standards, good coding practices, MVC structure, dependency injection, CI with github actions and much more!, so this implements the recommended way to develop apps instead of create an "alternative" way to develop apps.  
 
-Extreme fast, simplest, and light php framework!  
-Light-PHP makes possible to start working without reading massive documentations, if this is the case, then Light-PHP might be very useful for you.  
-
-This project follows the PSR-0, PSR-1 and PSR-4 standards, good practices, MVC structure it has security implementations, micro template engine, database abstraction, session management, debug console (for PHP), and much more!.
+This project also contains security implementations, micro template engine, database abstraction, session management, and much more!.  
 
 ### Minimum requirements
 
-- PHP OpenSSL extension (if wants session encryption, something recommended)
-- PHP (at least 7.X)
+- PHP OpenSSL extension (if wants session encryption)
+- PHP 7.X
 - Database (MySQL suggested)
 
-### Installation and startup:
+### Installation:
 
 ```php
 composer create-project bakeiro/light-php
+```
+
+### Startup:
+
+```php
 php -S localhost:8080 -t light-php/
 ```
 

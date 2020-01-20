@@ -3,7 +3,7 @@
 namespace Library;
 
 /**
- * Library class, loads templates, replaces the double brackets by the variable value,
+ * Library class, loads view templates, replaces the double brackets by the variable value,
  * and can add JS and CSS files to the end of a template.
  */
 class Output
@@ -76,7 +76,7 @@ class Output
     }
 
     /**
-     * Replaces the double brackets by the value in the $data Array
+     * Replaces the double brackets found in the template, by the values in the array given in the second param
      *
      * @param string $template path of the template to import
      * @param array  $data     Array of data to replace in the template

@@ -2,12 +2,15 @@
 
 namespace Library;
 
+/**
+ * Database abstraction class, used to interact in a simple way with the database, making the things less complicated than needed
+ */
 class Database
 {
     public static $CONN;
 
     /**
-     * Query the SQL statement in the first param, and sets the values
+     * Executes the SQL query in the 1st param, and replaces the values in it using the array in the second param
      *
      * @param string $sql_query SQL query statement to execute
      * @param array  $params    array containing all the values to replace in the $sql_query variable to do safe prepare statements
@@ -56,7 +59,7 @@ class Database
     }
 
     /**
-     * Initializes the database connections, and sets the connection obj in the CONN property
+     * Initializes the database connections
      *
      * @return void
      */
