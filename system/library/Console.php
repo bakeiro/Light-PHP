@@ -9,7 +9,7 @@ class Console
 {
 
     /**
-     * Adds the query passed in the parameter and displays it in the debug console (already implemented in /library/database)
+     * Adds the SQL query to show it in the console
      *
      * @param string $query SQL query for display in the debug console
      *
@@ -25,7 +25,7 @@ class Console
     }
 
     /**
-     * Adds the error given in the parameter, and display it in the debug console as an error
+     * Adds an error message to the debug console
      *
      * @param string $error String Errors message to display
      *
@@ -41,7 +41,7 @@ class Console
     }
 
     /**
-     * Adds a warning text to the debug console
+     * Adds a warning message to the debug console
      *
      * @param string $warning warning message to display in the debug console
      *
@@ -57,10 +57,10 @@ class Console
     }
 
     /**
-     * Outputs the $debug_message variable into the console, in case that the param argument, it's
-     * an array, it displays all the array values
+     * Displays the variable passed in the parameter in the debug console, if an Array, or Object is passed
+     * this output all the array/object content
      *
-     * @param string $debug_message variable to display in the debug console
+     * @param string|int|object|array|boolean $debug_message variable to display in the debug console
      *
      * @return void
      */
@@ -90,7 +90,7 @@ class Console
 
     /**
      * Gets all the server information, including session settings, cookie, server settings
-     * date and time information and much more to display it into the debug console
+     * date and time information and much more to display it into the debug console in a friendly way ;)
      *
      * @return string
      */

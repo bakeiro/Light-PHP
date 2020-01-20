@@ -7,7 +7,7 @@ class Database
     public static $CONN;
 
     /**
-     * Query the sql statement in the first param
+     * Query the SQL statement in the first param, and sets the values
      *
      * @param string $sql_query SQL query statement to execute
      * @param array  $params    array containing all the values to replace in the $sql_query variable to do safe prepare statements

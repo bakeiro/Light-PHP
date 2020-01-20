@@ -3,15 +3,15 @@
 namespace Library;
 
 /**
- * Static class, used for setting and getting values of configuration
- * along the main execution
+ * Static class, used for getting and setting important values of configuration, by default,
+ * loads the config values from config.php file
  */
 class Config
 {
     public static $data;
 
     /**
-     * Set values
+     * Set value
      *
      * @param string $key   name of the key
      * @param mix    $value value to set
@@ -24,7 +24,7 @@ class Config
     }
 
     /**
-     * Get the value for a key
+     * Get the value
      *
      * @param string $key name of the key to get the value
      *
