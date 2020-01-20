@@ -40,7 +40,7 @@ This project also contains security implementations, micro template engine, data
 composer create-project bakeiro/light-php
 ```
 
-### Start up:
+### Startup:
 
 ```php
 php -S localhost:8080 -t light-php/
