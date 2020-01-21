@@ -10,6 +10,18 @@ class Database
     public static $CONN;
 
     /**
+     * Initialize Database if connection does not exists
+     * 
+     * @return void
+     */
+    private static function getConnection()
+    {
+        if (Database::CONN === null) {
+            Database::initialize();
+        } 
+    }
+    
+    /**
      * Executes the SQL query in the 1st param, and replaces the values in it using the array in the second param
      *
      * @param string $sql_query SQL query statement to execute
@@ -19,6 +31,7 @@ class Database
      */
     public static function query($sql_query, $params = array())
     {
+        Database::getConnection();
         Console::addQuery($sql_query);
 
         $smtp = Database::$CONN->prepare($sql_query);
@@ -55,6 +68,7 @@ class Database
      */
     public static function getLastId()
     {
+        Database::getConnection();
         return Database::$CONN->lastInsertId();
     }
 
