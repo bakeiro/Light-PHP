@@ -71,31 +71,6 @@ class Util
     }
 
     /**
-     * Escapes input fields from cross site scripting attacks
-     * 
-     * @param string $value  String to clean all the tags, and prevent running        * javascript script attacks and html tags
-     * 
-     * @return string
-     */
-    public static  function xssEscape(&$value)
-    {
-        return $value = strip_tags($value);
-    }
-
-    /**
-     * Escapes the white spaces and other predefined characters from the left and right sides of a string.
-     * 
-     * @param string $value String to clean all white spaces and other predefined characters from the left and right 
-     * sides of a string.
-     * 
-     * @return string
-     */
-    public static function trimEscape(&$value)
-    {
-        return $value = trim($value);
-    }
-
-    /**
      * Escapes all the quotes/special characters
      *
      * @param string $value String to clean all the quotes, break lines and special chars
@@ -114,13 +89,25 @@ class Util
      */
     public static function cleanInput()
     {
-        array_walk_recursive($_GET, array("Util", "trimEscape"));
-        array_walk_recursive($_GET, array("Util", "xssEscape"));
+        /*
+        function arrayClean(&$value)
+        {
+            $value = trim($value); // Duplicated values
+            $value = strip_tags($value); // Avoid XSS attacks
+            $value = Util::escape($value); // SQL injections
+        }
+        */
+
+        //TODO: Check this!
+        array_walk_recursive($_GET, 'trim');
+        array_walk_recursive($_GET, 'strip_tags');
         array_walk_recursive($_GET, array("Util", "escape"));
 
-        array_walk_recursive($_POST, array("Util", "trimEscape"));
-        array_walk_recursive($_POST, array("Util", "xssEscape"));
+        array_walk_recursive($_POST, 'trim');
+        array_walk_recursive($_POST, 'strip_tags');
         array_walk_recursive($_POST, array("Util", "escape"));
+
+        // array_walk_recursive($_POST, 'arrayClean');
     }
 
     /**
