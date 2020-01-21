@@ -37,14 +37,14 @@ foreach(Output::$output_scripts as $script_file) {
 ?>
 
 <nav>
-    <div class="nav-wrapper red lighten-2">
+    <div class="nav-wrapper blue darken-1">
 
         <a href="#" data-target="slide-out" class="sidenav-trigger">
             <i class="material-icons">menu</i>
         </a>
 
         <a href="/welcome" class="brand-logo">Logo</a>
-        <span style="position: absolute; left: 99px; top: 15px;">Modify me: src/view/template/common/Header.php</span>
+        <span style="position: absolute; left: 99px; top: 15px;">Header: src/view/template/common/Header.php</span>
 
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="index.php?route=index/index/sample">Sample</a></li>
