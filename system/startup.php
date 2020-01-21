@@ -19,7 +19,7 @@ set_error_handler(array($error_class,"myErrorHandler"), E_ALL);
 error_reporting(E_ALL);
 
 // Exception handler
-set_exception_handler(array($error_class,"my_exception_handler"));
+set_exception_handler(array($error_class,"myExceptionHandler"));
 
 // Router
 $router = new Router();
