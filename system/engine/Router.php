@@ -2,7 +2,7 @@
 // phpcs:disable PSR1.Classes.ClassDeclaration
 
 /**
- * Parses the url, and sets usesful information based in that, like if it's https, the domain name
+ * Parses the url, and sets useful information based in that, like if it's https, the domain name
  * protocol etc
  */
 class Router
