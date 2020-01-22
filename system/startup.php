@@ -8,7 +8,7 @@ use Library\Session;
 require SYSTEM."composer/vendor/autoload.php";
 
 // Config
-require DIR_ROOT . "/config.php";
+require SYSTEM . "/config/config.php";
 
 // Timezone
 date_default_timezone_set(Config::get("default_time_zone"));
