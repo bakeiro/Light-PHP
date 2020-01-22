@@ -3,7 +3,7 @@
 /.vscode/*
 
 # Config
-config.php
+/system/config/config.php
 php.ini
 
 # Libraries
