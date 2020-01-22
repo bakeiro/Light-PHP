@@ -20,13 +20,22 @@
 
 # Light-PHP
 
-**Create your Web/API apps immediately!**
+**_Light-php is simple, lightweight and powerful framework which makes possible to start working without reading massive documentations._**
 
-Light-php it's a really simple yet powerful framework which makes possible to start working without reading massive documentations, so you can focus in the application development and you can understand how the framework works thanks to it's easy MVC structure.  
+Light-php framework is used to be simple, so it follows good practices to make it easy to understand and easy to work with.
 
-Yet it looks simple, this project follows the PSR-0, PSR-1 and PSR-4 standards, good coding practices, MVC structure, dependency injection, CI with github actions and much more!, so this implements the recommended way to develop apps instead of create an "alternative" way to develop apps.  
+Although Light-php is a micro framework, it actually contains super important features, you need to make your web/api apps. Light-php already supports these features such as: security implementations, micro template engine, database absraction, session management, MVC structure, and much more.
 
-This project also contains security implementations, micro template engine, database abstraction, session management, and much more!.  
+### What are benefits of using Light-php:
+
+- Quick development
+- Easy to work with
+- It uses best practices
+- Micro template engine
+- Flexible
+- Security implementation
+- Lightweight framework
+- And much more
 
 ### Minimum requirements
 
@@ -34,19 +43,26 @@ This project also contains security implementations, micro template engine, data
 - PHP 7.X
 - Database (MySQL suggested)
 
-### Installation:
+### Installation
 
 ```php
 composer create-project bakeiro/light-php
 ```
 
-### Startup:
+### Documentation
 
-```php
-php -S localhost:8080 -t light-php/
-```
+You can find the Light-php documentation <a href="https://bakeiro.github.io/Light-PHP-documentation/"><strong>here</strong></a>
+
+The Light-php documentation sections:
+
+- <a href="https://bakeiro.github.io/Light-PHP-documentation/">Introduction</a>
+- <a href="https://bakeiro.github.io/Light-PHP-documentation/overview/Overview.html">Overview</a>
+- <a href="https://bakeiro.github.io/Light-PHP-documentation/overview/Routing.html">Routing</a>
+- <a href="https://bakeiro.github.io/Light-PHP-documentation/overview/Template.html">Template</a>
+- <a href="https://bakeiro.github.io/Light-PHP-documentation/overview/Database.html">Database</a>
+- <a href="https://bakeiro.github.io/Light-PHP-documentation/advanced/MoreInfo.html">More info</a>
 
 ### License
 
-Light-PHP is licensed under the Open Source MIT license, feel free to use it, modify it or contribute it!</p>
+Light-PHP is licensed under the Open Source MIT license, feel free to use it, modify it or contribute on it!</p>
 Built by [David Baqueiro](https://davidbaqueiro.com)
