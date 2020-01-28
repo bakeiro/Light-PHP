@@ -49,19 +49,6 @@ Light-PHP supports these features such as: security implementations, micro templ
 composer create-project bakeiro/light-php
 ```
 
-### Documentation
-
-You can find the Light-php documentation <a href="https://bakeiro.github.io/Light-PHP-documentation/"><strong>here</strong></a>
-
-The Light-php documentation sections:
-
-- <a href="https://bakeiro.github.io/Light-PHP-documentation/">Introduction</a>
-- <a href="https://bakeiro.github.io/Light-PHP-documentation/overview/Overview.html">Overview</a>
-- <a href="https://bakeiro.github.io/Light-PHP-documentation/overview/Routing.html">Routing</a>
-- <a href="https://bakeiro.github.io/Light-PHP-documentation/overview/Template.html">Template</a>
-- <a href="https://bakeiro.github.io/Light-PHP-documentation/overview/Database.html">Database</a>
-- <a href="https://bakeiro.github.io/Light-PHP-documentation/advanced/MoreInfo.html">More info</a>
-
 ### License
 
 Light-PHP is licensed under the Open Source MIT license, feel free to use it, modify it or contribute on it!</p>
