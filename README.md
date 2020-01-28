@@ -24,7 +24,7 @@
 
 Light-php framework is used to be simple, so it follows good practices to make it easy to understand and easy to work with.
 
-Although Light-php is a micro framework, it actually contains super important features, you need to make your web/api apps. Light-php already supports these features such as: security implementations, micro template engine, database absraction, session management, MVC structure, and much more.
+Although Light-php is a micro framework, it actually contains important features, you need to make your web/api apps. Light-php already supports these features such as: security implementations, micro template engine, database absraction, session management, MVC structure, and much more.
 
 ### What are benefits of using Light-php:
 
