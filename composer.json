@@ -8,7 +8,9 @@
     },
     "scripts": {
         "post-create-project-cmd": [
-            "php -r \"require_once('./post-install.php'); \""
+            "php -r \"require_once('./post-install.php'); \"",
+            "php -r \"unlink('./post-install.php'); \"",
+            "@solve-lint"
         ],
         "lint": [
             "phpcs --encoding=utf-8 -n -s --colors --standard=PSR1,PSR2,PEAR --exclude=PEAR.Commenting.ClassComment,PEAR.Commenting.FileComment --ignore=src/view/*,system/composer/*,system/writable/*,system/tests/* ./ "
