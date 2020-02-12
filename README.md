@@ -20,7 +20,7 @@
 
 # Light-PHP
 
-**Light-php is simple, lightweight and powerful framework which makes possible to start working without reading massive documentations.**
+**light-PHP, most easy profesional framework.**
 
 Light-php framework is used to be simple, so it follows good practices to make it easy to understand and easy to work with.
 
