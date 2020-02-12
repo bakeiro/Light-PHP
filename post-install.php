@@ -16,4 +16,3 @@ rename('php.rename.ini', 'php.ini');
 rename('system/rename.writable', 'system/writable');
 
 unlink('README.md');
-
