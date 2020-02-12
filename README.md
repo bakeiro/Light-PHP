@@ -22,7 +22,7 @@
 
 **Most easy profesional framework.**
 
-Light-php framework is focused to be easy, simple, and secure. It follows good practices to make it easy to understand and easy to work with without reading massive documentation and doing things more complicated than necessary.
+Light-php framework is focused to be easy, simple, and secure. It follows the good practices, it's easy to understand and easy to work with without reading massive documentation and doing things more complicated than necessary.
 
 Although Light-PHP it's a micro framework, it contains important features and implements the good coding standards to build you API/Web app.  
 Light-PHP supports these features such as: security implementations, micro template engine, database abstraction, session management, MVC structure, and much more
