@@ -13,6 +13,7 @@ file_put_contents('./system/config/config.rename.php', $config_string);
 
 rename('./system/config/config.rename.php', './system/config/config.php');
 rename('php.rename.ini', 'php.ini');
-rename('system/rename_writable', 'system/writable');
+rename('system/rename.writable', 'system/writable');
 
 unlink('README.md');
+
