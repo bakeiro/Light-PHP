@@ -12,8 +12,8 @@ ini_set("session.use_trans_sid", "Off");
 ini_set("session.cookie_httponly", "On");
 
 // Session duration
-ini_set("session.cookie_lifetime", 90); # 0
-ini_set("session.gc_maxlifetime", 90); # 4h, 14400
+ini_set("session.cookie_lifetime", 90); // 0
+ini_set("session.gc_maxlifetime", 90); // 4h, 14400
 
 // Session garbage collector
 ini_set("session.gc_probability", 1);
