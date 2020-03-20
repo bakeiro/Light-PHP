@@ -25,11 +25,7 @@ class Controller
         $this->file = CONTROLLER . $url_split[0] . '/' . $url_split[1] . 'Controller.php';
         $this->class = "Controller\\" . ucfirst($url_split[1]) . 'Controller';
 
-        if (count($url_split) === 2) {
-            $this->method = 'index';
-        } else {
-            $this->method = $url_split[2];
-        }
+        $this->method = $url_split[2];
     }
 
     /**

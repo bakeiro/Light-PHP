@@ -45,4 +45,4 @@ Config::set("execution_time", microtime(true));
 Config::set("cache_version", "0001");
 
 // Security
-Config::set("allow_forms_without_csrf_input", true); // Force POST request to implement csrf data
+Config::set("allow_forms_without_csrf_input", false); // Force POST request to implement csrf data

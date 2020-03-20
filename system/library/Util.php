@@ -83,22 +83,6 @@ class Util
     }
 
     /**
-     * Clean $_POST and $_GET values
-     *
-     * @return void
-     */
-    public static function cleanInput()
-    {
-        array_walk_recursive($_GET, 'trim');
-        array_walk_recursive($_GET, 'strip_tags');
-        array_walk_recursive($_GET, array("Library\Util", "escape"));
-
-        array_walk_recursive($_POST, 'trim');
-        array_walk_recursive($_POST, 'strip_tags');
-        array_walk_recursive($_POST, array("Library\Util", "escape"));
-    }
-
-    /**
      * Deletes special characters
      *
      * @param string $text text to clean special characters

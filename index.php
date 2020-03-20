@@ -22,6 +22,7 @@ $loader->addNamespace('Model', DIR_ROOT.'/model');
 $loader->addNamespace('Library', DIR_ROOT.'/system/library');
 
 // Startup
+require SYSTEM . "config/php_ini.php";
 require SYSTEM . "startup.php";
 
 // Controller

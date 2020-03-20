@@ -40,7 +40,7 @@ class IndexController
      *
      * @return void
      */
-    public function sample()
+    public function samplePage()
     {
         $product_name = "test product";
         $product_price = "900€";
