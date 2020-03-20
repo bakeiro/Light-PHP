@@ -20,16 +20,12 @@ class Router
      */
     public function __construct()
     {
-        $url_host = 'http://';
-        if (isset($_SERVER['HTTPS'])) {
-            $url_host = 'https://';
-        }
-        $url_host .= $_SERVER['HTTP_HOST'];
-
         $url_protocol = "http";
         if (isset($_SERVER['HTTPS'])) {
             $url_protocol = "https";
         }
+        
+        $url_host = $url_protocol.'://'.$_SERVER['HTTP_HOST'];
 
         $url_action = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
         $rest_controller = null;
