@@ -20,6 +20,9 @@
         ],
         "solve-lint": [
             "phpcbf --encoding=utf-8 -n --colors --standard=PSR1,PSR2,PEAR --exclude=PEAR.Commenting.ClassComment,PEAR.Commenting.FileComment --ignore=src/view/*,system/composer/*,system/writable/*,system/tests/* ./"
+        ],
+        "install-pre-commit": [
+            "php -r \"rename('system/pre-commit', '.git/hooks/pre-commit'); \""
         ]
     },
     "authors": [
