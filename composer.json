@@ -15,11 +15,14 @@
         "lint": [
             "phpcs --encoding=utf-8 -n -s --colors --standard=PSR1,PSR2,PEAR --exclude=PEAR.Commenting.ClassComment,PEAR.Commenting.FileComment --ignore=src/view/*,system/composer/*,system/writable/*,system/tests/* ./ "
         ],
-        "simple-lint": [
+        "fix-lint": [
+            "phpcbf --encoding=utf-8 -n --colors --standard=PSR1,PSR2,PEAR --exclude=PEAR.Commenting.ClassComment,PEAR.Commenting.FileComment --ignore=src/view/*,system/composer/*,system/writable/*,system/tests/* ./"
+        ],
+        "strict-lint": [
             "phpcs --encoding=utf-8 -n -s --colors --standard=PSR1,PSR2,PEAR --exclude=PEAR.Commenting.ClassComment,PEAR.Commenting.FileComment,PEAR.Commenting.FunctionComment --ignore=src/view/*,system/composer/*,system/writable/*,system/tests/* ./ "
         ],
-        "solve-lint": [
-            "phpcbf --encoding=utf-8 -n --colors --standard=PSR1,PSR2,PEAR --exclude=PEAR.Commenting.ClassComment,PEAR.Commenting.FileComment --ignore=src/view/*,system/composer/*,system/writable/*,system/tests/* ./"
+        "test-environment-compatibility": [
+            "\"./system/composer/vendor/bin/phpunit\" --do-not-cache-result --filter environmentTest ./system/tests/environmentTest.php"
         ],
         "install-pre-commit": [
             "php -r \"rename('system/pre-commit', '.git/hooks/pre-commit'); \""
@@ -34,10 +37,12 @@
         }
     ],
     "require": {
-        "php": "^7.0"
+        "php": "^7.0",
+        "ext-openssl": "*"
     },
     "require-dev": {
         "sunra/dbug": "^0.2.1",
-        "squizlabs/php_codesniffer": "3.*"
+        "squizlabs/php_codesniffer": "3.*",
+        "phpunit/phpunit": "8"
     }
 }
