@@ -3,14 +3,11 @@
 /.vscode/*
 
 # Config
-/system/config/config.php
+/system/config/settings.php
 php.ini
 
 # Libraries
-composer.lock
 /system/composer/vendor/*
-
-src/view/www/package-lock.json
 /src/view/www/node_modules/*
 
 # Dynamic folder
