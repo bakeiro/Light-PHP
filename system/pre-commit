@@ -3,6 +3,9 @@
 PROJECT=`php -r "echo dirname(dirname(dirname(realpath('$0'))));"`
 STAGED_FILES_CMD=`git diff --cached --name-only --diff-filter=ACMR HEAD | grep \\\\.php`
 
+echo $PROJECT
+echo $STAGED_FILES_CMD
+
 # Determine if a file list is passed
 if [ "$#" -eq 1 ]
 then
@@ -29,6 +32,7 @@ done
 if [ "$FILES" != "" ]
 then
 	echo "Running Code Sniffer..."
+    echo $FILES
 	./vendor/bin/phpcbf --standard=PSR1,PSR2,PEAR --exclude=PEAR.Commenting.ClassComment,PEAR.Commenting.FileComment --encoding=utf-8 -n --colors  $FILES --ignore=src/view/*,system/composer/*,system/writable/*,system/tests/* ./
 fi
 
