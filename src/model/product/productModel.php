@@ -7,12 +7,13 @@ use Library\Database;
 /**
  * Sample of how a model class is
  */
-
-
-
 class ProductModel
 {
-
+    /**
+     * Return all products
+     *
+     * @return Array
+     */
     public function getAllProducts()
     {
         $prods = Database::query("SELECT * FROM `product`");
