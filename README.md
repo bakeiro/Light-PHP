@@ -1,7 +1,7 @@
 <p align="center">
 
   <a href="https://bakeiro.github.io/Light-PHP-documentation/">
-    <img src="https://github.com/bakeiro/Light-PHP/blob/7c5e7aa0993bdb48a17bdbe19d780826648794c6/src/view/www/src/images/logo.png" alt="logo" width=200 height=47>
+    <img src="https://github.com/bakeiro/Light-PHP/blob/7c5e7aa0993bdb48a17bdbe19d780826648794c6/src/view/www/src/images/logo.png" alt="logo" width=300 height=83>
   </a>
   <h3 align="center">Light-PHP</h3>
   <p align="center">
