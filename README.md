@@ -23,8 +23,12 @@
 
 Light-php it's a tiny PHP framework focused to be simple, easy and secure. It follows the good coding practices, it's easy to understand and easy to work with without reading massive documentation or doing things more complicated than necessary.
 
-Although Light-PHP it's a micro framework, its complete enough in a lot of cases to let you build your API or Web project.  
-It's focused to contain the essential features, be simple and readable and implement coding standards.  
+### What's this project?
+This is a lighweigh micro PHP Framework focused on simplicity, on keep things simple, and aimed to small, medium Apps/APIs (big apps even possible, dividing your app in smaller ones) and making things simple
+
+### What's not this project?
+This doesn't pretend to be a full complete PHP framework, with ORM, autowiring, high abstracted, automatic processes, or any kind of 'black magic' complex algorithm that frameworks comes nowdays. Also this doesn't pretend to include each of the PSR standars and only include the most important ones.
+
 Light-PHP supports these features such as: security implementations, micro template engine, database abstraction, session management, MVC structure, and much more
 
 ### What are benefits of using Light-php:
