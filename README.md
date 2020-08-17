@@ -32,10 +32,9 @@ Light-PHP supports these features such as: security implementations, micro templ
 - Quick development
 - Lightweight
 - MVC structure
-- Easy to work with
+- Focused on simplicity
 - Implements best practices
 - Security implementations
-- And much more
 
 ### Minimum requirements
 
