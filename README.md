@@ -31,6 +31,9 @@ This doesn't pretend to be a full complete PHP framework, highly abstracted, wit
 
 Light-PHP supports these features such as: security implementations, micro template engine, database abstraction, session management, MVC structure, and much more
 
+### For who is this project?
+This proyect can be aimed for people who only needs a small proyect to build and doesn't need a complete PHP framework, for beginners in PHP who need a easy entry point, for people who want to try a new PHP framework, and this proyect cover all it's needs
+
 ### What are benefits of using Light-php:
 
 - Quick development
