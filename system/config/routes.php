@@ -7,4 +7,5 @@
 
 $routes = array();
 $routes["/"] = "index/index/index";
+$routes["/welcome"] = "index/index/index";
 $routes["/sample"] = "index/index/samplePage";
