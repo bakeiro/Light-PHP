@@ -13,6 +13,9 @@ file_put_contents("./system/config/_config.php", $config_string);
 
 rename("./system/config/_config.php", "./system/config/config.php");
 rename("./system/config/_ini.php", "./system/config/ini.php");
-rename("system/rename.writable", "system/writable");
+
+mkdir("./system/writable");
+mkdir("./system/writable/logs");
+mkdir("./system/writable/upload");
 
 unlink("README.md");
