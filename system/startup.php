@@ -50,14 +50,14 @@ if (!Config::get("allow_forms_without_csrf_input")) {
     Util::checkPostCSRFToken();
 }
 
-// Input security (POST and GET)
-array_walk_recursive($_GET, 'trim');
-array_walk_recursive($_GET, 'strip_tags');
-array_walk_recursive($_GET, array("Library\Util", "escape"));
+// XSS, scape characters, SQL Injection
+Util::array_walk_recursive_referential($_GET, array("Library\Util", "preventXSS"));
+Util::array_walk_recursive_referential($_GET, "trim");
+Util::array_walk_recursive_referential($_GET, array("Library\Util", "escape"));
 
-array_walk_recursive($_POST, 'trim');
-array_walk_recursive($_POST, 'strip_tags');
-array_walk_recursive($_POST, array("Library\Util", "escape"));
+Util::array_walk_recursive_referential($_POST, array("Library\Util", "preventXSS"));
+Util::array_walk_recursive_referential($_POST, "trim");
+Util::array_walk_recursive_referential($_POST, array("Library\Util", "escape"));
 
 // Output files
 Config::set("output_styles", array());

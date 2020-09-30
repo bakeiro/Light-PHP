@@ -89,9 +89,9 @@ class Util
      *
      * @return string
      */
-    public static function sanitizeText($text)
+    public static function preventXSS($value)
     {
-        return trim(htmlentities(preg_replace("/([^a-z0-9!@#$%^&*()_\-+\]\[{}\s\n<>:\\/\.,\?;'\"]+)/i", '', $text), ENT_QUOTES, 'UTF-8'));
+        return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
     }
 
     /**
@@ -142,5 +142,24 @@ class Util
                 throw new \Exception('The CSRF token was not defined');
             }
         }
+    }
+
+    /**
+     * This function acts exactly like array_walk_recursive, except that it pretends that the function
+     * its calling replaces the value with its result.
+     *
+     * @param $array The first value of the array will be passed into $function as the primary argument
+     * @param $function The function to be called on each element in the array, recursively
+     * @param $parameters An optional array of the additional parameters to be appended to the function
+     *
+     * Example usage to alter $array to get the second, third and fourth character from each value
+     *     array_walk_recursive_referential($array, "substr", array("1","3"));
+     */
+    public static function array_walk_recursive_referential(&$array, $function, $parameters = array()) {
+        $reference_function = function(&$value, $key, $userdata) {
+            $parameters = array_merge(array($value), $userdata[1]);
+            $value = call_user_func_array($userdata[0], $parameters);
+        };
+        array_walk_recursive($array, $reference_function, array($function, $parameters));
     }
 }
