@@ -47,7 +47,7 @@ foreach(Output::$output_scripts as $script_file) {
         <span style="position: absolute; left: 99px; top: 15px;">Header: src/view/template/common/Header.php</span>
 
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="index.php?route=index/index/sample">Sample</a></li>
+            <li><a href="index.php?route=index/index/samplePage">Sample</a></li>
             <li><a href="index.php?route=index/index/test">Not found page</a></li>
         </ul>
     </div>
@@ -57,7 +57,7 @@ foreach(Output::$output_scripts as $script_file) {
     <br><br>
     <li><a href="/welcome">Welcome</a></li>
     <li><div class="divider"></div></li>
-    <li><a href="index.php?route=index/index/sample">Sample</a></li>
+    <li><a href="index.php?route=index/index/samplePage">Sample</a></li>
     <li><a href="index.php?route=index/index/test">Not found page</a></li>
 
 </ul>
