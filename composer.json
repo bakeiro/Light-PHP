@@ -23,9 +23,6 @@
         ],
         "test-environment-compatibility": [
             "\"./system/composer/vendor/bin/phpunit\" --do-not-cache-result --filter environmentTest ./system/tests/environmentTest.php"
-        ],
-        "install-precommit": [
-            "php -r \"rename('./system/pre-commit', '.git/hooks/pre-commit'); \""
         ]
     },
     "authors": [
