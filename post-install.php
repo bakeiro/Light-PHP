@@ -12,7 +12,7 @@ $config_string = str_replace("ThisIsMySecretPass", $token_pass, $config_string);
 file_put_contents("./system/config/_config.php", $config_string);
 
 rename("./system/config/_config.php", "./system/config/config.php");
-rename("_ini.php", "ini.php");
+rename("./system/config/_ini.php", "./system/config/ini.php");
 rename("system/rename.writable", "system/writable");
 
 unlink("README.md");
