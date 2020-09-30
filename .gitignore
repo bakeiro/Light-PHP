@@ -3,8 +3,8 @@
 /.vscode/*
 
 # Config
-/system/config/settings.php
-php.ini
+/system/config/config.php
+/system/config/ini.php
 
 # Libraries
 /system/composer/vendor/*
