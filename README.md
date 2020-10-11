@@ -43,12 +43,6 @@ This proyect can be aimed for people who only needs a small proyect to build and
 - Implements best practices
 - Security implementations
 
-### Minimum requirements
-
-- PHP OpenSSL extension (if wants session encryption)
-- PHP 7.X
-- Database (MySQL suggested)
-
 ### Installation
 
 ```php
