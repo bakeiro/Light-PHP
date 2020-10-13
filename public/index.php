@@ -1,7 +1,7 @@
 <?php
 
 // Routes
-define("DIR_ROOT", __DIR__);
+define("DIR_ROOT", dirname(__DIR__));
 define("SYSTEM", DIR_ROOT . "/system/");
 define("MODEL", DIR_ROOT . "/src/model/");
 define("CONTROLLER", DIR_ROOT . "/src/controller/");
@@ -21,10 +21,10 @@ $loader->addNamespace('Controller', DIR_ROOT.'/controller');
 $loader->addNamespace('Model', DIR_ROOT.'/model');
 $loader->addNamespace('Library', DIR_ROOT.'/system/library');
 
-// Startup
+// Bootstrap
 require SYSTEM . "config/ini.php";
 require SYSTEM . "startup.php";
 
-// Controller
+// Start MVC
 $Controller = new Controller($router->controller);
 $Controller->execController();
