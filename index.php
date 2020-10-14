@@ -1,5 +1,8 @@
 <?php
 
+// Relative paths from root
+chdir(dirname(__DIR__));
+
 // Routes
 define("DIR_ROOT", dirname(__DIR__));
 define("SYSTEM", DIR_ROOT . "/system/");
