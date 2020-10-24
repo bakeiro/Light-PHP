@@ -1,13 +1,20 @@
 <?php
 
-namespace Library;
+namespace Services;
+
+use Engine\Singleton;
 
 /**
  * Database abstraction class, used to interact in a simple way with the database, making the things less complicated than needed
  */
-class Database
+class Database extends Singleton
 {
-    public static $CONN;
+    public $CONN;
+
+    public function __construct()
+    {
+        // config values here
+    }
 
     /**
      * Executes the SQL query in the 1st param, and replaces the values in it using the array in the second param
@@ -17,15 +24,11 @@ class Database
      *
      * @return array|boolean
      */
-    public static function query($sql_query, $params = array())
+    public function query($sql_query, $params = array())
     {
-        if (Database::CONN === null) {
-            Database::initialize();
-        }
-
         Console::addQuery($sql_query);
 
-        $smtp = Database::$CONN->prepare($sql_query);
+        $smtp = $this->$CONN->prepare($sql_query);
         $smtp->setFetchMode(PDO::FETCH_ASSOC);
         $query = $smtp->execute($params);
 
@@ -45,7 +48,7 @@ class Database
             }
 
             if (strpos($sql_query, "INSERT INTO") !== false) {
-                $data = Database::$CONN->lastInsertId();
+                $data = $this->$CONN->lastInsertId();
             }
         }
 
@@ -57,10 +60,10 @@ class Database
      *
      * @return int
      */
-    public static function getLastId()
+    public function getLastId()
     {
-        Database::getConnection();
-        return Database::$CONN->lastInsertId();
+        $this->getConnection();
+        return $this->$CONN->lastInsertId();
     }
 
     /**
@@ -68,7 +71,7 @@ class Database
      *
      * @return void
      */
-    public static function initialize()
+    public function initialize()
     {
         try {
             $temp_con = new PDO("mysql:host=" .Config::get("CONN_HOST"). ";port=3306;dbname=" . Config::get("CONN_DDBB"), Config::get("CONN_USER"), Config::get("CONN_PASS"));
@@ -78,7 +81,7 @@ class Database
             $temp_con->exec("SET CHARACTER SET utf8");
             $temp_con->exec("SET CHARACTER_SET_CONNECTION=utf8");
 
-            Database::$CONN = $temp_con;
+            $this->$CONN = $temp_con;
         } catch (\Throwable $th) {
             Console::addDebugInfo("Error loading database");
         }
@@ -89,11 +92,11 @@ class Database
      *
      * @return void
      */
-    public static function destruct()
+    public function destruct()
     {
         //More info about this here: https://php.net/pdo.connections
         //KILL CONNECTION_ID()
-        Database::$CONN->query('SELECT pg_terminate_backend(pg_backend_pid());');
-        Database::$CONN = null;
+        $this->$CONN->query('SELECT pg_terminate_backend(pg_backend_pid());');
+        $this->$CONN = null;
     }
 }

@@ -1,12 +1,21 @@
 <?php
 
-namespace Library;
+namespace Services;
+
+use Engine\Singleton;
 
 /**
  * Class to interact with the debug console
  */
-class Console
+class Console extends Singleton
 {
+    protected $db_queries = [];
+    protected $error = [];
+    protected $warnings = [];
+    protected $debug_info = [];
+    protected $console_execution_traces = [];
+
+    // const
 
     /**
      * Adds the SQL query to show it in the console
@@ -15,13 +24,11 @@ class Console
      *
      * @return void
      */
-    public static function addQuery($query)
+    public function addQuery($query)
     {
-        $db_queries = Config::get("console_db_queries");
-        $db_queries[] = $query;
-        Config::set("console_db_queries", $db_queries);
+        $this->db_queries[] = $query;
 
-        Console::addStackTrace($query, "query");
+        $this->addStackTrace($query, "query");
     }
 
     /**
@@ -31,13 +38,11 @@ class Console
      *
      * @return void
      */
-    public static function addError($error)
+    public function addError($error)
     {
-        $errors = Config::get("console_errors");
-        $errors[] = $error;
-        Config::set("console_errors", $errors);
+        $this->errors[] = $error;
 
-        Console::addStackTrace($error, "error");
+        $this->addStackTrace($error, "error");
     }
 
     /**
@@ -47,13 +52,11 @@ class Console
      *
      * @return void
      */
-    public static function addWarning($warning)
+    public function addWarning($warning)
     {
-        $warnings = Config::get("console_warnings");
-        $warnings[] = $warning;
-        Config::set("console_warnings", $warnings);
+        $this->warnings[] = $warning;
 
-        Console::addStackTrace($warning, "warning");
+        $this->addStackTrace($warning, "warning");
     }
 
     /**
@@ -64,13 +67,11 @@ class Console
      *
      * @return void
      */
-    public static function addDebugInfo($debug_message)
+    public function addDebugInfo($debug_message)
     {
-        $debug_info = Config::get("console_debug_info");
-        $debug_info[] = $debug_message;
-        Config::set("console_debug_info", $debug_info);
+        $this->debug_info[] = $debug_message;
 
-        Console::addStackTrace($debug_message, "debug_info");
+        $this->addStackTrace($debug_message, "debug_info");
     }
 
     /**
@@ -81,11 +82,9 @@ class Console
      *
      * @return void
      */
-    public static function addStackTrace($message, $type)
+    public function addStackTrace($message, $type)
     {
-        $console_execution_traces = Config::get("console_execution_trace");
-        $console_execution_traces[] = array("message" => $message, "type" => $type);
-        Config::set("console_execution_trace", $console_execution_traces);
+        $this->console_execution_traces[] = array("message" => $message, "type" => $type);
     }
 
     /**
@@ -94,7 +93,7 @@ class Console
      *
      * @return string
      */
-    public static function getServerInfo()
+    public function getServerInfo()
     {
         $entitiesToUtf8 = function ($input) {
             // http://php.net/manual/en/function.html-entity-decode.php#104617

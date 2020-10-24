@@ -1,6 +1,6 @@
 <?php
 
-namespace Library;
+namespace Services;
 
 /**
  * Library class, loads view templates, replaces the double brackets by the variable value,
@@ -8,8 +8,8 @@ namespace Library;
  */
 class Output
 {
-    public static $output_scripts = array();
-    public static $output_styles = array();
+    public $output_scripts = array();
+    public $output_styles = array();
 
     /**
      * Loads a templates using the $route, and uses the $data Array (if exists) in the template.
@@ -20,7 +20,7 @@ class Output
      *
      * @return void
      */
-    public static function load($route, $data = array())
+    public function load($route, $data = array())
     {
         $content = Output::loadFile(VIEW . 'template/common/Header.php', $data);
         $content .= Output::loadFile(VIEW . 'template/' . $route . '.php', $data);
@@ -38,7 +38,7 @@ class Output
      *
      * @return string template
      */
-    public static function loadFile($route, $data)
+    public function loadFile($route, $data)
     {
         ob_start();
         include $route;
@@ -56,7 +56,7 @@ class Output
      *
      * @return void
      */
-    public static function addJs($js_route)
+    public function addJs($js_route)
     {
         $output_script = "<script src='src/view/www/dist/" . $js_route . ".js?v=" . Config::get("cache_version") . "' > </script>";
         Output::$output_scripts[] = $output_script;
@@ -69,7 +69,7 @@ class Output
      *
      * @return void
      */
-    public static function addCss($css_route)
+    public function addCss($css_route)
     {
         $output_style = "<link href='src/view/www/dist/" . $css_route . ".css?v=" . Config::get("cache_version") . "' rel='stylesheet'>";
         Output::$output_styles[] = $output_style;
@@ -83,7 +83,7 @@ class Output
      *
      * @return string
      */
-    public static function compile($template, $data)
+    public function compile($template, $data)
     {
         $keys = array();
         foreach ($data as $key => $value) {

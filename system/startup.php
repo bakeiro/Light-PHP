@@ -5,7 +5,7 @@ use Library\Config;
 use Library\Session;
 
 // Composer
-require SYSTEM."composer/vendor/autoload.php";
+require SYSTEM . "composer/vendor/autoload.php";
 
 // Config
 require SYSTEM . "/config/config.php";

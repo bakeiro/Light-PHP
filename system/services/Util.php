@@ -1,6 +1,6 @@
 <?php
 
-namespace Library;
+namespace Services;
 
 class Util
 {
@@ -13,7 +13,7 @@ class Util
      *
      * @return array
      */
-    public static function arraySortByColumn(&$arr, $col, $dir = SORT_ASC)
+    public function arraySortByColumn(&$arr, $col, $dir = SORT_ASC)
     {
         $sort_col = array();
 
@@ -30,7 +30,7 @@ class Util
      *
      * @return string
      */
-    public static function convert($size)
+    public function convert($size)
     {
         $unit = array('b', 'kb', 'mb', 'gb', 'tb', 'pb');
         return @round($size / pow(1024, ($i = floor(log($size, 1024)))), 2) . ' ' . $unit[$i];
@@ -41,7 +41,7 @@ class Util
      *
      * @return boolean
      */
-    public static function isAjaxRequest()
+    public function isAjaxRequest()
     {
         if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest') {
             return true;
@@ -77,7 +77,7 @@ class Util
      *
      * @return string
      */
-    public static function escape($value)
+    public function escape($value)
     {
         return str_replace(array("\\", "\0", "\n", "\r", "\x1a", "'", '"'), array("\\\\", "\\0", "\\n", "\\r", "\Z", "\'", '\"'), $value);
     }
@@ -89,7 +89,7 @@ class Util
      *
      * @return string
      */
-    public static function preventXSS($value)
+    public function preventXSS($value)
     {
         return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
     }
@@ -101,7 +101,7 @@ class Util
      *
      * @return string
      */
-    public static function generateSimpleToken($length)
+    public function generateSimpleToken($length)
     {
         $token = "";
         $codeAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -121,7 +121,7 @@ class Util
      *
      * @return string
      */
-    public static function generateCSRFToken()
+    public function generateCSRFToken()
     {
         return bin2hex(random_bytes(32));
     }
@@ -131,7 +131,7 @@ class Util
      *
      * @return void
      */
-    public static function checkPostCSRFToken()
+    public function checkPostCSRFToken()
     {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             if (isset($_POST["csrf_token"])) {
@@ -155,7 +155,7 @@ class Util
      * Example usage to alter $array to get the second, third and fourth character from each value
      *     array_walk_recursive_referential($array, "substr", array("1","3"));
      */
-    public static function array_walk_recursive_referential(&$array, $function, $parameters = array()) {
+    public function array_walk_recursive_referential(&$array, $function, $parameters = array()) {
         $reference_function = function(&$value, $key, $userdata) {
             $parameters = array_merge(array($value), $userdata[1]);
             $value = call_user_func_array($userdata[0], $parameters);

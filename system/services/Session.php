@@ -1,11 +1,11 @@
 <?php
 
-namespace Library;
+namespace Services;
 
 class Session
 {
-    public static $name;
-    public static $cookie;
+    public $name;
+    public $cookie;
 
     /**
      * Initializes the session settings using a custom session handler
@@ -16,7 +16,7 @@ class Session
      *
      * @return void
      */
-    public static function init($session_handler, $session_name, $cookie = [])
+    public function init($session_handler, $session_name, $cookie = [])
     {
         session_set_save_handler($session_handler, true);
 
@@ -46,7 +46,7 @@ class Session
      *
      * @return boolean
      */
-    public static function start()
+    public function start()
     {
         if (session_id() === '') {
             if (session_start()) {
@@ -63,7 +63,7 @@ class Session
      *
      * @return string|boolean
      */
-    public static function get($name)
+    public function get($name)
     {
         $parsed = explode('.', $name);
         $result = $_SESSION;
@@ -86,7 +86,7 @@ class Session
      *
      * @return void
      */
-    public static function set($name, $value)
+    public function set($name, $value)
     {
         $parsed = explode('.', $name);
         $session = &$_SESSION;
@@ -106,7 +106,7 @@ class Session
      *
      * @return boolean
      */
-    public static function isValid()
+    public function isValid()
     {
         return !Session::isExpired() && Session::isFingerprint();
     }
@@ -116,7 +116,7 @@ class Session
      *
      * @return boolean
      */
-    public static function isFingerprint()
+    public function isFingerprint()
     {
         $hash = md5(
             $_SERVER['HTTP_USER_AGENT'] .
@@ -136,7 +136,7 @@ class Session
      *
      * @return boolean
      */
-    public static function isExpired($ttl = 30)
+    public function isExpired($ttl = 30)
     {
         $last = isset($_SESSION['_last_activity'])
         ? $_SESSION['_last_activity']
@@ -153,7 +153,7 @@ class Session
      *
      * @return boolean
      */
-    public static function forget()
+    public function forget()
     {
         if (session_id() === '') {
             return false;
