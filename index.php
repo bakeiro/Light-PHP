@@ -22,7 +22,8 @@ $loader = new Psr4AutoLoaderClass();
 $loader->register();
 $loader->addNamespace('Controller', DIR_ROOT.'/controller');
 $loader->addNamespace('Model', DIR_ROOT.'/model');
-$loader->addNamespace('Library', DIR_ROOT.'/system/library');
+$loader->addNamespace('Services', DIR_ROOT.'/system/services');
+$loader->addNamespace('Engine', DIR_ROOT.'/system/engine');
 
 // Bootstrap
 require SYSTEM . "config/ini.php";

@@ -2,14 +2,30 @@
 // phpcs:disable PSR1.Classes.ClassDeclaration
 
 use Library\Console;
+use Engine\Singleton;
 
 /**
  * Error handling class, define callbacks to execute when warnings, errors, exceptions and unknown errors happen
  */
-class Errors
+class Errors extends Singleton
 {
     public $error_handle;
 
+    private $error_log_path;
+    private $notice_log_path;
+    private $warning_log_path;
+    private $unknown_errors_log_path;
+
+    /**
+     * 
+     */
+    public function __construct($error_log_path, $notice_log_path, $warning_log_path, $unknown_errors_log_path) {
+        $this->error_log_path = $error_log_path;
+        $this->notice_log_path = $notice_log_path;
+        $this->warning_log_path = $warning_log_path;
+        $this->unknown_errors_log_path = $unknown_errors_log_path;
+    }
+    
     /**
      * Error handler, parses the error, and wether it's a warning, exception, notice or something else, executes the
      * correct callback
@@ -67,8 +83,8 @@ class Errors
 
         Console::addError($exception_message);
 
-        $this->checkLogFile(SYSTEM . "writable/logs/errors.log");
-        error_log($exception_message."\n", 3, SYSTEM . "writable/logs/errors.log");
+        $this->checkLogFile(SYSTEM . $this->error_log_path);
+        error_log($exception_message."\n", 3, SYSTEM . $this->error_log_path);
 
         die($exception_message);
     }
@@ -83,8 +99,8 @@ class Errors
     public function noticeHandler($error_string)
     {
         Console::addWarning($error_string);
-        $this->checkLogFile(SYSTEM . "writable/logs/notice.log");
-        error_log($error_string."\n", 3, SYSTEM . "writable/logs/notice.log");
+        $this->checkLogFile(SYSTEM . $this->notice_log_path);
+        error_log($error_string."\n", 3, SYSTEM . $this->notice_log_path);
     }
 
     /**
@@ -97,8 +113,8 @@ class Errors
     public function warningHandler($error_string)
     {
         Console::addWarning($error_string);
-        $this->checkLogFile(SYSTEM . "writable/logs/warnings.log");
-        error_log($error_string."\n", 3, SYSTEM . "writable/logs/warnings.log");
+        $this->checkLogFile(SYSTEM . $this->warning_log_path);
+        error_log($error_string."\n", 3, SYSTEM . $this->warning_log_path);
     }
 
     /**
@@ -111,8 +127,8 @@ class Errors
     public function errorHandler($error_string)
     {
         Console::addError($error_string);
-        $this->checkLogFile(SYSTEM . "writable/writable/logs/errors.log");
-        error_log($error_string."\n", 3, SYSTEM . "writable/logs/errors.log");
+        $this->checkLogFile(SYSTEM . "writable" . $this->error_log_path);
+        error_log($error_string."\n", 3, SYSTEM . $this->error_log_path);
     }
 
     /**
@@ -125,8 +141,8 @@ class Errors
     public function unknownErrorHandler($error_string)
     {
         Console::addError($error_string);
-        $this->checkLogFile(SYSTEM . "writable/logs/unknown-errors.log");
-        error_log($error_string."\n", 3, SYSTEM . "writable/logs/unknown-errors.log");
+        $this->checkLogFile(SYSTEM . $this->unknown_errors_log_path);
+        error_log($error_string."\n", 3, SYSTEM . $this->unknown_errors_log_path);
     }
 
     /**
