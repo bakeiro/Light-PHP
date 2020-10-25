@@ -14,7 +14,7 @@ define("VIEW", DIR_ROOT . "/src/view/");
 require SYSTEM . "engine/Router.php";
 require SYSTEM . "engine/Controller.php";
 require SYSTEM . "engine/SessionSecureHandler.php";
-require SYSTEM . "engine/Errors.php";
+require SYSTEM . "engine/Log.php";
 require SYSTEM . "engine/AutoLoader.php";
 
 // AutoLoader
@@ -24,6 +24,9 @@ $loader->addNamespace('Controller', DIR_ROOT.'/controller');
 $loader->addNamespace('Model', DIR_ROOT.'/model');
 $loader->addNamespace('Services', DIR_ROOT.'/system/services');
 $loader->addNamespace('Engine', DIR_ROOT.'/system/engine');
+
+// Define environment
+putenv("ENVIRONMENT=DEVELOPMENT");
 
 // Bootstrap
 require SYSTEM . "config/ini.php";

@@ -4,8 +4,8 @@
  * Array key => url
  * Array value => folder/class/method (index method if none specified)
  */
-
-$routes = array();
-$routes["/"] = "index/index/index";
-$routes["/welcome"] = "index/index/index";
-$routes["/sample"] = "index/index/samplePage";
+return [
+    "/" => "index/index/index",
+    "/welcome" => "index/index/index",
+    "/sample" => "index/index/samplePage"
+];
