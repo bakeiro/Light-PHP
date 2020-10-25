@@ -4,10 +4,10 @@
 namespace Engine;
 
 /**
- * Controller class, this class executes the main controller's function based in the url,
+ * Model class, this class executes the main controller's function based in the url,
  * checks wether the file, class and method exists, and executes it, if not executes the error method
  */
-class Controller implements Container
+class Model implements Container
 {
     private $container;
 

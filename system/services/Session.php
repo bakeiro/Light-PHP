@@ -15,7 +15,7 @@ class Session extends Singleton
     /**
      * Initializes the session settings using a custom session handler
      *
-     * @param SessionHandler $session_handler custom session handler
+     * @param \SessionHandlerInterface $session_handler custom session handler
      * @param string         $session_name    name of the session
      * @param array          $cookie          cookie
      *
