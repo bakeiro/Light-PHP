@@ -2,7 +2,12 @@
 
 namespace Services;
 
-class Session
+use Engine\Singleton;
+
+/**
+ * Session class to manage the session values in a encrypted way
+ */
+class Session extends Singleton
 {
     public $name;
     public $cookie;
@@ -20,9 +25,9 @@ class Session
     {
         session_set_save_handler($session_handler, true);
 
-        Session::$cookie = $cookie;
-        Session::$name = $session_name;
-        Session::$cookie += [
+        $this->cookie = $cookie;
+        $this->name = $session_name;
+        $this->cookie += [
             'lifetime' => ini_get('session.gc_maxlifetime'),
             'path' => "/",
             'domain' => "",
@@ -30,13 +35,13 @@ class Session
             'httponly' => true,
         ];
 
-        session_name(Session::$name);
+        session_name($this->name);
         session_set_cookie_params(
-            Session::$cookie['lifetime'],
-            Session::$cookie['path'],
-            Session::$cookie['domain'],
-            Session::$cookie['secure'],
-            Session::$cookie['httponly']
+            $this->cookie['lifetime'],
+            $this->cookie['path'],
+            $this->cookie['domain'],
+            $this->cookie['secure'],
+            $this->cookie['httponly']
         );
     }
 
@@ -108,7 +113,7 @@ class Session
      */
     public function isValid()
     {
-        return !Session::isExpired() && Session::isFingerprint();
+        return !$this->isExpired() && $this->isFingerprint();
     }
 
     /**
@@ -158,15 +163,17 @@ class Session
         if (session_id() === '') {
             return false;
         }
+
         $_SESSION = [];
+
         setcookie(
-            Session::$name,
+            $this->name,
             '',
             time() - 42000,
-            Session::$cookie['path'],
-            Session::$cookie['domain'],
-            Session::$cookie['secure'],
-            Session::$cookie['httponly']
+            $this->cookie['path'],
+            $this->cookie['domain'],
+            $this->cookie['secure'],
+            $this->cookie['httponly']
         );
         return session_destroy();
     }

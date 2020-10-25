@@ -2,7 +2,9 @@
 
 namespace Services;
 
-class Util
+use Engine\Singleton;
+
+class Util extends Singleton
 {
     /**
      * Sort one array by one column
