@@ -3,6 +3,10 @@
 use Library\Util;
 use Library\Config;
 use Library\Session;
+use Services\Output;
+
+// Services
+$output = new Output("template/common/Header.php", "template/common/Footer.php");
 
 // Composer
 require SYSTEM . "composer/vendor/autoload.php";

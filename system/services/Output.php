@@ -2,14 +2,29 @@
 
 namespace Services;
 
+use Engine\Singleton;
+
 /**
  * Library class, loads view templates, replaces the double brackets by the variable value,
  * and can add JS and CSS files to the end of a template.
  */
-class Output
+class Output extends Singleton
 {
-    public $output_scripts = array();
-    public $output_styles = array();
+    protected $output_scripts = array();
+    protected $output_styles = array();
+    protected $header_path;
+    protected $footer_path;
+
+    /**
+     *
+     */
+    public function __construct($header_path, $footer_path)
+    {
+        $this->header_path = $header_path;
+        $this->footer_path = $footer_path;
+        $this->output_scripts = [];
+        $this->output_styles = [];
+    }
 
     /**
      * Loads a templates using the $route, and uses the $data Array (if exists) in the template.
@@ -22,9 +37,9 @@ class Output
      */
     public function load($route, $data = array())
     {
-        $content = Output::loadFile(VIEW . 'template/common/Header.php', $data);
-        $content .= Output::loadFile(VIEW . 'template/' . $route . '.php', $data);
-        $content .= Output::loadFile(VIEW . 'template/common/Footer.php', $data);
+        $content = $this->loadFile(VIEW . $this->header_path, $data);
+        $content .= $this->loadFile(VIEW . 'template/' . $route . '.php', $data);
+        $content .= $this->loadFile(VIEW . $this->footer_path, $data);
 
         echo $content;
     }
@@ -44,7 +59,7 @@ class Output
         include $route;
         $template = ob_get_clean();
 
-        $template = Output::compile($template, $data);
+        $template = $this->compile($template, $data);
         return $template;
     }
 
@@ -59,7 +74,7 @@ class Output
     public function addJs($js_route)
     {
         $output_script = "<script src='src/view/www/dist/" . $js_route . ".js?v=" . Config::get("cache_version") . "' > </script>";
-        Output::$output_scripts[] = $output_script;
+        $this->output_scripts[] = $output_script;
     }
 
     /**
@@ -72,7 +87,7 @@ class Output
     public function addCss($css_route)
     {
         $output_style = "<link href='src/view/www/dist/" . $css_route . ".css?v=" . Config::get("cache_version") . "' rel='stylesheet'>";
-        Output::$output_styles[] = $output_style;
+        $this->output_styles[] = $output_style;
     }
 
     /**
