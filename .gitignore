@@ -2,10 +2,6 @@
 /.idea/*
 /.vscode/*
 
-# Config
-/system/config/config.php
-/system/config/ini.php
-
 # Libraries
 /system/composer/vendor/*
 /src/view/www/node_modules/*

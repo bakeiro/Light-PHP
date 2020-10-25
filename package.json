@@ -1,8 +1,5 @@
 {
   "name": "light-php",
-  "version": "1.0.0",
-  "description": "",
-  "main": ".eslintrc.js",
   "scripts": {
     "lint": "eslint \"src/**/*.js\" "
   },

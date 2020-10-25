@@ -7,7 +7,7 @@ use Engine\Singleton;
 /**
  * Error handling class, define callbacks to execute when warnings, errors, exceptions and unknown errors happen
  */
-class Errors extends Singleton
+class Log extends Singleton
 {
     public $error_handle;
 
@@ -17,7 +17,7 @@ class Errors extends Singleton
     private $unknown_errors_log_path;
 
     /**
-     * 
+     *
      */
     public function __construct($error_log_path, $notice_log_path, $warning_log_path, $unknown_errors_log_path) {
         $this->error_log_path = $error_log_path;
@@ -25,7 +25,7 @@ class Errors extends Singleton
         $this->warning_log_path = $warning_log_path;
         $this->unknown_errors_log_path = $unknown_errors_log_path;
     }
-    
+
     /**
      * Error handler, parses the error, and wether it's a warning, exception, notice or something else, executes the
      * correct callback

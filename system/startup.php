@@ -18,7 +18,7 @@ require SYSTEM . "/config/config.php";
 date_default_timezone_set(Config::get("default_time_zone"));
 
 // Error/Warning/Notice handler
-$error_class = new Errors();
+$error_class = new Log();
 set_error_handler(array($error_class,"myErrorHandler"), E_ALL);
 error_reporting(E_ALL);
 
