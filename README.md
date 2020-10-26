@@ -27,7 +27,7 @@ Light-php it's a tiny PHP framework focused to be simple, easy to learn, but eno
 This is a lighweigh micro PHP Framework focused on simplicity, aimed to capable to build small, medium Apps/APIs (big Apps/APIs even possible, dividing your app in smaller ones) and making things just work.
 
 ### What's not this project?
-This doesn't pretend to be a full complete PHP framework, highly abstracted, with ORM, autowiring, automatic processes, complex algorithm, or any kind of 'black magic' that frameworks comes nowdays. Also this doesn't pretend to implement all the PSR standars, but include only the most important ones (PSR-1, PSR-4, PSR-11, PSR-12).
+This doesn't pretend to be a full complete PHP framework, highly abstracted, with ORM, autowiring, automatic processes, complex algorithm, or any kind of 'black magic' that frameworks comes nowdays. Also this doesn't pretend to implement all the PSR standars, but include only the most important ones (PSR-1, PSR-4, PSR-5, PSR-11, PSR-12).
 
 Light-PHP supports these features such as: security implementations, micro template engine, database abstraction, session management, MVC structure, and much more
 
