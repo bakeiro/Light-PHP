@@ -54,4 +54,13 @@ composer create-project bakeiro/light-php
 Light-PHP is licensed under the Open Source MIT license, feel free to use it, modify it or contribute on it!</p>
 Built by [David Baqueiro](https://davidbaqueiro.com)
 
+### Support
+- Star project on the GitHub
+- Propose a [feature](//github.com/bakeiro/Light-PHP/issues)
+- Report an [issue](//github.com/bakeiro/Light-PHP/issues)
+- Send a pull [request](//github.com/bakeiro/Light-PHP/pulls)
+
+### Donations
+Light-PHP is an open source project licensed under the MIT license. It's completely free to use. However, it would be great if you buy me a cup of coffee once in a while to keep me awake :)
+
 <a href="https://www.buymeacoffee.com/bakeiro" target="_blank"><img src="https://raw.githubusercontent.com/bakeiro/light-php-site/master/src/view/www/src/images/coffe.png" alt="Buy Me A Coffee" height=45 style="height: 45px !important;width: 180px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
