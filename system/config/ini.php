@@ -6,7 +6,7 @@ return [
         "log_errors" => 1,
 
         "session.auto_start" => "Off",
-        "session.use_only_cookies" => "On",
+        "session.use_only_cookies" => true,
         "session.use_cookies" => "On",
         "session.use_trans_sid" => "Off",
         "session.cookie_httponly" => "On",
@@ -28,7 +28,7 @@ return [
         "log_errors" => 0,
 
         "session.auto_start" => "Off",
-        "session.use_only_cookies" => "On",
+        "session.use_only_cookies" => true,
         "session.use_cookies" => "On",
         "session.use_trans_sid" => "Off",
         "session.cookie_httponly" => "On",

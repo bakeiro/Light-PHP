@@ -4,7 +4,7 @@
 /**
  * Class used to encrypt and decrypt session data
  */
-class SessionSecureHandler extends SessionHandler
+class SecureSession extends SessionHandler
 {
     protected $iv;
     protected $key;

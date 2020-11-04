@@ -1,5 +1,32 @@
 <?php
 
+$loaded_modules = get_loaded_extensions();
+$loaded_all_dependencies = true;
+
+if (!in_array("openssl", $loaded_modules)) {
+    $loaded_all_dependencies = false;
+}
+
+if (!in_array("session", $loaded_modules)) {
+    $loaded_all_dependencies = false;
+}
+
+if (!in_array("date", $loaded_modules)) {
+    $loaded_all_dependencies = false;
+}
+
+if (!in_array("json", $loaded_modules)) {
+    $loaded_all_dependencies = false;
+}
+
+if (!in_array("PDO", $loaded_modules)) {
+    $loaded_all_dependencies = false;
+}
+
+$enough_php_version = version_compare(phpversion(), '7.0', '>') ? true : false;
+
+
+
 require_once "./system/library/Util.php";
 $config_string = file_get_contents("./system/config/_config.php");
 

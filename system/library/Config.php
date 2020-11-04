@@ -16,18 +16,13 @@ class Config extends Singleton
     protected $data = [];
 
     /**
-     * Path of the config file to get the config values
-     */
-    protected $config_path;
-
-    /**
      * Initializes the config class
      *
      * @param $config_path Specified he path of the config file
      */
     public function __construct($config_path)
     {
-        $this->config_path = $config_path; // TODO: import
+        $this->data = require SYSTEM . "config/config.php";
     }
 
     /**

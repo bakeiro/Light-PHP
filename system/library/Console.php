@@ -15,8 +15,6 @@ class Console extends Singleton
     protected $debug_info = [];
     protected $console_execution_traces = [];
 
-    // const
-
     /**
      * Adds the SQL query to show it in the console
      *

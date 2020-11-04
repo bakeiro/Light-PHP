@@ -7,7 +7,7 @@ use Engine\Singleton;
 /**
  * Error handling class, define callbacks to execute when warnings, errors, exceptions and unknown errors happen
  */
-class Log extends Singleton
+class Logger extends Singleton
 {
     public $error_handle;
 

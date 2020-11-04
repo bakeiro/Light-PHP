@@ -11,7 +11,7 @@ use Model\productModel;
  * Default's controller, this shows the demo pages when you run for first time
  * this project
  */
-class IndexController extends Controller
+class welcomeController extends Controller
 {
     /**
      * First sample page, returns welcome template
