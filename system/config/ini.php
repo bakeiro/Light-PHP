@@ -1,34 +1,52 @@
 <?php
 
-// Errors
-ini_set("display_errors", "On");
-ini_set("log_errors", 1);
+return [
+    "development" => [
+        "display_errors" => "On",
+        "log_errors" => 1,
 
-// Session settings
-ini_set("session.auto_start", "Off");
-ini_set("session.use_only_cookies", "On");
-ini_set("session.use_cookies", "On");
-ini_set("session.use_trans_sid", "Off");
-ini_set("session.cookie_httponly", "On");
+        "session.auto_start" => "Off",
+        "session.use_only_cookies" => "On",
+        "session.use_cookies" => "On",
+        "session.use_trans_sid" => "Off",
+        "session.cookie_httponly" => "On",
+        "session.cookie_lifetime" => 90,
+        "session.gc_maxlifetime" => 90,
+        "session.gc_probability" => 1,
+        "session.gc_divisor" => 100,
 
-// Session duration
-ini_set("session.cookie_lifetime", 90); // 0
-ini_set("session.gc_maxlifetime", 90); // 4h, 14400
+        "expose_php" => "On",
+        "default_charset" => "UTF-8",
+        "max_input_time" => 200,
+        "memory_limit" => "64M",
+        "max_execution_time" => 7200,
+        "upload_max_filesize" => "200M",
+        "mysql.connect_timeout" => 40,
+    ],
+    "production" => [
+        "display_errors" => "Off",
+        "log_errors" => 0,
 
-// Session garbage collector
-ini_set("session.gc_probability", 1);
-ini_set("session.gc_divisor", 100);
+        "session.auto_start" => "Off",
+        "session.use_only_cookies" => "On",
+        "session.use_cookies" => "On",
+        "session.use_trans_sid" => "Off",
+        "session.cookie_httponly" => "On",
+        "session.cookie_lifetime" => 90,
+        "session.gc_maxlifetime" => 90,
+        "session.gc_probability" => 1,
+        "session.gc_divisor" => 100,
 
-// Others
-ini_set("expose_php", "Off");
-ini_set("default_charset", "UTF-8");
+        "expose_php" => "Off",
+        "default_charset" => "UTF-8",
+        "max_input_time" => 100,
+        "memory_limit" => "32M",
+        "max_execution_time" => 3600,
+        "upload_max_filesize" => "99M",
+        "mysql.connect_timeout" => 20,
+    ]
+];
 
-// Limits
-ini_set("max_input_time", 100);
-ini_set("memory_limit", "32M");
-ini_set("max_execution_time", 3600);
-ini_set("upload_max_filesize", "99M");
-ini_set("mysql.connect_timeout", 20);
 
 // Common settings
 // ini_set("magic_quotes_gpc",  "Off");

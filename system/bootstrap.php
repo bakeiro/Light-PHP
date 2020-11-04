@@ -25,6 +25,12 @@ error_reporting(E_ALL);
 // Exception handler
 set_exception_handler(array($error_class,"myExceptionHandler"));
 
+// Set Ini variables
+$ini_variables = require SYSTEM . "config/ini.php";
+foreach ($ini_variables[getenv("ENVIRONMENT")] as $ini_name => $ini_value) {
+    ini_set($ini_name, $ini_value);
+}
+
 // Router
 $router = new Router();
 Config::set("url_host", $router->protocol);

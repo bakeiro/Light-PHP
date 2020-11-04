@@ -21,19 +21,19 @@ class IndexController extends Controller
      */
     public function index()
     {
-        Console::addDebugInfo("welcome page loaded ;)");
+        $this->console->addDebugInfo("welcome page loaded ;)");
 
         $cont = 5;
         $cont = $cont / 0;
 
         $list = array(1, "my_value", "hi there! ");
-        Console::addDebugInfo($list);
+        $this->console->addDebugInfo($list);
 
-        Output::addJs("products");
+        $this->output->addJs("products");
 
         // productModel->getProductById(12345);
 
-        Output::load("welcome/welcomeView");
+        $this->output->load("welcome/welcomeView");
     }
 
     /**
@@ -48,6 +48,6 @@ class IndexController extends Controller
         $product_description = "this is just a test product";
 
         $data = array("product_name" => $product_name, "product_price" => $product_price, "product_description" => $product_description);
-        Output::load("welcome/sampleView", $data);
+        $this->output->load("welcome/sampleView", $data);
     }
 }
