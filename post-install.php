@@ -19,3 +19,4 @@ mkdir("./system/writable/logs");
 mkdir("./system/writable/upload");
 
 unlink("README.md");
+unlink("LICENSE.md");

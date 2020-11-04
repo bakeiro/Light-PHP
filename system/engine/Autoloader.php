@@ -6,7 +6,7 @@
  * functionality of allowing multiple base directories for a single namespace
  * prefix.
  */
-class Psr4AutoLoaderClass
+class AutoLoaderClass
 {
     /**
      * An associative array where the key is a namespace prefix and the value

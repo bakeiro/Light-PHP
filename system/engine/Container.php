@@ -5,8 +5,14 @@ namespace Engine;
 /**
  * Describes the interface of a container that exposes methods to read its entries.
  */
-interface Container
+class Container
 {
+
+    /**
+     * Array of services initialized and stored in the container
+     */
+    private $data = [];
+
     /**
      * Finds an entry of the container by its identifier and returns it.
      *
@@ -17,9 +23,19 @@ interface Container
      *
      * @return mixed Entry.
      */
-    public function get($id);
+	public function get($key) {
+		return (isset($this->data[$key]) ? $this->data[$key] : '');
+	}
 
-    public function set($name, $value);
+    /**
+     * Set
+     *
+     * @param	string	$key
+	 * @param	string	$value
+     */
+	public function set($key, $value) {
+		$this->data[$key] = $value;
+	}
 
     /**
      * Returns true if the container can return an entry for the given identifier.
@@ -32,5 +48,8 @@ interface Container
      *
      * @return bool
      */
-    public function has($id);
+	public function has($key) {
+		return isset($this->data[$key]);
+    }
+
 }

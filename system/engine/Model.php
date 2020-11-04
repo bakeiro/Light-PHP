@@ -15,21 +15,6 @@ class Model implements Container
         $this->container = $container;
     }
 
-    public function get($dependency_name)
-    {
-        $this->container->get($dependency_name);
-    }
-
-    public function set($dependency_name, $dependency)
-    {
-        $this->container->set($dependency_name, $dependency);
-    }
-
-    public function has($dependency_name)
-    {
-        $this->container->get($dependency_name);
-    }
-
     public function __get($dependency_name)
     {
         $this->container->get($dependency_name);
