@@ -4,7 +4,7 @@
 
 # Libraries
 /system/composer/vendor/*
-/src/view/www/node_modules/*
+/node_modules/*
 
 # Dynamic folder
 /system/writable/*
