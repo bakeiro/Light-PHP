@@ -6,12 +6,6 @@ Options +FollowSymlinks
     Deny from all
 </Files>
 
-# Allow files only from index.php
-<Files index.php>
-    Order Allow,Deny
-    Allow from all
-</Files>
-
 # Prevent Directoy listing
 Options -Indexes
 

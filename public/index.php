@@ -26,7 +26,7 @@ $loader->addNamespace('Services', DIR_ROOT.'/system/services');
 $loader->addNamespace('Engine', DIR_ROOT.'/system/engine');
 
 // Define environment
-putenv("ENVIRONMENT=DEVELOPMENT");
+require SYSTEM . "config/environment.php";
 
 // Bootstrap
 require SYSTEM . "config/ini.php";

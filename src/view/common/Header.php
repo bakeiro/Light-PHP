@@ -2,22 +2,15 @@
 <html>
 <head>
 
-    <?php
-        use Library\Config;
-        use Library\Output;
-    ?>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta author="David Baqueiro">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Light PHP</title>
 
-    <!-- Variables -->
-    <?php $cache = Config::get("cache_version"); ?>
-    <?php $host = Config::get("url_host"); ?>
+    <?php $host = $this->config->get("url_host"); ?>
 
-    <!-- my resources -->
-    <link href="src/view/www/dist/src.css?v=<?=$cache?>" rel="stylesheet">
-    <script src="src/view/www/dist/jquery.min.js"></script>
+    <link href="/www/dist/src.css?v=<?= $this->config->get("cache_version") ?>" rel="stylesheet">
+    <script src="/www/dist/jquery.min.js"></script>
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -28,10 +21,10 @@
 
 <?php
 // Custom CSS/JS
-foreach(Output::$output_styles as $style_file) {
+foreach($this->output->output_styles as $style_file) {
     echo $style_file;
 }
-foreach(Output::$output_scripts as $script_file) {
+foreach($this->output->output_scripts as $script_file) {
     echo $script_file;
 }
 ?>
@@ -59,7 +52,6 @@ foreach(Output::$output_scripts as $script_file) {
     <li><div class="divider"></div></li>
     <li><a href="index.php?route=index/index/samplePage">Sample</a></li>
     <li><a href="index.php?route=index/index/test">Not found page</a></li>
-
 </ul>
 
 <div class="container">
