@@ -3,9 +3,6 @@
 namespace Controller;
 
 use Engine\Controller;
-use Library\Output;
-use Library\Console;
-use Model\productModel;
 
 /**
  * Default's controller, this shows the demo pages when you run for first time
@@ -31,23 +28,6 @@ class welcomeController extends Controller
 
         $this->output->addJs("products");
 
-        // productModel->getProductById(12345);
-
         $this->output->load("welcome/welcomeView");
-    }
-
-    /**
-     * Second sample page
-     *
-     * @return void
-     */
-    public function samplePage()
-    {
-        $product_name = "test product";
-        $product_price = "900€";
-        $product_description = "this is just a test product";
-
-        $data = array("product_name" => $product_name, "product_price" => $product_price, "product_description" => $product_description);
-        $this->output->load("welcome/sampleView", $data);
     }
 }

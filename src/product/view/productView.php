@@ -3,7 +3,7 @@
 product info:
 
 <ul>
-    <li>{{product_name}}</li>
-    <li>{{product_description}}</li>
-    <li>{{product_price}}</li>
+    <li><?= $product_name; ?></li>
+    <li><?= $product_description; ?></li>
+    <li><?= $product_price; ?></li>
 </ul>

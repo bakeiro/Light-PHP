@@ -1,6 +1,6 @@
 <?php
 
-namespace Services;
+namespace Library;
 
 use Engine\Singleton;
 
@@ -12,18 +12,20 @@ class Output extends Singleton
 {
     protected $output_scripts = array();
     protected $output_styles = array();
+    protected $cache_version = 0;
     protected $header_path;
     protected $footer_path;
 
     /**
      *
      */
-    public function __construct($header_path, $footer_path)
+    public function __construct($header_path, $footer_path, $cache_version)
     {
         $this->header_path = $header_path;
         $this->footer_path = $footer_path;
         $this->output_scripts = [];
         $this->output_styles = [];
+        $this->cache_version = $cache_version;
     }
 
     /**
@@ -59,7 +61,6 @@ class Output extends Singleton
         include $route;
         $template = ob_get_clean();
 
-        $template = $this->compile($template, $data);
         return $template;
     }
 
@@ -73,7 +74,7 @@ class Output extends Singleton
      */
     public function addJs($js_route)
     {
-        $output_script = "<script src='src/view/www/dist/" . $js_route . ".js?v=" . Config::get("cache_version") . "' > </script>";
+        $output_script = "<script src='src/view/www/dist/" . $js_route . ".js?v=" . $this->cache_version . "' > </script>";
         $this->output_scripts[] = $output_script;
     }
 
@@ -86,25 +87,7 @@ class Output extends Singleton
      */
     public function addCss($css_route)
     {
-        $output_style = "<link href='src/view/www/dist/" . $css_route . ".css?v=" . Config::get("cache_version") . "' rel='stylesheet'>";
+        $output_style = "<link href='src/view/www/dist/" . $css_route . ".css?v=" . $this->cache_version . "' rel='stylesheet'>";
         $this->output_styles[] = $output_style;
-    }
-
-    /**
-     * Replaces the double brackets found in the template, by the values in the array given in the second param
-     *
-     * @param string $template path of the template to import
-     * @param array  $data     Array of data to replace in the template
-     *
-     * @return string
-     */
-    public function compile($template, $data)
-    {
-        $keys = array();
-        foreach ($data as $key => $value) {
-            $keys[] = "{{" . $key . "}}";
-        }
-
-        return str_replace($keys, array_values($data), $template);
     }
 }

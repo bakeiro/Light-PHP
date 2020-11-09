@@ -1,6 +1,6 @@
 <?php
 
-namespace Services;
+namespace Library;
 
 use Engine\Singleton;
 
@@ -9,16 +9,14 @@ use Engine\Singleton;
  */
 class Database extends Singleton
 {
-    public $CONN;
-    private $auto_initializer;
+    private $connection;
     private $host;
     private $user;
     private $db_name;
     private $pass;
 
-    public function __construct($auto_initializer, $host, $user, $db_name, $pass)
+    public function __construct($host, $user, $db_name, $pass)
     {
-        $this->auto_initializer = $auto_initializer;
         $this->host = $host;
         $this->user = $user;
         $this->db_name = $db_name;
@@ -37,7 +35,7 @@ class Database extends Singleton
     {
         Console::addQuery($sql_query);
 
-        $smtp = $this->CONN->prepare($sql_query);
+        $smtp = $this->connection->prepare($sql_query);
         $smtp->setFetchMode(\PDO::FETCH_ASSOC);
         $query = $smtp->execute($params);
 
@@ -57,7 +55,7 @@ class Database extends Singleton
             }
 
             if (strpos($sql_query, "INSERT INTO") !== false) {
-                $data = $this->CONN->lastInsertId();
+                $data = $this->connection->lastInsertId();
             }
         }
 
@@ -71,7 +69,7 @@ class Database extends Singleton
      */
     public function getLastId()
     {
-        return $this->CONN->lastInsertId();
+        return $this->connection->lastInsertId();
     }
 
     /**
@@ -82,14 +80,14 @@ class Database extends Singleton
     public function initialize()
     {
         try {
-            $temp_con = new \PDO("mysql:host=" .$this->host . ";port=3306;dbname=" . $this->db_name, $this->user, $this->pass);
-            $temp_con->setAttribute(\PDO::ATTR_EMULATE_PREPARES, false); // true prepare statements
+            $temp_connection = new \PDO("mysql:host=" .$this->host . ";port=3306;dbname=" . $this->db_name, $this->user, $this->pass);
+            $temp_connection->setAttribute(\PDO::ATTR_EMULATE_PREPARES, false); // true prepare statements
 
-            $temp_con->exec("SET NAMES 'utf8'");
-            $temp_con->exec("SET CHARACTER SET utf8");
-            $temp_con->exec("SET CHARACTER_SET_CONNECTION=utf8");
+            $temp_connection->exec("SET NAMES 'utf8'");
+            $temp_connection->exec("SET CHARACTER SET utf8");
+            $temp_connection->exec("SET CHARACTER_SET_CONNECTION=utf8");
 
-            $this->CONN = $temp_con;
+            $this->connection = $temp_connection;
         } catch (\Throwable $th) {
             Console::addDebugInfo("Error loading database");
         }
@@ -104,7 +102,7 @@ class Database extends Singleton
     {
         //More info about this here: https://php.net/pdo.connections
         //KILL CONNECTION_ID()
-        $this->CONN->query('SELECT pg_terminate_backend(pg_backend_pid());');
-        $this->CONN = null;
+        $this->connection->query('SELECT pg_terminate_backend(pg_backend_pid());');
+        $this->connection = null;
     }
 }

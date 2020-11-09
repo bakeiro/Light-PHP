@@ -1,6 +1,6 @@
 <?php
 
-namespace Services;
+namespace Library;
 
 use Engine\Singleton;
 

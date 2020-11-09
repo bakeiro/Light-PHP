@@ -1,6 +1,6 @@
 <?php
 
-namespace Services;
+namespace Library;
 
 use Engine\Singleton;
 
@@ -17,12 +17,10 @@ class Config extends Singleton
 
     /**
      * Initializes the config class
-     *
-     * @param $config_path Specified he path of the config file
      */
-    public function __construct($config_path)
+    public function __construct($path, $environment)
     {
-        $this->data = require SYSTEM . "config/config.php";
+        $this->data = require $path[$environment];
     }
 
     /**

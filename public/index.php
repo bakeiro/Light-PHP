@@ -3,34 +3,30 @@
 // Relative paths from root
 chdir(dirname(__DIR__));
 
-// Routes
-define("DIR_ROOT", dirname(__DIR__));
-define("SYSTEM", DIR_ROOT . "/system/");
-define("MODEL", DIR_ROOT . "/src/model/");
-define("CONTROLLER", DIR_ROOT . "/src/controller/");
-define("VIEW", DIR_ROOT . "/src/view/");
+// ROOT constant
+define("ROOT", dirname(__DIR__));
 
 // Engine
-require SYSTEM . "engine/Router.php";
-require SYSTEM . "engine/Controller.php";
-require SYSTEM . "engine/SessionSecureHandler.php";
-require SYSTEM . "engine/Log.php";
-require SYSTEM . "engine/AutoLoader.php";
+require "system/engine/Router.php";
+require "system/engine/Controller.php";
+require "system/engine/SessionSecureHandler.php";
+require "system/engine/Log.php";
+require "system/engine/AutoLoader.php";
 
 // AutoLoader
 $loader = new Psr4AutoLoaderClass();
 $loader->register();
-$loader->addNamespace('Controller', DIR_ROOT.'/controller');
-$loader->addNamespace('Model', DIR_ROOT.'/model');
-$loader->addNamespace('Services', DIR_ROOT.'/system/services');
-$loader->addNamespace('Engine', DIR_ROOT.'/system/engine');
+$loader->addNamespace("Controller", "/controller");
+$loader->addNamespace("Model", "/model");
+$loader->addNamespace("Services", "/system/services");
+$loader->addNamespace("Engine", "/system/engine");
 
-// Define environment
-require SYSTEM . "config/environment.php";
+// Environment
+require "system/config/environment.php";
 
 // Bootstrap
-require SYSTEM . "config/ini.php";
-require SYSTEM . "startup.php";
+require "system/config/ini.php";
+require "system/startup.php";
 
 // Start MVC
 $Controller = new Controller($router->controller);

@@ -11,7 +11,7 @@ class Container
     /**
      * Array of services initialized and stored in the container
      */
-    private $data = [];
+    static $data = [];
 
     /**
      * Finds an entry of the container by its identifier and returns it.

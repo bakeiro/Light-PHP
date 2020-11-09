@@ -3,13 +3,12 @@
 namespace Controller;
 
 use Engine\Controller;
-use Model\productModel;
 
 /**
  * Default's controller, this shows the demo pages when you run for first time
  * this project
  */
-class welcomeController extends Controller
+class productController extends Controller
 {
 
     /**

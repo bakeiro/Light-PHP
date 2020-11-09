@@ -1,6 +1,6 @@
 <?php
 
-namespace Services;
+namespace Library;
 
 use Engine\Singleton;
 
@@ -21,7 +21,7 @@ class Session extends Singleton
      *
      * @return void
      */
-    public function init($session_handler, $session_name, $cookie = [])
+    public function __construct($session_handler, $session_name, $cookie = [])
     {
         session_set_save_handler($session_handler, true);
 

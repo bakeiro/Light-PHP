@@ -13,13 +13,13 @@
             "@solve-lint"
         ],
         "lint": [
-            "phpcs --encoding=utf-8 -n -s --colors --standard=PSR1,PSR2,PEAR --exclude=PEAR.Commenting.ClassComment,PEAR.Commenting.FileComment,PEAR.Commenting.FunctionComment --ignore=src/view/*,system/composer/*,system/writable/*,system/tests/* ./ "
+            "phpcs --encoding=utf-8 -n -s --colors --standard=PSR1,PSR2,PEAR --exclude=PEAR.Commenting.ClassComment,PEAR.Commenting.FileComment,PEAR.Commenting.FunctionComment --ignore=src/view/*,system/composer/*,system/writable/* ./ "
         ],
         "fix-lint": [
-            "phpcbf --encoding=utf-8 -n --colors --standard=PSR1,PSR2,PEAR --exclude=PEAR.Commenting.ClassComment,PEAR.Commenting.FileComment --ignore=src/view/*,system/composer/*,system/writable/*,system/tests/* ./"
+            "phpcbf --encoding=utf-8 -n --colors --standard=PSR1,PSR2,PEAR --exclude=PEAR.Commenting.ClassComment,PEAR.Commenting.FileComment --ignore=src/view/*,system/composer/*,system/writable/* ./"
         ],
         "strict-lint": [
-            "phpcs --encoding=utf-8 -n -s --colors --standard=PSR1,PSR2,PEAR --exclude=PEAR.Commenting.ClassComment,PEAR.Commenting.FileComment --ignore=src/view/*,system/composer/*,system/writable/*,system/tests/* ./ "
+            "phpcs --encoding=utf-8 -n -s --colors --standard=PSR1,PSR2,PEAR --exclude=PEAR.Commenting.ClassComment,PEAR.Commenting.FileComment --ignore=src/view/*,system/composer/*,system/writable/* ./ "
         ],
         "test-environment-compatibility": [
             "\"./system/composer/vendor/bin/phpunit\" --do-not-cache-result --filter environmentTest ./system/tests/environmentTest.php"

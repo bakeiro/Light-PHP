@@ -2,10 +2,10 @@
 
 /**
  * Array key => url
- * Array value => folder/class/method (index method if none specified)
+ * Array value => folder/controller-class/method (index method if none specified)
  */
 return [
     "/" => "index/index/index",
-    "/welcome" => "index/index/index",
-    "/sample" => "index/index/samplePage"
+    "/welcome" => "welcome/welcome/index",
+    "/product" => "product/product/samplePage"
 ];

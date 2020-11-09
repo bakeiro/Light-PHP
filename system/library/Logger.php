@@ -17,7 +17,7 @@ class Logger extends Singleton
     private $unknown_errors_log_path;
 
     /**
-     *
+     * Sets the Logger constructor
      */
     public function __construct($error_log_path, $notice_log_path, $warning_log_path, $unknown_errors_log_path) {
         $this->error_log_path = $error_log_path;
@@ -83,8 +83,8 @@ class Logger extends Singleton
 
         Console::addError($exception_message);
 
-        $this->checkLogFile(SYSTEM . $this->error_log_path);
-        error_log($exception_message."\n", 3, SYSTEM . $this->error_log_path);
+        $this->checkLogFile($this->error_log_path);
+        error_log($exception_message."\n", 3, $this->error_log_path);
 
         die($exception_message);
     }
@@ -99,8 +99,8 @@ class Logger extends Singleton
     public function noticeHandler($error_string)
     {
         Console::addWarning($error_string);
-        $this->checkLogFile(SYSTEM . $this->notice_log_path);
-        error_log($error_string."\n", 3, SYSTEM . $this->notice_log_path);
+        $this->checkLogFile($this->notice_log_path);
+        error_log($error_string."\n", 3, $this->notice_log_path);
     }
 
     /**
@@ -113,8 +113,8 @@ class Logger extends Singleton
     public function warningHandler($error_string)
     {
         Console::addWarning($error_string);
-        $this->checkLogFile(SYSTEM . $this->warning_log_path);
-        error_log($error_string."\n", 3, SYSTEM . $this->warning_log_path);
+        $this->checkLogFile($this->warning_log_path);
+        error_log($error_string."\n", 3, $this->warning_log_path);
     }
 
     /**
@@ -127,8 +127,8 @@ class Logger extends Singleton
     public function errorHandler($error_string)
     {
         Console::addError($error_string);
-        $this->checkLogFile(SYSTEM . "writable" . $this->error_log_path);
-        error_log($error_string."\n", 3, SYSTEM . $this->error_log_path);
+        $this->checkLogFile($this->error_log_path);
+        error_log($error_string."\n", 3, $this->error_log_path);
     }
 
     /**
@@ -141,8 +141,8 @@ class Logger extends Singleton
     public function unknownErrorHandler($error_string)
     {
         Console::addError($error_string);
-        $this->checkLogFile(SYSTEM . $this->unknown_errors_log_path);
-        error_log($error_string."\n", 3, SYSTEM . $this->unknown_errors_log_path);
+        $this->checkLogFile($this->unknown_errors_log_path);
+        error_log($error_string."\n", 3, $this->unknown_errors_log_path);
     }
 
     /**
