@@ -1,5 +1,4 @@
 <?php
-// phpcs:disable PSR1.Classes.ClassDeclaration
 
 namespace Engine;
 
@@ -9,10 +8,10 @@ namespace Engine;
  */
 class Model implements Container
 {
-    private $container;
+    protected $container;
 
-    public function __construct($container) {
-        $this->container = $container;
+    public function __construct() {
+        $this->container = $GLOBALS["container"];
     }
 
     public function __get($dependency_name)

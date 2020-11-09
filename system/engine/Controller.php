@@ -9,7 +9,7 @@ namespace Engine;
  */
 class Controller extends Container
 {
-    private $container;
+    protected $container;
 
     public function __construct($container) {
         $this->container = $container;

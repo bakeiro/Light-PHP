@@ -2,7 +2,6 @@
 
 namespace Model;
 
-use Library\Database;
 use Engine\Model;
 
 /**
@@ -17,8 +16,7 @@ class ProductModel extends Model
      */
     public function getAllProducts()
     {
-        $prods = $this->database->query("SELECT * FROM `product`");
-        return $prods;
+        return $this->database->query("SELECT * FROM `product`");
     }
 
     /**
@@ -30,7 +28,6 @@ class ProductModel extends Model
      */
     public function getProductById($prod_id)
     {
-        $prod = $this->database->query("SELECT * FROM `product` WHERE id = :prod_id", array(":prod_id" => $prod_id));
-        return $prod;
+        return $this->database->query("SELECT * FROM `product` WHERE id = :prod_id", array(":prod_id" => $prod_id));
     }
 }
