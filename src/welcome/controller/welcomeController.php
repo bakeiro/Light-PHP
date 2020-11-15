@@ -23,8 +23,7 @@ class welcomeController extends Controller
         $cont = 5;
         $cont = $cont / 0;
 
-        $list = array(1, "my_value", "hi there! ");
-        $this->console->addDebugInfo($list);
+        $this->console->addDebugInfo([1, "my_value", "hi there! "]);
 
         $this->output->addJs("products");
 

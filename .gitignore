@@ -6,5 +6,5 @@
 /system/composer/vendor/*
 /node_modules/*
 
-# Dynamic folder
-/system/writable/*
+# logs
+/system/logs/*
