@@ -20,8 +20,7 @@
 # Light-PHP
 
 ## Easiest PHP framework
-
-Light-php it's a tiny PHP framework focused to be simple, easy to learn, but enough complete to build your apps. It follows the good coding practices, it's easy to understand and easy to work with a small documentation.
+Light-php it's a tiny PHP framework, that makes it painless to create web apps/APIs. Light-php it's focused to be simple, easy to learn, but enough complete to build your apps. It follows the good coding practices, it's easy to understand and easy to work with a small documentation.
 
 ### What's this project?  
 This is a lighweigh micro PHP Framework focused on simplicity, aimed to capable to build small, medium Apps/APIs (big Apps/APIs even possible, dividing your app in smaller ones) and making things just work.
