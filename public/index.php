@@ -14,7 +14,7 @@ require "system/engine/Log.php";
 require "system/engine/AutoLoader.php";
 
 // AutoLoader
-$loader = new Psr4AutoLoaderClass();
+$loader = new AutoLoaderClass();
 $loader->register();
 $loader->addNamespace("Controller", "/controller");
 $loader->addNamespace("Model", "/model");

@@ -26,6 +26,6 @@ class productController extends Controller
         // $product_data = $product_model->getAllProducts();
 
         $data = array("product_name" => $product_name, "product_price" => $product_price, "product_description" => $product_description);
-        $this->output->load("welcome/sampleView", $data);
+        $this->output->load("product/productDescription", $data);
     }
 }

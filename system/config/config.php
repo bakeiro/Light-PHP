@@ -17,39 +17,64 @@ return [
         "database_user" => "",
         "database_pass" => "",
         "dabatase_name" => "",
+        "database_auto_init" => false,
+
         "session_name" => "session",
         "session_encrypt_method" => "aes-256-cbc",
-        "session_iv" => "ThisIsMySecretIv", // Generated automatically in the install process
-        "session_key" => "ThisIsMySecretPass", // Generated automatically in the install process
+        "session_iv" => "ThisIsMySecretIv", // Generated in the install process
+        "session_key" => "ThisIsMySecretPass", // Generated in the install process
+
         "email_host" => "",
         "email_name" => "",
         "email_pass" => "",
         "email_port" => "",
         "email_from" => "",
+
         "system_default_time_zone" => "Europe/Madrid",
         "system_debug_console" => true,
         "system_execution_time" => microtime(true),
         "system_cache_version" => 0001, // Refresh frontend cache
-        "system_allow_forms_without_csrf" => false
+        "system_allow_forms_without_csrf" => false,
+
+        "template_header" => "template/common/Header.php",
+        "template_footer" => "template/common/Footer.php",
+
+        "log_path_warning" => "system/log/warning.log",
+        "log_path_error" => "system/log/error.log",
+        "log_path_notice" => "system/log/notice.log",
+        "log_path_unknown_error" => "system/log/unknown_error.log"
     ],
+
     "production" => [
         "database_host" => "",
         "database_user" => "",
         "database_pass" => "",
         "dabatase_name" => "",
+        "database_auto_init" => true,
+
         "session_name" => "session",
         "session_encrypt_method" => "aes-256-cbc",
-        "session_iv" => "ThisIsMySecretIv", // Generated automatically in the install process
-        "session_key" => "ThisIsMySecretPass", // Generated automatically in the install process
+        "session_iv" => "ThisIsMySecretIv", // Generated in the install process
+        "session_key" => "ThisIsMySecretPass", // Generated in the install process
+
         "email_host" => "",
         "email_name" => "",
         "email_pass" => "",
         "email_port" => "",
         "email_from" => "",
+
         "system_default_time_zone" => "Europe/Madrid",
         "system_debug_console" => true,
         "system_execution_time" => microtime(true),
         "system_cache_version" => 0001, // Refresh frontend cache
-        "system_allow_forms_without_csrf" => false
+        "system_allow_forms_without_csrf" => false,
+
+        "template_header" => "template/common/Header.php",
+        "template_footer" => "template/common/Footer.php",
+
+        "log_path_warning" => "system/log/warning.log",
+        "log_path_error" => "system/log/error.log",
+        "log_path_notice" => "system/log/notice.log",
+        "log_path_unknown_error" => "system/log/unknown_error.log"
     ]
 ];

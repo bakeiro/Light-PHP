@@ -14,9 +14,9 @@ require "system/composer/vendor/autoload.php";
 // container entries
 $config = new Config("system/config/config.php", getenv("ENVIRONMENT"));
 
-$output = new Output("template/common/Header.php", "template/common/Footer.php", $config->get("version_number"));
+$output = new Output($config->get("template_header"), $config->get("template_footer"), $config->get("version_number"));
 
-$logger = new Logger("system/logs/error.log", "system/logs/notice.log", "system/logs/warning.log", "system/logs/unknown_errors.log");
+$logger = new Logger($config->get("log_path_error"), $config->get("log_path_notice"), $config->get("log_path_warning"), $config->get("log_path_unknown_error"));
 
 $router = new Router();
 
@@ -31,7 +31,7 @@ $console = new Console();
 $database = new Database(false, $config->get("db_host"), $config->get("db_user"), $config->get("db_name"), $config->get("db_pass"));
 
 // Init database
-if (isset($config->get['db_auto_init']) && $config->get['db_auto_init']) {
+if (isset($config->get['database_auto_init']) && $config->get['database_auto_init']) {
     $database->initialize();
 }
 
@@ -61,13 +61,13 @@ error_reporting(E_ALL);
 set_exception_handler(array($logger,"myExceptionHandler"));
 
 // XSS, scape characters, SQL Injection
-$util->array_walk_recursive_referential($_GET, array("Library\Util", "preventXSS"));
+$util->array_walk_recursive_referential($_GET, array($util, "preventXSS"));
 $util->array_walk_recursive_referential($_GET, "trim");
-$util->array_walk_recursive_referential($_GET, array("Library\Util", "escape"));
+$util->array_walk_recursive_referential($_GET, array($util, "escape"));
 
-$util->array_walk_recursive_referential($_POST, array("Library\Util", "preventXSS"));
+$util->array_walk_recursive_referential($_POST, array($util, "preventXSS"));
 $util->array_walk_recursive_referential($_POST, "trim");
-$util->array_walk_recursive_referential($_POST, array("Library\Util", "escape"));
+$util->array_walk_recursive_referential($_POST, array($util, "escape"));
 
 // Add container entries
 $container = new Container();
@@ -80,17 +80,6 @@ $container->set("util", $util);
 $container->set("console", $console);
 $container->set("database", $database);
 
-// Output files
-Config::set("output_styles", array());
-Config::set("output_scripts", array());
-
-// Console info
-Config::set("console_db_queries", array());
-Config::set("console_warnings", array());
-Config::set("console_errors", array());
-Config::set("console_debug_info", array());
-Config::set("console_execution_trace", array());
-
 // use INI_SET config
 $ini_variables = require "system/config/ini.php";
 foreach ($ini_variables[getenv("ENVIRONMENT")] as $ini_name => $ini_value) {
@@ -98,7 +87,4 @@ foreach ($ini_variables[getenv("ENVIRONMENT")] as $ini_name => $ini_value) {
 }
 
 // Timezone
-date_default_timezone_set($config->get("default_time_zone"));
-
-// Track execution time
-Config::set("controller_execution_time", microtime(true));
+date_default_timezone_set($config->get("system_default_time_zone"));

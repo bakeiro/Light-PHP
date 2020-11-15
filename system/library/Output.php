@@ -39,9 +39,12 @@ class Output extends Singleton
      */
     public function load($route, $data = array())
     {
-        $content = $this->loadFile(VIEW . $this->header_path, $data);
-        $content .= $this->loadFile(VIEW . 'template/' . $route . '.php', $data);
-        $content .= $this->loadFile(VIEW . $this->footer_path, $data);
+        $content = $this->loadFile($this->header_path, $data);
+
+        $route_paths = explode("/", $route);
+        $content .= $this->loadFile('src/' . $route_paths[0] . '/view/' . $route_paths[1] . 'View.php', $data);
+
+        $content .= $this->loadFile($this->footer_path, $data);
 
         echo $content;
     }
@@ -57,13 +60,13 @@ class Output extends Singleton
      */
     public function loadFile($route, $data)
     {
+        extract($data);
+
         ob_start();
         include $route;
-        $template = ob_get_clean();
 
-        return $template;
+        return ob_get_clean();
     }
-
 
     /**
      * Adds a js file at the end of the html document
