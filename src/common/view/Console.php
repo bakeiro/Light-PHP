@@ -5,25 +5,15 @@
  * errors/warnings and exception along other messages, database queries and other useful data
  */
 
-use Library\Util;
-use Ospinto\dBug;
-use Library\Config;
-use Library\Console;
-
 // Memory
-$memory = Util::convert(memory_get_usage(true));
+$memory = $this->util->convert(memory_get_usage(true));
 
 // Time
-$end_time    = microtime(true);
-$time_script = $end_time - Config::get("execution_time");
+$time_script = microtime(true) - $this->config->get("execution_time");
 $time_script = round($time_script, 4);
 
 // Cache
-$cache = Config::get("cache_version");
-
-// Console info
-$stack_messages = Config::get("console_execution_trace");
-$num_messages   = count($stack_messages);
+$cache = $this->config->get("cache_version");
 ?>
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -49,7 +39,7 @@ $num_messages   = count($stack_messages);
     <div id="console-body">
         <div class="console-body-seccion active" id="error-log-body">
             <?php
-            foreach ($stack_messages as $trace_message) {
+            foreach ($this->console->console_execution_trace as $trace_message) {
                 if ($trace_message["type"] === "error") {
                     echo "<p class='error'><i class='material-icons red-text'>error</i>" . $trace_message["message"] . "</p>";
                 }
@@ -76,8 +66,8 @@ $num_messages   = count($stack_messages);
 
         <div class="console-body-seccion" id="info-log-body">
             <?php
-            $server_info = Console::getServerInfo();
-            new dBug($server_info);
+            $server_info = $this->console->getServerInfo();
+            new Ospinto\dBug($server_info);
             ?>
             <br><br><br>
         </div>

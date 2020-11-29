@@ -20,8 +20,7 @@ class welcomeController extends Controller
     {
         $this->console->addDebugInfo("welcome page loaded ;)");
 
-        $cont = 5;
-        $cont = $cont / 0;
+        $cont = 5 / 0; // intentional exception to display it in the debug console ;)
 
         $this->console->addDebugInfo([1, "my_value", "hi there! "]);
 

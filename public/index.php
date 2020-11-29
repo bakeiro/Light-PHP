@@ -26,8 +26,7 @@ require "system/config/environment.php";
 
 // Bootstrap
 require "system/config/ini.php";
-require "system/startup.php";
+require "system/boostrap.php";
 
 // Start MVC
-$Controller = new Controller($router->controller);
-$Controller->execController();
+$controller->$method();

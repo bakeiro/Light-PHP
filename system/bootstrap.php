@@ -14,21 +14,21 @@ require "system/composer/vendor/autoload.php";
 // container entries
 $config = new Config("system/config/config.php", getenv("ENVIRONMENT"));
 
-$output = new Output($config->get("template_header"), $config->get("template_footer"), $config->get("version_number"));
-
-$logger = new Logger($config->get("log_path_error"), $config->get("log_path_notice"), $config->get("log_path_warning"), $config->get("log_path_unknown_error"));
+$console = new Console();
 
 $router = new Router();
+
+$util = new Util();
+
+$output = new Output($config->get("template_header"), $config->get("template_footer"), $config->get("version_number"));
+
+$logger = new Logger($config->get("log_path_error"), $config->get("log_path_notice"), $config->get("log_path_warning"), $config->get("log_path_unknown_error"), $console);
 
 $session_handler = new SecureSession($config->get("session_iv"), $config->get("session_key"), $config->get("session_encrypt_method"));
 
 $session = new Session($session_handler, $config->get("session_name"));
 
-$util = new Util();
-
-$console = new Console();
-
-$database = new Database(false, $config->get("db_host"), $config->get("db_user"), $config->get("db_name"), $config->get("db_pass"));
+$database = new Database(false, $config->get("db_host"), $config->get("db_user"), $config->get("db_name"), $config->get("db_pass"), $console);
 
 // Init database
 if (isset($config->get['database_auto_init']) && $config->get['database_auto_init']) {
@@ -88,3 +88,10 @@ foreach ($ini_variables[getenv("ENVIRONMENT")] as $ini_name => $ini_value) {
 
 // Timezone
 date_default_timezone_set($config->get("system_default_time_zone"));
+
+// Import the controller
+$path_data = new $router->parsePath();
+
+$method = $path_data->method;
+$controller = $path_data->controller;
+require $path_data->file;

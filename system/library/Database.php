@@ -14,13 +14,15 @@ class Database extends Singleton
     private $user;
     private $db_name;
     private $pass;
+    private $console; // used for debug
 
-    public function __construct($host, $user, $db_name, $pass)
+    public function __construct($host, $user, $db_name, $pass, $console)
     {
         $this->host = $host;
         $this->user = $user;
         $this->db_name = $db_name;
         $this->pass = $pass;
+        $this->console = $console;
     }
 
     /**
@@ -33,7 +35,7 @@ class Database extends Singleton
      */
     public function query($sql_query, $params = array())
     {
-        Console::addQuery($sql_query);
+        $this->console->addQuery($sql_query);
 
         $smtp = $this->connection->prepare($sql_query);
         $smtp->setFetchMode(\PDO::FETCH_ASSOC);
@@ -89,7 +91,7 @@ class Database extends Singleton
 
             $this->connection = $temp_connection;
         } catch (\Throwable $th) {
-            Console::addDebugInfo("Error loading database");
+            $this->console->addDebugInfo("Error loading database");
         }
     }
 

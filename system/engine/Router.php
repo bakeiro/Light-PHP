@@ -7,16 +7,8 @@
  */
 class Router
 {
-    public $protocol;
-    public $host;
     public $action;
-    public $controller;
-    public $restController;
-
-    public $file;
-    public $class;
-    public $data;
-    public $method;
+    public $path;
 
     /**
      * Parses the url, and saves useful information
@@ -25,31 +17,68 @@ class Router
      */
     public function __construct()
     {
-        $url_protocol = "http";
-        if (isset($_SERVER['HTTPS'])) {
-            $url_protocol = "https";
-        }
-
-        $url_host = $url_protocol.'://'.$_SERVER['HTTP_HOST'];
-
         $url_action = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
-        $rest_controller = null;
 
         if (isset($_REQUEST['route'])) {
-            $url_controller = $_REQUEST['route'];
-        }
-        if (!isset($_REQUEST['route'])) {
-            $url_controller = $this->getSeoUrlMethod($url_action);
+            $path = $_REQUEST['route'];
+        } else {
+            $path = $this->getPathFromSeoUrl($url_action);
         }
 
-        $this->protocol = $url_protocol;
-        $this->host = $url_host;
         $this->action = $url_action;
-        $this->controller = $url_controller;
-        $this->restController = $rest_controller;
+        $this->path = $path;
     }
 
     /**
+     * Parses the url, and sets the controller, class and method based in that
+     *
+     * @param string $path url to parse
+     *
+     * @return array
+     */
+    public function parsePath($path)
+    {
+        $url_split = explode('/', $path);
+
+        $file = "src/" . $url_split[0] . '/controller/' . $url_split[1] . 'Controller.php';
+        $class = "Controller\\" . $url_split[1] . 'Controller';
+        $method = $url_split[2];
+
+        if (!$this->isValidPath($file, $class, $file)) {
+            $file = 'src/common/controller/commonController.php';
+            $method = 'notFound';
+            $class = "Controller\\commonController";
+        }
+
+        return [
+            "file" => $file,
+            "method" => $method,
+            "class" => $class
+        ];
+    }
+
+    /**
+     * Checks wether the file, class and method exist, if not, uses the error controller
+     *
+     * @return bool
+     */
+    private function isValidPath($file, $class, $method)
+    {
+        $is_controller_ok = true;
+        if (!file_exists($file)) {
+            $is_controller_ok = false;
+        }
+
+        include_once $file;
+
+        if (method_exists($class, $method) === false) {
+            $is_controller_ok = false;
+        }
+
+        return $is_controller_ok;
+    }
+
+   /**
      * Search the seo url entered in the function's parameter, in the routes.php file, and sets
      * controller, class and method associated to that seo url
      *
@@ -57,68 +86,16 @@ class Router
      *
      * @return string
      */
-    public function getSeoUrlMethod($url_action)
+    public function getPathFromSeoUrl($url_action)
     {
-        include SYSTEM . "config/routes.php";
+        include "system/config/routes.php";
 
         $routes_name = array_keys($routes);
 
         if (in_array($url_action, $routes_name)) {
             return $routes[$url_action];
         } else {
-            return "error/error/notFound";
-        }
-    }
-
-    /**
-     * Parses the url, and sets the controller, class and method based in that
-     *
-     * @param string $route url to parse
-     *
-     * @return void
-     */
-    public function __construct($route)
-    {
-        $url_split = explode('/', $route);
-        $this->file = "src/" . $url_split[0] . '/controller/' . $url_split[1] . 'Controller.php';
-        $this->class = "Controller\\" . ucfirst($url_split[1]) . 'Controller';
-
-        $this->method = $url_split[2];
-    }
-
-    /**
-     * Executes the controller
-     *
-     * @return void
-     */
-    public function execController()
-    {
-        $this->checkController();
-
-        $controller_class = new $this->class();
-        $method = $this->method;
-        $controller_class->$method();
-    }
-
-    /**
-     * Checks wether the file, class and method exist, if not, uses the error controller
-     *
-     * @return void
-     */
-    public function checkController()
-    {
-        if (!file_exists($this->file)) {
-            $this->file = CONTROLLER . 'error/errorController.php';
-            $this->method = 'notFound';
-            $this->class = "Controller\\errorController";
-        }
-
-        include_once $this->file;
-        if (method_exists($this->class, $this->method) === false) {
-            $this->file = CONTROLLER . 'error/errorController.php';
-            $this->method = 'notFound';
-            $this->class = 'Controller\\errorController';
-            include_once $this->file;
+            return "common/common/pageNotFound";
         }
     }
 }

@@ -4,10 +4,8 @@
 <!-- Console -->
 <?php
 
-    use Library\Config;
-
-    if (Config::get("debug_console")) {
-        include VIEW . "template/common/Console.php";
+    if ($this->config->get("debug_console")) {
+        include "src/common/view/Console.php";
     }
     ?>
 

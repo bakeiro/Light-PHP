@@ -9,11 +9,11 @@ use Engine\Singleton;
  */
 class Console extends Singleton
 {
-    protected $db_queries = [];
-    protected $error = [];
-    protected $warnings = [];
-    protected $debug_info = [];
-    protected $console_execution_traces = [];
+    protected static $db_queries = [];
+    protected static $error = [];
+    protected static $warnings = [];
+    protected static $debug_info = [];
+    protected static $console_execution_traces = [];
 
     /**
      * Adds the SQL query to show it in the console

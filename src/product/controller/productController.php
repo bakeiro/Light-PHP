@@ -18,14 +18,10 @@ class productController extends Controller
      */
     public function samplePage()
     {
-        $product_name = "test product";
-        $product_price = "900€";
-        $product_description = "this is just a test product";
-
         // $product_model = new productModel();
         // $product_data = $product_model->getAllProducts();
+        $product_data = ["product_name" => "test product", "product_price" => "9000€", "product_description" => "this is a test product"];
 
-        $data = array("product_name" => $product_name, "product_price" => $product_price, "product_description" => $product_description);
-        $this->output->load("product/productDescription", $data);
+        $this->output->load("product/productDescription", $product_data);
     }
 }

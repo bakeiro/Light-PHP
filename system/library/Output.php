@@ -16,9 +16,6 @@ class Output extends Singleton
     protected $header_path;
     protected $footer_path;
 
-    /**
-     *
-     */
     public function __construct($header_path, $footer_path, $cache_version)
     {
         $this->header_path = $header_path;
