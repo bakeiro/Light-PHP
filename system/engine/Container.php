@@ -3,7 +3,7 @@
 namespace Engine;
 
 /**
- * Describes the interface of a container that exposes methods to read its entries.
+ * Describes the class of a container (nearly PSR-11) that exposes methods to read its entries.
  */
 class Container
 {
@@ -28,7 +28,7 @@ class Container
 	}
 
     /**
-     * Set
+     * Set an entry in the container and its identifier
      *
      * @param	string	$key
 	 * @param	string	$value

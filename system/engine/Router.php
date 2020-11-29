@@ -80,7 +80,7 @@ class Router
     public function __construct($route)
     {
         $url_split = explode('/', $route);
-        $this->file = CONTROLLER . $url_split[0] . '/' . $url_split[1] . 'Controller.php';
+        $this->file = "src/" . $url_split[0] . '/controller/' . $url_split[1] . 'Controller.php';
         $this->class = "Controller\\" . ucfirst($url_split[1]) . 'Controller';
 
         $this->method = $url_split[2];

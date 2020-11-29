@@ -1,6 +1,6 @@
 <?php
 
-namespace Model;
+namespace Product;
 
 use Engine\Model;
 

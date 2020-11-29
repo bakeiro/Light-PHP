@@ -73,7 +73,7 @@ class Logger extends Singleton
     /**
      * Exception callback
      *
-     * @param string $exception Exception message
+     * @param object $exception Exception message
      *
      * @return void
      */

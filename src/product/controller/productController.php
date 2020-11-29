@@ -1,6 +1,6 @@
 <?php
 
-namespace Controller;
+namespace Product;
 
 use Engine\Controller;
 

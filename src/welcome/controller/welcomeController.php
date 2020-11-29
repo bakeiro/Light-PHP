@@ -1,6 +1,6 @@
 <?php
 
-namespace Controller;
+namespace Welcome;
 
 use Engine\Controller;
 
