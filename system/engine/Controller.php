@@ -3,6 +3,8 @@
 
 namespace Engine;
 
+use Engine\Container;
+
 /**
  * Controller class, this class executes the main controller's function based in the url,
  * checks wether the file, class and method exists, and executes it, if not executes the error method

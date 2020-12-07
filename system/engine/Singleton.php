@@ -9,7 +9,7 @@ namespace Engine;
  */
 class Singleton
 {
-    private static $instance = null;
+    private static $instances = [];
 
     /**
      * Prevent direct construction calls with the `new` operator.
@@ -34,10 +34,10 @@ class Singleton
      */
     public static function getInstance(): Singleton
     {
-        if (static::$instance === null) {
-            static::$instance = new static();
+        $subclass = static::class;
+        if (!isset(self::$instances[$subclass])) {
+            self::$instances[$subclass] = new static(...func_get_args());
         }
-
-        return static::$instance;
+        return self::$instances[$subclass];
     }
 }

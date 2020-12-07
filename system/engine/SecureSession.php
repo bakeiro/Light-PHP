@@ -1,10 +1,12 @@
 <?php
 // phpcs:disable PSR1.Classes.ClassDeclaration
 
+namespace Engine;
+
 /**
  * Class used to encrypt and decrypt session data
  */
-class SecureSession extends SessionHandler
+class SecureSession extends \SessionHandler
 {
     protected $iv;
     protected $key;

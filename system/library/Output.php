@@ -20,9 +20,9 @@ class Output extends Singleton
     {
         $this->header_path = $header_path;
         $this->footer_path = $footer_path;
+        $this->cache_version = $cache_version;
         $this->output_scripts = [];
         $this->output_styles = [];
-        $this->cache_version = $cache_version;
     }
 
     /**

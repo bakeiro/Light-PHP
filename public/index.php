@@ -6,27 +6,21 @@ chdir(dirname(__DIR__));
 // ROOT constant
 define("ROOT", dirname(__DIR__));
 
-// Engine
-require "system/engine/Router.php";
-require "system/engine/Controller.php";
-require "system/engine/SessionSecureHandler.php";
-require "system/engine/Log.php";
+// AutoLoader
 require "system/engine/AutoLoader.php";
 
-// AutoLoader
 $loader = new AutoLoaderClass();
 $loader->register();
-$loader->addNamespace("Controller", "/controller");
-$loader->addNamespace("Model", "/model");
-$loader->addNamespace("Services", "/system/services");
-$loader->addNamespace("Engine", "/system/engine");
+$loader->addNamespace("Engine", "system/engine");
+$loader->addNamespace("Library", "system/library");
+$loader->addNamespace("Src", "src/");
 
 // Environment
 require "system/config/environment.php";
 
 // Bootstrap
 require "system/config/ini.php";
-require "system/boostrap.php";
+require "system/bootstrap.php";
 
 // Start MVC
 $controller->$method();

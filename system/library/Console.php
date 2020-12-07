@@ -10,7 +10,7 @@ use Engine\Singleton;
 class Console extends Singleton
 {
     protected static $db_queries = [];
-    protected static $error = [];
+    protected static $errors = [];
     protected static $warnings = [];
     protected static $debug_info = [];
     protected static $console_execution_traces = [];
@@ -24,7 +24,7 @@ class Console extends Singleton
      */
     public function addQuery($query)
     {
-        $this->db_queries[] = $query;
+        Console::$db_queries[] = $query;
 
         $this->addStackTrace($query, "query");
     }
@@ -38,7 +38,7 @@ class Console extends Singleton
      */
     public function addError($error)
     {
-        $this->errors[] = $error;
+        Console::$errors[] = $error;
 
         $this->addStackTrace($error, "error");
     }
@@ -52,7 +52,7 @@ class Console extends Singleton
      */
     public function addWarning($warning)
     {
-        $this->warnings[] = $warning;
+        Console::$warnings[] = $warning;
 
         $this->addStackTrace($warning, "warning");
     }
@@ -67,7 +67,7 @@ class Console extends Singleton
      */
     public function addDebugInfo($debug_message)
     {
-        $this->debug_info[] = $debug_message;
+        Console::$debug_info[] = $debug_message;
 
         $this->addStackTrace($debug_message, "debug_info");
     }
@@ -82,7 +82,7 @@ class Console extends Singleton
      */
     public function addStackTrace($message, $type)
     {
-        $this->console_execution_traces[] = array("message" => $message, "type" => $type);
+        Console::$console_execution_traces[] = array("message" => $message, "type" => $type);
     }
 
     /**

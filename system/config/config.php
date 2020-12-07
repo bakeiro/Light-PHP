@@ -39,10 +39,10 @@ return [
         "template_header" => "template/common/Header.php",
         "template_footer" => "template/common/Footer.php",
 
-        "log_path_warning" => "system/log/warning.log",
-        "log_path_error" => "system/log/error.log",
-        "log_path_notice" => "system/log/notice.log",
-        "log_path_unknown_error" => "system/log/unknown_error.log"
+        "log_path_warning" => "system/logs/warning.log",
+        "log_path_error" => "system/logs/error.log",
+        "log_path_notice" => "system/logs/notice.log",
+        "log_path_unknown_error" => "system/logs/unknown_error.log"
     ],
 
     "production" => [
@@ -72,9 +72,9 @@ return [
         "template_header" => "template/common/Header.php",
         "template_footer" => "template/common/Footer.php",
 
-        "log_path_warning" => "system/log/warning.log",
-        "log_path_error" => "system/log/error.log",
-        "log_path_notice" => "system/log/notice.log",
-        "log_path_unknown_error" => "system/log/unknown_error.log"
+        "log_path_warning" => "system/logs/warning.log",
+        "log_path_error" => "system/logs/error.log",
+        "log_path_notice" => "system/logs/notice.log",
+        "log_path_unknown_error" => "system/logs/unknown_error.log"
     ]
 ];

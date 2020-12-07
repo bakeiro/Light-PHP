@@ -1,6 +1,8 @@
 <?php
 // phpcs:disable PSR1.Classes.ClassDeclaration
 
+namespace Library;
+
 use Library\Console;
 use Engine\Singleton;
 

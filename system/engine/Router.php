@@ -1,6 +1,8 @@
 <?php
 // phpcs:disable PSR1.Classes.ClassDeclaration
 
+namespace Engine;
+
 /**
  * Parses the url, and sets useful information based in that, like if it's https, the domain name
  * protocol etc
@@ -36,9 +38,9 @@ class Router
      *
      * @return array
      */
-    public function parsePath($path)
+    public function parsePath()
     {
-        $url_split = explode('/', $path);
+        $url_split = explode('/', $this->path);
 
         $file = "src/" . $url_split[0] . '/controller/' . $url_split[1] . 'Controller.php';
         $class = "Controller\\" . $url_split[1] . 'Controller';
@@ -46,8 +48,8 @@ class Router
 
         if (!$this->isValidPath($file, $class, $file)) {
             $file = 'src/common/controller/commonController.php';
-            $method = 'notFound';
-            $class = "Controller\\commonController";
+            $method = 'pageNotFound';
+            $class = "Common\\commonController";
         }
 
         return [
@@ -86,13 +88,11 @@ class Router
      *
      * @return string
      */
-    public function getPathFromSeoUrl($url_action)
+    private function getPathFromSeoUrl($url_action)
     {
-        include "system/config/routes.php";
+        $routes = include "system/config/routes.php";
 
-        $routes_name = array_keys($routes);
-
-        if (in_array($url_action, $routes_name)) {
+        if (in_array($url_action, $routes)) {
             return $routes[$url_action];
         } else {
             return "common/common/pageNotFound";

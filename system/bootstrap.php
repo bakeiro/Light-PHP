@@ -1,7 +1,10 @@
 <?php
 
 use Engine\Container;
+use Engine\Router;
+use Engine\SecureSession;
 use Library\Util;
+use Library\Logger;
 use Library\Config;
 use Library\Console;
 use Library\Database;
@@ -11,24 +14,30 @@ use Library\Output;
 // Composer
 require "system/composer/vendor/autoload.php";
 
+// Config
+$config_values = require "system/config/config.php";
+$config_values = $config_values[getenv("ENVIRONMENT")];
+
 // container entries
-$config = new Config("system/config/config.php", getenv("ENVIRONMENT"));
+$config = Config::getInstance();
 
-$console = new Console();
+foreach($config_values as $key => $config_value) {
+    $config->set($key, $config_value);
+}
 
-$router = new Router();
+$console = Console::getInstance();
 
-$util = new Util();
+$util = Util::getInstance();
 
-$output = new Output($config->get("template_header"), $config->get("template_footer"), $config->get("version_number"));
+$output = Output::getInstance($config->get("template_header"), $config->get("template_footer"), $config->get("system_cache_version"));
 
-$logger = new Logger($config->get("log_path_error"), $config->get("log_path_notice"), $config->get("log_path_warning"), $config->get("log_path_unknown_error"), $console);
+$logger = Logger::getInstance($config->get("log_path_error"), $config->get("log_path_notice"), $config->get("log_path_warning"), $config->get("log_path_unknown_error"), $console);
 
 $session_handler = new SecureSession($config->get("session_iv"), $config->get("session_key"), $config->get("session_encrypt_method"));
 
-$session = new Session($session_handler, $config->get("session_name"));
+$session = Session::getInstance($session_handler, $config->get("session_name"));
 
-$database = new Database(false, $config->get("db_host"), $config->get("db_user"), $config->get("db_name"), $config->get("db_pass"), $console);
+$database = Database::getInstance(false, $config->get("db_host"), $config->get("db_user"), $config->get("db_name"), $config->get("db_pass"), $console);
 
 // Init database
 if (isset($config->get['database_auto_init']) && $config->get['database_auto_init']) {
@@ -90,8 +99,9 @@ foreach ($ini_variables[getenv("ENVIRONMENT")] as $ini_name => $ini_value) {
 date_default_timezone_set($config->get("system_default_time_zone"));
 
 // Import the controller
-$path_data = new $router->parsePath();
+$router = new Router();
+$path_data = $router->parsePath();
 
-$method = $path_data->method;
-$controller = $path_data->controller;
-require $path_data->file;
+$method = $path_data["method"];
+include_once $path_data["file"];
+$controller = new $path_data["class"]();

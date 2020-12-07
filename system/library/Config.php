@@ -16,14 +16,6 @@ class Config extends Singleton
     protected $data = [];
 
     /**
-     * Initializes the config class
-     */
-    public function __construct($path, $environment)
-    {
-        $this->data = require $path[$environment];
-    }
-
-    /**
      * Set value
      *
      * @param string $key   name of the key
