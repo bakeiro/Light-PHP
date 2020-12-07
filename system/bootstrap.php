@@ -21,7 +21,7 @@ $config_values = $config_values[getenv("ENVIRONMENT")];
 // container entries
 $config = new Config();
 
-foreach($config_values as $key => $config_value) {
+foreach ($config_values as $key => $config_value) {
     $config->set($key, $config_value);
 }
 

@@ -16,10 +16,10 @@
 
 <?php
 // Custom CSS/JS
-foreach($this->output_styles as $style_file) {
+foreach ($this->output_styles as $style_file) {
     echo $style_file;
 }
-foreach($this->output_scripts as $script_file) {
+foreach ($this->output_scripts as $script_file) {
     echo $script_file;
 }
 ?>

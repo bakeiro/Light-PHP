@@ -50,7 +50,6 @@ $cache = $this->config->get("cache_version");
                     echo "<p class='query'><i class='material-icons'>dns</i>" . $trace_message["message"] . "</p>";
                 }
                 if ($trace_message["type"] === "debug_info") {
-
                     if (gettype($trace_message["message"]) === "array" || gettype($trace_message["message"]) === "object") {
                         echo "<pre>";
                         print_r($trace_message["message"]);

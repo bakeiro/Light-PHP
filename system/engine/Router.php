@@ -80,14 +80,14 @@ class Router
         return $is_controller_ok;
     }
 
-   /**
-     * Search the seo url entered in the function's parameter, in the routes.php file, and sets
-     * controller, class and method associated to that seo url
-     *
-     * @param string $url_action seo url to search
-     *
-     * @return string
-     */
+    /**
+      * Search the seo url entered in the function's parameter, in the routes.php file, and sets
+      * controller, class and method associated to that seo url
+      *
+      * @param string $url_action seo url to search
+      *
+      * @return string
+      */
     private function getPathFromSeoUrl($url_action)
     {
         $routes = include "system/config/routes.php";

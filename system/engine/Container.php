@@ -11,7 +11,7 @@ class Container
     /**
      * Array of services initialized and stored in the container
      */
-    static $data = [];
+    public static $data = [];
 
     /**
      * Finds an entry of the container by its identifier and returns it.
@@ -23,19 +23,21 @@ class Container
      *
      * @return mixed Entry.
      */
-	public function get($key) {
+    public function get($key)
+    {
         return isset(get_class($this)::$data[$key]) ? get_class($this)::$data[$key] : '';
-	}
+    }
 
     /**
      * Set an entry in the container and its identifier
      *
      * @param	string	$key
-	 * @param	string	$value
+     * @param	string	$value
      */
-	public function set($key, $value) {
-		Container::$data[$key] = $value;
-	}
+    public function set($key, $value)
+    {
+        Container::$data[$key] = $value;
+    }
 
     /**
      * Returns true if the container can return an entry for the given identifier.
@@ -48,8 +50,8 @@ class Container
      *
      * @return bool
      */
-	public function has($key) {
-		return isset(Container::$data[$key]);
+    public function has($key)
+    {
+        return isset(Container::$data[$key]);
     }
-
 }

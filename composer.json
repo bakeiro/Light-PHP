@@ -20,9 +20,6 @@
         ],
         "strict-lint": [
             "phpcs --encoding=utf-8 -n -s --colors --standard=PSR1,PSR2,PEAR --exclude=PEAR.Commenting.ClassComment,PEAR.Commenting.FileComment --ignore=src/view/*,system/composer/*,system/writable/* ./ "
-        ],
-        "test-environment-compatibility": [
-            "\"./system/composer/vendor/bin/phpunit\" --do-not-cache-result --filter environmentTest ./system/tests/environmentTest.php"
         ]
     },
     "authors": [
@@ -35,7 +32,8 @@
     ],
     "require": {
         "php": "^7.0",
-        "ext-openssl": "*"
+        "ext-openssl": "*",
+        "friendsofphp/php-cs-fixer": "^2.16"
     },
     "require-dev": {
         "sunra/dbug": "^0.2.1",

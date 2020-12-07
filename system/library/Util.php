@@ -155,8 +155,9 @@ class Util
      * Example usage to alter $array to get the second, third and fourth character from each value
      *     array_walk_recursive_referential($array, "substr", array("1","3"));
      */
-    public function array_walk_recursive_referential(&$array, $function, $parameters = array()) {
-        $reference_function = function(&$value, $key, $userdata) {
+    public function array_walk_recursive_referential(&$array, $function, $parameters = array())
+    {
+        $reference_function = function (&$value, $key, $userdata) {
             $parameters = array_merge(array($value), $userdata[1]);
             $value = call_user_func_array($userdata[0], $parameters);
         };

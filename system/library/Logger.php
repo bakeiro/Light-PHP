@@ -21,7 +21,8 @@ class Logger
     /**
      * Sets the Logger constructor
      */
-    public function __construct($error_log_path, $notice_log_path, $warning_log_path, $unknown_errors_log_path, $console) {
+    public function __construct($error_log_path, $notice_log_path, $warning_log_path, $unknown_errors_log_path, $console)
+    {
         $this->error_log_path = $error_log_path;
         $this->notice_log_path = $notice_log_path;
         $this->warning_log_path = $warning_log_path;
