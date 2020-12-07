@@ -11,22 +11,22 @@ class Logger
 {
     public $error_handle;
 
-    private $error_log_path;
-    private $notice_log_path;
-    private $warning_log_path;
-    private $unknown_errors_log_path;
-    private $console;
+    private $_error_log_path;
+    private $_notice_log_path;
+    private $_warning_log_path;
+    private $_unknown_errors_log_path;
+    private $_console;
 
     /**
      * Sets the Logger constructor
      */
     public function __construct($error_log_path, $notice_log_path, $warning_log_path, $unknown_errors_log_path, $console)
     {
-        $this->error_log_path = $error_log_path;
-        $this->notice_log_path = $notice_log_path;
-        $this->warning_log_path = $warning_log_path;
-        $this->unknown_errors_log_path = $unknown_errors_log_path;
-        $this->console = $console;
+        $this->_error_log_path = $error_log_path;
+        $this->_notice_log_path = $notice_log_path;
+        $this->_warning_log_path = $warning_log_path;
+        $this->_unknown_errors_log_path = $unknown_errors_log_path;
+        $this->_console = $console;
     }
 
     /**
@@ -80,10 +80,10 @@ class Logger
     {
         $exception_message = $exception->getMessage();
 
-        $this->console->addError($exception_message);
+        $this->_console->addError($exception_message);
 
-        $this->checkLogFile($this->error_log_path);
-        error_log($exception_message . "\n", 3, $this->error_log_path);
+        $this->checkLogFile($this->_error_log_path);
+        error_log($exception_message . "\n", 3, $this->_error_log_path);
 
         die($exception_message);
     }
@@ -95,9 +95,9 @@ class Logger
      */
     public function noticeHandler(string $error_string): void
     {
-        $this->console->addWarning($error_string);
-        $this->checkLogFile($this->notice_log_path);
-        error_log($error_string . "\n", 3, $this->notice_log_path);
+        $this->_console->addWarning($error_string);
+        $this->checkLogFile($this->_notice_log_path);
+        error_log($error_string . "\n", 3, $this->_notice_log_path);
     }
 
     /**
@@ -107,9 +107,9 @@ class Logger
      */
     public function warningHandler(string $error_string): void
     {
-        $this->console->addWarning($error_string);
-        $this->checkLogFile($this->warning_log_path);
-        error_log($error_string . "\n", 3, $this->warning_log_path);
+        $this->_console->addWarning($error_string);
+        $this->checkLogFile($this->_warning_log_path);
+        error_log($error_string . "\n", 3, $this->_warning_log_path);
     }
 
     /**
@@ -119,9 +119,9 @@ class Logger
      */
     public function errorHandler(string $error_string): void
     {
-        $this->console->addError($error_string);
-        $this->checkLogFile($this->error_log_path);
-        error_log($error_string . "\n", 3, $this->error_log_path);
+        $this->_console->addError($error_string);
+        $this->checkLogFile($this->_error_log_path);
+        error_log($error_string . "\n", 3, $this->_error_log_path);
     }
 
     /**
@@ -131,9 +131,9 @@ class Logger
      */
     public function unknownErrorHandler(string $error_string): void
     {
-        $this->console->addError($error_string);
-        $this->checkLogFile($this->unknown_errors_log_path);
-        error_log($error_string . "\n", 3, $this->unknown_errors_log_path);
+        $this->_console->addError($error_string);
+        $this->checkLogFile($this->_unknown_errors_log_path);
+        error_log($error_string . "\n", 3, $this->_unknown_errors_log_path);
     }
 
     /**

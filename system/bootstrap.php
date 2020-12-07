@@ -70,13 +70,13 @@ error_reporting(E_ALL);
 set_exception_handler(array($logger,"myExceptionHandler"));
 
 // XSS, scape characters, SQL Injection
-$util->array_walk_recursive_referential($_GET, array($util, "preventXSS"));
-$util->array_walk_recursive_referential($_GET, "trim");
-$util->array_walk_recursive_referential($_GET, array($util, "escape"));
+$util->arrayWalkRecursiveReferential($_GET, array($util, "preventXSS"));
+$util->arrayWalkRecursiveReferential($_GET, "trim");
+$util->arrayWalkRecursiveReferential($_GET, array($util, "escape"));
 
-$util->array_walk_recursive_referential($_POST, array($util, "preventXSS"));
-$util->array_walk_recursive_referential($_POST, "trim");
-$util->array_walk_recursive_referential($_POST, array($util, "escape"));
+$util->arrayWalkRecursiveReferential($_POST, array($util, "preventXSS"));
+$util->arrayWalkRecursiveReferential($_POST, "trim");
+$util->arrayWalkRecursiveReferential($_POST, array($util, "escape"));
 
 // Add container entries
 $container = new Container();

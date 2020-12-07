@@ -7,20 +7,20 @@ namespace Library;
  */
 class Database
 {
-    private $connection;
-    private $host;
-    private $user;
-    private $db_name;
-    private $pass;
-    private $console; // used for debug
+    private $_connection;
+    private $_host;
+    private $_user;
+    private $_db_name;
+    private $_pass;
+    private $_console; // used for debug
 
     public function __construct($host, $user, $db_name, $pass, $console)
     {
-        $this->host = $host;
-        $this->user = $user;
-        $this->db_name = $db_name;
-        $this->pass = $pass;
-        $this->console = $console;
+        $this->_host = $host;
+        $this->_user = $user;
+        $this->_db_name = $db_name;
+        $this->_pass = $pass;
+        $this->_console = $console;
     }
 
     /**
@@ -33,9 +33,9 @@ class Database
      */
     public function query(string $sql_query, array $params = array())
     {
-        $this->console->addQuery($sql_query);
+        $this->_console->addQuery($sql_query);
 
-        $smtp = $this->connection->prepare($sql_query);
+        $smtp = $this->_connection->prepare($sql_query);
         $smtp->setFetchMode(\PDO::FETCH_ASSOC);
         $query = $smtp->execute($params);
 
@@ -55,7 +55,7 @@ class Database
             }
 
             if (strpos($sql_query, "INSERT INTO") !== false) {
-                $data = $this->connection->lastInsertId();
+                $data = $this->_connection->lastInsertId();
             }
         }
 
@@ -67,7 +67,7 @@ class Database
      */
     public function getLastId(): int
     {
-        return $this->connection->lastInsertId();
+        return $this->_connection->lastInsertId();
     }
 
     /**
@@ -76,16 +76,16 @@ class Database
     public function initialize(): void
     {
         try {
-            $temp_connection = new \PDO("mysql:host=" . $this->host . ";port=3306;dbname=" . $this->db_name, $this->user, $this->pass);
+            $temp_connection = new \PDO("mysql:host=" . $this->_host . ";port=3306;dbname=" . $this->_db_name, $this->_user, $this->_pass);
             $temp_connection->setAttribute(\PDO::ATTR_EMULATE_PREPARES, false); // true prepare statements
 
             $temp_connection->exec("SET NAMES 'utf8'");
             $temp_connection->exec("SET CHARACTER SET utf8");
             $temp_connection->exec("SET CHARACTER_SET_CONNECTION=utf8");
 
-            $this->connection = $temp_connection;
+            $this->_connection = $temp_connection;
         } catch (\Throwable $th) {
-            $this->console->addDebugInfo("Error loading database");
+            $this->_console->addDebugInfo("Error loading database");
         }
     }
 
@@ -96,7 +96,7 @@ class Database
     {
         //More info about this here: https://php.net/pdo.connections
         //KILL CONNECTION_ID()
-        $this->connection->query('SELECT pg_terminate_backend(pg_backend_pid());');
-        $this->connection = null;
+        $this->_connection->query('SELECT pg_terminate_backend(pg_backend_pid());');
+        $this->_connection = null;
     }
 }

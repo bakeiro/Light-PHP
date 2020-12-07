@@ -8,7 +8,7 @@ use Engine\Controller;
  * Default's controller, this shows the demo pages when you run for first time
  * this project
  */
-class productController extends Controller
+class ProductController extends Controller
 {
 
     /**
