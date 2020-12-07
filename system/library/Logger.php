@@ -1,4 +1,5 @@
 <?php
+
 // phpcs:disable PSR1.Classes.ClassDeclaration
 
 namespace Library;
@@ -54,7 +55,7 @@ class Logger
             $error = 'Fatal Error';
         }
 
-        $error_string_log = " *" . $error . "* " . $error_string . "\n - file: " . $error_file . "\n - on line: " . $error_line. "\n\n";
+        $error_string_log = " *" . $error . "* " . $error_string . "\n - file: " . $error_file . "\n - on line: " . $error_line . "\n\n";
         $error_string_log = addslashes($error_string_log);
 
         if ($error === "Warning") {
@@ -88,7 +89,7 @@ class Logger
         $this->console->addError($exception_message);
 
         $this->checkLogFile($this->error_log_path);
-        error_log($exception_message."\n", 3, $this->error_log_path);
+        error_log($exception_message . "\n", 3, $this->error_log_path);
 
         die($exception_message);
     }
@@ -104,7 +105,7 @@ class Logger
     {
         $this->console->addWarning($error_string);
         $this->checkLogFile($this->notice_log_path);
-        error_log($error_string."\n", 3, $this->notice_log_path);
+        error_log($error_string . "\n", 3, $this->notice_log_path);
     }
 
     /**
@@ -118,7 +119,7 @@ class Logger
     {
         $this->console->addWarning($error_string);
         $this->checkLogFile($this->warning_log_path);
-        error_log($error_string."\n", 3, $this->warning_log_path);
+        error_log($error_string . "\n", 3, $this->warning_log_path);
     }
 
     /**
@@ -132,7 +133,7 @@ class Logger
     {
         $this->console->addError($error_string);
         $this->checkLogFile($this->error_log_path);
-        error_log($error_string."\n", 3, $this->error_log_path);
+        error_log($error_string . "\n", 3, $this->error_log_path);
     }
 
     /**
@@ -146,7 +147,7 @@ class Logger
     {
         $this->console->addError($error_string);
         $this->checkLogFile($this->unknown_errors_log_path);
-        error_log($error_string."\n", 3, $this->unknown_errors_log_path);
+        error_log($error_string . "\n", 3, $this->unknown_errors_log_path);
     }
 
     /**

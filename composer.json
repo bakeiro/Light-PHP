@@ -13,10 +13,10 @@
             "@solve-lint"
         ],
         "lint": [
-            "phpcs --encoding=utf-8 -n -s --colors --standard=PSR1,PSR2,PEAR --exclude=PEAR.Commenting.ClassComment,PEAR.Commenting.FileComment,PEAR.Commenting.FunctionComment --ignore=src/view/*,system/composer/*,system/writable/* ./ "
+            "phpcs  -dm emory_limit=2000M --encoding=utf-8 -n -s --colors --standard=PSR1,PSR12,PEAR --exclude=PEAR.Commenting.ClassComment,PEAR.Commenting.FileComment,PEAR.Commenting.FunctionComment --ignore=src/view/*,system/composer/*,node_modules/* ./ "
         ],
         "fix-lint": [
-            "phpcbf --encoding=utf-8 -n --colors --standard=PSR1,PSR2,PEAR --exclude=PEAR.Commenting.ClassComment,PEAR.Commenting.FileComment --ignore=src/view/*,system/composer/*,system/writable/* ./"
+            "phpcbf -dm emory_limit=2000M  --encoding=utf-8 -n --colors --standard=PSR1,PSR12,PEAR --exclude=PEAR.Commenting.ClassComment,PEAR.Commenting.FileComment --ignore=src/view/*,system/composer/*,node_modules/* ./"
         ]
     },
     "authors": [

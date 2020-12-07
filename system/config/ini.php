@@ -3,6 +3,7 @@
 /**
  * This defines the php settings used later in ini_set()
  */
+
 return [
     "development" => [
         "display_errors" => "On",

@@ -148,12 +148,12 @@ class Util
      * This function acts exactly like array_walk_recursive, except that it pretends that the function
      * its calling replaces the value with its result.
      *
-     * @param $array The first value of the array will be passed into $function as the primary argument
-     * @param $function The function to be called on each element in the array, recursively
+     * @param $array      The first value of the array will be passed into $function as the primary argument
+     * @param $function   The function to be called on each element in the array, recursively
      * @param $parameters An optional array of the additional parameters to be appended to the function
      *
-     * Example usage to alter $array to get the second, third and fourth character from each value
-     *     array_walk_recursive_referential($array, "substr", array("1","3"));
+     *                    Example usage to alter $array to get the second, third and fourth character from each value
+     *                    array_walk_recursive_referential($array, "substr", array("1","3"));
      */
     public function array_walk_recursive_referential(&$array, $function, $parameters = array())
     {

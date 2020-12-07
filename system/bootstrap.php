@@ -15,7 +15,7 @@ use Library\Output;
 require "system/composer/vendor/autoload.php";
 
 // Config
-$config_values = require "system/config/config.php";
+$config_values = include "system/config/config.php";
 $config_values = $config_values[getenv("ENVIRONMENT")];
 
 // container entries
@@ -55,7 +55,7 @@ if (!$session->isValid()) {
 // CSRF token (forms security)
 if ($session->get("csrf_token") === null) {
     $session->set("csrf_token", $util->generateCSRFToken());
-    $session->set("CSRF_input", "<input type='text' name='csrf_token' hidden value='" . $session->get("csrf_token")."' />");
+    $session->set("CSRF_input", "<input type='text' name='csrf_token' hidden value='" . $session->get("csrf_token") . "' />");
 }
 
 if (!$config->get("allow_forms_without_csrf_input")) {
@@ -89,7 +89,7 @@ $container->set("session", $session);
 $container->set("util", $util);
 
 // use INI_SET config
-$ini_variables = require "system/config/ini.php";
+$ini_variables = include "system/config/ini.php";
 foreach ($ini_variables[getenv("ENVIRONMENT")] as $ini_name => $ini_value) {
     ini_set($ini_name, $ini_value);
 }
@@ -102,5 +102,5 @@ $router = new Router();
 $path_data = $router->parsePath();
 
 $method = $path_data["method"];
-include_once $path_data["file"];
+require_once $path_data["file"];
 $controller = new $path_data["class"]();

@@ -14,8 +14,8 @@ class Session
      * Initializes the session settings using a custom session handler
      *
      * @param \SessionHandlerInterface $session_handler custom session handler
-     * @param string         $session_name    name of the session
-     * @param array          $cookie          cookie
+     * @param string                   $session_name    name of the session
+     * @param array                    $cookie          cookie
      *
      * @return void
      */

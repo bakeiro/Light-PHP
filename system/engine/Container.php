@@ -31,8 +31,8 @@ class Container
     /**
      * Set an entry in the container and its identifier
      *
-     * @param	string	$key
-     * @param	string	$value
+     * @param string $key
+     * @param string $value
      */
     public function set($key, $value)
     {

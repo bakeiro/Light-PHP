@@ -80,7 +80,7 @@ class Database
     public function initialize()
     {
         try {
-            $temp_connection = new \PDO("mysql:host=" .$this->host . ";port=3306;dbname=" . $this->db_name, $this->user, $this->pass);
+            $temp_connection = new \PDO("mysql:host=" . $this->host . ";port=3306;dbname=" . $this->db_name, $this->user, $this->pass);
             $temp_connection->setAttribute(\PDO::ATTR_EMULATE_PREPARES, false); // true prepare statements
 
             $temp_connection->exec("SET NAMES 'utf8'");
