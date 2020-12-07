@@ -19,7 +19,7 @@ class Session
      *
      * @return void
      */
-    public function __construct($session_handler, $session_name, $cookie = [])
+    public function __construct(\SessionHandlerInterface $session_handler, string $session_name, array $cookie = [])
     {
         session_set_save_handler($session_handler, true);
 
@@ -47,9 +47,8 @@ class Session
      * Starts the session and checks that it's not empty, and regenerates the id of the session
      * with a probability of 1/5
      *
-     * @return boolean
      */
-    public function start()
+    public function start(): bool
     {
         if (session_id() === '') {
             if (session_start()) {
@@ -66,7 +65,7 @@ class Session
      *
      * @return string|boolean
      */
-    public function get($name)
+    public function get(string $name)
     {
         $parsed = explode('.', $name);
         $result = $_SESSION;
@@ -87,9 +86,8 @@ class Session
      * @param string $name  name of the session index to store the value
      * @param string $value value to write into the session $name index
      *
-     * @return void
      */
-    public function set($name, $value)
+    public function set(string $name, string $value): void
     {
         $parsed = explode('.', $name);
         $session = &$_SESSION;
@@ -107,9 +105,8 @@ class Session
      * Checks if the current session is valid, this means, that it's not expired
      * and that the fingerprint, didn't change
      *
-     * @return boolean
      */
-    public function isValid()
+    public function isValid(): bool
     {
         return !$this->isExpired() && $this->isFingerprint();
     }
@@ -117,9 +114,8 @@ class Session
     /**
      * Checks wether the clients headers and the remote ip address didn't change
      *
-     * @return boolean
      */
-    public function isFingerprint()
+    public function isFingerprint(): bool
     {
         $hash = md5(
             $_SERVER['HTTP_USER_AGENT'] .
@@ -137,9 +133,8 @@ class Session
      *
      * @param int $ttl time to live setting
      *
-     * @return boolean
      */
-    public function isExpired($ttl = 30)
+    public function isExpired(int $ttl = 30): bool
     {
         $last = isset($_SESSION['_last_activity'])
         ? $_SESSION['_last_activity']
@@ -154,9 +149,8 @@ class Session
     /**
      * Deletes and cleans the session
      *
-     * @return boolean
      */
-    public function forget()
+    public function forget(): bool
     {
         if (session_id() === '') {
             return false;

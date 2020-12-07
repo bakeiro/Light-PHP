@@ -31,7 +31,7 @@ class Database
      *
      * @return array|boolean
      */
-    public function query($sql_query, $params = array())
+    public function query(string $sql_query, array $params = array())
     {
         $this->console->addQuery($sql_query);
 
@@ -65,9 +65,8 @@ class Database
     /**
      * Get the last id of the inserted value in the database
      *
-     * @return int
      */
-    public function getLastId()
+    public function getLastId(): int
     {
         return $this->connection->lastInsertId();
     }
@@ -75,9 +74,8 @@ class Database
     /**
      * Initializes the database connections
      *
-     * @return void
      */
-    public function initialize()
+    public function initialize(): void
     {
         try {
             $temp_connection = new \PDO("mysql:host=" . $this->host . ";port=3306;dbname=" . $this->db_name, $this->user, $this->pass);
@@ -96,9 +94,8 @@ class Database
     /**
      * Kills the database connection, more info: https://php.net/pdo.connections
      *
-     * @return void
      */
-    public function destruct()
+    public function destruct(): void
     {
         //More info about this here: https://php.net/pdo.connections
         //KILL CONNECTION_ID()

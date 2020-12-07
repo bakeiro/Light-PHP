@@ -18,9 +18,8 @@ class Console
      *
      * @param string $query SQL query for display in the debug console
      *
-     * @return void
      */
-    public function addQuery($query)
+    public function addQuery(string $query): void
     {
         Console::$db_queries[] = $query;
 
@@ -32,9 +31,8 @@ class Console
      *
      * @param string $error String Errors message to display
      *
-     * @return void
      */
-    public function addError($error)
+    public function addError(string $error): void
     {
         Console::$errors[] = $error;
 
@@ -46,9 +44,8 @@ class Console
      *
      * @param string $warning warning message to display in the debug console
      *
-     * @return void
      */
-    public function addWarning($warning)
+    public function addWarning(string $warning): void
     {
         Console::$warnings[] = $warning;
 
@@ -61,9 +58,8 @@ class Console
      *
      * @param string|int|object|array|boolean $debug_message variable to display in the debug console
      *
-     * @return void
      */
-    public function addDebugInfo($debug_message)
+    public function addDebugInfo($debug_message): void
     {
         Console::$debug_info[] = $debug_message;
 
@@ -76,9 +72,8 @@ class Console
      * @param string $message Message to add into the debug console
      * @param string $type    Type of the message added
      *
-     * @return void
      */
-    public function addStackTrace($message, $type)
+    public function addStackTrace(string $message, string $type): void
     {
         Console::$console_execution_traces[] = array("message" => $message, "type" => $type);
     }
@@ -87,9 +82,8 @@ class Console
      * Gets all the server information, including session settings, cookie, server settings
      * date and time information and much more to display it into the debug console in a friendly way ;)
      *
-     * @return string
      */
-    public function getServerInfo()
+    public function getServerInfo(): string
     {
         $entitiesToUtf8 = function ($input) {
             // http://php.net/manual/en/function.html-entity-decode.php#104617

@@ -13,10 +13,10 @@
             "@solve-lint"
         ],
         "lint": [
-            "phpcs  --encoding=utf-8 -n -s --colors --standard=PSR1,PSR12 --ignore=public/*,system/composer/*,node_modules/* ./ "
+          "phpcs --extensions=php --encoding=utf-8 -n -s --colors --standard=PSR1,PSR12,ruleset.xml --ignore=public/*,system/composer/*,node_modules/* ./ "
         ],
         "fix-lint": [
-            "phpcbf  --encoding=utf-8 -n --colors --standard=PSR1,PSR12  --ignore=public/*,system/composer/*,node_modules/* ./"
+          "phpcbf --extensions=php --encoding=utf-8 -n -s --colors --standard=PSR1,PSR12,ruleset.xml --ignore=public/*,system/composer/*,node_modules/* ./ "
         ]
     },
     "authors": [
@@ -28,7 +28,7 @@
         }
     ],
     "require": {
-        "php": "^7.0",
+        "php": "^7.2",
         "ext-openssl": "*"
     },
     "require-dev": {

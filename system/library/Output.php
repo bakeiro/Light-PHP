@@ -32,9 +32,8 @@ class Output
      * @param string $route path of the template to load
      * @param string $data  array of data to use in the template (if any)
      *
-     * @return void
      */
-    public function load($route, $data = array())
+    public function load(string $route, string $data = array()): void
     {
         $content = $this->loadFile($this->header_path, $data);
 
@@ -55,7 +54,7 @@ class Output
      *
      * @return string template
      */
-    public function loadFile($route, $data)
+    public function loadFile(string $route, array $data): string
     {
         extract($data);
 
@@ -70,9 +69,8 @@ class Output
      *
      * @param string $js_route path of the js file (without extension)
      *
-     * @return void
      */
-    public function addJs($js_route)
+    public function addJs(string $js_route): void
     {
         $output_script = "<script src='src/view/www/dist/" . $js_route . ".js?v=" . $this->cache_version . "' > </script>";
         $this->output_scripts[] = $output_script;
@@ -83,9 +81,8 @@ class Output
      *
      * @param string $css_route path of the css file (without extension)
      *
-     * @return void
      */
-    public function addCss($css_route)
+    public function addCss(string $css_route): void
     {
         $output_style = "<link href='src/view/www/dist/" . $css_route . ".css?v=" . $this->cache_version . "' rel='stylesheet'>";
         $this->output_styles[] = $output_style;

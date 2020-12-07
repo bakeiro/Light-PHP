@@ -14,9 +14,8 @@ class productController extends Controller
     /**
      * Product sample page
      *
-     * @return void
      */
-    public function samplePage()
+    public function samplePage(): void
     {
         // $product_model = new productModel();
         // $product_data = $product_model->getAllProducts();

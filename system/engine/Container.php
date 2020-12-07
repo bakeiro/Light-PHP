@@ -31,10 +31,8 @@ class Container
     /**
      * Set an entry in the container and its identifier
      *
-     * @param string $key
-     * @param string $value
      */
-    public function set($key, $value)
+    public function set(string $key, string $value): void
     {
         Container::$data[$key] = $value;
     }
@@ -48,9 +46,8 @@ class Container
      *
      * @param string $id Identifier of the entry to look for.
      *
-     * @return bool
      */
-    public function has($key)
+    public function has($key): bool
     {
         return isset(Container::$data[$key]);
     }

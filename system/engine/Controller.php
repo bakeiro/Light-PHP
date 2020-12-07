@@ -17,7 +17,7 @@ class Controller extends Container
         return $this->get($dependency_name);
     }
 
-    public function __set($dependency_name, $dependency)
+    public function __set($dependency_name, $dependency): void
     {
         $this->set($dependency_name, $dependency);
     }

@@ -4,8 +4,6 @@
 
 namespace Library;
 
-use Library\Console;
-
 /**
  * Error handling class, define callbacks to execute when warnings, errors, exceptions and unknown errors happen
  */
@@ -40,9 +38,8 @@ class Logger
      * @param string $error_file   File of the error
      * @param string $error_line   Line of the error
      *
-     * @return void
      */
-    public function myErrorHandler($errno, $error_string, $error_file, $error_line)
+    public function myErrorHandler(string $errno, string $error_string, string $error_file, string $error_line): void
     {
         $error = "Unknown";
         if ($errno === E_NOTICE || $errno === E_USER_NOTICE) {
@@ -80,9 +77,8 @@ class Logger
      *
      * @param object $exception Exception message
      *
-     * @return void
      */
-    public function myExceptionHandler($exception)
+    public function myExceptionHandler(object $exception): void
     {
         $exception_message = $exception->getMessage();
 
@@ -99,9 +95,8 @@ class Logger
      *
      * @param string $error_string Notice message
      *
-     * @return void
      */
-    public function noticeHandler($error_string)
+    public function noticeHandler(string $error_string): void
     {
         $this->console->addWarning($error_string);
         $this->checkLogFile($this->notice_log_path);
@@ -113,9 +108,8 @@ class Logger
      *
      * @param string $error_string Warning message
      *
-     * @return void
      */
-    public function warningHandler($error_string)
+    public function warningHandler(string $error_string): void
     {
         $this->console->addWarning($error_string);
         $this->checkLogFile($this->warning_log_path);
@@ -127,9 +121,8 @@ class Logger
      *
      * @param string $error_string Error message
      *
-     * @return void
      */
-    public function errorHandler($error_string)
+    public function errorHandler(string $error_string): void
     {
         $this->console->addError($error_string);
         $this->checkLogFile($this->error_log_path);
@@ -141,9 +134,8 @@ class Logger
      *
      * @param string $error_string Unknown error message
      *
-     * @return void
      */
-    public function unknownErrorHandler($error_string)
+    public function unknownErrorHandler(string $error_string): void
     {
         $this->console->addError($error_string);
         $this->checkLogFile($this->unknown_errors_log_path);
@@ -155,9 +147,8 @@ class Logger
      *
      * @param string $file_name path of the log file
      *
-     * @return void
      */
-    public function checkLogFile($file_name)
+    public function checkLogFile(string $file_name): void
     {
         if (!file_exists($file_name)) {
             $fileResource = fopen($file_name, "w");

@@ -34,12 +34,8 @@ class Router
 
     /**
      * Parses the url, and sets the controller, class and method based in that
-     *
-     * @param string $path url to parse
-     *
-     * @return array
      */
-    public function parsePath()
+    public function parsePath(): array
     {
         $url_split = explode('/', $this->path);
 
@@ -63,9 +59,8 @@ class Router
     /**
      * Checks wether the file, class and method exist, if not, uses the error controller
      *
-     * @return bool
      */
-    private function isValidPath($file, $class, $method)
+    private function isValidPath($file, $class, $method): bool
     {
         $is_controller_ok = true;
         if (!file_exists($file)) {
@@ -87,9 +82,8 @@ class Router
      *
      * @param string $url_action seo url to search
      *
-     * @return string
      */
-    private function getPathFromSeoUrl($url_action)
+    private function getPathFromSeoUrl(string $url_action): string
     {
         $routes = include "system/config/routes.php";
 

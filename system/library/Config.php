@@ -19,9 +19,8 @@ class Config
      * @param string $key   name of the key
      * @param mix    $value value to set
      *
-     * @return void
      */
-    public function set($key, $value = "")
+    public function set(string $key, mix $value = ""): void
     {
         $this->data[$key] = $value;
     }
@@ -33,7 +32,7 @@ class Config
      *
      * @return array|string|int|null
      */
-    public function get($key)
+    public function get(string $key)
     {
         return isset($this->data[$key]) ? $this->data[$key] : null;
     }

@@ -23,7 +23,7 @@ class SecureSession extends \SessionHandler
      *
      * @return void
      */
-    public function __construct($session_iv, $session_key, $session_encrypt_method)
+    public function __construct(string $session_iv, string $session_key, string $session_encrypt_method)
     {
         $this->iv = $session_iv;
         $this->key = $session_key;
@@ -37,7 +37,7 @@ class SecureSession extends \SessionHandler
      *
      * @return array
      */
-    public function read($session_id)
+    public function read(string $session_id): array
     {
         $data = parent::read($session_id);
         $data = (string) openssl_decrypt($data, $this->encrypt_method, $this->key, 0, $this->iv);
@@ -52,7 +52,7 @@ class SecureSession extends \SessionHandler
      *
      * @return array
      */
-    public function write($session_id, $data)
+    public function write(string $session_id, string $data): array
     {
         $encrypted_data = openssl_encrypt($data, $this->encrypt_method, $this->key, 0, $this->iv);
         return parent::write($session_id, $encrypted_data);

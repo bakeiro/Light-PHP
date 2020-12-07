@@ -14,9 +14,8 @@ class welcomeController extends Controller
      * First sample page, returns welcome template
      * and uses the Console class as example of how to use it
      *
-     * @return void
      */
-    public function index()
+    public function index(): void
     {
         $this->console->addDebugInfo("welcome page loaded ;)");
 

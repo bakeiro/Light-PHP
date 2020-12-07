@@ -13,7 +13,7 @@ class Util
      *
      * @return array
      */
-    public function arraySortByColumn(&$arr, $col, $dir = SORT_ASC)
+    public function arraySortByColumn(array &$arr, $col, $dir = SORT_ASC): array
     {
         $sort_col = array();
 
@@ -28,9 +28,8 @@ class Util
      *
      * @param int $size size number of memory to convert into a readable value
      *
-     * @return string
      */
-    public function convert($size)
+    public function convert(int $size): string
     {
         $unit = array('b', 'kb', 'mb', 'gb', 'tb', 'pb');
         return @round($size / pow(1024, ($i = floor(log($size, 1024)))), 2) . ' ' . $unit[$i];
@@ -39,11 +38,10 @@ class Util
     /**
      * Check if the running HTTP request is started by an AJAX
      *
-     * @return boolean
      */
-    public function isAjaxRequest()
+    public function isAjaxRequest(): bool
     {
-        if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest') {
+        if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] === 'XMLHttpRequest') {
             return true;
         }
         return false;
@@ -52,9 +50,8 @@ class Util
     /**
      * Get client's IP address - if proxy lets get the REAL IP address
      *
-     * @return string
      */
-    public function ipAddress()
+    public function ipAddress(): string
     {
         if (!empty($_SERVER['REMOTE_ADDR']) and !empty($_SERVER['HTTP_CLIENT_IP'])) {
             $ip = $_SERVER['HTTP_CLIENT_IP'];
@@ -75,9 +72,8 @@ class Util
      *
      * @param string $value String to clean all the quotes, break lines and special chars
      *
-     * @return string
      */
-    public function escape($value)
+    public function escape(string $value): string
     {
         return str_replace(array("\\", "\0", "\n", "\r", "\x1a", "'", '"'), array("\\\\", "\\0", "\\n", "\\r", "\Z", "\'", '\"'), $value);
     }
@@ -87,9 +83,8 @@ class Util
      *
      * @param string $text text to clean special characters
      *
-     * @return string
      */
-    public function preventXSS($value)
+    public function preventXSS($value): string
     {
         return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
     }
@@ -99,9 +94,8 @@ class Util
      *
      * @param int $length length of the token to generate
      *
-     * @return string
      */
-    public function generateSimpleToken($length)
+    public function generateSimpleToken(int $length): string
     {
         $token = "";
         $codeAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -119,9 +113,8 @@ class Util
     /**
      * Generates a random token for use in the CSRF token (this is used to check the POST forms integrity)
      *
-     * @return string
      */
-    public function generateCSRFToken()
+    public function generateCSRFToken(): string
     {
         return bin2hex(random_bytes(32));
     }
@@ -129,9 +122,8 @@ class Util
     /**
      * Checks wether the CSRF token used in the POST form, matches with the CSRF token stored in the session
      *
-     * @return void
      */
-    public function checkPostCSRFToken()
+    public function checkPostCSRFToken(): void
     {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             if (isset($_POST["csrf_token"])) {
@@ -155,9 +147,9 @@ class Util
      *                    Example usage to alter $array to get the second, third and fourth character from each value
      *                    array_walk_recursive_referential($array, "substr", array("1","3"));
      */
-    public function array_walk_recursive_referential(&$array, $function, $parameters = array())
+    public function array_walk_recursive_referential(&$array, $function, $parameters = array()): void
     {
-        $reference_function = function (&$value, $key, $userdata) {
+        $reference_function = function (&$value, $key, $userdata): void {
             $parameters = array_merge(array($value), $userdata[1]);
             $value = call_user_func_array($userdata[0], $parameters);
         };

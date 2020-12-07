@@ -14,9 +14,8 @@ class CommonController extends Controller
     /**
      * Returns the 404 error page
      *
-     * @return void
      */
-    public function pageNotFound()
+    public function pageNotFound(): void
     {
         $data = [
             "title" => "Error! The Page: " . $this->config->get("url_action") . " couldn't be found!",
