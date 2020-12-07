@@ -27,7 +27,6 @@ class Util
      * Convert the size number into a human readable value
      *
      * @param int $size size number of memory to convert into a readable value
-     *
      */
     public function convert(int $size): string
     {
@@ -37,7 +36,6 @@ class Util
 
     /**
      * Check if the running HTTP request is started by an AJAX
-     *
      */
     public function isAjaxRequest(): bool
     {
@@ -49,7 +47,6 @@ class Util
 
     /**
      * Get client's IP address - if proxy lets get the REAL IP address
-     *
      */
     public function ipAddress(): string
     {
@@ -71,7 +68,6 @@ class Util
      * Escapes all the quotes/special characters
      *
      * @param string $value String to clean all the quotes, break lines and special chars
-     *
      */
     public function escape(string $value): string
     {
@@ -82,7 +78,6 @@ class Util
      * Deletes special characters
      *
      * @param string $text text to clean special characters
-     *
      */
     public function preventXSS($value): string
     {
@@ -93,7 +88,6 @@ class Util
      * Generates an simple random token with an specified length
      *
      * @param int $length length of the token to generate
-     *
      */
     public function generateSimpleToken(int $length): string
     {
@@ -112,7 +106,6 @@ class Util
 
     /**
      * Generates a random token for use in the CSRF token (this is used to check the POST forms integrity)
-     *
      */
     public function generateCSRFToken(): string
     {
@@ -121,7 +114,6 @@ class Util
 
     /**
      * Checks wether the CSRF token used in the POST form, matches with the CSRF token stored in the session
-     *
      */
     public function checkPostCSRFToken(): void
     {

@@ -64,7 +64,6 @@ class Database
 
     /**
      * Get the last id of the inserted value in the database
-     *
      */
     public function getLastId(): int
     {
@@ -73,7 +72,6 @@ class Database
 
     /**
      * Initializes the database connections
-     *
      */
     public function initialize(): void
     {
@@ -93,7 +91,6 @@ class Database
 
     /**
      * Kills the database connection, more info: https://php.net/pdo.connections
-     *
      */
     public function destruct(): void
     {

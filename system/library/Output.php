@@ -31,7 +31,6 @@ class Output
      *
      * @param string $route path of the template to load
      * @param string $data  array of data to use in the template (if any)
-     *
      */
     public function load(string $route, string $data = array()): void
     {
@@ -68,7 +67,6 @@ class Output
      * Adds a js file at the end of the html document
      *
      * @param string $js_route path of the js file (without extension)
-     *
      */
     public function addJs(string $js_route): void
     {
@@ -80,7 +78,6 @@ class Output
      * Adds a css file at the end of the html document
      *
      * @param string $css_route path of the css file (without extension)
-     *
      */
     public function addCss(string $css_route): void
     {

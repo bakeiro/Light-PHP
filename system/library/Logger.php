@@ -37,7 +37,6 @@ class Logger
      * @param string $error_string Error description
      * @param string $error_file   File of the error
      * @param string $error_line   Line of the error
-     *
      */
     public function myErrorHandler(string $errno, string $error_string, string $error_file, string $error_line): void
     {
@@ -76,7 +75,6 @@ class Logger
      * Exception callback
      *
      * @param object $exception Exception message
-     *
      */
     public function myExceptionHandler(object $exception): void
     {
@@ -94,7 +92,6 @@ class Logger
      * Notice callback
      *
      * @param string $error_string Notice message
-     *
      */
     public function noticeHandler(string $error_string): void
     {
@@ -107,7 +104,6 @@ class Logger
      * Warning handler
      *
      * @param string $error_string Warning message
-     *
      */
     public function warningHandler(string $error_string): void
     {
@@ -120,7 +116,6 @@ class Logger
      * Error handler
      *
      * @param string $error_string Error message
-     *
      */
     public function errorHandler(string $error_string): void
     {
@@ -133,7 +128,6 @@ class Logger
      * Unknown Error handler
      *
      * @param string $error_string Unknown error message
-     *
      */
     public function unknownErrorHandler(string $error_string): void
     {
@@ -146,7 +140,6 @@ class Logger
      * Checks, wether the file passed in the argument exist, if not, creates it
      *
      * @param string $file_name path of the log file
-     *
      */
     public function checkLogFile(string $file_name): void
     {

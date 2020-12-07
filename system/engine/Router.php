@@ -58,7 +58,6 @@ class Router
 
     /**
      * Checks wether the file, class and method exist, if not, uses the error controller
-     *
      */
     private function isValidPath($file, $class, $method): bool
     {
@@ -81,7 +80,6 @@ class Router
      * controller, class and method associated to that seo url
      *
      * @param string $url_action seo url to search
-     *
      */
     private function getPathFromSeoUrl(string $url_action): string
     {

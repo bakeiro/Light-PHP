@@ -13,7 +13,6 @@ class CommonController extends Controller
 
     /**
      * Returns the 404 error page
-     *
      */
     public function pageNotFound(): void
     {

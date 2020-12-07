@@ -13,7 +13,6 @@ class productController extends Controller
 
     /**
      * Product sample page
-     *
      */
     public function samplePage(): void
     {

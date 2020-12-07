@@ -46,7 +46,6 @@ class Session
     /**
      * Starts the session and checks that it's not empty, and regenerates the id of the session
      * with a probability of 1/5
-     *
      */
     public function start(): bool
     {
@@ -85,7 +84,6 @@ class Session
      *
      * @param string $name  name of the session index to store the value
      * @param string $value value to write into the session $name index
-     *
      */
     public function set(string $name, string $value): void
     {
@@ -104,7 +102,6 @@ class Session
     /**
      * Checks if the current session is valid, this means, that it's not expired
      * and that the fingerprint, didn't change
-     *
      */
     public function isValid(): bool
     {
@@ -113,7 +110,6 @@ class Session
 
     /**
      * Checks wether the clients headers and the remote ip address didn't change
-     *
      */
     public function isFingerprint(): bool
     {
@@ -132,7 +128,6 @@ class Session
      * Checks wether the session didn't expire (ttl)
      *
      * @param int $ttl time to live setting
-     *
      */
     public function isExpired(int $ttl = 30): bool
     {
@@ -148,7 +143,6 @@ class Session
 
     /**
      * Deletes and cleans the session
-     *
      */
     public function forget(): bool
     {

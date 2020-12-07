@@ -11,7 +11,6 @@ class ProductModel extends Model
 {
     /**
      * Return all products
-     *
      */
     public function getAllProducts(): array
     {
@@ -22,7 +21,6 @@ class ProductModel extends Model
      * Sample function: get product by id
      *
      * @param int $prod_id product id for searching
-     *
      */
     public function getProductById(int $prod_id): array
     {

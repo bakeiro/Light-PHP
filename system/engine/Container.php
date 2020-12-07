@@ -30,7 +30,6 @@ class Container
 
     /**
      * Set an entry in the container and its identifier
-     *
      */
     public function set(string $key, string $value): void
     {
@@ -45,7 +44,6 @@ class Container
      * It does however mean that `get($id)` will not throw a `NotFoundExceptionInterface`.
      *
      * @param string $id Identifier of the entry to look for.
-     *
      */
     public function has($key): bool
     {

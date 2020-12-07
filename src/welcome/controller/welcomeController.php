@@ -13,7 +13,6 @@ class welcomeController extends Controller
     /**
      * First sample page, returns welcome template
      * and uses the Console class as example of how to use it
-     *
      */
     public function index(): void
     {

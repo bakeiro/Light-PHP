@@ -18,7 +18,6 @@ class Config
      *
      * @param string $key   name of the key
      * @param mix    $value value to set
-     *
      */
     public function set(string $key, mix $value = ""): void
     {
