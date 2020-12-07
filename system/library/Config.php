@@ -2,13 +2,11 @@
 
 namespace Library;
 
-use Engine\Singleton;
-
 /**
  * class, used for getting and setting important values of configuration, by default,
  * loads the config values from config.php file
  */
-class Config extends Singleton
+class Config
 {
     /**
      * PHP array of the config values

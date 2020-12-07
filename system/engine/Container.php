@@ -24,7 +24,7 @@ class Container
      * @return mixed Entry.
      */
 	public function get($key) {
-		return (isset($this->data[$key]) ? $this->data[$key] : '');
+        return isset(get_class($this)::$data[$key]) ? get_class($this)::$data[$key] : '';
 	}
 
     /**
@@ -34,7 +34,7 @@ class Container
 	 * @param	string	$value
      */
 	public function set($key, $value) {
-		$this->data[$key] = $value;
+		Container::$data[$key] = $value;
 	}
 
     /**
@@ -49,7 +49,7 @@ class Container
      * @return bool
      */
 	public function has($key) {
-		return isset($this->data[$key]);
+		return isset(Container::$data[$key]);
     }
 
 }

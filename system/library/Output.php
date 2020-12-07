@@ -2,25 +2,25 @@
 
 namespace Library;
 
-use Engine\Singleton;
-
 /**
  * Library class, loads view templates, replaces the double brackets by the variable value,
  * and can add JS and CSS files to the end of a template.
  */
-class Output extends Singleton
+class Output
 {
     protected $output_scripts = array();
     protected $output_styles = array();
     protected $cache_version = 0;
     protected $header_path;
     protected $footer_path;
+    protected $is_debug_console_enabled;
 
-    public function __construct($header_path, $footer_path, $cache_version)
+    public function __construct($header_path, $footer_path, $cache_version, $is_debug_console_enabled)
     {
         $this->header_path = $header_path;
         $this->footer_path = $footer_path;
         $this->cache_version = $cache_version;
+        $this->is_debug_console_enabled = $is_debug_console_enabled;
         $this->output_scripts = [];
         $this->output_styles = [];
     }

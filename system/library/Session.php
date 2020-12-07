@@ -2,12 +2,10 @@
 
 namespace Library;
 
-use Engine\Singleton;
-
 /**
  * Session class to manage the session values in a encrypted way
  */
-class Session extends Singleton
+class Session
 {
     public $name;
     public $cookie;

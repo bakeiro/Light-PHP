@@ -36,8 +36,8 @@ return [
         "system_cache_version" => 0001, // Refresh frontend cache
         "system_allow_forms_without_csrf" => false,
 
-        "template_header" => "template/common/Header.php",
-        "template_footer" => "template/common/Footer.php",
+        "template_header" => "src/common/view/Header.php",
+        "template_footer" => "src/common/view/Footer.php",
 
         "log_path_warning" => "system/logs/warning.log",
         "log_path_error" => "system/logs/error.log",
@@ -69,8 +69,8 @@ return [
         "system_cache_version" => 0001, // Refresh frontend cache
         "system_allow_forms_without_csrf" => false,
 
-        "template_header" => "template/common/Header.php",
-        "template_footer" => "template/common/Footer.php",
+        "template_header" => "src/common/view/Header.php",
+        "template_footer" => "src/common/view/Footer.php",
 
         "log_path_warning" => "system/logs/warning.log",
         "log_path_error" => "system/logs/error.log",

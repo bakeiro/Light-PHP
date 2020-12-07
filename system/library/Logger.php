@@ -4,12 +4,11 @@
 namespace Library;
 
 use Library\Console;
-use Engine\Singleton;
 
 /**
  * Error handling class, define callbacks to execute when warnings, errors, exceptions and unknown errors happen
  */
-class Logger extends Singleton
+class Logger
 {
     public $error_handle;
 

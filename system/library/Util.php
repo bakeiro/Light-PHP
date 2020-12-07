@@ -2,9 +2,7 @@
 
 namespace Library;
 
-use Engine\Singleton;
-
-class Util extends Singleton
+class Util
 {
     /**
      * Sort one array by one column

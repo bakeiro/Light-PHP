@@ -2,12 +2,10 @@
 
 namespace Library;
 
-use Engine\Singleton;
-
 /**
  * Class to interact with the debug console
  */
-class Console extends Singleton
+class Console
 {
     protected static $db_queries = [];
     protected static $errors = [];

@@ -2,12 +2,10 @@
 
 namespace Library;
 
-use Engine\Singleton;
-
 /**
  * Database abstraction class, used to interact in a simple way with the database, making the things less complicated than needed
  */
-class Database extends Singleton
+class Database
 {
     private $connection;
     private $host;

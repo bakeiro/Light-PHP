@@ -19,28 +19,28 @@ $config_values = require "system/config/config.php";
 $config_values = $config_values[getenv("ENVIRONMENT")];
 
 // container entries
-$config = Config::getInstance();
+$config = new Config();
 
 foreach($config_values as $key => $config_value) {
     $config->set($key, $config_value);
 }
 
-$console = Console::getInstance();
+$console = new Console();
 
-$util = Util::getInstance();
+$util = new Util();
 
-$output = Output::getInstance($config->get("template_header"), $config->get("template_footer"), $config->get("system_cache_version"));
+$output = new Output($config->get("template_header"), $config->get("template_footer"), $config->get("system_cache_version"), $config->get('database_auto_init'));
 
-$logger = Logger::getInstance($config->get("log_path_error"), $config->get("log_path_notice"), $config->get("log_path_warning"), $config->get("log_path_unknown_error"), $console);
+$logger = new Logger($config->get("log_path_error"), $config->get("log_path_notice"), $config->get("log_path_warning"), $config->get("log_path_unknown_error"), $console);
 
 $session_handler = new SecureSession($config->get("session_iv"), $config->get("session_key"), $config->get("session_encrypt_method"));
 
-$session = Session::getInstance($session_handler, $config->get("session_name"));
+$session = new Session($session_handler, $config->get("session_name"));
 
-$database = Database::getInstance(false, $config->get("db_host"), $config->get("db_user"), $config->get("db_name"), $config->get("db_pass"), $console);
+$database = new Database(false, $config->get("db_host"), $config->get("db_user"), $config->get("db_name"), $config->get("db_pass"), $console);
 
 // Init database
-if (isset($config->get['database_auto_init']) && $config->get['database_auto_init']) {
+if ($config->get('database_auto_init')) {
     $database->initialize();
 }
 
@@ -81,13 +81,12 @@ $util->array_walk_recursive_referential($_POST, array($util, "escape"));
 // Add container entries
 $container = new Container();
 $container->set("config", $config);
-$container->set("output", $output);
-$container->set("logger", $logger);
-$container->set("router", $router);
-$container->set("session", $session);
-$container->set("util", $util);
 $container->set("console", $console);
 $container->set("database", $database);
+$container->set("logger", $logger);
+$container->set("output", $output);
+$container->set("session", $session);
+$container->set("util", $util);
 
 // use INI_SET config
 $ini_variables = require "system/config/ini.php";
