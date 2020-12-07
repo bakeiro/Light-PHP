@@ -121,13 +121,14 @@ class Console
         $input = $matches[1];
         $matches = array();
 
-        if (preg_match_all(
-            '#(?:<h2.*?>(?:<a.*?>)?(.*?)(?:<\/a>)?<\/h2>)|' .
-            '(?:<tr.*?><t[hd].*?>(.*?)\s*</t[hd]>(?:<t[hd].*?>(.*?)\s*</t[hd]>(?:<t[hd].*?>(.*?)\s*</t[hd]>)?)?</tr>)#s',
-            $input,
-            $matches,
-            PREG_SET_ORDER
-        )
+        if (
+            preg_match_all(
+                '#(?:<h2.*?>(?:<a.*?>)?(.*?)(?:<\/a>)?<\/h2>)|' .
+                '(?:<tr.*?><t[hd].*?>(.*?)\s*</t[hd]>(?:<t[hd].*?>(.*?)\s*</t[hd]>(?:<t[hd].*?>(.*?)\s*</t[hd]>)?)?</tr>)#s',
+                $input,
+                $matches,
+                PREG_SET_ORDER
+            )
         ) {
             foreach ($matches as $match) {
                 $fn = strpos($match[0], '<th') === false ? $plainText : $titlePlainText;
