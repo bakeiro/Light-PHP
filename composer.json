@@ -10,7 +10,7 @@
         "post-create-project-cmd": [
             "php -r \"require_once('./post-install.php'); \"",
             "php -r \"unlink('./post-install.php'); \"",
-            "@solve-lint"
+            "@fix-lint"
         ],
         "lint": [
             "phpcs --encoding=utf-8 -n -s --colors --standard=PSR1,PSR12 --ignore=node_modules/*,system/composer/*,public/* ./ "
