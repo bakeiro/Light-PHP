@@ -4,29 +4,29 @@ $loaded_modules = get_loaded_extensions();
 $loaded_all_dependencies = true;
 
 if (!in_array("openssl", $loaded_modules)) {
-    $loaded_all_dependencies = false;
+  $loaded_all_dependencies = false;
 }
 
 if (!in_array("session", $loaded_modules)) {
-    $loaded_all_dependencies = false;
+  $loaded_all_dependencies = false;
 }
 
 if (!in_array("date", $loaded_modules)) {
-    $loaded_all_dependencies = false;
+  $loaded_all_dependencies = false;
 }
 
 if (!in_array("json", $loaded_modules)) {
-    $loaded_all_dependencies = false;
+  $loaded_all_dependencies = false;
 }
 
 if (!in_array("PDO", $loaded_modules)) {
-    $loaded_all_dependencies = false;
+  $loaded_all_dependencies = false;
 }
 
 $enough_php_version = version_compare(phpversion(), '7.1', '>') ? true : false;
 
 require_once "./system/library/Util.php";
-$config_string = file_get_contents("./system/config/_config.php");
+$config_string = file_get_contents("./system/config/config.php");
 
 $util = new Library\Util();
 $token_iv = $util->generateSimpleToken(16);
