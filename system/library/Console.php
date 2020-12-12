@@ -83,7 +83,7 @@ class Console
      * date and time information and much more to display it into the debug console in a friendly way ;)
      *
      */
-    public function getServerInfo(): string
+    public function getServerInfo()
     {
         $entitiesToUtf8 = function ($input) {
             // http://php.net/manual/en/function.html-entity-decode.php#104617

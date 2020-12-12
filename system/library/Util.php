@@ -13,7 +13,7 @@ class Util
      *
      * @return array
      */
-    public function arraySortByColumn(array &$arr, $col, $dir = SORT_ASC): array
+    public function arraySortByColumn(array &$arr, $col, $dir = SORT_ASC)
     {
         $sort_col = array();
 

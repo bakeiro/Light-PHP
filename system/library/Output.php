@@ -30,9 +30,9 @@ class Output
      * this load also the header and the footer template
      *
      * @param string $route path of the template to load
-     * @param string $data  array of data to use in the template (if any)
+     * @param array $data  array of data to use in the template (if any)
      */
-    public function load(string $route, string $data = array()): void
+    public function load(string $route, array $data = array()): void
     {
         $content = $this->loadFile($this->header_path, $data);
 

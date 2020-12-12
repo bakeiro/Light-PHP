@@ -37,7 +37,7 @@ class SecureSession extends \SessionHandler
      *
      * @return array
      */
-    public function read(string $session_id): array
+    public function read($session_id)
     {
         $data = parent::read($session_id);
         $data = (string) openssl_decrypt($data, $this->encrypt_method, $this->key, 0, $this->iv);
@@ -52,7 +52,7 @@ class SecureSession extends \SessionHandler
      *
      * @return array
      */
-    public function write(string $session_id, string $data): array
+    public function write($session_id, $data)
     {
         $encrypted_data = openssl_encrypt($data, $this->encrypt_method, $this->key, 0, $this->iv);
         return parent::write($session_id, $encrypted_data);
