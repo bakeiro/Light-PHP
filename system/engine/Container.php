@@ -31,7 +31,7 @@ class Container
     /**
      * Set an entry in the container and its identifier
      */
-    public function set(string $key, string $value): void
+    public function set($key, $value): void
     {
         Container::$data[$key] = $value;
     }

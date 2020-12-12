@@ -87,7 +87,7 @@ class AutoLoaderClass
      * @return mixed Boolean false if no mapped file can be loaded, or the
      * name of the mapped file that was loaded.
      */
-    protected function loadMappedFile(string $prefix, string $relative_class)
+    protected function loadMappedFile(string $prefix, $relative_class)
     {
         if (isset($this->prefixes[$prefix]) === false) {
             return false;

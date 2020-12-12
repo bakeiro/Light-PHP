@@ -54,6 +54,7 @@ class Session
                 return mt_rand(0, 4) === 0 ? session_regenerate_id() : true; // 1/5
             }
         }
+
         return false;
     }
 
@@ -68,6 +69,7 @@ class Session
     {
         $parsed = explode('.', $name);
         $result = $_SESSION;
+
         while ($parsed) {
             $next = array_shift($parsed);
             if (isset($result[$next])) {
@@ -76,6 +78,7 @@ class Session
                 return null;
             }
         }
+
         return $result;
     }
 
@@ -89,6 +92,7 @@ class Session
     {
         $parsed = explode('.', $name);
         $session = &$_SESSION;
+
         while (count($parsed) > 1) {
             $next = array_shift($parsed);
             if (!isset($session[$next]) || !is_array($session[$next])) {
@@ -96,6 +100,7 @@ class Session
             }
             $session = &$session[$next];
         }
+
         $session[array_shift($parsed)] = $value;
     }
 
@@ -117,10 +122,13 @@ class Session
             $_SERVER['HTTP_USER_AGENT'] .
             (ip2long($_SERVER['REMOTE_ADDR']) & ip2long('255.255.0.0'))
         );
+
         if (isset($_SESSION['_fingerprint'])) {
             return $_SESSION['_fingerprint'] === $hash;
         }
+
         $_SESSION['_fingerprint'] = $hash;
+
         return true;
     }
 
@@ -131,13 +139,14 @@ class Session
      */
     public function isExpired(int $ttl = 30): bool
     {
-        $last = isset($_SESSION['_last_activity'])
-        ? $_SESSION['_last_activity']
-        : false;
+        $last = isset($_SESSION['_last_activity']) ? $_SESSION['_last_activity'] : false;
+
         if ($last !== false && time() - $last > $ttl * 60) {
             return true;
         }
+
         $_SESSION['_last_activity'] = time();
+
         return false;
     }
 
@@ -161,6 +170,7 @@ class Session
             $this->cookie['secure'],
             $this->cookie['httponly']
         );
+
         return session_destroy();
     }
 }

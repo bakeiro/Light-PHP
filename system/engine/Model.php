@@ -8,9 +8,9 @@ namespace Engine;
  */
 class Model extends Container
 {
-    public function __get($dependency_name): void
+    public function __get($dependency_name)
     {
-        $this->get($dependency_name);
+        return $this->get($dependency_name);
     }
 
     public function __set($dependency_name, $dependency): void

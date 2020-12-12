@@ -74,9 +74,9 @@ class Logger
     /**
      * Exception callback
      *
-     * @param object $exception Exception message
+     * @param $exception Exception message
      */
-    public function myExceptionHandler(object $exception): void
+    public function myExceptionHandler($exception): void
     {
         $exception_message = $exception->getMessage();
 
