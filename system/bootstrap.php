@@ -25,6 +25,12 @@ foreach ($config_values as $key => $config_value) {
     $config->set($key, $config_value);
 }
 
+// use INI_SET config
+$ini_variables = include "system/config/ini.php";
+foreach ($ini_variables[getenv("ENVIRONMENT")] as $ini_name => $ini_value) {
+    ini_set($ini_name, $ini_value);
+}
+
 $console = new Console();
 
 $util = new Util();
@@ -87,12 +93,6 @@ $container->set("logger", $logger);
 $container->set("output", $output);
 $container->set("session", $session);
 $container->set("util", $util);
-
-// use INI_SET config
-$ini_variables = include "system/config/ini.php";
-foreach ($ini_variables[getenv("ENVIRONMENT")] as $ini_name => $ini_value) {
-    ini_set($ini_name, $ini_value);
-}
 
 // Timezone
 date_default_timezone_set($config->get("system_default_time_zone"));
