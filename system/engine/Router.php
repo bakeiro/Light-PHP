@@ -83,7 +83,7 @@ class Router
     {
         $routes = include "system/config/routes.php";
 
-        if (in_array($url_action, $routes)) {
+        if (in_array($url_action, array_keys($routes))) {
             return $routes[$url_action];
         } else {
             return "common/common/pageNotFound";

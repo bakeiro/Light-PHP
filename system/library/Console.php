@@ -69,11 +69,11 @@ class Console
     /**
      * Adds a message to display into the debug console
      *
-     * @param string $message Message to add into the debug console
+     * @param $message Message to add into the debug console
      * @param string $type    Type of the message added
      *
      */
-    public function addStackTrace(string $message, string $type): void
+    public function addStackTrace($message, string $type): void
     {
         Console::$console_execution_traces[] = array("message" => $message, "type" => $type);
     }
