@@ -14,13 +14,15 @@ class Output
     protected $header_path;
     protected $footer_path;
     protected $is_debug_console_enabled;
+    protected $console;
 
-    public function __construct($header_path, $footer_path, $cache_version, $is_debug_console_enabled)
+    public function __construct($header_path, $footer_path, $cache_version, $is_debug_console_enabled, $console)
     {
         $this->header_path = $header_path;
         $this->footer_path = $footer_path;
         $this->cache_version = $cache_version;
         $this->is_debug_console_enabled = $is_debug_console_enabled;
+        $this->console = $console;
         $this->output_scripts = [];
         $this->output_styles = [];
     }

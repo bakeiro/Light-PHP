@@ -7,11 +7,17 @@ namespace Library;
  */
 class Console
 {
-    protected static $db_queries = [];
-    protected static $errors = [];
-    protected static $warnings = [];
-    protected static $debug_info = [];
-    protected static $console_execution_traces = [];
+    public static $db_queries = [];
+    public static $errors = [];
+    public static $warnings = [];
+    public static $debug_info = [];
+    public static $console_execution_traces = [];
+    public $max_execution_time;
+
+    public function __construct($max_execution_time)
+    {
+        $this->max_execution_time = $max_execution_time;
+    }
 
     /**
      * Adds the SQL query to show it in the console
@@ -162,5 +168,16 @@ class Console
         }
 
         return $debug_info;
+    }
+
+    /**
+     * Convert the size number into a human readable value
+     *
+     * @param int $size size number of memory to convert into a readable value
+     */
+    public function convert(int $size): string
+    {
+        $unit = array('b', 'kb', 'mb', 'gb', 'tb', 'pb');
+        return @round($size / pow(1024, ($i = floor(log($size, 1024)))), 2) . ' ' . $unit[$i];
     }
 }

@@ -6,14 +6,14 @@
  */
 
 // Memory
-$memory = $this->util->convert(memory_get_usage(true));
+$memory = $this->console->convert(memory_get_usage(true));
 
 // Time
-$time_script = microtime(true) - $this->config->get("execution_time");
+$time_script = microtime(true) - $this->console->max_execution_time;
 $time_script = round($time_script, 4);
 
 // Cache
-$cache = $this->config->get("cache_version");
+$cache = $this->cache_version;
 ?>
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -39,7 +39,7 @@ $cache = $this->config->get("cache_version");
     <div id="console-body">
         <div class="console-body-seccion active" id="error-log-body">
             <?php
-            foreach ($this->console->console_execution_trace as $trace_message) {
+            foreach ($this->console::$console_execution_traces as $trace_message) {
                 if ($trace_message["type"] === "error") {
                     echo "<p class='error'><i class='material-icons red-text'>error</i>" . $trace_message["message"] . "</p>";
                 }
@@ -74,5 +74,5 @@ $cache = $this->config->get("cache_version");
     </div>
 </div>
 
-<script src="src/view/www/dist/console.js"></script>
-<link rel="stylesheet" href="src/view/www/dist/console.css">
+<script src="www/dist/console.js"></script>
+<link rel="stylesheet" href="www/dist/console.css">

@@ -39,11 +39,11 @@ foreach ($modules as $module) {
 }
 
 
-$console = new Console();
+$console = new Console($config->get("system_execution_time"));
 
 $util = new Util();
 
-$output = new Output($config->get("template_header"), $config->get("template_footer"), $config->get("system_cache_version"), $config->get('database_auto_init'));
+$output = new Output($config->get("template_header"), $config->get("template_footer"), $config->get("system_cache_version"), $config->get('system_debug_console'), $console);
 
 $logger = new Logger($config->get("log_path_error"), $config->get("log_path_notice"), $config->get("log_path_warning"), $config->get("log_path_unknown_error"), $console);
 
