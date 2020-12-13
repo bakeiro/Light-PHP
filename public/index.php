@@ -9,11 +9,11 @@ define("ROOT", dirname(__DIR__));
 // AutoLoader
 require "system/engine/AutoLoader.php";
 
+// Basic namespace mapping
 $loader = new AutoLoaderClass();
 $loader->register();
 $loader->addNamespace("Engine", "system/engine");
 $loader->addNamespace("Library", "system/library");
-$loader->addNamespace("Src", "src/");
 
 // Environment
 require "system/config/environment.php";

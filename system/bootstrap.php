@@ -14,22 +14,30 @@ use Library\Output;
 // Composer
 require "system/composer/vendor/autoload.php";
 
-// Config
-$config_values = include "system/config/config.php";
-$config_values = $config_values[getenv("ENVIRONMENT")];
-
-// container entries
+// Config class
 $config = new Config();
 
-foreach ($config_values as $key => $config_value) {
+// Config values
+$config_values = include "system/config/config.php";
+foreach ($config_values[getenv("ENVIRONMENT")] as $key => $config_value) {
     $config->set($key, $config_value);
 }
 
-// use INI_SET config
+// Config PHP values
 $ini_variables = include "system/config/ini.php";
 foreach ($ini_variables[getenv("ENVIRONMENT")] as $ini_name => $ini_value) {
     ini_set($ini_name, $ini_value);
 }
+
+// complete namespace mapping
+$modules = scandir("src/");
+array_shift($modules);
+array_shift($modules);
+foreach ($modules as $module) {
+    $loader->addNamespace(ucfirst($module), "src/" . $module . "/controller");
+    $loader->addNamespace(ucfirst($module), "src/" . $module . "/model");
+}
+
 
 $console = new Console();
 

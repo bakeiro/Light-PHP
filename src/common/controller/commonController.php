@@ -24,3 +24,4 @@ class CommonController extends Controller
         $this->output->load("common/pageNotFound", $data);
     }
 }
+// src\common\controller\CommonController.php

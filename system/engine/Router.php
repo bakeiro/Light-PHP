@@ -39,11 +39,11 @@ class Router
     {
         $url_split = explode('/', $this->path);
 
-        $file = "src/" . $url_split[0] . '/controller/' . $url_split[1] . 'Controller.php';
-        $class = "Controller\\" . $url_split[1] . 'Controller';
+        $file = "src/" . $url_split[0] . '/controller/' . ucfirst($url_split[1]) . 'Controller.php';
+        $class = ucfirst($url_split[1]) . "\\" . ucfirst($url_split[1]) . 'Controller';
         $method = $url_split[2];
 
-        if (!$this->isValidPath($file, $class, $file)) {
+        if (!$this->isValidPath($file, $class, $method)) {
             $file = 'src/common/controller/commonController.php';
             $method = 'pageNotFound';
             $class = "Common\\commonController";
@@ -65,8 +65,6 @@ class Router
         if (!file_exists($file)) {
             $is_controller_ok = false;
         }
-
-        include_once $file;
 
         if (method_exists($class, $method) === false) {
             $is_controller_ok = false;
