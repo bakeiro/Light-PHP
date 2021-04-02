@@ -19,7 +19,7 @@ class Config
      * @param string $key   name of the key
      * @param mix    $value value to set
      */
-    public function set(string $key, $value = ""): void
+    public function set(string $key, $value = null): void
     {
         $this->data[$key] = $value;
     }
