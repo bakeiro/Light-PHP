@@ -8,7 +8,7 @@ use Engine\Controller;
  * Return the 404 error pages, this is executed when the route it's not found
  * either in system/routes.php, or the path folder/class/method was wrong
  */
-class CommonController extends Controller
+class CommonController extends Base
 {
 
     /**

@@ -2,11 +2,12 @@
 
 namespace Engine;
 
+use Engine\Container;
+
 /**
- * Model class, this class executes the main controller's function based in the url,
- * checks wether the file, class and method exists, and executes it, if not executes the error method
+ * Contains the container and makes it's dependencies being accesible from the model and from the controller
  */
-class Model extends Container
+class Base extends Container
 {
     public function __get($dependency_name)
     {

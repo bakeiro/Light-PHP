@@ -7,7 +7,7 @@ use Engine\Model;
 /**
  * Sample of how a model class is
  */
-class ProductModel extends Model
+class ProductModel extends Base
 {
     /**
      * Return all products

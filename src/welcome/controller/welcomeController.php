@@ -8,7 +8,7 @@ use Engine\Controller;
  * Default's controller, this shows the demo pages when you run for first time
  * this project
  */
-class WelcomeController extends Controller
+class WelcomeController extends Base
 {
     /**
      * First sample page, returns welcome template
