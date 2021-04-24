@@ -20,15 +20,16 @@
 # Light-PHP
 
 ## Easiest PHP framework
-Light-php it's a tiny PHP framework, that makes it painless to create web apps/APIs. Light-php it's focused to be simple, easy to learn, but enough complete to build your apps. It follows the good coding practices, it's easy to understand and easy to work with a small documentation.
+`Light-php` Light PHP it's an open-source minimal PHP framework that only includes what's necessary, avoiding big and complex structures, yet capable of building big and fully-featured API/Websites.  
+It's advantages from others frameworks are the small learning curve, possibility to start working without reading massive documentations and it's easy to understand how the framework works and being able to modify its original behavior.  
+  
+This project includes the `PSR-0`, `PSR-1`, `PSR-4`, `PSR-11`, `PSR-12` standards, good coding practices, MVC structure, service container and much more!
 
 ### What's this project?  
 This is a lightweight micro PHP Framework focused on simplicity, aimed to capable to build small, medium Apps/APIs (big Apps/APIs even possible, dividing your app in smaller ones) and making things just work.
 
 ### What's not this project?
-This doesn't pretend to be a full complete PHP framework, highly abstracted, with ORM, autowiring, automatic processes, complex algorithm, or any kind of 'black magic' that frameworks comes nowdays. Also this doesn't pretend to implement all the PSR standars, but include only the most important ones (PSR-1, PSR-4, PSR-5, PSR-11, PSR-12).
-
-Light-PHP supports these features such as: security implementations, micro template engine, database abstraction, session management, MVC structure, and much more
+This doesn't pretend to be a full complete PHP framework, highly abstracted, with ORM, autowiring, automatic processes, complex algorithm, or any kind of 'black magic' that frameworks comes nowdays.  
 
 ### For who is this project?
 This proyect can be aimed for people who only needs a small proyect to build and doesn't need a complete PHP framework, for beginners in PHP who need a easy entry point, for people who want to try a new PHP framework, and this proyect cover all it's needs
