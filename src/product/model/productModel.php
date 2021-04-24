@@ -2,7 +2,7 @@
 
 namespace Product;
 
-use Engine\Model;
+use Engine\Base;
 
 /**
  * Sample of how a model class is

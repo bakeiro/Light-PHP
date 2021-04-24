@@ -2,7 +2,7 @@
 
 namespace Common;
 
-use Engine\Controller;
+use Engine\Base;
 
 /**
  * Return the 404 error pages, this is executed when the route it's not found

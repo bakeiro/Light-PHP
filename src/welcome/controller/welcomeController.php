@@ -2,7 +2,7 @@
 
 namespace Welcome;
 
-use Engine\Controller;
+use Engine\Base;
 
 /**
  * Default's controller, this shows the demo pages when you run for first time
