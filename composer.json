@@ -2,7 +2,7 @@
     "name": "bakeiro/light-php",
     "type": "project",
     "license": "MIT",
-    "description": "Most easy profesional PHP framework",
+    "description": "Easiest PHP framework",
     "config": {
         "vendor-dir": "./system/composer/vendor/"
     },
@@ -23,11 +23,11 @@
             "name": "David Baqueiro Santerbas",
             "email": "davidbaqueiro@outlook.com",
             "homepage": "http://davidbaqueiro.com",
-            "role": "Developer"
+            "role": "Lead developer"
         }
     ],
     "require": {
-        "php": "^7.0",
+        "php": ">=7.0",
         "ext-openssl": "*"
     },
     "require-dev": {
