@@ -13,7 +13,7 @@ require "system/engine/AutoLoader.php";
 $loader = new AutoLoaderClass();
 $loader->register();
 $loader->addNamespace("Engine", "system/engine");
-$loader->addNamespace("Services", "system/services");
+$loader->addNamespace("Service", "system/services");
 
 // Environment
 require "system/config/environment.php";

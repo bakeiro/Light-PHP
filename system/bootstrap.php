@@ -3,13 +3,13 @@
 use Engine\Container;
 use Engine\Router;
 use Engine\SecureSession;
-use Services\Util;
-use Services\Logger;
-use Services\Config;
-use Services\Console;
-use Services\Database;
-use Services\Session;
-use Services\Output;
+use Service\Util;
+use Service\Logger;
+use Service\Config;
+use Service\Console;
+use Service\Database;
+use Service\Session;
+use Service\Output;
 
 // Composer
 require "system/composer/vendor/autoload.php";
