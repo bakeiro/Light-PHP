@@ -43,10 +43,10 @@ if (!$enough_php_version || !empty($unloaded_dependencies)) {
     }
 }
 
-require_once "./system/library/Util.php";
+require_once "./system/services/Util.php";
 $config_string = file_get_contents("./system/config/config.php");
 
-$util = new Library\Util();
+$util = new Service\Util();
 $token_iv = $util->generateSimpleToken(16);
 $config_string = str_replace("ThisIsMySecretIv", $token_iv, $config_string);
 
