@@ -1,6 +1,6 @@
 <?php
 
-namespace Library;
+namespace Service;
 
 /**
  * Session class to manage the session values in a encrypted way

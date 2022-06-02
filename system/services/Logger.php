@@ -2,7 +2,7 @@
 
 // phpcs:disable PSR1.Classes.ClassDeclaration
 
-namespace Library;
+namespace Service;
 
 /**
  * Error handling class, define callbacks to execute when warnings, errors, exceptions and unknown errors happen

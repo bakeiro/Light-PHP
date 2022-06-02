@@ -1,6 +1,6 @@
 <?php
 
-namespace Library;
+namespace Service;
 
 /**
  * class, used for getting and setting important values of configuration, by default,

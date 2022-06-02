@@ -1,6 +1,6 @@
 <?php
 
-namespace Library;
+namespace Service;
 
 /**
  * Library class, loads view templates, replaces the double brackets by the variable value,

@@ -1,6 +1,6 @@
 <?php
 
-namespace Library;
+namespace Service;
 
 /**
  * Database abstraction class, used to interact in a simple way with the database, making the things less complicated than needed

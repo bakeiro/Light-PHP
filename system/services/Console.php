@@ -1,6 +1,6 @@
 <?php
 
-namespace Library;
+namespace Service;
 
 /**
  * Class to interact with the debug console
