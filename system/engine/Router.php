@@ -44,9 +44,9 @@ class Router
         $method = $url_split[2];
 
         if (!$this->isValidPath($file, $class, $method)) {
-            $file = 'src/common/controller/commonController.php';
+            $file = 'src/common/controller/CommonController.php';
             $method = 'pageNotFound';
-            $class = "Common\\commonController";
+            $class = "Common\\CommonController";
         }
 
         return [
@@ -63,6 +63,8 @@ class Router
     {
         $is_controller_ok = true;
         if (!file_exists($file)) {
+            echo 'aaaa';
+            echo $file;
             $is_controller_ok = false;
         }
 
@@ -86,7 +88,7 @@ class Router
         if (in_array($url_action, array_keys($routes))) {
             return $routes[$url_action];
         } else {
-            return "common/common/pageNotFound";
+            return "common/common/PageNotFound";
         }
     }
 }

@@ -64,7 +64,7 @@ return [
         "email_from" => "",
 
         "system_default_time_zone" => "Europe/Madrid",
-        "system_debug_console" => true,
+        "system_debug_console" => false,
         "system_execution_time" => microtime(true),
         "system_cache_version" => 0001, // Refresh frontend cache
         "system_allow_forms_without_csrf" => false,

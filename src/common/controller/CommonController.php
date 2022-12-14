@@ -21,6 +21,6 @@ class CommonController extends Base
             "body" => "The page which you are looking for its not available, try searching in another place or try this later."
         ];
 
-        $this->output->load("common/pageNotFound", $data);
+        $this->output->load("common/PageNotFound", $data);
     }
 }

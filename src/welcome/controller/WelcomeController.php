@@ -24,6 +24,6 @@ class WelcomeController extends Base
 
         $this->output->addJs("products");
 
-        $this->output->load("welcome/welcome");
+        $this->output->load("welcome/Welcome");
     }
 }
