@@ -47,6 +47,14 @@ class Output
     }
 
     /**
+     * Receives a array and sends it back to the user as JSON
+     */
+    public function json(array $list):void {
+        header('Content-type: application/json');
+        echo json_encode($list);
+    }
+
+    /**
      * Load a template, replaces the brackets for the variables in the array $data, and returns
      * the template as String
      *
