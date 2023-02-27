@@ -80,7 +80,7 @@ class Output
      */
     public function addJs(string $js_route): void
     {
-        $output_script = "<script src='src/view/www/dist/" . $js_route . ".js?v=" . $this->cache_version . "' > </script>";
+        $output_script = "<script src='/www/dist/" . $js_route . ".js?v=" . $this->cache_version . "' > </script>";
         $this->output_scripts[] = $output_script;
     }
 
@@ -91,7 +91,7 @@ class Output
      */
     public function addCss(string $css_route): void
     {
-        $output_style = "<link href='src/view/www/dist/" . $css_route . ".css?v=" . $this->cache_version . "' rel='stylesheet'>";
+        $output_style = "<link href='/www/dist/" . $css_route . ".css?v=" . $this->cache_version . "' rel='stylesheet'>";
         $this->output_styles[] = $output_style;
     }
 }
