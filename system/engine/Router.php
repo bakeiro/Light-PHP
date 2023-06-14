@@ -40,7 +40,7 @@ class Router
         $url_split = explode('/', $this->path);
 
         $file = "src/" . $url_split[0] . '/controller/' . ucfirst($url_split[1]) . 'Controller.php';
-        $class = ucfirst($url_split[1]) . "\\" . ucfirst($url_split[1]) . 'Controller';
+        $class = ucfirst($url_split[0]) . "\\" . ucfirst($url_split[1]) . 'Controller';
         $method = $url_split[2];
 
         if (!$this->isValidPath($file, $class, $method)) {
